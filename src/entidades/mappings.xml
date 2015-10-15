@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+        <entity class="entidades.AutomovilesEntity">
+                <table name="Automoviles" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="matricula">
+                                <column name="Matricula" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="marca">
+                                <column name="Marca" nullable="false" length="45"/>
+                        </basic>
+                        <basic name="modelo">
+                                <column name="Modelo" nullable="false" length="45"/>
+                        </basic>
+                        <basic name="color">
+                                <column name="Color" nullable="false" length="45"/>
+                        </basic>
+                        <basic name="idClientes">
+                                <column name="IDClientes" nullable="false" precision="10"/>
+                        </basic>
+                        <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
+                                <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente" updatable="false" insertable="false"/>
+                        </many-to-one>
+                        <one-to-many name="clienteAutomovilsByMatricula" mapped-by="automovilesByMatriculas"
+                                     target-entity="entidades.ClienteAutomovilEntity"/>
+                        <one-to-many name="servicioAutomovilsByMatricula" mapped-by="automovilesByMatriculas"
+                                     target-entity="entidades.ServicioAutomovilEntity"/>
+                </attributes>
+        </entity>
+        <entity class="entidades.ClienteEntity">
+                <table name="Cliente" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idCliente">
+                                <column name="IDCliente" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="nombre">
+                                <column name="Nombre" nullable="false" length="45"/>
+                        </basic>
+                        <basic name="direccion">
+                                <column name="Direccion" nullable="false" length="45"/>
+                        </basic>
+                        <basic name="telefono">
+                                <column name="Telefono" nullable="false" length="45"/>
+                        </basic>
+                        <one-to-many name="automovilesByIdCliente" mapped-by="clienteByIdClientes"
+                                     target-entity="entidades.AutomovilesEntity"/>
+                        <one-to-many name="clienteAutomovilsByIdCliente" mapped-by="clienteByIdClientes"
+                                     target-entity="entidades.ClienteAutomovilEntity"/>
+                        <one-to-many name="ventasesByIdCliente" mapped-by="clienteByIdClientes"
+                                     target-entity="entidades.VentasEntity"/>
+                </attributes>
+        </entity>
+        <entity class="entidades.ClienteAutomovilEntity">
+                <table name="ClienteAutomovil" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idRClienteAutomovil">
+                                <column name="idRClienteAutomovil" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="idClientes">
+                                <column name="IDClientes" nullable="false" precision="10"/>
+                        </basic>
+                        <basic name="matriculas">
+                                <column name="Matriculas" nullable="false" precision="10"/>
+                        </basic>
+                        <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
+                                <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente" updatable="false" insertable="false"/>
+                        </many-to-one>
+                        <many-to-one name="automovilesByMatriculas" optional="true"
+                                     target-entity="entidades.AutomovilesEntity">
+                                <join-column name="Matriculas" nullable="false" referenced-column-name="Matricula" updatable="false" insertable="false"/>
+                        </many-to-one>
+                </attributes>
+        </entity>
+        <entity class="entidades.EmpleadoEntity">
+                <table name="Empleado" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idEmpleado">
+                                <column name="IDEmpleado" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="nombre">
+                                <column name="Nombre" nullable="false" length="45"/>
+                        </basic>
+                        <basic name="puesto">
+                                <column name="Puesto" nullable="false" length="45"/>
+                        </basic>
+                        <one-to-many name="serviciosByIdEmpleado" mapped-by="empleadoByIdEmpleados"
+                                     target-entity="entidades.ServicioEntity"/>
+                </attributes>
+        </entity>
+        <entity class="entidades.RefaccionEntity">
+                <table name="Refaccion" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idRefaccion">
+                                <column name="IDRefaccion" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="marca">
+                                <column name="Marca" nullable="false" length="45"/>
+                        </basic>
+                        <basic name="precio">
+                                <column name="Precio" nullable="false" precision="2"/>
+                        </basic>
+                        <basic name="cantidad">
+                                <column name="Cantidad" nullable="false" precision="10"/>
+                        </basic>
+                        <one-to-many name="servicioRefaccionsByIdRefaccion" mapped-by="refaccionByIdRefacciones"
+                                     target-entity="entidades.ServicioRefaccionEntity"/>
+                        <one-to-many name="ventaRefaccionsByIdRefaccion" mapped-by="refaccionByIdRefacciones"
+                                     target-entity="entidades.VentaRefaccionEntity"/>
+                </attributes>
+        </entity>
+        <entity class="entidades.ServicioEntity">
+                <table name="Servicio" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idServicio">
+                                <column name="IDServicio" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="descripcion">
+                                <column name="Descripcion" nullable="false" length="120"/>
+                        </basic>
+                        <basic name="costo">
+                                <column name="Costo" nullable="false" precision="2"/>
+                        </basic>
+                        <basic name="idEmpleados">
+                                <column name="IDEmpleados" nullable="false" precision="10"/>
+                        </basic>
+                        <many-to-one name="empleadoByIdEmpleados" optional="true"
+                                     target-entity="entidades.EmpleadoEntity">
+                                <join-column name="IDEmpleados" nullable="false" referenced-column-name="IDEmpleado" updatable="false" insertable="false"/>
+                        </many-to-one>
+                        <one-to-many name="servicioAutomovilsByIdServicio" mapped-by="servicioByIdServicios"
+                                     target-entity="entidades.ServicioAutomovilEntity"/>
+                        <one-to-many name="servicioRefaccionsByIdServicio" mapped-by="servicioByIdServicios"
+                                     target-entity="entidades.ServicioRefaccionEntity"/>
+                        <one-to-many name="ventaServiciosByIdServicio" mapped-by="servicioByIdServicios"
+                                     target-entity="entidades.VentaServicioEntity"/>
+                </attributes>
+        </entity>
+        <entity class="entidades.ServicioAutomovilEntity">
+                <table name="ServicioAutomovil" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idServicioAutomovil">
+                                <column name="idServicioAutomovil" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="idServicios">
+                                <column name="IDServicios" nullable="false" precision="10"/>
+                        </basic>
+                        <basic name="matriculas">
+                                <column name="Matriculas" nullable="false" precision="10"/>
+                        </basic>
+                        <many-to-one name="servicioByIdServicios" optional="true"
+                                     target-entity="entidades.ServicioEntity">
+                                <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio" updatable="false" insertable="false"/>
+                        </many-to-one>
+                        <many-to-one name="automovilesByMatriculas" optional="true"
+                                     target-entity="entidades.AutomovilesEntity">
+                                <join-column name="Matriculas" nullable="false" referenced-column-name="Matricula" updatable="false" insertable="false"/>
+                        </many-to-one>
+                </attributes>
+        </entity>
+        <entity class="entidades.ServicioRefaccionEntity">
+                <table name="ServicioRefaccion" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idServicioRefaccion">
+                                <column name="idServicioRefaccion" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="idServicios">
+                                <column name="IDServicios" nullable="false" precision="10"/>
+                        </basic>
+                        <basic name="idRefacciones">
+                                <column name="IDRefacciones" nullable="false" precision="10"/>
+                        </basic>
+                        <many-to-one name="servicioByIdServicios" optional="true"
+                                     target-entity="entidades.ServicioEntity">
+                                <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio" updatable="false" insertable="false"/>
+                        </many-to-one>
+                        <many-to-one name="refaccionByIdRefacciones" optional="true"
+                                     target-entity="entidades.RefaccionEntity">
+                                <join-column name="IDRefacciones" nullable="false"
+                                             referenced-column-name="IDRefaccion" updatable="false" insertable="false"/>
+                        </many-to-one>
+                </attributes>
+        </entity>
+        <entity class="entidades.UsuarioEntity">
+                <table name="Usuario" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="nombre">
+                                <column name="Nombre" nullable="false" length="45"/>
+                        </id>
+                        <basic name="contrasena">
+                                <column name="Contrasena" nullable="false" length="45"/>
+                        </basic>
+                </attributes>
+        </entity>
+        <entity class="entidades.VentaRefaccionEntity">
+                <table name="VentaRefaccion" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idVentaRefaccion">
+                                <column name="idVentaRefaccion" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="idVentas">
+                                <column name="IDVentas" nullable="false" precision="10"/>
+                        </basic>
+                        <basic name="idRefacciones">
+                                <column name="IDRefacciones" nullable="false" precision="10"/>
+                        </basic>
+                        <many-to-one name="ventasByIdVentas" optional="true" target-entity="entidades.VentasEntity">
+                                <join-column name="IDVentas" nullable="false" referenced-column-name="IDVenta" updatable="false" insertable="false"/>
+                        </many-to-one>
+                        <many-to-one name="refaccionByIdRefacciones" optional="true"
+                                     target-entity="entidades.RefaccionEntity">
+                                <join-column name="IDRefacciones" nullable="false"
+                                             referenced-column-name="IDRefaccion" updatable="false" insertable="false"/>
+                        </many-to-one>
+                </attributes>
+        </entity>
+        <entity class="entidades.VentaServicioEntity">
+                <table name="VentaServicio" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idVentaServicio">
+                                <column name="idVentaServicio" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="idVentas">
+                                <column name="IDVentas" nullable="false" precision="10"/>
+                        </basic>
+                        <basic name="idServicios">
+                                <column name="IDServicios" nullable="false" precision="10"/>
+                        </basic>
+                        <many-to-one name="ventasByIdVentas" optional="true" target-entity="entidades.VentasEntity">
+                                <join-column name="IDVentas" nullable="false" referenced-column-name="IDVenta" updatable="false" insertable="false"/>
+                        </many-to-one>
+                        <many-to-one name="servicioByIdServicios" optional="true"
+                                     target-entity="entidades.ServicioEntity">
+                                <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio" updatable="false" insertable="false"/>
+                        </many-to-one>
+                </attributes>
+        </entity>
+        <entity class="entidades.VentasEntity">
+                <table name="Ventas" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idVenta">
+                                <column name="IDVenta" nullable="false" precision="10"/>
+                        </id>
+                        <basic name="fecha">
+                                <column name="Fecha" nullable="false" precision="10"/>
+                        </basic>
+                        <basic name="idClientes">
+                                <column name="IDClientes" nullable="false" precision="10"/>
+                        </basic>
+                        <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
+                                <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente" updatable="false" insertable="false"/>
+                        </many-to-one>
+                        <one-to-many name="ventaRefaccionsByIdVenta" mapped-by="ventasByIdVentas"
+                                     target-entity="entidades.VentaRefaccionEntity"/>
+                        <one-to-many name="ventaServiciosByIdVenta" mapped-by="ventasByIdVentas"
+                                     target-entity="entidades.VentaServicioEntity"/>
+                </attributes>
+        </entity>
+</entity-mappings>
