@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Articulo" />
+            <TextField />
+            <Label text="Descripcion" />
+            <TextField />
+            <Label text="Cantidad" />
+            <TextField />
+            <Label text="Precio" />
+            <TextField />
+            <Label text="IDprovedor" />
+            <ComboBox prefHeight="25.0" prefWidth="189.0" promptText="Identificador" />
+            <Label text="Moneda" />
+            <ComboBox prefHeight="25.0" prefWidth="198.0" promptText="Euro" />
+         </children>
+         <padding>
+            <Insets bottom="70.0" left="70.0" right="70.0" top="10.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" top="100.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Aceptar">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Cancelar">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="20.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="200.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <left>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
+         <image>
+            <Image url="@../../../../Pictures/uv.jpg" />
+         </image>
+      </ImageView>
+   </left>
+</BorderPane>
