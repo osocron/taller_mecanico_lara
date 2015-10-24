@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="375.0" prefWidth="423.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Nombre posible cliente" />
+            <TextField />
+            <Label text="Refaccion" />
+            <ComboBox prefHeight="25.0" prefWidth="283.0" promptText="Arbol de levas" />
+            <Label text="Automovil" />
+            <TextField prefHeight="25.0" prefWidth="262.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <Label text="Servicio" />
+            <ComboBox prefHeight="25.0" prefWidth="283.0" promptText="Balanceo" />
+            <Label text="Costo" />
+            <TextField />
+         </children>
+         <padding>
+            <Insets left="100.0" right="40.0" top="50.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <right>
+      <TableView prefHeight="215.0" prefWidth="153.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="10.0" right="10.0" top="80.0" />
+         </BorderPane.margin>
+      </TableView>
+   </right>
+   <center>
+      <VBox prefHeight="375.0" prefWidth="153.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Fecha" />
+            <DatePicker>
+               <VBox.margin>
+                  <Insets right="50.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </DatePicker>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="200.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" text="Atras">
+               <HBox.margin>
+                  <Insets left="100.0" right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Cotizar">
+               <HBox.margin>
+                  <Insets left="150.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
