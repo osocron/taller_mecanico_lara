@@ -22,9 +22,9 @@ public class ControladorUsuario {
         entityTransaction.commit();
     }
 
-    public static UsuarioEntity crearUsuario(String nombre, String contrasena){
+    public static UsuarioEntity crearUsuario(String nombre, String contrasena, int idEmpleado){
         UsuarioEntity usuario = new UsuarioEntity();
-        List<UsuarioEntity> usuarios = getUsuarios();
+        usuario.setIdEmpleado(idEmpleado);
         usuario.setNombre(nombre);
         usuario.setContrasena(contrasena);
         ConexionBD.getEm().persist(usuario);
