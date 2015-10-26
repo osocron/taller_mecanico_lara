@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 14/10/15.
+ * Created by osocron on 26/10/15.
  */
 @Entity
 @Table(name = "Empleado", schema = "", catalog = "taller_mecanico_lara")
@@ -13,9 +13,10 @@ public class EmpleadoEntity {
     private String nombre;
     private String puesto;
     private Collection<ServicioEntity> serviciosByIdEmpleado;
+    private Collection<UsuarioEntity> usuariosByIdEmpleado;
 
     @Id
-    @Column(name = "IDEmpleado", nullable = false, insertable = true, updatable = true)
+    @Column(name = "IDEmpleado")
     public int getIdEmpleado() {
         return idEmpleado;
     }
@@ -25,7 +26,7 @@ public class EmpleadoEntity {
     }
 
     @Basic
-    @Column(name = "Nombre", nullable = false, insertable = true, updatable = true, length = 45)
+    @Column(name = "Nombre")
     public String getNombre() {
         return nombre;
     }
@@ -35,7 +36,7 @@ public class EmpleadoEntity {
     }
 
     @Basic
-    @Column(name = "Puesto", nullable = false, insertable = true, updatable = true, length = 45)
+    @Column(name = "Puesto")
     public String getPuesto() {
         return puesto;
     }
@@ -73,5 +74,14 @@ public class EmpleadoEntity {
 
     public void setServiciosByIdEmpleado(Collection<ServicioEntity> serviciosByIdEmpleado) {
         this.serviciosByIdEmpleado = serviciosByIdEmpleado;
+    }
+
+    @OneToMany(mappedBy = "empleadoByIdEmpleado")
+    public Collection<UsuarioEntity> getUsuariosByIdEmpleado() {
+        return usuariosByIdEmpleado;
+    }
+
+    public void setUsuariosByIdEmpleado(Collection<UsuarioEntity> usuariosByIdEmpleado) {
+        this.usuariosByIdEmpleado = usuariosByIdEmpleado;
     }
 }

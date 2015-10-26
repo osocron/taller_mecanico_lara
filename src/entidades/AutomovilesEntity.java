@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 14/10/15.
+ * Created by osocron on 26/10/15.
  */
 @Entity
 @Table(name = "Automoviles", schema = "", catalog = "taller_mecanico_lara")
@@ -19,7 +19,7 @@ public class AutomovilesEntity {
     private Collection<ServicioAutomovilEntity> servicioAutomovilsByMatricula;
 
     @Id
-    @Column(name = "Matricula", nullable = false, insertable = true, updatable = true)
+    @Column(name = "Matricula")
     public int getMatricula() {
         return matricula;
     }
@@ -29,7 +29,7 @@ public class AutomovilesEntity {
     }
 
     @Basic
-    @Column(name = "Marca", nullable = false, insertable = true, updatable = true, length = 45)
+    @Column(name = "Marca")
     public String getMarca() {
         return marca;
     }
@@ -39,7 +39,7 @@ public class AutomovilesEntity {
     }
 
     @Basic
-    @Column(name = "Modelo", nullable = false, insertable = true, updatable = true, length = 45)
+    @Column(name = "Modelo")
     public String getModelo() {
         return modelo;
     }
@@ -49,7 +49,7 @@ public class AutomovilesEntity {
     }
 
     @Basic
-    @Column(name = "Color", nullable = false, insertable = true, updatable = true, length = 45)
+    @Column(name = "Color")
     public String getColor() {
         return color;
     }
@@ -59,7 +59,7 @@ public class AutomovilesEntity {
     }
 
     @Basic
-    @Column(name = "IDClientes", nullable = false, insertable = true, updatable = true)
+    @Column(name = "IDClientes")
     public int getIdClientes() {
         return idClientes;
     }

@@ -1,4 +1,4 @@
-package sample;
+package vista;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -46,7 +46,7 @@ public class Servicio implements Serializable{
     }
     public String toString(){
         StringBuffer buffer = new StringBuffer();
-        buffer.append("Descripción:"+ descripcion + ";");
+        buffer.append("Descripciï¿½n:"+ descripcion + ";");
         buffer.append("Costo" + costo + ";");
         buffer.append("Idempleados"+ idempleados+ ";");
         return buffer.toString();

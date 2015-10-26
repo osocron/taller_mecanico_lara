@@ -1,4 +1,4 @@
-package sample;
+package vista;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -9,13 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "servicioautomovil")
-public class ServicioAutomovil implements Serializable{
+@Table(name = "serviciorefaccion")
+public class ServicioRefaccion implements Serializable{
     @Id
     @Column(name = "IDServicios")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idservicios;
-    private Integer matricula;
+    private Integer idrefacciones;
 
     public Integer getIdservicios(){
         return idservicios;
@@ -23,15 +23,15 @@ public class ServicioAutomovil implements Serializable{
     public void setIdservicios(Integer idservicios){
         this.idservicios=idservicios;
     }
-    public Integer getMatricula(){
-        return matricula;
+    public Integer getIdrefacciones(){
+        return idrefacciones;
     }
-    public void setMatricula(Integer matricula){
-        this.matricula=matricula;
+    public void setIdrefacciones(Integer idrefacciones){
+        this.idrefacciones=idrefacciones;
     }
     public String toString(){
         StringBuffer buffer = new StringBuffer();
-        buffer.append("IDservicio:" + idservicios + ";");
+        buffer.append("IDrefacciones:"+ idrefacciones + ";");
         return buffer.toString();
     }
 }

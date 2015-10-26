@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
-          <factory-entry name="tallerPU" value="ba421d8d-bb3e-4e34-820b-48a29831716d" />
+          <factory-entry name="tallerPU" value="09ecf387-3724-4d4f-9ac6-b45663de4ca2" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>

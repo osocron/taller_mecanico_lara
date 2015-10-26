@@ -1,4 +1,4 @@
-package sample;
+package vista;
 
 import controlador.ConexionBD;
 import javafx.application.Application;

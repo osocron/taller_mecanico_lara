@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 
 /**
- * Created by osocron on 14/10/15.
+ * Created by osocron on 26/10/15.
  */
 @Entity
 @Table(name = "Refaccion", schema = "", catalog = "taller_mecanico_lara")
@@ -18,7 +18,7 @@ public class RefaccionEntity {
     private Collection<VentaRefaccionEntity> ventaRefaccionsByIdRefaccion;
 
     @Id
-    @Column(name = "IDRefaccion", nullable = false, insertable = true, updatable = true)
+    @Column(name = "IDRefaccion")
     public int getIdRefaccion() {
         return idRefaccion;
     }
@@ -28,7 +28,7 @@ public class RefaccionEntity {
     }
 
     @Basic
-    @Column(name = "Marca", nullable = false, insertable = true, updatable = true, length = 45)
+    @Column(name = "Marca")
     public String getMarca() {
         return marca;
     }
@@ -38,7 +38,7 @@ public class RefaccionEntity {
     }
 
     @Basic
-    @Column(name = "Precio", nullable = false, insertable = true, updatable = true, precision = 2)
+    @Column(name = "Precio")
     public BigDecimal getPrecio() {
         return precio;
     }
@@ -48,7 +48,7 @@ public class RefaccionEntity {
     }
 
     @Basic
-    @Column(name = "Cantidad", nullable = false, insertable = true, updatable = true)
+    @Column(name = "Cantidad")
     public int getCantidad() {
         return cantidad;
     }

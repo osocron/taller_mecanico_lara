@@ -1,4 +1,4 @@
-package sample;
+package vista;
 
 public class Controller {
 }

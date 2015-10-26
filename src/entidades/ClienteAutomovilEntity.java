@@ -3,29 +3,29 @@ package entidades;
 import javax.persistence.*;
 
 /**
- * Created by osocron on 14/10/15.
+ * Created by osocron on 26/10/15.
  */
 @Entity
 @Table(name = "ClienteAutomovil", schema = "", catalog = "taller_mecanico_lara")
 public class ClienteAutomovilEntity {
-    private int idRClienteAutomovil;
+    private int idClienteAutomovil;
     private int idClientes;
     private int matriculas;
     private ClienteEntity clienteByIdClientes;
     private AutomovilesEntity automovilesByMatriculas;
 
     @Id
-    @Column(name = "idRClienteAutomovil", nullable = false, insertable = true, updatable = true)
-    public int getIdRClienteAutomovil() {
-        return idRClienteAutomovil;
+    @Column(name = "idClienteAutomovil")
+    public int getIdClienteAutomovil() {
+        return idClienteAutomovil;
     }
 
-    public void setIdRClienteAutomovil(int idRClienteAutomovil) {
-        this.idRClienteAutomovil = idRClienteAutomovil;
+    public void setIdClienteAutomovil(int idClienteAutomovil) {
+        this.idClienteAutomovil = idClienteAutomovil;
     }
 
     @Basic
-    @Column(name = "IDClientes", nullable = false, insertable = true, updatable = true)
+    @Column(name = "IDClientes")
     public int getIdClientes() {
         return idClientes;
     }
@@ -35,7 +35,7 @@ public class ClienteAutomovilEntity {
     }
 
     @Basic
-    @Column(name = "Matriculas", nullable = false, insertable = true, updatable = true)
+    @Column(name = "Matriculas")
     public int getMatriculas() {
         return matriculas;
     }
@@ -51,7 +51,7 @@ public class ClienteAutomovilEntity {
 
         ClienteAutomovilEntity that = (ClienteAutomovilEntity) o;
 
-        if (idRClienteAutomovil != that.idRClienteAutomovil) return false;
+        if (idClienteAutomovil != that.idClienteAutomovil) return false;
         if (idClientes != that.idClientes) return false;
         if (matriculas != that.matriculas) return false;
 
@@ -60,7 +60,7 @@ public class ClienteAutomovilEntity {
 
     @Override
     public int hashCode() {
-        int result = idRClienteAutomovil;
+        int result = idClienteAutomovil;
         result = 31 * result + idClientes;
         result = 31 * result + matriculas;
         return result;
