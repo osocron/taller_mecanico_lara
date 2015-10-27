@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * Created by osocron on 14/10/15.
+ * Created by valdemar ramos oon 14/10/15.
  */
 public class ConexionBD {
 
