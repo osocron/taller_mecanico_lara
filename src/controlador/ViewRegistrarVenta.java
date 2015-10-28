@@ -1,16 +1,14 @@
 package controlador;
 
-import entidades.ClienteAutomovilEntity;
 import entidades.ClienteEntity;
 import entidades.VentasEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-
+import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,17 +18,31 @@ import java.util.ResourceBundle;
  */
 public class ViewRegistrarVenta implements Initializable {
     @FXML
-    private BorderPane bordePane;
+    public Label labelIDventa;
     @FXML
-    private HBox hbox;
+    public Label labelPrecio;
     @FXML
-    private Checkbox checkbox;
+    public Label labelCantidad;
     @FXML
-    private Label label;
+    public Label labelDescripcion;
     @FXML
-    private javafx.scene.control.TextField textField;
+    public Label labelTotal;
     @FXML
-    private VBox vBox;
+    public TextField textfieldIDventa;
+    @FXML
+    public TextField textfieldPrecio;
+    @FXML
+    public TextField textfieldCantidad;
+    @FXML
+    public TextField textfieldDescripcion;
+    @FXML
+    public TextField textfieldTotal;
+    @FXML
+    public Button buttonAceptar;
+    @FXML
+    public Button buttonCancelar;
+    @FXML
+    public TableView tableviewVenta;
 
     private ObservableList<VentasEntity> data = FXCollections.observableArrayList();
     private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();

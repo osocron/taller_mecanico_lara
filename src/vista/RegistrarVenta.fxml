@@ -5,8 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ViewRegistrarVenta">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -29,7 +28,7 @@
       </MenuBar>
    </top>
    <left>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableviewVenta" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn prefWidth="102.0" text="C1" />
           <TableColumn prefWidth="97.0" text="C2" />
@@ -42,36 +41,36 @@
    <center>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="17.0" prefWidth="51.0" text="IDventa">
+            <Label fx:id="labelIDventa" prefHeight="17.0" prefWidth="51.0" text="IDventa">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField />
-            <Label text="Precio">
+            <TextField fx:id="textfieldIDventa" />
+            <Label fx:id="labelPrecio" text="Precio">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField />
-            <Label text="Cantidad">
+            <TextField fx:id="textfieldPrecio" />
+            <Label fx:id="labelCantidad" text="Cantidad">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField />
-            <Label text="Descripción">
+            <TextField fx:id="textfieldCantidad" />
+            <Label fx:id="labelDescripcion" text="Descripción">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField />
-            <Label text="Total">
+            <TextField fx:id="textfieldDescripcion" />
+            <Label fx:id="labelTotal" text="Total">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField />
+            <TextField fx:id="textfieldTotal" />
          </children>
          <padding>
             <Insets bottom="10.0" left="50.0" right="50.0" top="50.0" />
@@ -81,8 +80,8 @@
    <bottom>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Aceptar" />
-            <Button mnemonicParsing="false" text="Cancelar">
+            <Button fx:id="buttonAceptar" mnemonicParsing="false" text="Aceptar" />
+            <Button fx:id="buttonCancelar" mnemonicParsing="false" text="Cancelar">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>

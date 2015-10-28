@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ViewClienteRegistra">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -31,16 +31,16 @@
    <center>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Nombre" />
-            <TextField />
-            <Label text="RFC" />
-            <TextField />
-            <Label text="Domicilio" />
-            <TextField />
-            <Label text="Telefono" />
-            <TextField />
-            <Label text="IDautomovil" />
-            <TextField />
+            <Label fx:id="labelNombre" text="Nombre" />
+            <TextField fx:id="textfieldNombre" />
+            <Label fx:id="labelRFC" text="RFC" />
+            <TextField fx:id="textfieldRFC" />
+            <Label fx:id="labelDomicilio" text="Domicilio" />
+            <TextField fx:id="textfieldDomicilio" />
+            <Label fx:id="labelTelefono" text="Telefono" />
+            <TextField fx:id="textfieldTelefono" />
+            <Label fx:id="labelIDautomovil" text="IDautomovil" />
+            <TextField fx:id="textfieldIDautomovil" />
          </children>
          <BorderPane.margin>
             <Insets bottom="80.0" left="80.0" right="80.0" top="150.0" />
@@ -50,12 +50,12 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_RIGHT">
          <children>
-            <Button mnemonicParsing="false" text="Aceptar">
+            <Button fx:id="buttonAceptar" mnemonicParsing="false" text="Aceptar">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Cancelar">
+            <Button fx:id="buttonCancelar" mnemonicParsing="false" text="Cancelar">
                <HBox.margin>
                   <Insets left="80.0" />
                </HBox.margin>

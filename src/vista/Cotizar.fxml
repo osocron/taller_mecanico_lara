@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ViewCotizar">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -30,20 +30,20 @@
    <left>
       <VBox prefHeight="375.0" prefWidth="423.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Nombre posible cliente" />
-            <TextField />
-            <Label text="Refaccion" />
-            <ComboBox prefHeight="25.0" prefWidth="283.0" promptText="Arbol de levas" />
-            <Label text="Automovil" />
-            <TextField prefHeight="25.0" prefWidth="262.0">
+            <Label fx:id="labelCliente" text="Nombre posible cliente" />
+            <TextField fx:id="textfieldCliente" />
+            <Label fx:id="labelRefaccion" text="Refaccion" />
+            <ComboBox fx:id="comboboxRefaccion" prefHeight="25.0" prefWidth="283.0" promptText="Arbol de levas" />
+            <Label fx:id="labelAutomovil" text="Automovil" />
+            <TextField fx:id="textfieldAutomovil" prefHeight="25.0" prefWidth="262.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </TextField>
-            <Label text="Servicio" />
-            <ComboBox prefHeight="25.0" prefWidth="283.0" promptText="Balanceo" />
-            <Label text="Costo" />
-            <TextField />
+            <Label fx:id="labelServicio" text="Servicio" />
+            <ComboBox fx:id="comboboxServicio" prefHeight="25.0" prefWidth="283.0" promptText="Balanceo" />
+            <Label fx:id="labelCosto" text="Costo" />
+            <TextField fx:id="textfieldCosto" />
          </children>
          <padding>
             <Insets left="100.0" right="40.0" top="50.0" />
@@ -54,7 +54,7 @@
       </VBox>
    </left>
    <right>
-      <TableView prefHeight="215.0" prefWidth="153.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableviewCotizar" prefHeight="215.0" prefWidth="153.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
@@ -67,8 +67,8 @@
    <center>
       <VBox prefHeight="375.0" prefWidth="153.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Fecha" />
-            <DatePicker>
+            <Label fx:id="labelFecha" text="Fecha" />
+            <DatePicker fx:id="datepickerFecha">
                <VBox.margin>
                   <Insets right="50.0" />
                </VBox.margin>
@@ -85,12 +85,12 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Atras">
+            <Button fx:id="buttonAtras" mnemonicParsing="false" text="Atras">
                <HBox.margin>
                   <Insets left="100.0" right="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Cotizar">
+            <Button fx:id="buttonCotizar" mnemonicParsing="false" text="Cotizar">
                <HBox.margin>
                   <Insets left="150.0" />
                </HBox.margin>

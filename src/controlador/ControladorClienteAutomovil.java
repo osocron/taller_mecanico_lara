@@ -30,7 +30,7 @@ public class ControladorClienteAutomovil {
     }
 
     public static void modificarAutoCliente(int idClienteAutomovil, int IDClientes, int Matriculas){
-        ClienteAutomovilEntity autoCliente = getClienteAutomovil(idClienteAutomovil);
+        ClienteAutomovilEntity autoCliente = getClienteAutomovilID(idClienteAutomovil);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
         autoCliente.setIdClienteAutomovil(idClienteAutomovil);
@@ -39,7 +39,7 @@ public class ControladorClienteAutomovil {
         entityTransaction.commit();
     }
     public static void eliminarAutoCliente(int idClienteAutomovil){
-        ClienteAutomovilEntity autoCliente = getClienteAutomovil(idClienteAutomovil);
+        ClienteAutomovilEntity autoCliente = getClienteAutomovilID(idClienteAutomovil);
         if(autoCliente != null){
             EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
             entityTransaction.begin();
@@ -48,7 +48,9 @@ public class ControladorClienteAutomovil {
         }
     }
 
-    public static ClienteAutomovilEntity getClienteAutomovil(int idClienteAutomovil){
+    public static ClienteAutomovilEntity getClienteAutomovilID(int idClienteAutomovil){
         return ConexionBD.getEm().find(ClienteAutomovilEntity.class, idClienteAutomovil);
     }
+
+
 }
