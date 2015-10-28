@@ -5,28 +5,46 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import java.awt.*;
-import java.awt.Label;
+
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
 
 /**
  * Created by ValdemarRamos on 28/10/2015.
  */
-public class ViewCliente implements Initializable{
+public class ViewClienteMuestra implements Initializable{
     @FXML
     private BorderPane bordePane;
     @FXML
-    private HBox hbox;
+    public Label labelIDautomovil;
     @FXML
-    private Checkbox checkbox;
+    public Label labelNombre;
     @FXML
-    private Label label;
+    public Label labelDomicilio;
     @FXML
-    private javafx.scene.control.TextField textField;
+    public Label labelTelefono;
+    @FXML
+    public Label labelIDcliente;
+    @FXML
+    public TextField textfieldIDautomovil;
+    @FXML
+    public TextField textfieldNombre;
+    @FXML
+    public TextField textfieldDomicilio;
+    @FXML
+    public TextField textfieldTelefono;
+    @FXML
+    public ComboBox comboboxIDcliente;
+    @FXML
+    public Button buttonConsultar;
+    @FXML
+    public Button buttonAtras;
     @FXML
     private VBox vBox;
 

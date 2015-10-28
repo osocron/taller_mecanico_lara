@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ControladorVentas {
     public static List<VentasEntity> getVentas(){
-        return ConexionBD.getEm().createQuery("SELECT v FROM UsuarioEntity v")
+        return ConexionBD.getEm().createQuery("SELECT v FROM VentasEntity v")
                 .getResultList();
     }
     public static void guardarVenta(VentasEntity ventas){
