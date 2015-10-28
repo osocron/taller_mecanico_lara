@@ -7,16 +7,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,13 +29,31 @@ public class ViewAutomovil implements Initializable {
     @FXML
     private HBox hbox;
     @FXML
-    private Checkbox checkbox;
+    public CheckBox checkboxAutomovil;
     @FXML
-    private Label label;
+    public CheckBox checkboxCoche;
     @FXML
-    private TextField textField;
+    public CheckBox checkboxAuto;
     @FXML
-    private VBox vBox;
+    public Label labelMatricula;
+    @FXML
+    public Label labelModelo;
+    @FXML
+    public Label labelMarca;
+    @FXML
+    public Label labelIDcliente;
+    @FXML
+    public TextField textfieldMatricula;
+    @FXML
+    public TextField textfieldModelo;
+    @FXML
+    public TextField textfieldMarca;
+    @FXML
+    public TextField textfieldIDcliente;
+    @FXML
+    public Button buttonAceptar;
+    @FXML
+    public Button buttonCancelar;
 
     private ObservableList<AutomovilesEntity> data = FXCollections.observableArrayList();
 

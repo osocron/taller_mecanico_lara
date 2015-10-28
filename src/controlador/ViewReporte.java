@@ -1,7 +1,8 @@
 package controlador;
 
 import entidades.ClienteAutomovilEntity;
-import entidades.ClienteEntity;
+import entidades.VentaRefaccionEntity;
+import entidades.VentaServicioEntity;
 import entidades.VentasEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +19,7 @@ import java.util.ResourceBundle;
 /**
  * Created by ValdemarRamos on 28/10/2015.
  */
-public class ViewRegistrarVenta implements Initializable {
+public class ViewReporte implements Initializable{
     @FXML
     private BorderPane bordePane;
     @FXML
@@ -32,12 +33,13 @@ public class ViewRegistrarVenta implements Initializable {
     @FXML
     private VBox vBox;
 
-    private ObservableList<VentasEntity> data = FXCollections.observableArrayList();
-    private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();
+    private ObservableList<VentasEntity> dataVentas = FXCollections.observableArrayList();
+    private ObservableList<VentaServicioEntity> dataVentaServicio = FXCollections.observableArrayList();
+    private ObservableList<VentaRefaccionEntity> dataVentaRefaccion = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        java.util.List<VentasEntity> listaVentas = ControladorVentas.getVentas();
-        data.addAll(listaVentas);
+        java.util.List<VentasEntity> listaVenta = ControladorVentas.getVentas();
+        dataVentas.addAll(listaVenta);
     }
 }

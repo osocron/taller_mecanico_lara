@@ -5,8 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ViewClienteMuestra">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -31,14 +30,14 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="IDautomovil" />
-            <TextField />
-            <Label text="Nombre" />
-            <TextField />
-            <Label text="Domicilio" />
-            <TextField />
-            <Label text="Telefono" />
-            <TextField />
+            <Label fx:id="labelIDautomovil" text="IDautomovil" />
+            <TextField fx:id="textfieldIDautomovil" />
+            <Label fx:id="labelNombre" text="Nombre" />
+            <TextField fx:id="textfieldNombre" />
+            <Label fx:id="labelDomicilio" text="Domicilio" />
+            <TextField fx:id="textfieldDomicilio" />
+            <Label fx:id="labelTelefono" text="Telefono" />
+            <TextField fx:id="textfieldTelefono" />
          </children>
          <BorderPane.margin>
             <Insets bottom="100.0" left="50.0" right="50.0" top="10.0" />
@@ -48,20 +47,20 @@
    <right>
       <VBox alignment="CENTER" prefHeight="375.0" prefWidth="245.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="IDcliente" />
-            <ComboBox prefWidth="150.0" promptText="00921">
+            <Label fx:id="labelIDcliente" text="IDcliente" />
+            <ComboBox fx:id="comboboxIDcliente" prefWidth="150.0" promptText="00921">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </ComboBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Consultar">
+                  <Button fx:id="buttonConsultar" mnemonicParsing="false" text="Consultar">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Atras">
+                  <Button fx:id="buttonAtras" mnemonicParsing="false" text="Atras">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
