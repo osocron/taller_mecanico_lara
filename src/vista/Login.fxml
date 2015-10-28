@@ -10,14 +10,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorLogin">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <BorderPane prefHeight="400.0" prefWidth="600.0">
                <center>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                  <ImageView fitHeight="193.0" fitWidth="428.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../res/taller_lara.jpg" />
+                     </image></ImageView>
                </center>
             </BorderPane>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
@@ -26,10 +28,10 @@
                      <children>
                         <Label text="USUARIO" VBox.vgrow="ALWAYS">
                            <VBox.margin>
-                              <Insets left="20.0" right="20.0" top="20.0" />
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField>
+                        <TextField fx:id="usuarioTextField">
                            <VBox.margin>
                               <Insets bottom="10.0" left="50.0" right="50.0" />
                            </VBox.margin>
@@ -39,21 +41,24 @@
                               <Insets left="20.0" right="20.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField>
+                        <PasswordField fx:id="passwordTextField">
                            <VBox.margin>
-                              <Insets bottom="15.0" left="50.0" right="50.0" />
+                              <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
                            </VBox.margin>
-                        </TextField>
+                        </PasswordField>
                         <BorderPane>
                            <left>
-                              <RadioButton mnemonicParsing="false" text="Mantener Sesión" BorderPane.alignment="CENTER_LEFT">
+                              <RadioButton fx:id="mantenerSesionRadioButton" mnemonicParsing="false" text="Mantener Sesión" BorderPane.alignment="CENTER_LEFT">
                                  <BorderPane.margin>
-                                    <Insets left="50.0" />
+                                    <Insets bottom="10.0" left="50.0" top="10.0" />
                                  </BorderPane.margin>
                               </RadioButton>
                            </left>
                            <center>
-                              <Button mnemonicParsing="false" text="Aceptar" BorderPane.alignment="CENTER" />
+                              <Button fx:id="aceptarButton" mnemonicParsing="false" onAction="#aceptarOnActionEvent" text="Aceptar" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </BorderPane.margin></Button>
                            </center>
                            <right>
                               <Pane prefHeight="41.0" prefWidth="161.0" BorderPane.alignment="CENTER" />

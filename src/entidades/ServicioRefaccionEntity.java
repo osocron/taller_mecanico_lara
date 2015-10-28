@@ -3,7 +3,7 @@ package entidades;
 import javax.persistence.*;
 
 /**
- * Created by osocron on 14/10/15.
+ * Created by osocron on 26/10/15.
  */
 @Entity
 @Table(name = "ServicioRefaccion", schema = "", catalog = "taller_mecanico_lara")
@@ -15,7 +15,7 @@ public class ServicioRefaccionEntity {
     private RefaccionEntity refaccionByIdRefacciones;
 
     @Id
-    @Column(name = "idServicioRefaccion", nullable = false, insertable = true, updatable = true)
+    @Column(name = "idServicioRefaccion")
     public int getIdServicioRefaccion() {
         return idServicioRefaccion;
     }
@@ -25,7 +25,7 @@ public class ServicioRefaccionEntity {
     }
 
     @Basic
-    @Column(name = "IDServicios", nullable = false, insertable = true, updatable = true)
+    @Column(name = "IDServicios")
     public int getIdServicios() {
         return idServicios;
     }
@@ -35,7 +35,7 @@ public class ServicioRefaccionEntity {
     }
 
     @Basic
-    @Column(name = "IDRefacciones", nullable = false, insertable = true, updatable = true)
+    @Column(name = "IDRefacciones")
     public int getIdRefacciones() {
         return idRefacciones;
     }

@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Collection;
 
 /**
- * Created by osocron on 14/10/15.
+ * Created by osocron on 26/10/15.
  */
 @Entity
 @Table(name = "Ventas", schema = "", catalog = "taller_mecanico_lara")
@@ -18,7 +18,7 @@ public class VentasEntity {
     private ClienteEntity clienteByIdClientes;
 
     @Id
-    @Column(name = "IDVenta", nullable = false, insertable = true, updatable = true)
+    @Column(name = "IDVenta")
     public int getIdVenta() {
         return idVenta;
     }
@@ -28,7 +28,7 @@ public class VentasEntity {
     }
 
     @Basic
-    @Column(name = "Fecha", nullable = false, insertable = true, updatable = true)
+    @Column(name = "Fecha")
     public Date getFecha() {
         return fecha;
     }
@@ -38,7 +38,7 @@ public class VentasEntity {
     }
 
     @Basic
-    @Column(name = "IDClientes", nullable = false, insertable = true, updatable = true)
+    @Column(name = "IDClientes")
     public int getIdClientes() {
         return idClientes;
     }

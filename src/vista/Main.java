@@ -1,4 +1,4 @@
-package sample;
+package vista;
 
 import controlador.ConexionBD;
 import javafx.application.Application;
@@ -11,8 +11,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("consultarServicio.fxml"));
-        primaryStage.setTitle("Taller mecanico");
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        primaryStage.setTitle("Taller mecánico");
         primaryStage.setScene(new Scene(root,700,500));
         primaryStage.show();
     }

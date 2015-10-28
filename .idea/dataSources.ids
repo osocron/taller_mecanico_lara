@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - taller_mecanico_lara@localhost" uuid="ba421d8d-bb3e-4e34-820b-48a29831716d">
-    <database-info product="MySQL" version="5.6.25-0ubuntu1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+  <data-source name="MySQL - taller_mecanico_lara@localhost" uuid="09ecf387-3724-4d4f-9ac6-b45663de4ca2">
+    <database-info product="MySQL" version="5.5.46-0ubuntu0.14.04.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -30,10 +30,10 @@
       <exported-key name="fk_Ventas_1" table="Ventas" schema="" catalog="taller_mecanico_lara" columns="IDClientes"/>
     </table>
     <table name="ClienteAutomovil" schema="" catalog="taller_mecanico_lara" type="TABLE">
-      <column name="idRClienteAutomovil" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="idClienteAutomovil" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="IDClientes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="Matriculas" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="idRClienteAutomovil"/>
+      <primary-key name="PRIMARY" columns="idClienteAutomovil"/>
       <foreign-key name="fk_ClienteAutomovil_1" columns="IDClientes" ref-table="Cliente" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDCliente" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_ClienteAutomovil_2" columns="Matriculas" ref-table="Automoviles" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="Matricula" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_ClienteAutomovil_1_idx" unique="false" columns="IDClientes"/>
@@ -45,6 +45,7 @@
       <column name="Puesto" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="IDEmpleado"/>
       <exported-key name="fk_Servicio_1" table="Servicio" schema="" catalog="taller_mecanico_lara" columns="IDEmpleados"/>
+      <exported-key name="fk_Usuario_1" table="Usuario" schema="" catalog="taller_mecanico_lara" columns="IDEmpleado"/>
     </table>
     <table name="Refaccion" schema="" catalog="taller_mecanico_lara" type="TABLE">
       <column name="IDRefaccion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -90,7 +91,10 @@
     <table name="Usuario" schema="" catalog="taller_mecanico_lara" type="TABLE">
       <column name="Nombre" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="Contrasena" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="IDEmpleado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="Nombre"/>
+      <foreign-key name="fk_Usuario_1" columns="IDEmpleado" ref-table="Empleado" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDEmpleado" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Usuario_1_idx" unique="false" columns="IDEmpleado"/>
     </table>
     <table name="VentaRefaccion" schema="" catalog="taller_mecanico_lara" type="TABLE">
       <column name="idVentaRefaccion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
