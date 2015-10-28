@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Servicio">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField />
+                  <Button mnemonicParsing="false" text="Buscar">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <TableView>
+              <columns>
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="75.0" text="Servicio" />
+                  <TableColumn prefWidth="75.0" text="Descripción" />
+                  <TableColumn prefWidth="75.0" text="Costo" />
+                  <TableColumn prefWidth="75.0" text="IDempleado" />
+                  <TableColumn prefWidth="75.0" text="Subtotal" />
+                  <TableColumn prefWidth="75.0" text="Total" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="30.0" right="45.0" top="50.0" />
+               </VBox.margin>
+            </TableView>
+            <HBox alignment="TOP_CENTER" prefHeight="41.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="67.0" text="Cotizar">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="65.0" text="Agregar">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="57.0" text="Atras" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="30.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>
