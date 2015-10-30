@@ -9,10 +9,12 @@ import java.util.List;
  * Created by ValdemarRamos on 27/10/2015.
  */
 public class ControladorClienteAutomovil {
+
     public static List<ClienteAutomovilEntity> getAutoCliente(){
         return ConexionBD.getEm().createQuery("SELECT au FROM ClienteAutomovilEntity au")
                 .getResultList();
     }
+
     public static void guardarAutoCliente(ClienteAutomovilEntity autoCliente){
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
@@ -51,6 +53,5 @@ public class ControladorClienteAutomovil {
     public static ClienteAutomovilEntity getClienteAutomovilID(int idClienteAutomovil){
         return ConexionBD.getEm().find(ClienteAutomovilEntity.class, idClienteAutomovil);
     }
-
 
 }
