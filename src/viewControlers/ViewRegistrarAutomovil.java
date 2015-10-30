@@ -14,9 +14,7 @@ public class ViewRegistrarAutomovil implements Initializable {
 
     @FXML
     public TextField matriculaTextField,marcaTextField,modeloTextField,colorTextField;
-    @FXML
     public ComboBox<ClienteEntity> clienteEntityComboBox;
-    @FXML
     public Button registrarButton;
 
     @Override

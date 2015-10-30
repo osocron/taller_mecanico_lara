@@ -80,7 +80,7 @@
             <Insets left="20.0" />
          </BorderPane.margin>
          <image>
-            <Image url="@../../../../Pictures/uv.jpg" />
+            <Image url="@../res/refaccion.png" />
          </image>
       </ImageView>
    </left>

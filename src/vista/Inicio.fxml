@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewInicio">
+<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewInicio">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -31,22 +31,22 @@
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="registroButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="173.0" text="Modulo de Registros">
+            <Button fx:id="registroButton" mnemonicParsing="false" onAction="#displayRegistroOptions" prefHeight="25.0" prefWidth="173.0" text="Modulo de Registros">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="ventaButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="173.0" text="Modulo de Ventas">
+            <Button fx:id="ventaButton" mnemonicParsing="false" onAction="#displayVentasOptions" prefHeight="25.0" prefWidth="173.0" text="Modulo de Ventas">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="cotizacionButton" mnemonicParsing="false" text="Modulo de Cotizaciones">
+            <Button fx:id="cotizacionButton" mnemonicParsing="false" onAction="#displayCotizacionesOptions" text="Modulo de Cotizaciones">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="controlButton" mnemonicParsing="false" prefWidth="173.0" text="Modulo de Control">
+            <Button fx:id="controlButton" mnemonicParsing="false" onAction="#displayControlOptions" prefWidth="173.0" text="Modulo de Control">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
@@ -55,7 +55,7 @@
       </VBox>
    </left>
    <center>
-      <ImageView fitHeight="177.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fx:id="imageView" fitHeight="177.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
             <Image url="@../res/taller_lara.jpg" />
          </image>

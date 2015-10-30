@@ -5,14 +5,14 @@ import java.sql.Date;
 import java.util.Collection;
 
 /**
- * Created by osocron on 26/10/15.
+ * Created by osocron on 30/10/15.
  */
 @Entity
 @Table(name = "Ventas", schema = "", catalog = "taller_mecanico_lara")
 public class VentasEntity {
     private int idVenta;
     private Date fecha;
-    private int idClientes;
+    private String idClientes;
     private Collection<VentaRefaccionEntity> ventaRefaccionsByIdVenta;
     private Collection<VentaServicioEntity> ventaServiciosByIdVenta;
     private ClienteEntity clienteByIdClientes;
@@ -39,11 +39,11 @@ public class VentasEntity {
 
     @Basic
     @Column(name = "IDClientes")
-    public int getIdClientes() {
+    public String getIdClientes() {
         return idClientes;
     }
 
-    public void setIdClientes(int idClientes) {
+    public void setIdClientes(String idClientes) {
         this.idClientes = idClientes;
     }
 
@@ -55,8 +55,8 @@ public class VentasEntity {
         VentasEntity that = (VentasEntity) o;
 
         if (idVenta != that.idVenta) return false;
-        if (idClientes != that.idClientes) return false;
         if (fecha != null ? !fecha.equals(that.fecha) : that.fecha != null) return false;
+        if (idClientes != null ? !idClientes.equals(that.idClientes) : that.idClientes != null) return false;
 
         return true;
     }
@@ -65,7 +65,7 @@ public class VentasEntity {
     public int hashCode() {
         int result = idVenta;
         result = 31 * result + (fecha != null ? fecha.hashCode() : 0);
-        result = 31 * result + idClientes;
+        result = 31 * result + (idClientes != null ? idClientes.hashCode() : 0);
         return result;
     }
 

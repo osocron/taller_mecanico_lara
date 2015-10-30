@@ -12,32 +12,20 @@
       <column name="Marca" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="Modelo" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="Color" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
-      <column name="IDClientes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IDClientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="Matricula"/>
-      <foreign-key name="fk_Automoviles_1" columns="IDClientes" ref-table="Cliente" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDCliente" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="fk_ClienteAutomovil_2" table="ClienteAutomovil" schema="" catalog="taller_mecanico_lara" columns="Matriculas"/>
+      <foreign-key name="fk_Automoviles_1" columns="IDClientes" ref-table="Cliente" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDCliente" update-rule="0" delete-rule="0" deferrability="2"/>
       <exported-key name="fk_ServicioAutomovil_2" table="ServicioAutomovil" schema="" catalog="taller_mecanico_lara" columns="Matriculas"/>
       <index name="fk_Automoviles_1_idx" unique="false" columns="IDClientes"/>
     </table>
     <table name="Cliente" schema="" catalog="taller_mecanico_lara" type="TABLE">
-      <column name="IDCliente" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IDCliente" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="Nombre" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="Direccion" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="Telefono" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="IDCliente"/>
       <exported-key name="fk_Automoviles_1" table="Automoviles" schema="" catalog="taller_mecanico_lara" columns="IDClientes"/>
-      <exported-key name="fk_ClienteAutomovil_1" table="ClienteAutomovil" schema="" catalog="taller_mecanico_lara" columns="IDClientes"/>
       <exported-key name="fk_Ventas_1" table="Ventas" schema="" catalog="taller_mecanico_lara" columns="IDClientes"/>
-    </table>
-    <table name="ClienteAutomovil" schema="" catalog="taller_mecanico_lara" type="TABLE">
-      <column name="idClienteAutomovil" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="IDClientes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="Matriculas" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="idClienteAutomovil"/>
-      <foreign-key name="fk_ClienteAutomovil_1" columns="IDClientes" ref-table="Cliente" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDCliente" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_ClienteAutomovil_2" columns="Matriculas" ref-table="Automoviles" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="Matricula" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="fk_ClienteAutomovil_1_idx" unique="false" columns="IDClientes"/>
-      <index name="fk_ClienteAutomovil_2_idx" unique="false" columns="Matriculas"/>
     </table>
     <table name="Empleado" schema="" catalog="taller_mecanico_lara" type="TABLE">
       <column name="IDEmpleado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -119,7 +107,7 @@
     <table name="Ventas" schema="" catalog="taller_mecanico_lara" type="TABLE">
       <column name="IDVenta" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="Fecha" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
-      <column name="IDClientes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IDClientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="IDVenta"/>
       <foreign-key name="fk_Ventas_1" columns="IDClientes" ref-table="Cliente" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDCliente" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="fk_VentaRefaccion_1" table="VentaRefaccion" schema="" catalog="taller_mecanico_lara" columns="IDVentas"/>

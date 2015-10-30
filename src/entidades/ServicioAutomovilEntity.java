@@ -3,7 +3,7 @@ package entidades;
 import javax.persistence.*;
 
 /**
- * Created by osocron on 26/10/15.
+ * Created by osocron on 30/10/15.
  */
 @Entity
 @Table(name = "ServicioAutomovil", schema = "", catalog = "taller_mecanico_lara")

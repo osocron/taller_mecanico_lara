@@ -1,7 +1,7 @@
 package viewControlers;
 
-import entidades.ClienteAutomovilEntity;
-import entityControlers.ControladorClienteAutomovil;
+import entidades.ClienteEntity;
+import entityControlers.ControladorCliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -49,11 +49,11 @@ public class ViewClienteMuestra implements Initializable{
     @FXML
     private VBox vBox;
 
-    private ObservableList<ClienteAutomovilEntity> data = FXCollections.observableArrayList();
+    private ObservableList<ClienteEntity> data = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        java.util.List<ClienteAutomovilEntity> listaCliente = ControladorClienteAutomovil.getAutoCliente();
-        data.addAll(listaCliente);
+        java.util.List<ClienteEntity> listaClientes = ControladorCliente.getCliente();
+        data.addAll(listaClientes);
     }
 }
