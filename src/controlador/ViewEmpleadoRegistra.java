@@ -6,12 +6,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 import java.awt.*;
+import java.awt.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,7 +30,7 @@ public class ViewEmpleadoRegistra implements Initializable {
     @FXML
     public Label labelUsuario;
     @FXML
-    public Label labelContraseña;
+    public Label labelContrasena;
     @FXML
     public TextField textfieldIDempleado;
     @FXML
@@ -40,11 +40,11 @@ public class ViewEmpleadoRegistra implements Initializable {
     @FXML
     public TextField textfieldUsuario;
     @FXML
-    public TextField textfieldContraseña;
+    public TextField textfieldContrasena;
     @FXML
     public ComboBox comboboxCliente;
     @FXML
-    public RadioButton radiobuttonUsuario;
+    public CheckBox checkBoxUsuario;
     @FXML
     public Button buttonEmpleado;
 
