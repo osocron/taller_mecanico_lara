@@ -5,32 +5,30 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TableView;
+
 
 import java.awt.*;
+import java.awt.Button;
+import java.awt.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
  * Created by ValdemarRamos on 28/10/2015.
  */
-public class ViewRefaccion implements Initializable {
+public class ViewRefaccionMuestra implements Initializable {
     @FXML
-    private Button button;
+    public Button buttonAtras;
     @FXML
-    private BorderPane bordePane;
+    public Button buttonBuscar;
     @FXML
-    private HBox hbox;
+    public Label labelRefaccion;
     @FXML
-    private Checkbox checkbox;
+    public TextField textfieldRefaccion;
     @FXML
-    private Label label;
-    @FXML
-    private javafx.scene.control.TextField textField;
-    @FXML
-    private VBox vBox;
+    public TableView tableviewRefaccion;
+
 
     private ObservableList<RefaccionEntity> data = FXCollections.observableArrayList();
 

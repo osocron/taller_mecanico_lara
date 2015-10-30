@@ -1,6 +1,5 @@
 package controlador;
 
-import entidades.ClienteAutomovilEntity;
 import entidades.VentaRefaccionEntity;
 import entidades.VentaServicioEntity;
 import entidades.VentasEntity;
@@ -8,11 +7,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
-import java.awt.*;
+import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import java.awt.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,17 +20,19 @@ import java.util.ResourceBundle;
  */
 public class ViewReporte implements Initializable{
     @FXML
-    private BorderPane bordePane;
+    public Label labelFolio;
     @FXML
-    private HBox hbox;
+    public TextField textfieldReporte;
     @FXML
-    private Checkbox checkbox;
+    public Button buttonBuscar;
     @FXML
-    private Label label;
+    public Button buttonAtras;
     @FXML
-    private javafx.scene.control.TextField textField;
+    public Button buttonImprimir;
     @FXML
-    private VBox vBox;
+    public ComboBox comboboxReporte;
+    @FXML
+    public TableView tableviewReporte;
 
     private ObservableList<VentasEntity> dataVentas = FXCollections.observableArrayList();
     private ObservableList<VentaServicioEntity> dataVentaServicio = FXCollections.observableArrayList();

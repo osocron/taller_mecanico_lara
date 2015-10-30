@@ -5,8 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ViewProvedor">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -31,16 +30,16 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Provedor" />
-            <TextField />
-            <Label text="Refacción" />
-            <TextField />
-            <Label text="Costo" />
-            <TextField />
-            <Label text="Dirección" />
-            <TextField />
-            <Label text="Telefono" />
-            <TextField />
+            <Label fx:id="labelProvedor" text="Provedor" />
+            <TextField fx:id="textfieldProvedor" />
+            <Label fx:id="labelRefaccion" text="Refacción" />
+            <TextField fx:id="textfieldRefaccion" />
+            <Label fx:id="labelCosto" text="Costo" />
+            <TextField fx:id="textfieldCosto" />
+            <Label fx:id="labelDireccion" text="Dirección" />
+            <TextField fx:id="textfieldDireccion" />
+            <Label fx:id="labelTelefono" text="Telefono" />
+            <TextField fx:id="textfieldTelefono" />
          </children>
          <BorderPane.margin>
             <Insets bottom="30.0" left="80.0" right="80.0" top="100.0" />
@@ -50,12 +49,12 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Aceptar">
+            <Button fx:id="buttonAceptar" mnemonicParsing="false" text="Aceptar">
                <HBox.margin>
                   <Insets right="50.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Cancelar">
+            <Button fx:id="buttonCancelar" mnemonicParsing="false" text="Cancelar">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>

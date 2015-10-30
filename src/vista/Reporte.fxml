@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ViewReporte">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -31,9 +30,9 @@
    <left>
       <HBox prefHeight="375.0" prefWidth="236.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Folio" />
-            <TextField prefHeight="25.0" prefWidth="71.0" />
-            <Button mnemonicParsing="false" text="Buscar" />
+            <Label fx:id="labelFolio" text="Folio" />
+            <TextField fx:id="textfieldReporte" prefHeight="25.0" prefWidth="71.0" />
+            <Button fx:id="buttonBuscar" mnemonicParsing="false" text="Buscar" />
          </children>
          <padding>
             <Insets bottom="100.0" left="20.0" top="50.0" />
@@ -43,13 +42,13 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ComboBox prefWidth="150.0" promptText="Tipo reporte" />
+            <ComboBox fx:id="comboboxReporte" prefWidth="150.0" promptText="Tipo reporte" />
             <Separator prefWidth="200.0">
                <VBox.margin>
                   <Insets left="5.0" right="5.0" top="10.0" />
                </VBox.margin>
             </Separator>
-            <TableView prefHeight="200.0" prefWidth="515.0">
+            <TableView fx:id="tableviewReporte" prefHeight="200.0" prefWidth="515.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="ID" />
                 <TableColumn prefWidth="75.0" text="Aporte" />
@@ -72,12 +71,12 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Atras">
+            <Button fx:id="buttonAtras" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Atras">
                <HBox.margin>
                   <Insets right="40.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Imprimir">
+            <Button fx:id="buttonImprimir" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Imprimir">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>

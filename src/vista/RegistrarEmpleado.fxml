@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ViewEmpleadoRegistra">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
@@ -43,7 +43,7 @@
                               <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
                           </VBox.margin>
                       </Label>
-                      <Label text="ID Empleado">
+                      <Label fx:id="labelIDempleado" text="ID Empleado">
                           <font>
                               <Font name="System Bold" size="13.0" />
                           </font>
@@ -51,12 +51,12 @@
                               <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                           </VBox.margin>
                       </Label>
-                      <TextField>
+                      <TextField fx:id="textfieldIDempleado">
                           <VBox.margin>
                               <Insets left="25.0" right="25.0" />
                           </VBox.margin>
                       </TextField>
-                      <Label text="Nombre">
+                      <Label fx:id="labelNombre" text="Nombre">
                           <font>
                               <Font name="System Bold" size="13.0" />
                           </font>
@@ -64,12 +64,12 @@
                               <Insets bottom="10.0" left="25.0" top="10.0" />
                           </VBox.margin>
                       </Label>
-                      <TextField>
+                      <TextField fx:id="textfieldNombre">
                           <VBox.margin>
                               <Insets left="25.0" right="25.0" />
                           </VBox.margin>
                       </TextField>
-                      <Label text="Puesto">
+                      <Label fx:id="labelPuesto" text="Puesto">
                           <font>
                               <Font name="System Bold" size="13.0" />
                           </font>
@@ -77,7 +77,7 @@
                               <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
                           </VBox.margin>
                       </Label>
-                      <TextField>
+                      <TextField fx:id="textfieldPuesto">
                           <VBox.margin>
                               <Insets left="25.0" right="25.0" />
                           </VBox.margin>
@@ -86,12 +86,12 @@
                           <children>
                               <VBox>
                                   <children>
-                                      <Label text="Cliente">
+                                      <Label fx:id="labelCliente" text="Cliente">
                                           <VBox.margin>
                                               <Insets bottom="5.0" left="25.0" right="25.0" top="10.0" />
                                           </VBox.margin>
                                       </Label>
-                                      <ComboBox prefWidth="150.0">
+                                      <ComboBox fx:id="comboboxCliente" prefWidth="150.0">
                                           <VBox.margin>
                                               <Insets bottom="10.0" left="25.0" right="25.0" />
                                           </VBox.margin>
@@ -104,34 +104,34 @@
               </VBox>
             <VBox HBox.hgrow="ALWAYS">
                <children>
-                  <CheckBox mnemonicParsing="false" text="Habilitar Usuario">
+                  <CheckBox fx:id="checkboxUsuario" mnemonicParsing="false" text="Habilitar Usuario">
                      <VBox.margin>
                         <Insets bottom="10.0" left="15.0" right="10.0" top="40.0" />
                      </VBox.margin>
                   </CheckBox>
-                  <Label text="Nombre de Usuario">
+                  <Label fx:id="labelusuario" text="Nombre de Usuario">
                      <VBox.margin>
                         <Insets bottom="10.0" left="15.0" right="10.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField>
+                  <TextField fx:id="textfieldUsuario">
                      <VBox.margin>
                         <Insets bottom="10.0" left="15.0" right="15.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label layoutX="10.0" layoutY="43.0" text="Contraseña">
+                  <Label fx:id="labelContraseña" layoutX="10.0" layoutY="43.0" text="Contraseña">
                      <VBox.margin>
                         <Insets bottom="10.0" left="15.0" right="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField layoutX="10.0" layoutY="58.0">
+                  <TextField fx:id="textfieldContraseña" layoutX="10.0" layoutY="58.0">
                      <VBox.margin>
                         <Insets bottom="10.0" left="15.0" right="15.0" />
                      </VBox.margin>
                   </TextField>
                   <AnchorPane VBox.vgrow="ALWAYS">
                      <children>
-                                <Button graphicTextGap="0.0" mnemonicParsing="false" text="Registrar Automovil" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+                                <Button fx:id="buttonEmpleado" graphicTextGap="0.0" mnemonicParsing="false" text="Registrar Automovil" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
                      </children>
                   </AnchorPane>
                </children>
