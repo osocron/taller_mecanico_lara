@@ -18,7 +18,7 @@ public class ControladorAutomovil {
         ConexionBD.getEm().persist(automovil);
         entityTransaction.commit();
     }
-    public static AutomovilesEntity crearUsuario(int Matricula, String Marca, String Modelo, String Color, int IDClientes){
+    public static AutomovilesEntity crearUsuario(int Matricula, String Marca, String Modelo, String Color, String IDClientes){
         AutomovilesEntity automovil = new AutomovilesEntity();
         automovil.setMatricula(Matricula);
         automovil.setMarca(Marca);
@@ -28,7 +28,7 @@ public class ControladorAutomovil {
         ConexionBD.getEm().persist(automovil);
         return automovil;
     }
-    public static void modificarCliente(int IDClientes){
+    public static void modificarCliente(String IDClientes){
         AutomovilesEntity auto = getAutomovilIDcliente(IDClientes);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
@@ -36,16 +36,14 @@ public class ControladorAutomovil {
         entityTransaction.commit();
     }
 
-    public static void eliminarAutomovil(int IDClientes){
+    public static void eliminarAutomovil(String IDClientes){
         AutomovilesEntity auto = getAutomovilIDcliente(IDClientes);
-        if(IDClientes != 0){
-            EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
-            entityTransaction.begin();
-            ConexionBD.getEm().remove(IDClientes);
-            entityTransaction.commit();
-        }
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        ConexionBD.getEm().remove(IDClientes);
+        entityTransaction.commit();
     }
-    public static AutomovilesEntity getAutomovilIDcliente(int IDClientes){
+    public static AutomovilesEntity getAutomovilIDcliente(String IDClientes){
         return ConexionBD.getEm().find(AutomovilesEntity.class, IDClientes);
     }
 }

@@ -22,7 +22,7 @@ public class ControladorCliente {
         entityTransaction.commit();
     }
 
-    public static ClienteEntity crearCliente(int idCliente, String nombre, String direccion, String telefono){
+    public static ClienteEntity crearCliente(String idCliente, String nombre, String direccion, String telefono){
         ClienteEntity cliente = new ClienteEntity();
         cliente.setIdCliente(idCliente);
         cliente.setNombre(nombre);
@@ -32,7 +32,7 @@ public class ControladorCliente {
         return cliente;
     }
 
-    public static void modificarCliente(int idCliente, String nombre, String direccion, String telefono){
+    public static void modificarCliente(String idCliente, String nombre, String direccion, String telefono){
         ClienteEntity cliente = getClienteID(idCliente);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
@@ -42,7 +42,7 @@ public class ControladorCliente {
         cliente.setTelefono(telefono);
         entityTransaction.commit();
     }
-    public static void eliminarCliente(int idCliente){
+    public static void eliminarCliente(String idCliente){
         ClienteEntity cliente = getClienteID(idCliente);
         if(cliente != null){
             EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
@@ -52,7 +52,7 @@ public class ControladorCliente {
         }
     }
 
-    public static ClienteEntity getClienteID(int idCliente){
+    public static ClienteEntity getClienteID(String idCliente){
         return ConexionBD.getEm().find(ClienteEntity.class, idCliente);
     }
 

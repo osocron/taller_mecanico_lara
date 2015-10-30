@@ -31,16 +31,14 @@
    <center>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="labelNombre" text="Nombre" />
-            <TextField fx:id="textfieldNombre" />
             <Label fx:id="labelRFC" text="RFC" />
             <TextField fx:id="textfieldRFC" />
+            <Label fx:id="labelNombre" text="Nombre" />
+            <TextField fx:id="textfieldNombre" />
             <Label fx:id="labelDomicilio" text="Domicilio" />
             <TextField fx:id="textfieldDomicilio" />
             <Label fx:id="labelTelefono" text="Telefono" />
             <TextField fx:id="textfieldTelefono" />
-            <Label fx:id="labelIDautomovil" text="IDautomovil" />
-            <TextField fx:id="textfieldIDautomovil" />
          </children>
          <BorderPane.margin>
             <Insets bottom="80.0" left="80.0" right="80.0" top="150.0" />
@@ -50,7 +48,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_RIGHT">
          <children>
-            <Button fx:id="buttonAceptar" mnemonicParsing="false" text="Aceptar">
+            <Button fx:id="buttonAceptar" mnemonicParsing="false" onAction="#guardarClienteActionEvent" text="Aceptar">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

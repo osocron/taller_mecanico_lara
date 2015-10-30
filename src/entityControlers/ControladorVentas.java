@@ -20,7 +20,7 @@ public class ControladorVentas {
         entityTransaction.commit();
     }
 
-    public static VentasEntity crearVenta(int IDVenta, java.sql.Date Fecha, int IDClientes){
+    public static VentasEntity crearVenta(int IDVenta, java.sql.Date Fecha, String IDClientes){
         VentasEntity ventas = new VentasEntity();
         ventas.setIdVenta(IDVenta);
         ventas.setFecha(Fecha);
@@ -29,7 +29,7 @@ public class ControladorVentas {
         return ventas;
     }
 
-    public static void modificarVenta(int IDVenta, java.sql.Date Fecha, int IDClientes){
+    public static void modificarVenta(int IDVenta, java.sql.Date Fecha, String IDClientes){
         VentasEntity ventas = getVentaPorID(IDVenta);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();

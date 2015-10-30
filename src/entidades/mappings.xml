@@ -22,10 +22,8 @@
                         </basic>
                         <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
                                 <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
-                        <one-to-many name="clienteAutomovilsByMatricula" mapped-by="automovilesByMatriculas"
-                                     target-entity="entidades.ClienteAutomovilEntity"/>
                         <one-to-many name="servicioAutomovilsByMatricula" mapped-by="automovilesByMatriculas"
                                      target-entity="entidades.ServicioAutomovilEntity"/>
                 </attributes>
@@ -47,33 +45,8 @@
                         </basic>
                         <one-to-many name="automovilesByIdCliente" mapped-by="clienteByIdClientes"
                                      target-entity="entidades.AutomovilesEntity"/>
-                        <one-to-many name="clienteAutomovilsByIdCliente" mapped-by="clienteByIdClientes"
-                                     target-entity="entidades.ClienteAutomovilEntity"/>
                         <one-to-many name="ventasesByIdCliente" mapped-by="clienteByIdClientes"
                                      target-entity="entidades.VentasEntity"/>
-                </attributes>
-        </entity>
-        <entity class="entidades.ClienteAutomovilEntity">
-                <table name="ClienteAutomovil" schema="" catalog="taller_mecanico_lara"/>
-                <attributes>
-                        <id name="idClienteAutomovil">
-                                <column name="idClienteAutomovil"/>
-                        </id>
-                        <basic name="idClientes">
-                                <column name="IDClientes"/>
-                        </basic>
-                        <basic name="matriculas">
-                                <column name="Matriculas"/>
-                        </basic>
-                        <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
-                                <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente"
-                                             insertable = "false" updatable = "false"/>
-                        </many-to-one>
-                        <many-to-one name="automovilesByMatriculas" optional="true"
-                                     target-entity="entidades.AutomovilesEntity">
-                                <join-column name="Matriculas" nullable="false" referenced-column-name="Matricula"
-                                             insertable = "false" updatable = "false"/>
-                        </many-to-one>
                 </attributes>
         </entity>
         <entity class="entidades.EmpleadoEntity">
@@ -133,7 +106,7 @@
                         <many-to-one name="empleadoByIdEmpleados" optional="true"
                                      target-entity="entidades.EmpleadoEntity">
                                 <join-column name="IDEmpleados" nullable="false" referenced-column-name="IDEmpleado"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <one-to-many name="servicioAutomovilsByIdServicio" mapped-by="servicioByIdServicios"
                                      target-entity="entidades.ServicioAutomovilEntity"/>
@@ -158,12 +131,12 @@
                         <many-to-one name="servicioByIdServicios" optional="true"
                                      target-entity="entidades.ServicioEntity">
                                 <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <many-to-one name="automovilesByMatriculas" optional="true"
                                      target-entity="entidades.AutomovilesEntity">
                                 <join-column name="Matriculas" nullable="false" referenced-column-name="Matricula"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -182,12 +155,12 @@
                         <many-to-one name="servicioByIdServicios" optional="true"
                                      target-entity="entidades.ServicioEntity">
                                 <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <many-to-one name="refaccionByIdRefacciones" optional="true"
                                      target-entity="entidades.RefaccionEntity">
                                 <join-column name="IDRefacciones" nullable="false"
-                                             referenced-column-name="IDRefaccion" insertable = "false" updatable = "false"/>
+                                             referenced-column-name="IDRefaccion" insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -206,7 +179,7 @@
                         <many-to-one name="empleadoByIdEmpleado" optional="true"
                                      target-entity="entidades.EmpleadoEntity">
                                 <join-column name="IDEmpleado" nullable="false" referenced-column-name="IDEmpleado"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -224,13 +197,12 @@
                         </basic>
                         <many-to-one name="ventasByIdVentas" optional="true" target-entity="entidades.VentasEntity">
                                 <join-column name="IDVentas" nullable="false" referenced-column-name="IDVenta"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <many-to-one name="refaccionByIdRefacciones" optional="true"
                                      target-entity="entidades.RefaccionEntity">
                                 <join-column name="IDRefacciones" nullable="false"
-                                             referenced-column-name="IDRefaccion" insertable = "false"
-                                             updatable = "false"/>
+                                             referenced-column-name="IDRefaccion" insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -248,12 +220,12 @@
                         </basic>
                         <many-to-one name="ventasByIdVentas" optional="true" target-entity="entidades.VentasEntity">
                                 <join-column name="IDVentas" nullable="false" referenced-column-name="IDVenta"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <many-to-one name="servicioByIdServicios" optional="true"
                                      target-entity="entidades.ServicioEntity">
                                 <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -271,7 +243,7 @@
                         </basic>
                         <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
                                 <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente"
-                                             insertable = "false" updatable = "false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <one-to-many name="ventaRefaccionsByIdVenta" mapped-by="ventasByIdVentas"
                                      target-entity="entidades.VentaRefaccionEntity"/>

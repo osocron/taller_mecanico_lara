@@ -5,7 +5,6 @@
         <mapping-file>entidades/mappings.xml</mapping-file>
         <class>entidades.AutomovilesEntity</class>
         <class>entidades.ClienteEntity</class>
-        <class>entidades.ClienteAutomovilEntity</class>
         <class>entidades.EmpleadoEntity</class>
         <class>entidades.RefaccionEntity</class>
         <class>entidades.ServicioEntity</class>

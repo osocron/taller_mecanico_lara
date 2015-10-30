@@ -4,26 +4,25 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 26/10/15.
+ * Created by osocron on 30/10/15.
  */
 @Entity
 @Table(name = "Cliente", schema = "", catalog = "taller_mecanico_lara")
 public class ClienteEntity {
-    private int idCliente;
+    private String idCliente;
     private String nombre;
     private String direccion;
     private String telefono;
     private Collection<AutomovilesEntity> automovilesByIdCliente;
-    private Collection<ClienteAutomovilEntity> clienteAutomovilsByIdCliente;
     private Collection<VentasEntity> ventasesByIdCliente;
 
     @Id
     @Column(name = "IDCliente")
-    public int getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -64,7 +63,7 @@ public class ClienteEntity {
 
         ClienteEntity that = (ClienteEntity) o;
 
-        if (idCliente != that.idCliente) return false;
+        if (idCliente != null ? !idCliente.equals(that.idCliente) : that.idCliente != null) return false;
         if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
         if (direccion != null ? !direccion.equals(that.direccion) : that.direccion != null) return false;
         if (telefono != null ? !telefono.equals(that.telefono) : that.telefono != null) return false;
@@ -74,7 +73,7 @@ public class ClienteEntity {
 
     @Override
     public int hashCode() {
-        int result = idCliente;
+        int result = idCliente != null ? idCliente.hashCode() : 0;
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         result = 31 * result + (direccion != null ? direccion.hashCode() : 0);
         result = 31 * result + (telefono != null ? telefono.hashCode() : 0);
@@ -88,15 +87,6 @@ public class ClienteEntity {
 
     public void setAutomovilesByIdCliente(Collection<AutomovilesEntity> automovilesByIdCliente) {
         this.automovilesByIdCliente = automovilesByIdCliente;
-    }
-
-    @OneToMany(mappedBy = "clienteByIdClientes")
-    public Collection<ClienteAutomovilEntity> getClienteAutomovilsByIdCliente() {
-        return clienteAutomovilsByIdCliente;
-    }
-
-    public void setClienteAutomovilsByIdCliente(Collection<ClienteAutomovilEntity> clienteAutomovilsByIdCliente) {
-        this.clienteAutomovilsByIdCliente = clienteAutomovilsByIdCliente;
     }
 
     @OneToMany(mappedBy = "clienteByIdClientes")

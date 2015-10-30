@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 26/10/15.
+ * Created by osocron on 30/10/15.
  */
 @Entity
 @Table(name = "Automoviles", schema = "", catalog = "taller_mecanico_lara")
@@ -13,9 +13,8 @@ public class AutomovilesEntity {
     private String marca;
     private String modelo;
     private String color;
-    private int idClientes;
+    private String idClientes;
     private ClienteEntity clienteByIdClientes;
-    private Collection<ClienteAutomovilEntity> clienteAutomovilsByMatricula;
     private Collection<ServicioAutomovilEntity> servicioAutomovilsByMatricula;
 
     @Id
@@ -60,11 +59,11 @@ public class AutomovilesEntity {
 
     @Basic
     @Column(name = "IDClientes")
-    public int getIdClientes() {
+    public String getIdClientes() {
         return idClientes;
     }
 
-    public void setIdClientes(int idClientes) {
+    public void setIdClientes(String idClientes) {
         this.idClientes = idClientes;
     }
 
@@ -76,10 +75,10 @@ public class AutomovilesEntity {
         AutomovilesEntity that = (AutomovilesEntity) o;
 
         if (matricula != that.matricula) return false;
-        if (idClientes != that.idClientes) return false;
         if (marca != null ? !marca.equals(that.marca) : that.marca != null) return false;
         if (modelo != null ? !modelo.equals(that.modelo) : that.modelo != null) return false;
         if (color != null ? !color.equals(that.color) : that.color != null) return false;
+        if (idClientes != null ? !idClientes.equals(that.idClientes) : that.idClientes != null) return false;
 
         return true;
     }
@@ -90,7 +89,7 @@ public class AutomovilesEntity {
         result = 31 * result + (marca != null ? marca.hashCode() : 0);
         result = 31 * result + (modelo != null ? modelo.hashCode() : 0);
         result = 31 * result + (color != null ? color.hashCode() : 0);
-        result = 31 * result + idClientes;
+        result = 31 * result + (idClientes != null ? idClientes.hashCode() : 0);
         return result;
     }
 
@@ -102,15 +101,6 @@ public class AutomovilesEntity {
 
     public void setClienteByIdClientes(ClienteEntity clienteByIdClientes) {
         this.clienteByIdClientes = clienteByIdClientes;
-    }
-
-    @OneToMany(mappedBy = "automovilesByMatriculas")
-    public Collection<ClienteAutomovilEntity> getClienteAutomovilsByMatricula() {
-        return clienteAutomovilsByMatricula;
-    }
-
-    public void setClienteAutomovilsByMatricula(Collection<ClienteAutomovilEntity> clienteAutomovilsByMatricula) {
-        this.clienteAutomovilsByMatricula = clienteAutomovilsByMatricula;
     }
 
     @OneToMany(mappedBy = "automovilesByMatriculas")
