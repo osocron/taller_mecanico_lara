@@ -6,8 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ViewInicio">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -32,7 +31,7 @@
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Registro">
+            <Button fx:id="registroButton" mnemonicParsing="false" prefWidth="100.0" text="Registro">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
@@ -58,7 +57,7 @@
    <center>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@../../../../Pictures/icon.jpg" />
+            <Image url="@../res/taller_lara.jpg" />
          </image>
       </ImageView>
    </center>
