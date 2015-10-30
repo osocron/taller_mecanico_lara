@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 /**
  * Created by ValdemarRamos on 28/10/2015.
  */
-public class ViewClienteRegistra implements Initializable {
+public class ViewRegistrarCliente implements Initializable {
     @FXML
     public Label labelNombre;
     @FXML

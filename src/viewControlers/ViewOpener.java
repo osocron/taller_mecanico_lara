@@ -14,10 +14,6 @@ public class ViewOpener {
 
     public ViewOpener(){}
 
-    /**
-     * Método que se encarga que se encarga de abrir la ventana de Productos con un objeto de tipo Producto
-     * y con una instancia de la clase controladora que la mandó a llamar.
-     * */
     public int openView(String pathToFXML, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(pathToFXML));

@@ -31,22 +31,22 @@
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="registroButton" mnemonicParsing="false" prefWidth="100.0" text="Registro">
+            <Button fx:id="registroButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="173.0" text="Modulo de Registros">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="ventaButton" mnemonicParsing="false" prefWidth="100.0" text="Venta">
+            <Button fx:id="ventaButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="173.0" text="Modulo de Ventas">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="cotizacionButton" mnemonicParsing="false" prefWidth="100.0" text="Cotización">
+            <Button fx:id="cotizacionButton" mnemonicParsing="false" text="Modulo de Cotizaciones">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="controlButton" mnemonicParsing="false" prefWidth="100.0" text="Control">
+            <Button fx:id="controlButton" mnemonicParsing="false" prefWidth="173.0" text="Modulo de Control">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
@@ -55,7 +55,7 @@
       </VBox>
    </left>
    <center>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fitHeight="177.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
             <Image url="@../res/taller_lara.jpg" />
          </image>
