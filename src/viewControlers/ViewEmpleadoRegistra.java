@@ -1,7 +1,7 @@
-package controlador;
+package viewControlers;
 
 import entidades.EmpleadoEntity;
-import entidades.VentasEntity;
+import entityControlers.ControladorEmpleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.awt.Button;
 import java.net.URL;
 import java.util.ResourceBundle;

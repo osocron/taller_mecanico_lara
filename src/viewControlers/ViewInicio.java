@@ -1,4 +1,4 @@
-package controlador;
+package viewControlers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,11 +13,12 @@ import java.util.ResourceBundle;
 public class ViewInicio implements Initializable {
 
     @FXML
-    public Button registroButton;
+    public Button registroButton,ventaButton,cotizacionButton,controlButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 
 }

@@ -1,4 +1,4 @@
-package controlador;
+package entityControlers;
 
 import entidades.VentaRefaccionEntity;
 

@@ -1,8 +1,7 @@
-package controlador;
+package viewControlers;
 
 import entidades.AutomovilesEntity;
-import entidades.UsuarioEntity;
-import javafx.application.Application;
+import entityControlers.ControladorAutomovil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,11 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 

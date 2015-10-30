@@ -1,7 +1,7 @@
-package controlador;
+package viewControlers;
 
 import entidades.RefaccionEntity;
-import entidades.VentasEntity;
+import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

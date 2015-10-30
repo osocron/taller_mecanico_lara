@@ -1,6 +1,7 @@
-package controlador;
+package viewControlers;
 
 import entidades.ClienteAutomovilEntity;
+import entityControlers.ControladorClienteAutomovil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

@@ -1,6 +1,6 @@
-package controlador;
+package viewControlers;
 
-import entidades.EmpleadoEntity;
+import entidades.VentasEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
@@ -12,16 +12,17 @@ import java.util.ResourceBundle;
 /**
  * Created by osocron on 29/10/15.
  */
-public class ViewConsultarEmpleado implements Initializable {
+public class ViewConsultarVentas implements Initializable {
 
     @FXML
     public TextField busquedaTextField;
     @FXML
-    public TableView<EmpleadoEntity> tableEmpleados;
+    public TableView<VentasEntity> tablaVentas;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 
 }

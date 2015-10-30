@@ -1,4 +1,4 @@
-package controlador;
+package entityControlers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
