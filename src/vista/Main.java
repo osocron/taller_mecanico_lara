@@ -1,6 +1,6 @@
 package vista;
 
-import controlador.ConexionBD;
+import entityControlers.ConexionBD;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
