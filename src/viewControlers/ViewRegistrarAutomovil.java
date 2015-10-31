@@ -1,6 +1,7 @@
 package viewControlers;
 
 import entidades.ClienteEntity;
+import entityControlers.ControladorAutomovil;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -21,5 +22,13 @@ public class ViewRegistrarAutomovil implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
+    public void crearAutomovilEvent(){
+        ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getAnchor(),
+                marcaTextField.getText(),modeloTextField.getText(),colorTextField.getText(),clienteEntityComboBox.getId()));
+        marcaTextField.setText("");
+        matriculaTextField.setText("");
+        modeloTextField.setText("");
+        colorTextField.setText("");
+        clienteEntityComboBox.setOnAction();
+    }
 }

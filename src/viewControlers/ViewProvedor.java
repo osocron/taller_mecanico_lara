@@ -1,6 +1,7 @@
 package viewControlers;
 
 import entidades.RefaccionEntity;
+import entityControlers.ControladorCliente;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,5 +49,17 @@ public class ViewProvedor implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         data.addAll(listaRefaccion);
+    }
+    public void crearProvedorEvent() {
+        ControladorProvedor.crearProvedor(ControladorProvedor.crearProvedor(textfieldProvedor.getText(),
+                textfieldRefaccion.getText(), textfieldCosto.getText(),textfieldDireccion,
+                textfieldTelefono.getText()));
+        /*Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");*/
+        //alert.showAndWait();
+        textfieldProvedor.setText("");
+        textfieldRefaccion.setText("");
+        textfieldCosto.setText("");
+        textfieldDireccion.setText("");
+        textfieldTelefono.setText("");
     }
 }

@@ -6,10 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,6 +29,18 @@ public class ViewServicioMuestra implements Initializable {
     public Button buttonAtras;
     @FXML
     public Button buttonAgregar;
+    @FXML
+    public TableColumn idServicio;
+    @FXML
+    public TableColumn servicio;
+    @FXML
+    public TableColumn descripcion;
+    @FXML
+    public TableColumn costo;
+    @FXML
+    public TableColumn idEmpleado;
+    @FXML
+    public TableColumn total;
 
     private ObservableList<ServicioEntity> dataServicio = FXCollections.observableArrayList();
 
@@ -39,5 +48,15 @@ public class ViewServicioMuestra implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<ServicioEntity> listaServicio = ControladorServicio.getServicios();
         dataServicio.addAll(listaServicio);
+    }
+    public void guardarServicioEvent(){
+        ControladorServicio.guardarServicio(idServicio.getTableView(),servicio.getTableView(),descripcion.getTableView(),
+                idEmpleado.getTableView(),costo.getTableView());
+        idServicio.setText("");
+        servicio.setText("");
+        descripcion.setText("");
+        costo.setText("");
+        idEmpleado.setText("");
+        total.setText("");
     }
 }

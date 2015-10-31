@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewConsultarVentas">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
@@ -47,9 +46,9 @@
             </TextField>
             <TableView fx:id="tablaVentas">
               <columns>
-                <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="111.0" text="Id Venta" />
-                <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="126.0" text="Fecha" />
-                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="321.0" text="Cliente" />
+                <TableColumn fx:id="idVenta" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="111.0" text="Id Venta" />
+                <TableColumn fx:id="fecha" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="126.0" text="Fecha" />
+                  <TableColumn fx:id="cliente" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="321.0" text="Cliente" />
               </columns>
                <VBox.margin>
                   <Insets bottom="25.0" left="20.0" right="20.0" />

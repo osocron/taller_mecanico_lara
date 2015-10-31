@@ -53,4 +53,8 @@ public class ViewRegistrarVenta implements Initializable {
         java.util.List<VentasEntity> listaVentas = ControladorVentas.getVentas();
         data.addAll(listaVentas);
     }
+    public void creaVentaEvent(){
+        ControladorVentas.crearVenta(textfieldIDventa.getText(), textfieldPrecio.getText(),
+                textfieldCantidad.getText(), textfieldDescripcion.getText(),textfieldTotal.getText());
+    }
 }

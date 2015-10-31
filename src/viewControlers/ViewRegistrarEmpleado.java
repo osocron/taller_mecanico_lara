@@ -53,4 +53,11 @@ public class ViewRegistrarEmpleado implements Initializable {
         java.util.List<EmpleadoEntity> listaEmpleado = ControladorEmpleado.getEmpleados();
         dataEmpleado.addAll(listaEmpleado);
     }
+    public void crearEmpleadoEvent(){
+        ControladorEmpleado.crearEmpleado(textfieldIDempleado.getLength(),textfieldNombre.getText(),
+                textfieldPuesto.getText());
+        textfieldIDempleado.setText("");
+        textfieldNombre.setText("");
+        textfieldPuesto.setText("");
+    }
 }

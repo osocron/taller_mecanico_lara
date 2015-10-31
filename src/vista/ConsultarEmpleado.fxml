@@ -46,9 +46,9 @@
             </TextField>
             <TableView fx:id="tableEmpleados">
               <columns>
-                <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="111.0" text="Id Empleado" />
-                <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="276.0" text="Nombre" />
-                  <TableColumn maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="172.0" text="Puesto" />
+                <TableColumn fx:id="idEmpleado" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="111.0" text="Id Empleado" />
+                <TableColumn fx:id="nombre" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="276.0" text="Nombre" />
+                  <TableColumn fx:id="puesto" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="172.0" text="Puesto" />
               </columns>
                <VBox.margin>
                   <Insets bottom="25.0" left="20.0" right="20.0" />

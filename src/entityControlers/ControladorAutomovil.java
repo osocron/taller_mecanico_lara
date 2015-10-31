@@ -18,7 +18,7 @@ public class ControladorAutomovil {
         ConexionBD.getEm().persist(automovil);
         entityTransaction.commit();
     }
-    public static AutomovilesEntity crearUsuario(int Matricula, String Marca, String Modelo, String Color, String IDClientes){
+    public static AutomovilesEntity crearAutomovil(int Matricula, String Marca, String Modelo, String Color, String IDClientes){
         AutomovilesEntity automovil = new AutomovilesEntity();
         automovil.setMatricula(Matricula);
         automovil.setMarca(Marca);
@@ -28,7 +28,7 @@ public class ControladorAutomovil {
         ConexionBD.getEm().persist(automovil);
         return automovil;
     }
-    public static void modificarCliente(String IDClientes){
+    public static void modificarAutomovil(String IDClientes){
         AutomovilesEntity auto = getAutomovilIDcliente(IDClientes);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();

@@ -46,12 +46,12 @@
    <center>
       <TableView fx:id="tableviewRefaccion" prefHeight="223.0" prefWidth="314.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="IDrefaccion" />
-          <TableColumn prefWidth="75.0" text="Articulo" />
-            <TableColumn prefWidth="75.0" text="Descripcion" />
-            <TableColumn prefWidth="75.0" text="Cantidad" />
-            <TableColumn prefWidth="75.0" text="IDprovedor" />
-            <TableColumn prefWidth="75.0" text="Moneda" />
+          <TableColumn fx:id="idRefaccion" prefWidth="75.0" text="IDrefaccion" />
+          <TableColumn fx:id="articulo" prefWidth="75.0" text="Articulo" />
+            <TableColumn fx:id="descripcion" prefWidth="75.0" text="Descripcion" />
+            <TableColumn fx:id="cantidad" prefWidth="75.0" text="Cantidad" />
+            <TableColumn fx:id="idProvedor" prefWidth="75.0" text="IDprovedor" />
+            <TableColumn fx:id="moneda" prefWidth="75.0" text="Moneda" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="50.0" left="5.0" right="5.0" top="50.0" />

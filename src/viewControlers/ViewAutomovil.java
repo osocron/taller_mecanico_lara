@@ -58,4 +58,24 @@ public class ViewAutomovil implements Initializable {
         List<AutomovilesEntity> listaAutomoviles = ControladorAutomovil.getAutomoviles();
         data.addAll(listaAutomoviles);
     }
+    public void guardarAutomovilActionEvent() {
+        ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(textfieldMatricula.getMatricula,
+                textfieldModelo.getText(), textfieldMarca.getText(),
+                textfieldIDcliente.getText()));
+        textfieldMatricula.setText("");
+        textfieldModelo.setText("");
+        textfieldMarca.setText("");
+        textfieldIDcliente.setText("");
+    }
+    public void eliminarAutomovilEvent(){
+        ControladorAutomovil.eliminarAutomovil(textfieldMarca.getText());
+        textfieldMatricula.setText("");
+    }
+    public void modificarAutomovil(){
+        ControladorAutomovil.modificarAutomovil(textfieldModelo.getText(),textfieldMarca.getText(),
+                textfieldIDcliente.getText());
+        textfieldMarca.setText("");
+        textfieldModelo.setText("");
+        textfieldIDcliente.setText("");
+    }
 }

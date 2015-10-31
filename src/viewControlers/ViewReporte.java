@@ -4,6 +4,8 @@ import entidades.VentaRefaccionEntity;
 import entidades.VentaServicioEntity;
 import entidades.VentasEntity;
 import entityControlers.ControladorVentas;
+import entityControlers.ControladorVentasRefaccion;
+import entityControlers.ControladorVentasServicio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -42,5 +44,12 @@ public class ViewReporte implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<VentasEntity> listaVenta = ControladorVentas.getVentas();
         dataVentas.addAll(listaVenta);
+    }
+    public void crearReporteEvent(){
+        ControladorVentas.getVentas();
+        ControladorVentasRefaccion.getVentasRefaccion();
+        ControladorVentasServicio.getVentaServicio();
+        comboboxReporte.setOnAction(getClass(ControladorVentas.getVentas()+ControladorVentasServicio.getVentaServicio()+
+        ControladorVentasServicio.getVentaServicio()));
     }
 }

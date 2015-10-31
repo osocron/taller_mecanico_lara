@@ -51,4 +51,15 @@ public class ViewRegistrarServicio implements Initializable {
         java.util.List<ServicioEntity> listaServicio = ControladorServicio.getServicios();
         data.addAll(listaServicio);
     }
+    public void crearServicioEvent(){
+        ControladorServicio.crearServicio(textfieldServicio.getText(),textfieldDescripcion.getText(),
+                comboboxServicio.getVisibleRowCount(),textfieldIDempleado.getText(),textfieldPrecio.getText(),
+                datepickerFecha.setOnAction());
+        textfieldPrecio.setText("");
+        textfieldIDempleado.setText("");
+        textfieldDescripcion.setText("");
+        comboboxServicio.setOnAction();
+        textfieldServicio.setText("");
+        datepickerFecha.setOnAction();
+    }
 }

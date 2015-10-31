@@ -17,7 +17,7 @@
             <Label fx:id="labelCantidad" text="Cantidad" />
             <TextField fx:id="textfieldCantidad" />
             <Label fx:id="labelPrecio" text="Precio" />
-            <TextField />
+            <TextField fx:id="textfieldPrecio" />
             <Label fx:id="labelIDprovedor" text="IDprovedor" />
             <ComboBox fx:id="comboboxIDprovedor" prefHeight="25.0" prefWidth="189.0" promptText="Identificador" />
             <Label fx:id="labelMoneda" text="Moneda" />

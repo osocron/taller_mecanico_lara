@@ -52,4 +52,14 @@ public class ViewRegistrarRefaccion implements Initializable {
         java.util.List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         dataRefaccion.addAll(listaRefaccion);
     }
+    public void crearRefaccionEvent(){
+        ControladorRefaccion.crearRefaccion(textfieldArticulo.getLength(),textfieldDescripcion.getText(),
+                textfieldPrecio.getLength(),comboboxIDprovedor.getVisibleRowCount(),comboboxMoneda.getVisibleRowCount()
+                );
+        textfieldArticulo.setText("");
+        textfieldDescripcion.setText("");
+        textfieldPrecio.setText("");
+        comboboxIDprovedor.setOnAction();
+        comboboxMoneda.setOnAction();
+    }
 }
