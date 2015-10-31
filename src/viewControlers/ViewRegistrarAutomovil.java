@@ -1,6 +1,11 @@
 package viewControlers;
 
+import entidades.AutomovilesEntity;
 import entidades.ClienteEntity;
+import entityControlers.ControladorAutomovil;
+import entityControlers.ControladorCliente;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -17,9 +22,14 @@ public class ViewRegistrarAutomovil implements Initializable {
     public ComboBox<ClienteEntity> clienteEntityComboBox;
     public Button registrarButton;
 
+    private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();
+    private ObservableList<AutomovilesEntity> dataAtuomoviles = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        dataCliente.addAll(ControladorCliente.getCliente());
+        dataAtuomoviles.addAll(ControladorAutomovil.getAutomoviles());
+        clienteEntityComboBox.getItems().addAll(dataCliente);
     }
 
 }
