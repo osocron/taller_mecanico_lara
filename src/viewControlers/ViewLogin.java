@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -20,11 +21,11 @@ import java.util.ResourceBundle;
 public class ViewLogin implements Initializable {
 
     @FXML
-    private TextField usuarioTextField;
+    public TextField usuarioTextField;
     @FXML
-    private PasswordField passwordTextField;
+    public PasswordField passwordTextField;
     @FXML
-    private RadioButton mantenerSesionRadioButton;
+    public RadioButton mantenerSesionRadioButton;
 
     private ObservableList<UsuarioEntity> data = FXCollections.observableArrayList();
 
@@ -38,6 +39,8 @@ public class ViewLogin implements Initializable {
     public void aceptarOnActionEvent(){
         if (validarUsuario(usuarioTextField.getText(),passwordTextField.getText())){
             abrirInicio();
+            Stage stage = (Stage) usuarioTextField.getScene().getWindow();
+            stage.close();
         }
     }
 

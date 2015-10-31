@@ -2,8 +2,10 @@ package viewControlers;
 
 import entidades.EmpleadoEntity;
 import entityControlers.ControladorEmpleado;
+import entityControlers.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -24,8 +26,6 @@ public class ViewRegistrarEmpleado implements Initializable {
     @FXML
     public Label labelPuesto;
     @FXML
-    public Label labelCliente;
-    @FXML
     public Label labelUsuario;
     @FXML
     public Label labelContrasena;
@@ -40,8 +40,6 @@ public class ViewRegistrarEmpleado implements Initializable {
     @FXML
     public TextField textfieldContrasena;
     @FXML
-    public ComboBox comboboxCliente;
-    @FXML
     public CheckBox checkBoxUsuario;
     @FXML
     public Button buttonEmpleado;
@@ -53,4 +51,34 @@ public class ViewRegistrarEmpleado implements Initializable {
         java.util.List<EmpleadoEntity> listaEmpleado = ControladorEmpleado.getEmpleados();
         dataEmpleado.addAll(listaEmpleado);
     }
+
+
+    public void registrarEmpleadoActionEvent() {
+        ControladorEmpleado.guardarEmpleadp(
+                ControladorEmpleado.crearEmpleado(
+                        Integer.parseInt(textfieldIDempleado.getText()),
+                        textfieldNombre.getText(),textfieldPuesto.getText()));
+        if(checkBoxUsuario.isSelected()){
+            ControladorUsuario.guardarUsuario(
+                    ControladorUsuario.crearUsuario(
+                            textfieldUsuario.getText(),textfieldContrasena.getText(),
+                            Integer.parseInt(textfieldIDempleado.getText())));
+        }
+        Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");
+        alert.showAndWait();
+        textfieldIDempleado.setText("");
+        textfieldNombre.setText("");
+        textfieldPuesto.setText("");
+        textfieldUsuario.setText("");
+        textfieldContrasena.setText("");
+    }
+
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
+    }
+
 }
