@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entidades.AutomovilesEntity;
+import entities.AutomovilesEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
@@ -18,7 +18,7 @@ public class ControladorAutomovil {
         ConexionBD.getEm().persist(automovil);
         entityTransaction.commit();
     }
-    public static AutomovilesEntity crearUsuario(int Matricula, String Marca, String Modelo, String Color, String IDClientes){
+    public static AutomovilesEntity crearUsuario(String Matricula, String Marca, String Modelo, String Color, String IDClientes){
         AutomovilesEntity automovil = new AutomovilesEntity();
         automovil.setMatricula(Matricula);
         automovil.setMarca(Marca);

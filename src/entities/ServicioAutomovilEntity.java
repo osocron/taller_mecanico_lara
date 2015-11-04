@@ -1,18 +1,18 @@
-package entidades;
+package entities;
 
 import javax.persistence.*;
 
 /**
- * Created by osocron on 30/10/15.
+ * Created by osocron on 4/11/15.
  */
 @Entity
 @Table(name = "ServicioAutomovil", schema = "", catalog = "taller_mecanico_lara")
 public class ServicioAutomovilEntity {
     private int idServicioAutomovil;
     private int idServicios;
-    private int matriculas;
+    private String matricula;
+    private AutomovilesEntity automovilesByMatricula;
     private ServicioEntity servicioByIdServicios;
-    private AutomovilesEntity automovilesByMatriculas;
 
     @Id
     @Column(name = "idServicioAutomovil")
@@ -35,13 +35,13 @@ public class ServicioAutomovilEntity {
     }
 
     @Basic
-    @Column(name = "Matriculas")
-    public int getMatriculas() {
-        return matriculas;
+    @Column(name = "Matricula")
+    public String getMatricula() {
+        return matricula;
     }
 
-    public void setMatriculas(int matriculas) {
-        this.matriculas = matriculas;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ServicioAutomovilEntity {
 
         if (idServicioAutomovil != that.idServicioAutomovil) return false;
         if (idServicios != that.idServicios) return false;
-        if (matriculas != that.matriculas) return false;
+        if (matricula != null ? !matricula.equals(that.matricula) : that.matricula != null) return false;
 
         return true;
     }
@@ -62,8 +62,18 @@ public class ServicioAutomovilEntity {
     public int hashCode() {
         int result = idServicioAutomovil;
         result = 31 * result + idServicios;
-        result = 31 * result + matriculas;
+        result = 31 * result + (matricula != null ? matricula.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Matricula", referencedColumnName = "Matricula", nullable = false)
+    public AutomovilesEntity getAutomovilesByMatricula() {
+        return automovilesByMatricula;
+    }
+
+    public void setAutomovilesByMatricula(AutomovilesEntity automovilesByMatricula) {
+        this.automovilesByMatricula = automovilesByMatricula;
     }
 
     @ManyToOne
@@ -74,15 +84,5 @@ public class ServicioAutomovilEntity {
 
     public void setServicioByIdServicios(ServicioEntity servicioByIdServicios) {
         this.servicioByIdServicios = servicioByIdServicios;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Matriculas", referencedColumnName = "Matricula", nullable = false)
-    public AutomovilesEntity getAutomovilesByMatriculas() {
-        return automovilesByMatriculas;
-    }
-
-    public void setAutomovilesByMatriculas(AutomovilesEntity automovilesByMatriculas) {
-        this.automovilesByMatriculas = automovilesByMatriculas;
     }
 }

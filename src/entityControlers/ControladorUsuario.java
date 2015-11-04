@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entidades.UsuarioEntity;
+import entities.UsuarioEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;

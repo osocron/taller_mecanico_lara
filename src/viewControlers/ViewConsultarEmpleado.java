@@ -1,6 +1,6 @@
 package viewControlers;
 
-import entidades.EmpleadoEntity;
+import entities.EmpleadoEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;

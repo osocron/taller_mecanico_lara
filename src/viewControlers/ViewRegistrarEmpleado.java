@@ -1,11 +1,10 @@
 package viewControlers;
 
-import entidades.EmpleadoEntity;
+import entities.EmpleadoEntity;
 import entityControlers.ControladorEmpleado;
 import entityControlers.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;

@@ -1,11 +1,11 @@
-package entidades;
+package entities;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
 
 /**
- * Created by osocron on 30/10/15.
+ * Created by osocron on 4/11/15.
  */
 @Entity
 @Table(name = "Ventas", schema = "", catalog = "taller_mecanico_lara")

@@ -1,6 +1,6 @@
 package viewControlers;
 
-import entidades.ClienteEntity;
+import entities.ClienteEntity;
 import entityControlers.ControladorCliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,7 +33,7 @@ public class ViewRegistrarCliente implements Initializable {
     @FXML
     public TextField textfieldDomicilio;
     @FXML
-    public TextField textfieldTelefono;
+    private TextField textfieldTelefono;
     @FXML
     public Button buttonAceptar;
     @FXML

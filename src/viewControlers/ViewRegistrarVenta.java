@@ -1,7 +1,7 @@
 package viewControlers;
 
-import entidades.ClienteEntity;
-import entidades.VentasEntity;
+import entities.ClienteEntity;
+import entities.VentasEntity;
 import entityControlers.ControladorVentas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

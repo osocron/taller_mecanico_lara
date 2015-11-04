@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entidades.ServicioAutomovilEntity;
+import entities.ServicioAutomovilEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
@@ -19,22 +19,22 @@ public class ControladorServicioAutomovil {
         entityTransaction.commit();
     }
 
-    public static ServicioAutomovilEntity crearServicioAutomovil(int idServicioAutomovil, int IDServicios, int Matriculas){
+    public static ServicioAutomovilEntity crearServicioAutomovil(int idServicioAutomovil, int IDServicios, String Matriculas){
         ServicioAutomovilEntity servicioAutomovil = new ServicioAutomovilEntity();
         servicioAutomovil.setIdServicioAutomovil(idServicioAutomovil);
         servicioAutomovil.setIdServicios(IDServicios);
-        servicioAutomovil.setMatriculas(Matriculas);
+        servicioAutomovil.setMatricula(Matriculas);
         ConexionBD.getEm().persist(servicioAutomovil);
         return servicioAutomovil;
     }
 
-    public static void modificarServicioAutomovil(int idServicioAutovil, int IDServicios, int Matriculas){
+    public static void modificarServicioAutomovil(int idServicioAutovil, int IDServicios, String Matriculas){
         ServicioAutomovilEntity servicioAutomovil = getServicioAuto(idServicioAutovil);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
         servicioAutomovil.setIdServicioAutomovil(idServicioAutovil);
         servicioAutomovil.setIdServicios(IDServicios);
-        servicioAutomovil.setMatriculas(Matriculas);
+        servicioAutomovil.setMatricula(Matriculas);
         entityTransaction.commit();
     }
     public static void eliminarServicioAutomovil(int idServicioAutomovil, int IDServicios, int Matriculas){
