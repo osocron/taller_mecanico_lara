@@ -97,4 +97,8 @@ public class ClienteEntity {
     public void setVentasesByIdCliente(Collection<VentasEntity> ventasesByIdCliente) {
         this.ventasesByIdCliente = ventasesByIdCliente;
     }
+    @Override
+    public String toString(){
+        return nombre;
+    }
 }

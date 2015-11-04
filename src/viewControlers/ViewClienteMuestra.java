@@ -41,7 +41,7 @@ public class ViewClienteMuestra implements Initializable{
     @FXML
     public TextField textfieldTelefono;
     @FXML
-    public ComboBox comboboxIDcliente;
+    public ComboBox<ClienteEntity> comboboxIDcliente;
     @FXML
     public Button buttonConsultar;
     @FXML
@@ -54,24 +54,26 @@ public class ViewClienteMuestra implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<ClienteEntity> listaClientes = ControladorCliente.getCliente();
         data.addAll(listaClientes);
+        comboboxIDcliente.getItems().addAll(data);
     }
     public void guardarClienteActionEvent(){
-        ControladorCliente.guardarCliente(ControladorCliente.guardarCliente(comboboxIDcliente.getText(""),
-                textfieldNombre.getText(), textfieldDomicilio.getText(), textfieldTelefono.getText()));
-        comboboxIDcliente.setOnAction();
+        /*ControladorCliente.guardarCliente(ControladorCliente.guardarCliente(comboboxIDcliente.getText(""),
+                textfieldNombre.getText(), textfieldDomicilio.getText(), textfieldTelefono.getText()));*/
+        //comboboxIDcliente.setOnAction();
         textfieldNombre.setText("");
         textfieldDomicilio.setText("");
         textfieldTelefono.setText("");
     }
     public void eliminarClienteActionEvent(){
-        ControladorCliente.eliminarCliente(ControladorCliente.eliminarCliente(comboboxIDcliente.getTexr("")));
-        comboboxIDcliente.setOnAction();
+        //ControladorCliente.eliminarCliente(ControladorCliente.eliminarCliente(comboboxIDcliente.getTexr("")));
+        //comboboxIDcliente.setOnAction();
     }
     public void modificarClienteActionEvent(){
-        ControladorCliente.modificarCliente(ControladorCliente.modificarCliente(textfieldNombre.getText(),
-                textfieldDomicilio.getText(),textfieldTelefono.getText());
+        /*ControladorCliente.modificarCliente(ControladorCliente.modificarCliente(textfieldNombre.getText(),
+                textfieldDomicilio.getText(),textfieldTelefono.getText());*/
         textfieldNombre.setText("");
         textfieldDomicilio.setText("");
         textfieldTelefono.setText("");
     }
+
 }
