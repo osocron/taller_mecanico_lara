@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entidades.ServicioRefaccionEntity;
+import entities.ServicioRefaccionEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;

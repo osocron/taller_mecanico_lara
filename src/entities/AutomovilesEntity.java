@@ -1,15 +1,15 @@
-package entidades;
+package entities;
 
 import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 30/10/15.
+ * Created by osocron on 4/11/15.
  */
 @Entity
 @Table(name = "Automoviles", schema = "", catalog = "taller_mecanico_lara")
 public class AutomovilesEntity {
-    private int matricula;
+    private String matricula;
     private String marca;
     private String modelo;
     private String color;
@@ -19,11 +19,11 @@ public class AutomovilesEntity {
 
     @Id
     @Column(name = "Matricula")
-    public int getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
@@ -74,7 +74,7 @@ public class AutomovilesEntity {
 
         AutomovilesEntity that = (AutomovilesEntity) o;
 
-        if (matricula != that.matricula) return false;
+        if (matricula != null ? !matricula.equals(that.matricula) : that.matricula != null) return false;
         if (marca != null ? !marca.equals(that.marca) : that.marca != null) return false;
         if (modelo != null ? !modelo.equals(that.modelo) : that.modelo != null) return false;
         if (color != null ? !color.equals(that.color) : that.color != null) return false;
@@ -85,7 +85,7 @@ public class AutomovilesEntity {
 
     @Override
     public int hashCode() {
-        int result = matricula;
+        int result = matricula != null ? matricula.hashCode() : 0;
         result = 31 * result + (marca != null ? marca.hashCode() : 0);
         result = 31 * result + (modelo != null ? modelo.hashCode() : 0);
         result = 31 * result + (color != null ? color.hashCode() : 0);
@@ -103,7 +103,7 @@ public class AutomovilesEntity {
         this.clienteByIdClientes = clienteByIdClientes;
     }
 
-    @OneToMany(mappedBy = "automovilesByMatriculas")
+    @OneToMany(mappedBy = "automovilesByMatricula")
     public Collection<ServicioAutomovilEntity> getServicioAutomovilsByMatricula() {
         return servicioAutomovilsByMatricula;
     }

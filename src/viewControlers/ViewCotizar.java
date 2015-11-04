@@ -1,10 +1,7 @@
 package viewControlers;
 
-import entidades.ClienteEntity;
-import entidades.RefaccionEntity;
-import entidades.ServicioEntity;
-import entityControlers.ControladorAutomovil;
-import entityControlers.ControladorCliente;
+import entities.RefaccionEntity;
+import entities.ServicioEntity;
 import entityControlers.ControladorRefaccion;
 import entityControlers.ControladorServicio;
 import javafx.collections.FXCollections;
@@ -49,7 +46,6 @@ public class ViewCotizar implements Initializable {
 
     private ObservableList<ServicioEntity> dataServicio = FXCollections.observableArrayList();
     private ObservableList<RefaccionEntity> dataRefaccion = FXCollections.observableArrayList();
-    private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,15 +53,5 @@ public class ViewCotizar implements Initializable {
         dataServicio.addAll(listaServicio);
         java.util.List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         dataRefaccion.addAll(listaRefaccion);
-    }
-    public void guardarCotizacionEvent() {
-        /*ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldCliente.getText()));
-        ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(comboboxRefaccion.getOnAction()));
-        ControladorServicio.guardarServicio(ControladorServicio.crearServicio(comboboxServicio.getOnAction()));
-        ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(textfieldAutomovil.getText()));
-        textfieldCliente.setText("");
-        textfieldAutomovil.setText("");
-        comboboxRefaccion.setOnAction(comboboxRefaccion);
-        comboboxServicio.setOnAction(comboboxServicio);*/
     }
 }

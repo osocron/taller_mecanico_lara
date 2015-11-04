@@ -1,9 +1,9 @@
-package entidades;
+package entities;
 
 import javax.persistence.*;
 
 /**
- * Created by osocron on 30/10/15.
+ * Created by osocron on 4/11/15.
  */
 @Entity
 @Table(name = "ServicioRefaccion", schema = "", catalog = "taller_mecanico_lara")

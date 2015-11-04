@@ -1,6 +1,6 @@
 package viewControlers;
 
-import entidades.RefaccionEntity;
+import entities.RefaccionEntity;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

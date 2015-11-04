@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entidades.VentasEntity;
+import entities.VentasEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;

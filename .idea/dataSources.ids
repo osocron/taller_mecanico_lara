@@ -8,14 +8,14 @@
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
     <schema name="" catalog="taller_mecanico_lara"/>
     <table name="Automoviles" schema="" catalog="taller_mecanico_lara" type="TABLE">
-      <column name="Matricula" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Matricula" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
       <column name="Marca" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="Modelo" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="Color" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="IDClientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="Matricula"/>
       <foreign-key name="fk_Automoviles_1" columns="IDClientes" ref-table="Cliente" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDCliente" update-rule="0" delete-rule="0" deferrability="2"/>
-      <exported-key name="fk_ServicioAutomovil_2" table="ServicioAutomovil" schema="" catalog="taller_mecanico_lara" columns="Matriculas"/>
+      <exported-key name="fk_ServicioAutomovil_2" table="ServicioAutomovil" schema="" catalog="taller_mecanico_lara" columns="Matricula"/>
       <index name="fk_Automoviles_1_idx" unique="false" columns="IDClientes"/>
     </table>
     <table name="Cliente" schema="" catalog="taller_mecanico_lara" type="TABLE">
@@ -59,12 +59,12 @@
     <table name="ServicioAutomovil" schema="" catalog="taller_mecanico_lara" type="TABLE">
       <column name="idServicioAutomovil" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="IDServicios" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="Matriculas" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Matricula" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="idServicioAutomovil"/>
+      <foreign-key name="fk_ServicioAutomovil_2" columns="Matricula" ref-table="Automoviles" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="Matricula" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_ServicioAutomovil_1" columns="IDServicios" ref-table="Servicio" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDServicio" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_ServicioAutomovil_2" columns="Matriculas" ref-table="Automoviles" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="Matricula" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_ServicioAutomovil_1_idx" unique="false" columns="IDServicios"/>
-      <index name="fk_ServicioAutomovil_2_idx" unique="false" columns="Matriculas"/>
+      <index name="fk_ServicioAutomovil_2_idx" unique="false" columns="Matricula"/>
     </table>
     <table name="ServicioRefaccion" schema="" catalog="taller_mecanico_lara" type="TABLE">
       <column name="idServicioRefaccion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
