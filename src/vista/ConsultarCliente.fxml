@@ -30,8 +30,8 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="labelIDautomovil" text="IDautomovil" />
-            <TextField fx:id="textfieldIDautomovil" />
+            <Label fx:id="labelIdCliente" text="IDautomovil" />
+            <TextField fx:id="textfieldIDCliente" />
             <Label fx:id="labelNombre" text="Nombre" />
             <TextField fx:id="textfieldNombre" />
             <Label fx:id="labelDomicilio" text="Domicilio" />
@@ -76,4 +76,25 @@
          </BorderPane.margin>
       </VBox>
    </right>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT">
+         <children>
+            <Button fx:id="editarButton" mnemonicParsing="false" onAction="#modificarClienteActionEvent" text="Editar" BorderPane.alignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="eliminarButton" mnemonicParsing="false" onAction="#eliminarClienteActionEvent" text="Eliminar">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="guardarButton" mnemonicParsing="false" onAction="#guardarClienteActionEvent" text="Guardar Cambios">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>

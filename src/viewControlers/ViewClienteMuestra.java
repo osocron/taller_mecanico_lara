@@ -11,7 +11,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,7 +22,7 @@ public class ViewClienteMuestra implements Initializable{
     @FXML
     private BorderPane bordePane;
     @FXML
-    public Label labelIDautomovil;
+    public Label labelIdCliente;
     @FXML
     public Label labelNombre;
     @FXML
@@ -33,7 +32,7 @@ public class ViewClienteMuestra implements Initializable{
     @FXML
     public Label labelIDcliente;
     @FXML
-    public TextField textfieldIDautomovil;
+    public TextField textfieldIDCliente;
     @FXML
     public TextField textfieldNombre;
     @FXML
@@ -45,7 +44,7 @@ public class ViewClienteMuestra implements Initializable{
     @FXML
     public Button buttonConsultar;
     @FXML
-    public Button buttonAtras;
+    public Button buttonAtras,guardarButton,editarButton,eliminarButton;
 
 
     private ObservableList<ClienteEntity> data = FXCollections.observableArrayList();
@@ -56,19 +55,17 @@ public class ViewClienteMuestra implements Initializable{
         data.addAll(listaClientes);
     }
     public void guardarClienteActionEvent(){
-        ControladorCliente.guardarCliente(ControladorCliente.guardarCliente(comboboxIDcliente.getText(""),
+        ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldIDCliente.getText(),
                 textfieldNombre.getText(), textfieldDomicilio.getText(), textfieldTelefono.getText()));
-        comboboxIDcliente.setOnAction();
         textfieldNombre.setText("");
         textfieldDomicilio.setText("");
         textfieldTelefono.setText("");
     }
     public void eliminarClienteActionEvent(){
-        ControladorCliente.eliminarCliente(ControladorCliente.eliminarCliente(comboboxIDcliente.getTexr("")));
-        comboboxIDcliente.setOnAction();
+        ControladorCliente.eliminarCliente(textfieldIDCliente.getText());
     }
     public void modificarClienteActionEvent(){
-        ControladorCliente.modificarCliente(ControladorCliente.modificarCliente(textfieldNombre.getText(),
+        ControladorCliente.modificarCliente(textfieldIDCliente.getText(),textfieldNombre.getText(),
                 textfieldDomicilio.getText(),textfieldTelefono.getText());
         textfieldNombre.setText("");
         textfieldDomicilio.setText("");
