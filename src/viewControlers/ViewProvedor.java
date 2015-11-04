@@ -51,9 +51,9 @@ public class ViewProvedor implements Initializable {
         data.addAll(listaRefaccion);
     }
     public void crearProvedorEvent() {
-        ControladorProvedor.crearProvedor(ControladorProvedor.crearProvedor(textfieldProvedor.getText(),
+        /*ControladorProvedor.crearProvedor(ControladorProvedor.crearProvedor(textfieldProvedor.getText(),
                 textfieldRefaccion.getText(), textfieldCosto.getText(),textfieldDireccion,
-                textfieldTelefono.getText()));
+                textfieldTelefono.getText()));*/
         /*Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");*/
         //alert.showAndWait();
         textfieldProvedor.setText("");

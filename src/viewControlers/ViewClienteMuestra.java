@@ -56,7 +56,7 @@ public class ViewClienteMuestra implements Initializable{
         data.addAll(listaClientes);
     }
     public void guardarClienteActionEvent(){
-        ControladorCliente.guardarCliente(ControladorCliente.guardarCliente(comboboxIDcliente.getText(),
+        ControladorCliente.guardarCliente(ControladorCliente.guardarCliente(comboboxIDcliente.getText(""),
                 textfieldNombre.getText(), textfieldDomicilio.getText(), textfieldTelefono.getText()));
         comboboxIDcliente.setOnAction();
         textfieldNombre.setText("");
@@ -64,7 +64,7 @@ public class ViewClienteMuestra implements Initializable{
         textfieldTelefono.setText("");
     }
     public void eliminarClienteActionEvent(){
-        ControladorCliente.eliminarCliente(ControladorCliente.eliminarCliente(comboboxIDcliente.getTexr()));
+        ControladorCliente.eliminarCliente(ControladorCliente.eliminarCliente(comboboxIDcliente.getTexr("")));
         comboboxIDcliente.setOnAction();
     }
     public void modificarClienteActionEvent(){

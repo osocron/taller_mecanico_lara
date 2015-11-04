@@ -50,8 +50,8 @@ public class ViewServicioMuestra implements Initializable {
         dataServicio.addAll(listaServicio);
     }
     public void guardarServicioEvent(){
-        ControladorServicio.guardarServicio(idServicio.getTableView(),servicio.getTableView(),descripcion.getTableView(),
-                idEmpleado.getTableView(),costo.getTableView());
+        /*ControladorServicio.guardarServicio(idServicio.getTableView(),servicio.getTableView(),descripcion.getTableView(),
+                idEmpleado.getTableView(),costo.getTableView());*/
         idServicio.setText("");
         servicio.setText("");
         descripcion.setText("");

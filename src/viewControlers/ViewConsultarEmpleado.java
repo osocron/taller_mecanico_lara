@@ -33,17 +33,17 @@ public class ViewConsultarEmpleado implements Initializable {
 
     }
     public void guardarEmpleadoActionEvent(){
-        ControladorEmpleado.guardarEmpleadp(ControladorEmpleado.guardarEmpleadp(idEmpleado.getText(),nombre.getText(),puesto.getText()));
+        //ControladorEmpleado.guardarEmpleadp(ControladorEmpleado.guardarEmpleadp(idEmpleado.getText(),nombre.getText(),puesto.getText()));
         idEmpleado.setText("");
         nombre.setText("");
         puesto.setText("");
     }
     public void eliminarEmpleadoActionEvent(){
-        ControladorEmpleado.eliminarEmpleado(ControladorEmpleado.eliminarEmpleado(idEmpleado.getTexr()));
+        //ControladorEmpleado.eliminarEmpleado(ControladorEmpleado.eliminarEmpleado(idEmpleado.getTexr()));
         idEmpleado.setText("");
     }
     public void modificarEmpleadoActionEvent(){
-        ControladorEmpleado.modificarEmpleado(ControladorEmpleado.modificarEmpleado(idEmpleado.getText(),puesto.getText()));
+        //SControladorEmpleado.modificarEmpleado(ControladorEmpleado.modificarEmpleado(idEmpleado.getText(),puesto.getText()));
         idEmpleado.setText("");
         puesto.setText("");
     }

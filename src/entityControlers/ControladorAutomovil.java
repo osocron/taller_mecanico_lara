@@ -28,8 +28,8 @@ public class ControladorAutomovil {
         ConexionBD.getEm().persist(automovil);
         return automovil;
     }
-    public static void modificarAutomovil(String IDClientes){
-        AutomovilesEntity auto = getAutomovilIDcliente(IDClientes);
+    public static void modificarAutomovil(int Matricula, String Marca, String Modelo, String Color, String IDClientes){
+        AutomovilesEntity auto = getAutomovilMatricula(Matricula);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
         auto.setIdClientes(IDClientes);
@@ -37,13 +37,12 @@ public class ControladorAutomovil {
     }
 
     public static void eliminarAutomovil(String IDClientes){
-        AutomovilesEntity auto = getAutomovilIDcliente(IDClientes);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
         ConexionBD.getEm().remove(IDClientes);
         entityTransaction.commit();
     }
-    public static AutomovilesEntity getAutomovilIDcliente(String IDClientes){
-        return ConexionBD.getEm().find(AutomovilesEntity.class, IDClientes);
+    public static AutomovilesEntity getAutomovilMatricula(int Matricula){
+        return ConexionBD.getEm().find(AutomovilesEntity.class, Matricula);
     }
 }

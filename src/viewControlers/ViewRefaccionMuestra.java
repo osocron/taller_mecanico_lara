@@ -47,10 +47,10 @@ public class ViewRefaccionMuestra implements Initializable {
         data.addAll(listaRefaccion);
     }
     public void guardarRefaccionEvent(){
-        ControladorRefaccion.guardarRefaccion(ControladorRefaccion.guardarRefaccion(idRefaccion.getTableView(),
+        /*ControladorRefaccion.guardarRefaccion(ControladorRefaccion.guardarRefaccion(idRefaccion.getTableView(),
                 articulo.getTableView(),descripcion.getTableView(),cantidad.getTableView(),idProvedor.getTableView(),
                 moneda.getTableView()
-        ));
+        ));*/
         idRefaccion.setText("");
         articulo.setText("");
         descripcion.setText("");
@@ -59,12 +59,12 @@ public class ViewRefaccionMuestra implements Initializable {
         moneda.setText("");
     }
     public void eliminarRefaccionEvent(){
-        ControladorRefaccion.eliminarRefaccion(ControladorRefaccion.eliminarRefaccion(idRefaccion.getTableView()));
-        idRefaccion.setText("");
+        /*ControladorRefaccion.eliminarRefaccion(ControladorRefaccion.eliminarRefaccion(idRefaccion.getTableView()));
+        idRefaccion.setText("");*/
     }
     public void modificarRefaccionEvent(){
-        ControladorRefaccion.modificarRefaccion(ControladorRefaccion.modificarRefaccion(descripcion.getTableView(),
-                cantidad.getTableView(),moneda.getTableView()));
+        /*ControladorRefaccion.modificarRefaccion(ControladorRefaccion.modificarRefaccion(descripcion.getTableView(),
+                cantidad.getTableView(),moneda.getTableView()));*/
         descripcion.setText("");
         cantidad.setText("");
         moneda.setText("");

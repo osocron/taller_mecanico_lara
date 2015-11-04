@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -52,14 +53,14 @@ public class ViewRegistrarServicio implements Initializable {
         data.addAll(listaServicio);
     }
     public void crearServicioEvent(){
-        ControladorServicio.crearServicio(textfieldServicio.getText(),textfieldDescripcion.getText(),
+        /*ControladorServicio.crearServicio(textfieldServicio.getText(),textfieldDescripcion.getText(),
                 comboboxServicio.getVisibleRowCount(),textfieldIDempleado.getText(),textfieldPrecio.getText(),
-                datepickerFecha.setOnAction());
+                datepickerFecha.setOnAction());*/
         textfieldPrecio.setText("");
         textfieldIDempleado.setText("");
         textfieldDescripcion.setText("");
-        comboboxServicio.setOnAction();
+        //comboboxServicio.setOnAction();
         textfieldServicio.setText("");
-        datepickerFecha.setOnAction();
+        //datepickerFecha.setOnAction(s);
     }
 }

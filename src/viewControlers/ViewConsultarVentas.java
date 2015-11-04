@@ -30,16 +30,16 @@ public class ViewConsultarVentas implements Initializable {
 
     }
     public void guardarVentaActionEvent() {
-        ControladorVentas.guardarVenta(ControladorVentas.guardarVenta(idVenta.getTableView(),cliente.getTableView()));
+        //ControladorVentas.guardarVenta(ControladorVentas.guardarVenta(idVenta.getTableView(),cliente.getTableView()));
         idVenta.setText("");
         cliente.setText("");
     }
     public void eliminarVentaActionEvent(){
-        ControladorVentas.eliminarVenta(ControladorVentas.eliminarVenta(idVenta.getTableView()));
+        //ControladorVentas.eliminarVenta(ControladorVentas.eliminarVenta(idVenta.getTableView()));
         idVenta.setText("");
     }
     public void modificarVentaActionEvent(){
-        ControladorVentas.modificarVenta(ControladorVentas.modificarVenta(idVenta.getTableView(),cliente.getText()));
+        //ControladorVentas.modificarVenta(ControladorVentas.modificarVenta(idVenta.getTableView(),cliente.getText()));
         idVenta.setText("");
         cliente.setText("");
     }

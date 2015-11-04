@@ -54,7 +54,7 @@ public class ViewRegistrarVenta implements Initializable {
         data.addAll(listaVentas);
     }
     public void creaVentaEvent(){
-        ControladorVentas.crearVenta(textfieldIDventa.getText(), textfieldPrecio.getText(),
-                textfieldCantidad.getText(), textfieldDescripcion.getText(),textfieldTotal.getText());
+       /* ControladorVentas.crearVenta(textfieldIDventa.getText(), textfieldPrecio.getText(),
+                textfieldCantidad.getText(), textfieldDescripcion.getText(),textfieldTotal.getText());*/
     }
 }

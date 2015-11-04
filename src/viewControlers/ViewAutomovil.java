@@ -59,9 +59,9 @@ public class ViewAutomovil implements Initializable {
         data.addAll(listaAutomoviles);
     }
     public void guardarAutomovilActionEvent() {
-        ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(textfieldMatricula.getMatricula,
-                textfieldModelo.getText(), textfieldMarca.getText(),
-                textfieldIDcliente.getText()));
+        //ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(textfieldMatricula.getMatricula,
+        //        textfieldModelo.getText(), textfieldMarca.getText(),
+        //        textfieldIDcliente.getText()));
         textfieldMatricula.setText("");
         textfieldModelo.setText("");
         textfieldMarca.setText("");
@@ -72,8 +72,8 @@ public class ViewAutomovil implements Initializable {
         textfieldMatricula.setText("");
     }
     public void modificarAutomovil(){
-        ControladorAutomovil.modificarAutomovil(textfieldModelo.getText(),textfieldMarca.getText(),
-                textfieldIDcliente.getText());
+        /*ControladorAutomovil.modificarAutomovil(textfieldModelo.getText(),textfieldMarca.getText(),
+                textfieldIDcliente.getText());*/
         textfieldMarca.setText("");
         textfieldModelo.setText("");
         textfieldIDcliente.setText("");

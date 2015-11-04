@@ -59,13 +59,13 @@ public class ViewCotizar implements Initializable {
         dataRefaccion.addAll(listaRefaccion);
     }
     public void guardarCotizacionEvent() {
-        ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldCliente.getText()));
+        /*ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldCliente.getText()));
         ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(comboboxRefaccion.getOnAction()));
         ControladorServicio.guardarServicio(ControladorServicio.crearServicio(comboboxServicio.getOnAction()));
         ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(textfieldAutomovil.getText()));
         textfieldCliente.setText("");
         textfieldAutomovil.setText("");
         comboboxRefaccion.setOnAction(comboboxRefaccion);
-        comboboxServicio.setOnAction(comboboxServicio);
+        comboboxServicio.setOnAction(comboboxServicio);*/
     }
 }

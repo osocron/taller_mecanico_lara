@@ -49,7 +49,7 @@ public class ViewReporte implements Initializable{
         ControladorVentas.getVentas();
         ControladorVentasRefaccion.getVentasRefaccion();
         ControladorVentasServicio.getVentaServicio();
-        comboboxReporte.setOnAction(getClass(ControladorVentas.getVentas()+ControladorVentasServicio.getVentaServicio()+
-        ControladorVentasServicio.getVentaServicio()));
+        /*comboboxReporte.setOnAction(getClass(ControladorVentas.getVentas()+ControladorVentasServicio.getVentaServicio()+
+        ControladorVentasServicio.getVentaServicio()));*/
     }
 }

@@ -23,12 +23,12 @@ public class ViewRegistrarAutomovil implements Initializable {
 
     }
     public void crearAutomovilEvent(){
-        ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getAnchor(),
-                marcaTextField.getText(),modeloTextField.getText(),colorTextField.getText(),clienteEntityComboBox.getId()));
+        /*ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getAnchor(),
+                marcaTextField.getText(),modeloTextField.getText(),colorTextField.getText(),clienteEntityComboBox.getId()));*/
         marcaTextField.setText("");
         matriculaTextField.setText("");
         modeloTextField.setText("");
         colorTextField.setText("");
-        clienteEntityComboBox.setOnAction();
+        //clienteEntityComboBox.setOnAction();
     }
 }
