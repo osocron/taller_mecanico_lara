@@ -56,6 +56,7 @@ public class ViewRegistrarServicio implements Initializable {
     }
     public void crearServicioEvent(){
 
+
     }
 
 }
