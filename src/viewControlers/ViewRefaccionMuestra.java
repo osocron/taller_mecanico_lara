@@ -69,4 +69,7 @@ public class ViewRefaccionMuestra implements Initializable {
         cantidad.setText("");
         moneda.setText("");
     }
+    public void buscarRefaccionEvent(){
+        //ControladorRefaccion buscarRefaccion(TextField )
+    }
 }

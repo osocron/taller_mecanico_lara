@@ -32,7 +32,7 @@
          <children>
             <Label fx:id="labelRefaccion" prefHeight="17.0" prefWidth="77.0" text="Refaccion" />
             <TextField fx:id="textfieldRefaccion" prefHeight="25.0" prefWidth="114.0" />
-            <Button fx:id="buttonBuscar" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Buscar">
+            <Button fx:id="buttonBuscar" mnemonicParsing="false" onAction="#buscarRefaccionEvent" prefHeight="25.0" prefWidth="71.0" text="Buscar">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

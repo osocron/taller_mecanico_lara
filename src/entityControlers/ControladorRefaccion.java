@@ -48,7 +48,6 @@ public class ControladorRefaccion {
             entityTransaction.commit();
         }
     }
-
     public static RefaccionEntity getRefaccionPorMarca(String Marca){
         return ConexionBD.getEm().find(RefaccionEntity.class, Marca);
     }
