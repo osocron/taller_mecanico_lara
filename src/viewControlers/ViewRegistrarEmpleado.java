@@ -63,7 +63,7 @@ public class ViewRegistrarEmpleado implements Initializable {
                             textfieldUsuario.getText(),textfieldContrasena.getText(),
                             Integer.parseInt(textfieldIDempleado.getText())));
         }
-        Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");
+        Alert alert = getWarningAlert("Exitoso","Atencion","Cliente registrado exitosamente!");
         alert.showAndWait();
         textfieldIDempleado.setText("");
         textfieldNombre.setText("");

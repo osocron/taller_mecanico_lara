@@ -61,8 +61,8 @@
       <column name="IDServicios" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="Matricula" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="idServicioAutomovil"/>
-      <foreign-key name="fk_ServicioAutomovil_2" columns="Matricula" ref-table="Automoviles" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="Matricula" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_ServicioAutomovil_1" columns="IDServicios" ref-table="Servicio" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDServicio" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_ServicioAutomovil_2" columns="Matricula" ref-table="Automoviles" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="Matricula" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_ServicioAutomovil_1_idx" unique="false" columns="IDServicios"/>
       <index name="fk_ServicioAutomovil_2_idx" unique="false" columns="Matricula"/>
     </table>

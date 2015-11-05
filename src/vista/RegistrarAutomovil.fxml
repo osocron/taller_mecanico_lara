@@ -109,7 +109,7 @@
                   </VBox>
                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="registrarButton" mnemonicParsing="false" text="Registrar Automovil">
+                        <Button fx:id="registrarButton" mnemonicParsing="false" onAction="#registrarAutomovilActionEvent" text="Registrar Automovil">
                            <HBox.margin>
                               <Insets bottom="10.0" right="25.0" top="10.0" />
                            </HBox.margin>

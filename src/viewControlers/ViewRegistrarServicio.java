@@ -1,5 +1,6 @@
 package viewControlers;
 
+import entities.ClienteEntity;
 import entities.ServicioEntity;
 import entityControlers.ControladorServicio;
 import javafx.collections.FXCollections;
@@ -45,22 +46,16 @@ public class ViewRegistrarServicio implements Initializable {
     @FXML
     public Button buttonCancelar;
 
-    private ObservableList<ServicioEntity> data = FXCollections.observableArrayList();
+    private ObservableList<ServicioEntity> dataServicios = FXCollections.observableArrayList();
+    private ObservableList<ClienteEntity> dataClientes = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<ServicioEntity> listaServicio = ControladorServicio.getServicios();
-        data.addAll(listaServicio);
+        dataServicios.addAll(listaServicio);
     }
     public void crearServicioEvent(){
-        /*ControladorServicio.crearServicio(textfieldServicio.getText(),textfieldDescripcion.getText(),
-                comboboxServicio.getVisibleRowCount(),textfieldIDempleado.getText(),textfieldPrecio.getText(),
-                datepickerFecha.setOnAction());*/
-        textfieldPrecio.setText("");
-        textfieldIDempleado.setText("");
-        textfieldDescripcion.setText("");
-        //comboboxServicio.setOnAction();
-        textfieldServicio.setText("");
-        //datepickerFecha.setOnAction(s);
+
     }
+
 }
