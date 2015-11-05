@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRefaccionMuestra">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRefaccionMuestra">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -59,10 +59,28 @@
       </TableView>
    </center>
    <bottom>
-      <Button fx:id="buttonAtras" mnemonicParsing="false" prefHeight="32.0" prefWidth="61.0" text="Atras" BorderPane.alignment="TOP_LEFT">
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buttonAtras" mnemonicParsing="false" text="Atras" />
+            <Button fx:id="buttonEditar" mnemonicParsing="false" onAction="#modificarRefaccionEvent" text="Editar">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#eliminarRefaccionEvent" text="Eliminar">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="buttonGuardar" mnemonicParsing="false" onAction="#guardarRefaccionEvent" text="Guardar Cambios">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+         </children>
          <BorderPane.margin>
-            <Insets bottom="20.0" left="20.0" />
+            <Insets left="150.0" />
          </BorderPane.margin>
-      </Button>
+      </HBox>
    </bottom>
 </BorderPane>

@@ -59,8 +59,7 @@ public class ViewRefaccionMuestra implements Initializable {
         moneda.setText("");
     }
     public void eliminarRefaccionEvent(){
-        /*ControladorRefaccion.eliminarRefaccion(ControladorRefaccion.eliminarRefaccion(idRefaccion.getTableView()));
-        idRefaccion.setText("");*/
+
     }
     public void modificarRefaccionEvent(){
         /*ControladorRefaccion.modificarRefaccion(ControladorRefaccion.modificarRefaccion(descripcion.getTableView(),
@@ -70,6 +69,6 @@ public class ViewRefaccionMuestra implements Initializable {
         moneda.setText("");
     }
     public void buscarRefaccionEvent(){
-        //ControladorRefaccion buscarRefaccion(TextField )
+
     }
 }

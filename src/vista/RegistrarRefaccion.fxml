@@ -55,7 +55,7 @@
    <bottom>
       <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonAceptar" mnemonicParsing="false" text="Aceptar">
+            <Button fx:id="buttonAceptar" mnemonicParsing="false" onAction="#crearRefaccionEvent" text="Aceptar">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>

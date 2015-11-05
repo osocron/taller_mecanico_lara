@@ -27,9 +27,12 @@ public class ViewRegistrarAutomovil implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dataCliente.addAll(ControladorCliente.getCliente());
-        dataAtuomoviles.addAll(ControladorAutomovil.getAutomoviles());
-        clienteEntityComboBox.getItems().addAll(dataCliente);
+        java.util.List<AutomovilesEntity> listaAutomoviles = ControladorAutomovil.getAutomoviles();
+        dataAtuomoviles.addAll(listaAutomoviles);
+    }
+    public void guardarAutomovilEvent(){
+        /*ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearUsuario(matriculaTextField.getText(),marcaTextField.getText(),
+                modeloTextField.getText(),colorTextField.getText()));*/
     }
 
 }

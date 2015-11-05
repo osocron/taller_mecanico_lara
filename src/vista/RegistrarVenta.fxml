@@ -80,7 +80,7 @@
    <bottom>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <Button fx:id="buttonAceptar" mnemonicParsing="false" text="Aceptar" />
+            <Button fx:id="buttonAceptar" mnemonicParsing="false" onAction="#crearVentaEvent" text="Aceptar" />
             <Button fx:id="buttonCancelar" mnemonicParsing="false" text="Cancelar">
                <HBox.margin>
                   <Insets left="50.0" />

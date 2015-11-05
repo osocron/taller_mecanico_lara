@@ -53,9 +53,8 @@ public class ViewRegistrarRefaccion implements Initializable {
         dataRefaccion.addAll(listaRefaccion);
     }
     public void crearRefaccionEvent(){
-        /*ControladorRefaccion.crearRefaccion(textfieldArticulo.getLength(),textfieldDescripcion.getText(),
-                textfieldPrecio.getLength(),comboboxIDprovedor.getVisibleRowCount(),comboboxMoneda.getVisibleRowCount()
-                );*/
+        //ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(textfieldArticulo,textfieldDescripcion,textfieldPrecio,comboboxMoneda));
+
         textfieldArticulo.setText("");
         textfieldDescripcion.setText("");
         textfieldPrecio.setText("");

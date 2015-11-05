@@ -111,4 +111,7 @@ public class AutomovilesEntity {
     public void setServicioAutomovilsByMatricula(Collection<ServicioAutomovilEntity> servicioAutomovilsByMatricula) {
         this.servicioAutomovilsByMatricula = servicioAutomovilsByMatricula;
     }
+    public String toString(){
+        return matricula;
+    }
 }

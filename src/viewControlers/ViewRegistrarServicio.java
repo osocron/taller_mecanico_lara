@@ -53,9 +53,7 @@ public class ViewRegistrarServicio implements Initializable {
         data.addAll(listaServicio);
     }
     public void crearServicioEvent(){
-        /*ControladorServicio.crearServicio(textfieldServicio.getText(),textfieldDescripcion.getText(),
-                comboboxServicio.getVisibleRowCount(),textfieldIDempleado.getText(),textfieldPrecio.getText(),
-                datepickerFecha.setOnAction());*/
+        //ControladorServicio.guardarServicio(ControladorServicio.crearServicio(textfieldServicio.getText(),textfieldDescripcion.getText(),textfieldPrecio.getText(),textfieldIDempleado.getText()));
         textfieldPrecio.setText("");
         textfieldIDempleado.setText("");
         textfieldDescripcion.setText("");

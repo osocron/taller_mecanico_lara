@@ -62,7 +62,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonAceptar" mnemonicParsing="false" text="Aceptar" />
+            <Button fx:id="buttonAceptar" mnemonicParsing="false" onAction="#crearServicioEvent" text="Aceptar" />
             <Button fx:id="buttonCancelar" mnemonicParsing="false" text="Cancelar">
                <HBox.margin>
                   <Insets left="50.0" />

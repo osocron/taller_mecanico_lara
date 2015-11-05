@@ -59,4 +59,10 @@ public class ViewServicioMuestra implements Initializable {
         idEmpleado.setText("");
         total.setText("");
     }
+    public void eliminarServicioEvent(){
+
+    }
+    public void modificarServicioEvent(){
+
+    }
 }

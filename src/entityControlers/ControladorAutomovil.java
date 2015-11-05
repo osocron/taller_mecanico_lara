@@ -28,7 +28,7 @@ public class ControladorAutomovil {
         ConexionBD.getEm().persist(automovil);
         return automovil;
     }
-    public static void modificarCliente(String IDClientes){
+    public static void modificarAutomovil(String IDClientes){
         AutomovilesEntity auto = getAutomovilIDcliente(IDClientes);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
