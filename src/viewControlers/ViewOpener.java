@@ -21,8 +21,6 @@ public class ViewOpener {
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(root, 600, 400));
-            //ProductViewController controller = loader.<ProductViewController>getController();
-            //controller.setResourceObject(resourceObject, inventarioProductosController);
             stage.show();
             return 0;
         } catch (IOException e) {

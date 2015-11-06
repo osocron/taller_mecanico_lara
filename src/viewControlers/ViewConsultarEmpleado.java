@@ -22,6 +22,7 @@ public class ViewConsultarEmpleado implements Initializable {
     @FXML
     public Button buttonEliminar,buttonEditar,buttonGuardar,buttonBuscar;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
