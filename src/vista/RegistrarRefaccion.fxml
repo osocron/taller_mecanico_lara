@@ -6,13 +6,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRegistrarRefaccion">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRegistrarRefaccion">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaActionEvent" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -88,7 +88,7 @@
             <Insets bottom="70.0" left="70.0" right="70.0" top="10.0" />
          </padding>
          <BorderPane.margin>
-            <Insets left="50.0" right="50.0" top="100.0" />
+            <Insets left="15.0" right="15.0" top="15.0" />
          </BorderPane.margin>
       </VBox>
    </right>

@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ViewRegistrarAutomovil implements Initializable {
@@ -30,10 +31,9 @@ public class ViewRegistrarAutomovil implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<AutomovilesEntity> listaAutomoviles = ControladorAutomovil.getAutomoviles();
         dataAtuomoviles.addAll(listaAutomoviles);
-    }
-    public void guardarAutomovilEvent(){
-        /*ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearUsuario(matriculaTextField.getText(),marcaTextField.getText(),
-                modeloTextField.getText(),colorTextField.getText()));*/
+        List<ClienteEntity> clienteEntityList = ControladorCliente.getCliente();
+        dataCliente.addAll(clienteEntityList);
+        clienteEntityComboBox.setItems(dataCliente);
     }
 
 

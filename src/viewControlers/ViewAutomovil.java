@@ -20,24 +20,7 @@ import java.util.ResourceBundle;
  * Created by ValdemarRamos on 27/10/2015.
  */
 public class ViewAutomovil implements Initializable {
-    @FXML
-    private BorderPane bordePane;
-    @FXML
-    private HBox hbox;
-    @FXML
-    public CheckBox checkboxAutomovil;
-    @FXML
-    public CheckBox checkboxCoche;
-    @FXML
-    public CheckBox checkboxAuto;
-    @FXML
-    public Label labelMatricula;
-    @FXML
-    public Label labelModelo;
-    @FXML
-    public Label labelMarca;
-    @FXML
-    public Label labelIDcliente;
+
     @FXML
     public TextField textfieldMatricula;
     @FXML

@@ -4,9 +4,11 @@ import entidades.RefaccionEntity;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.math.BigDecimal;
 import java.net.URL;
@@ -35,6 +37,7 @@ public class ViewRegistrarRefaccion implements Initializable {
     public Button buttonAceptar;
     @FXML
     public Button buttonCancelar;
+    public MenuItem menuItemClose;
 
     private ObservableList<RefaccionEntity> dataRefaccion = FXCollections.observableArrayList();
 
@@ -68,4 +71,8 @@ public class ViewRegistrarRefaccion implements Initializable {
         textfieldCantidad.setText("");
     }
 
+    public void cerrarVentanaActionEvent() {
+        Stage stage = (Stage) labelArticulo.getScene().getWindow();
+        stage.close();
+    }
 }
