@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -64,8 +63,8 @@ public class ViewRegistrarEmpleado implements Initializable {
                             textfieldUsuario.getText(),textfieldContrasena.getText(),
                             Integer.parseInt(textfieldIDempleado.getText())));
         }
-        /*Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");
-        alert.showAndWait();*/
+        Alert alert = getWarningAlert("Exitoso","Atencion","Cliente registrado exitosamente!");
+        alert.showAndWait();
         textfieldIDempleado.setText("");
         textfieldNombre.setText("");
         textfieldPuesto.setText("");
@@ -73,12 +72,12 @@ public class ViewRegistrarEmpleado implements Initializable {
         textfieldContrasena.setText("");
     }
 
-    /*private Alert getWarningAlert(String title, String headerText, String contentText){
+    private Alert getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         return alert;
-    }*/
+    }
 
 }

@@ -6,11 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,19 +25,11 @@ public class ViewRegistrarRefaccion implements Initializable {
     @FXML
     public Label labelPrecio;
     @FXML
-    public Label labelIDprovedor;
-    @FXML
-    public Label labelMoneda;
-    @FXML
-    public TextField textfieldArticulo;
+    public TextField textfieldIDArticulo;
     @FXML
     public TextField textfieldDescripcion;
     @FXML
-    public TextField textfieldPrecio;
-    @FXML
-    public ComboBox comboboxIDprovedor;
-    @FXML
-    public ComboBox comboboxMoneda;
+    public TextField textfieldPrecio, textfieldCantidad;
     @FXML
     public Button buttonAceptar;
     @FXML
@@ -53,12 +43,28 @@ public class ViewRegistrarRefaccion implements Initializable {
         dataRefaccion.addAll(listaRefaccion);
     }
     public void crearRefaccionEvent(){
-        //ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(textfieldArticulo,textfieldDescripcion,textfieldPrecio,comboboxMoneda));
+        ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(
+                Integer.parseInt(textfieldIDArticulo.getText()),textfieldDescripcion.getText(),
+                BigDecimal.valueOf(Double.valueOf(textfieldPrecio.getText())),
+                Integer.parseInt(textfieldCantidad.getText())));
+        Alert alert = getWarningAlert("Exitoso","Atencion","Refaccion agregada exitosamente!");
+        alert.showAndWait();
+        cancelarActionEvent();
+    }
 
-        textfieldArticulo.setText("");
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
+    }
+
+    public void cancelarActionEvent(){
+        textfieldIDArticulo.setText("");
         textfieldDescripcion.setText("");
         textfieldPrecio.setText("");
-        //comboboxIDprovedor.setOnAction();
-        //comboboxMoneda.setOnAction();
+        textfieldCantidad.setText("");
     }
+
 }
