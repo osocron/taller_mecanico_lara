@@ -11,7 +11,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -98,7 +98,7 @@
       </VBox>
    </center>
    <bottom>
-      <Button fx:id="buttonAtras" mnemonicParsing="false" prefHeight="28.0" prefWidth="57.0" text="Atras" BorderPane.alignment="TOP_LEFT">
+      <Button fx:id="buttonCancelar" mnemonicParsing="false" prefHeight="28.0" prefWidth="57.0" text="Atras" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
             <Insets bottom="20.0" left="30.0" />
          </BorderPane.margin>
