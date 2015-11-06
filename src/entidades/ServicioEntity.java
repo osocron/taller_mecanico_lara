@@ -1,11 +1,11 @@
-package entities;
+package entidades;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Collection;
 
 /**
- * Created by osocron on 4/11/15.
+ * Created by osocron on 6/11/15.
  */
 @Entity
 @Table(name = "Servicio", schema = "", catalog = "taller_mecanico_lara")

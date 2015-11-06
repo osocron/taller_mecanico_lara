@@ -1,10 +1,10 @@
-package entities;
+package entidades;
 
 import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 4/11/15.
+ * Created by osocron on 6/11/15.
  */
 @Entity
 @Table(name = "Automoviles", schema = "", catalog = "taller_mecanico_lara")
@@ -110,5 +110,10 @@ public class AutomovilesEntity {
 
     public void setServicioAutomovilsByMatricula(Collection<ServicioAutomovilEntity> servicioAutomovilsByMatricula) {
         this.servicioAutomovilsByMatricula = servicioAutomovilsByMatricula;
+    }
+
+    @Override
+    public String toString() {
+        return marca+" "+modelo+" "+color;
     }
 }

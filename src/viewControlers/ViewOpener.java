@@ -30,6 +30,21 @@ public class ViewOpener {
         }
     }
 
+    public void openRefaccionPicker(String pathToFXML, String title, ViewRegistrarServicio parent){
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(pathToFXML));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root, 500, 400));
+        ViewSeleccionarRefaccion controller = loader.<ViewSeleccionarRefaccion>getController();
+        controller.setParent(parent);
+        stage.show();
+    }
 
 
 }

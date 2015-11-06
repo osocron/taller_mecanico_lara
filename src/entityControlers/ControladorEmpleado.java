@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entities.EmpleadoEntity;
+import entidades.EmpleadoEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;

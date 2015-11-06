@@ -1,6 +1,6 @@
 package viewControlers;
 
-import entities.EmpleadoEntity;
+import entidades.EmpleadoEntity;
 import entityControlers.ControladorEmpleado;
 import entityControlers.ControladorUsuario;
 import javafx.collections.FXCollections;

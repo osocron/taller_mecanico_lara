@@ -1,6 +1,6 @@
 package viewControlers;
 
-import entities.RefaccionEntity;
+import entidades.RefaccionEntity;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -46,7 +47,7 @@ public class ViewProvedor implements Initializable {
     private ObservableList<RefaccionEntity> data = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        java.util.List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
+        List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         data.addAll(listaRefaccion);
     }
 }

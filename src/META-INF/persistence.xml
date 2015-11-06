@@ -2,18 +2,18 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
     <persistence-unit name="tallerPU">
-        <mapping-file>entities/mappings.xml</mapping-file>
-        <class>entities.AutomovilesEntity</class>
-        <class>entities.ClienteEntity</class>
-        <class>entities.EmpleadoEntity</class>
-        <class>entities.RefaccionEntity</class>
-        <class>entities.ServicioEntity</class>
-        <class>entities.ServicioAutomovilEntity</class>
-        <class>entities.ServicioRefaccionEntity</class>
-        <class>entities.UsuarioEntity</class>
-        <class>entities.VentaRefaccionEntity</class>
-        <class>entities.VentaServicioEntity</class>
-        <class>entities.VentasEntity</class>
+        <mapping-file>entidades/mappings.xml</mapping-file>
+        <class>entidades.AutomovilesEntity</class>
+        <class>entidades.ClienteEntity</class>
+        <class>entidades.EmpleadoEntity</class>
+        <class>entidades.RefaccionEntity</class>
+        <class>entidades.ServicioEntity</class>
+        <class>entidades.ServicioAutomovilEntity</class>
+        <class>entidades.ServicioRefaccionEntity</class>
+        <class>entidades.UsuarioEntity</class>
+        <class>entidades.VentaRefaccionEntity</class>
+        <class>entidades.VentaServicioEntity</class>
+        <class>entidades.VentasEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/taller_mecanico_lara"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

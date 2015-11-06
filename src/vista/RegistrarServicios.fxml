@@ -78,12 +78,6 @@
                         <Insets right="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label fx:id="labelFecha" text="Fecha">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <DatePicker fx:id="datepickerFecha" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
@@ -96,7 +90,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ComboBox prefWidth="150.0">
+                  <ComboBox fx:id="comboBoxClientes" prefWidth="150.0">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
@@ -106,20 +100,35 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ComboBox prefWidth="150.0">
+                  <ComboBox fx:id="comboBoxAutos" prefWidth="150.0">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                      <TableColumn prefWidth="117.0" text="Refaccion" />
-                      <TableColumn prefWidth="116.0" text="Cantidad" />
-                    </columns>
+                  <TableView fx:id="tablaRefacciones" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn fx:id="refaccionTableColumn" prefWidth="134.0" text="Refaccion" />
+                        <TableColumn fx:id="cantidadTableColumn" prefWidth="141.0" text="Cantidad" />
+                     </columns>
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
                      </VBox.margin>
                   </TableView>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="eliminarRefaccionButton" mnemonicParsing="false" text="Eliminar">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="agregarRefaccionButton" mnemonicParsing="false" onAction="#agregarRefaccionActionEvent" text="Agregar">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
                </children>
             </VBox>
          </children>
@@ -130,20 +139,21 @@
    </center>
    <bottom>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="buttonAceptar" mnemonicParsing="false" text="Aceptar">
-               <HBox.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </HBox.margin></Button>
-            <Button fx:id="buttonCancelar" mnemonicParsing="false" text="Cancelar">
-               <HBox.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </HBox.margin>
-            </Button>
-         </children>
          <BorderPane.margin>
             <Insets left="200.0" />
          </BorderPane.margin>
+         <children>
+            <Button fx:id="buttonCancelar" mnemonicParsing="false" onAction="#cancelarActionEvent" text="Cancelar">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="buttonRegistrarServicio" mnemonicParsing="false" onAction="#registrarServicioOnActionEvent" text="Registrar Servicio">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
       </HBox>
    </bottom>
 </BorderPane>

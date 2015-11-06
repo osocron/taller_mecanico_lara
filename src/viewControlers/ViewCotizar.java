@@ -1,7 +1,7 @@
 package viewControlers;
 
-import entities.RefaccionEntity;
-import entities.ServicioEntity;
+import entidades.RefaccionEntity;
+import entidades.ServicioEntity;
 import entityControlers.ControladorRefaccion;
 import entityControlers.ControladorServicio;
 import javafx.collections.FXCollections;
@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -51,7 +52,7 @@ public class ViewCotizar implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<ServicioEntity> listaServicio = ControladorServicio.getServicios();
         dataServicio.addAll(listaServicio);
-        java.util.List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
+        List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         dataRefaccion.addAll(listaRefaccion);
     }
 }

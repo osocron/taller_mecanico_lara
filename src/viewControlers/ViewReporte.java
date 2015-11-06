@@ -1,8 +1,8 @@
 package viewControlers;
 
-import entities.VentaRefaccionEntity;
-import entities.VentaServicioEntity;
-import entities.VentasEntity;
+import entidades.VentaRefaccionEntity;
+import entidades.VentaServicioEntity;
+import entidades.VentasEntity;
 import entityControlers.ControladorVentas;
 import entityControlers.ControladorVentasRefaccion;
 import entityControlers.ControladorVentasServicio;

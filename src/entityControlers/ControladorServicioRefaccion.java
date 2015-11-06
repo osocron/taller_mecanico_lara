@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entities.ServicioRefaccionEntity;
+import entidades.ServicioRefaccionEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class ControladorServicioRefaccion {
     public static List<ServicioRefaccionEntity> getServicioRefaccion(){
-        return ConexionBD.getEm().createQuery("SELECT c FROM UsuarioEntity c")
+        return ConexionBD.getEm().createQuery("SELECT c FROM ServicioRefaccionEntity c")
                 .getResultList();
     }
     public static void guardarServicioRefaccion(ServicioRefaccionEntity servicioRefaccion){
@@ -20,11 +20,12 @@ public class ControladorServicioRefaccion {
         entityTransaction.commit();
     }
 
-    public static ServicioRefaccionEntity crearServicioRefaccion(int idServicioRefaccion, int IDServicios, int IDRefacciones){
+    public static ServicioRefaccionEntity crearServicioRefaccion(int idServicioRefaccion, int IDServicios, int IDRefacciones, int cantidad){
         ServicioRefaccionEntity servicioRefaccion = new ServicioRefaccionEntity();
         servicioRefaccion.setIdServicioRefaccion(idServicioRefaccion);
         servicioRefaccion.setIdServicios(IDServicios);
         servicioRefaccion.setIdRefacciones(IDRefacciones);
+        servicioRefaccion.setCantidad(cantidad);
         ConexionBD.getEm().persist(servicioRefaccion);
         return servicioRefaccion;
     }

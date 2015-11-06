@@ -1,10 +1,10 @@
-package entities;
+package entidades;
 
 import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 4/11/15.
+ * Created by osocron on 6/11/15.
  */
 @Entity
 @Table(name = "Cliente", schema = "", catalog = "taller_mecanico_lara")
@@ -99,7 +99,7 @@ public class ClienteEntity {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return nombre;
     }
 }

@@ -1,6 +1,6 @@
 package viewControlers;
 
-import entities.RefaccionEntity;
+import entidades.RefaccionEntity;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 
 import java.math.BigDecimal;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -39,7 +40,7 @@ public class ViewRegistrarRefaccion implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        java.util.List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
+        List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         dataRefaccion.addAll(listaRefaccion);
     }
     public void crearRefaccionEvent(){
