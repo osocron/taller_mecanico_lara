@@ -66,10 +66,20 @@ public class ViewRegistrarVenta implements Initializable {
                 return Integer.parseInt(string);
             }
         }));
-        cantidadTableColumn.setOnEditCommit(event -> event.getTableView().getItems().get(
-                event.getTablePosition().getRow()).setCantidad(event.getNewValue()));
+        cantidadTableColumn.setOnEditCommit(event ->
+        {
+            calcularTotalPorRefaccionModificado(event.getTableView().getItems().get(
+                    event.getTablePosition().getRow()),event.getOldValue(),event.getNewValue());
+            event.getTableView().getItems().get(
+                event.getTablePosition().getRow()).setCantidad(event.getNewValue());
+        });
+    }
+
+    private void calcularTotalPorRefaccionModificado(RefaccionEntity refaccionEntity,
+                                                     Integer oldValue, Integer newValue) {
 
     }
+
     public void crearVentaEvent(){
         textfieldIDventa.setText("");
     }
