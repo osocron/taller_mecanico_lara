@@ -14,7 +14,7 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Close" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -114,6 +114,7 @@
                   <AnchorPane VBox.vgrow="ALWAYS">
                      <children>
                                 <Button fx:id="buttonEmpleado" graphicTextGap="0.0" mnemonicParsing="false" onAction="#registrarEmpleadoActionEvent" text="Registrar Empleado" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="25.0" />
+                        <Button fx:id="buttonCancelar" layoutX="33.0" layoutY="119.0" mnemonicParsing="false" onAction="#cancelarActionEvent" text="Cancelar" />
                      </children>
                   </AnchorPane>
                </children>

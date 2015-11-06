@@ -11,7 +11,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="menuitemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -60,7 +60,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="buttonAtras" mnemonicParsing="false" text="Atras">
+                  <Button fx:id="buttonCancelar" mnemonicParsing="false" text="Cancelar">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
