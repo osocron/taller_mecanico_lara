@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,6 +50,10 @@ public class ViewConsultarVentas implements Initializable {
     }
 
     public void cerrarVentanaEvent(ActionEvent actionEvent) {
+        Stage stage = (Stage) buscarButton.getScene().getWindow();
+        stage.close();
+    }
+    public void cancelarActionEvent(){
 
     }
 }

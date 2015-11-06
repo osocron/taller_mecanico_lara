@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -59,6 +60,10 @@ public class ViewRegistrarAutomovil implements Initializable {
     }
 
     public void cerrarVentanaEvent(ActionEvent actionEvent) {
+        Stage stage = (Stage) matriculaTextField.getScene().getWindow();
+        stage.close();
+    }
+    public void cancelarActionEvent(){
 
     }
 }

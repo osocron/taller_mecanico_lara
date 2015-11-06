@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -62,7 +64,8 @@ public class ViewRegistrarVenta implements Initializable {
     }
 
     public void cerrarVentanaClose(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) labelCantidad.getScene().getWindow();
+        stage.close();
     }
 
     public void cancelarActionEvent(ActionEvent actionEvent) {

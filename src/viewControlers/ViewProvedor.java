@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -53,7 +54,8 @@ public class ViewProvedor implements Initializable {
     }
 
     public void cerrarVentanaEvent(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) textfieldDireccion.getScene().getWindow();
+        stage.close();
     }
 
     public void cancelarActionEvent(ActionEvent actionEvent) {

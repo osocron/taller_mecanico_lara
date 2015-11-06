@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -60,5 +61,12 @@ public class ViewAutomovil implements Initializable {
         textfieldMarca.setText("");
         textfieldModelo.setText("");
         textfieldIDcliente.setText("");
+    }
+    public void cerrarVentanaEvent(){
+        Stage stage = (Stage) textfieldMatricula.getScene().getWindow();
+        stage.close();
+    }
+    public void cancelarActionEvent(){
+
     }
 }

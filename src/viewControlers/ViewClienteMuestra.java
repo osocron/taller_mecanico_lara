@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -74,6 +75,10 @@ public class ViewClienteMuestra implements Initializable{
     }
 
     public void cerrarVentanaEvent(ActionEvent actionEvent) {
+        Stage stage = (Stage) labelDomicilio.getScene().getWindow();
+        stage.close();
+    }
+    public void cancelarActionEvent(){
 
     }
 }

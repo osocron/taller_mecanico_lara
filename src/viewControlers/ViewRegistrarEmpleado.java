@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -84,7 +85,8 @@ public class ViewRegistrarEmpleado implements Initializable {
     }
 
     public void cerrarVentanaEvent(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) labelNombre.getScene().getWindow();
+        stage.close();
     }
 
     public void cancelarActionEvent(ActionEvent actionEvent) {

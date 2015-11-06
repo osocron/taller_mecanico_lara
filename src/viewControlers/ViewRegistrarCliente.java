@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,8 +53,8 @@ public class ViewRegistrarCliente implements Initializable {
         ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldRFC.getText(),
                 textfieldNombre.getText(), textfieldDomicilio.getText(),
                 textfieldTelefono.getText()));
-        /*Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");
-        alert.showAndWait();*/
+        Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");
+        alert.showAndWait();
         textfieldRFC.setText("");
         textfieldNombre.setText("");
         textfieldDomicilio.setText("");
@@ -60,19 +62,20 @@ public class ViewRegistrarCliente implements Initializable {
     }
 
     public void cerrarVentanaEvent(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) labelDomicilio.getScene().getWindow();
+        stage.close();
     }
 
     public void cancelarActionEvent(ActionEvent actionEvent) {
 
     }
 
-   /* private Alert getWarningAlert(String title, String headerText, String contentText){
+    private Alert getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         return alert;
-    }*/
+    }
 
 }
