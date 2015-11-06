@@ -1,9 +1,10 @@
 package viewControlers;
 
-import entities.VentasEntity;
+import entidades.VentasEntity;
 import entityControlers.ControladorVentas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -34,12 +35,16 @@ public class ViewConsultarVentas implements Initializable {
         dataVenta.addAll(listaVentas);
     }
     public void eliminarVentaEvent(){
-        ControladorVentas.eliminarVenta(busquedaTextField.getText());
+        ControladorVentas.eliminarVenta(Integer.parseInt(busquedaTextField.getText()));
     }
     public void buscarVentaEvent(){
 
     }
     public void modificarVentaEvent(){
+
+    }
+
+    public void guardarVentaEvent(ActionEvent actionEvent) {
 
     }
 }

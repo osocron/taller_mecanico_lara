@@ -40,7 +40,7 @@ public class ViewOpener {
         }
         Stage stage = new Stage();
         stage.setTitle(title);
-        stage.setScene(new Scene(root, 500, 400));
+        stage.setScene(new Scene(root, 600, 500));
         ViewSeleccionarRefaccion controller = loader.<ViewSeleccionarRefaccion>getController();
         controller.setParent(parent);
         stage.show();
