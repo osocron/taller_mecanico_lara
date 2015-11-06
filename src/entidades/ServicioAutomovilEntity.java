@@ -1,9 +1,9 @@
-package entities;
+package entidades;
 
 import javax.persistence.*;
 
 /**
- * Created by osocron on 4/11/15.
+ * Created by osocron on 6/11/15.
  */
 @Entity
 @Table(name = "ServicioAutomovil", schema = "", catalog = "taller_mecanico_lara")
@@ -11,8 +11,8 @@ public class ServicioAutomovilEntity {
     private int idServicioAutomovil;
     private int idServicios;
     private String matricula;
-    private AutomovilesEntity automovilesByMatricula;
     private ServicioEntity servicioByIdServicios;
+    private AutomovilesEntity automovilesByMatricula;
 
     @Id
     @Column(name = "idServicioAutomovil")
@@ -67,16 +67,6 @@ public class ServicioAutomovilEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "Matricula", referencedColumnName = "Matricula", nullable = false)
-    public AutomovilesEntity getAutomovilesByMatricula() {
-        return automovilesByMatricula;
-    }
-
-    public void setAutomovilesByMatricula(AutomovilesEntity automovilesByMatricula) {
-        this.automovilesByMatricula = automovilesByMatricula;
-    }
-
-    @ManyToOne
     @JoinColumn(name = "IDServicios", referencedColumnName = "IDServicio", nullable = false)
     public ServicioEntity getServicioByIdServicios() {
         return servicioByIdServicios;
@@ -84,5 +74,15 @@ public class ServicioAutomovilEntity {
 
     public void setServicioByIdServicios(ServicioEntity servicioByIdServicios) {
         this.servicioByIdServicios = servicioByIdServicios;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Matricula", referencedColumnName = "Matricula", nullable = false)
+    public AutomovilesEntity getAutomovilesByMatricula() {
+        return automovilesByMatricula;
+    }
+
+    public void setAutomovilesByMatricula(AutomovilesEntity automovilesByMatricula) {
+        this.automovilesByMatricula = automovilesByMatricula;
     }
 }

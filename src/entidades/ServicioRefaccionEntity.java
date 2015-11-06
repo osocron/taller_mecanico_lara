@@ -1,9 +1,9 @@
-package entities;
+package entidades;
 
 import javax.persistence.*;
 
 /**
- * Created by osocron on 4/11/15.
+ * Created by osocron on 6/11/15.
  */
 @Entity
 @Table(name = "ServicioRefaccion", schema = "", catalog = "taller_mecanico_lara")
@@ -11,6 +11,7 @@ public class ServicioRefaccionEntity {
     private int idServicioRefaccion;
     private int idServicios;
     private int idRefacciones;
+    private int cantidad;
     private ServicioEntity servicioByIdServicios;
     private RefaccionEntity refaccionByIdRefacciones;
 
@@ -44,6 +45,16 @@ public class ServicioRefaccionEntity {
         this.idRefacciones = idRefacciones;
     }
 
+    @Basic
+    @Column(name = "cantidad")
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -54,6 +65,7 @@ public class ServicioRefaccionEntity {
         if (idServicioRefaccion != that.idServicioRefaccion) return false;
         if (idServicios != that.idServicios) return false;
         if (idRefacciones != that.idRefacciones) return false;
+        if (cantidad != that.cantidad) return false;
 
         return true;
     }
@@ -63,6 +75,7 @@ public class ServicioRefaccionEntity {
         int result = idServicioRefaccion;
         result = 31 * result + idServicios;
         result = 31 * result + idRefacciones;
+        result = 31 * result + cantidad;
         return result;
     }
 

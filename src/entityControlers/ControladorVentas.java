@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entities.VentasEntity;
+import entidades.VentasEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
@@ -37,7 +37,7 @@ public class ControladorVentas {
         ventas.setIdClientes(IDClientes);
         entityTransaction.commit();
     }
-    public static void eliminarVenta(int IDVenta){
+    public static void eliminarVenta(Integer IDVenta){
         VentasEntity venta = getVentaPorID(IDVenta);
         if(IDVenta != 0){
             EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();

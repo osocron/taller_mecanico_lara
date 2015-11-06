@@ -1,11 +1,10 @@
 package viewControlers;
 
-import entities.AutomovilesEntity;
-import entities.ClienteEntity;
+import entidades.AutomovilesEntity;
+import entidades.ClienteEntity;
 import entityControlers.ControladorAutomovil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 //import javafx.scene.control.Alert;

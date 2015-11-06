@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entities.AutomovilesEntity;
+import entidades.AutomovilesEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;

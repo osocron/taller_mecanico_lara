@@ -1,10 +1,10 @@
 package viewControlers;
 
-import entities.EmpleadoEntity;
-import entityControlers.ControladorEmpleado;
+import entidades.EmpleadoEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -20,28 +20,22 @@ public class ViewConsultarEmpleado implements Initializable {
     @FXML
     public TableView<EmpleadoEntity> tableEmpleados;
     @FXML
-    public TableColumn puesto,nombre,idEmpleado;
-    @FXML
-    public Button buttonEliminar,buttonEditar,buttonGuardar;
-    @FXML
-    public Button buttonBuscar;
+    public Button buttonEliminar,buttonEditar,buttonGuardar,buttonBuscar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
     public void eliminarEmpleadoEvent(){
-        ControladorEmpleado.eliminarEmpleado(busquedaTextField.getText());
+
     }
     public void modificarEmpleadoEvent(){
-        ControladorEmpleado.modificarEmpleado(nombre.getText(),puesto.getText());
-        nombre.setText("");
-        puesto.setText("");
+
     }
     public void buscarEmpleadoEvent(){
 
     }
     public void guardarEmpleadoEvent(){
-        ControladorEmpleado.guardarEmpleadp(ControladorEmpleado.crearEmpleado(idEmpleado.hashCode(), nombre.getText(), puesto.getText()));
+
     }
 }

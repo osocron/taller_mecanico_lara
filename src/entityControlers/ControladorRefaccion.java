@@ -1,6 +1,6 @@
 package entityControlers;
 
-import entities.RefaccionEntity;
+import entidades.RefaccionEntity;
 
 import javax.persistence.EntityTransaction;
 import java.math.BigDecimal;

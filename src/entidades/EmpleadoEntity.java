@@ -1,10 +1,10 @@
-package entities;
+package entidades;
 
 import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 4/11/15.
+ * Created by osocron on 6/11/15.
  */
 @Entity
 @Table(name = "Empleado", schema = "", catalog = "taller_mecanico_lara")
@@ -84,8 +84,9 @@ public class EmpleadoEntity {
     public void setUsuariosByIdEmpleado(Collection<UsuarioEntity> usuariosByIdEmpleado) {
         this.usuariosByIdEmpleado = usuariosByIdEmpleado;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return nombre;
     }
 }
