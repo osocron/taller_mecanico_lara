@@ -6,9 +6,11 @@ import entityControlers.ControladorRefaccion;
 import entityControlers.ControladorServicio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -54,5 +56,10 @@ public class ViewCotizar implements Initializable {
         dataServicio.addAll(listaServicio);
         List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         dataRefaccion.addAll(listaRefaccion);
+    }
+
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+        Stage stage = (Stage) textfieldAutomovil.getScene().getWindow();
+        stage.close();
     }
 }

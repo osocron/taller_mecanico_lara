@@ -5,11 +5,13 @@ import entityControlers.ControladorEmpleado;
 import entityControlers.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,6 +44,8 @@ public class ViewRegistrarEmpleado implements Initializable {
     public CheckBox checkBoxUsuario;
     @FXML
     public Button buttonEmpleado;
+    @FXML
+    public Button buttonCancelar;
 
     private ObservableList<EmpleadoEntity> dataEmpleado = FXCollections.observableArrayList();
 
@@ -80,4 +84,12 @@ public class ViewRegistrarEmpleado implements Initializable {
         return alert;
     }
 
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+        Stage stage = (Stage) labelNombre.getScene().getWindow();
+        stage.close();
+    }
+
+    public void cancelarActionEvent(ActionEvent actionEvent) {
+
+    }
 }

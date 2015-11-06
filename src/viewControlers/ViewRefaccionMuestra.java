@@ -4,9 +4,11 @@ import entidades.RefaccionEntity;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
@@ -68,6 +70,14 @@ public class ViewRefaccionMuestra implements Initializable {
         precio.setText("");
     }
     public void buscarRefaccionEvent(){
+
+    }
+
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+        Stage stage = (Stage) labelRefaccion.getScene().getWindow();
+        stage.close();
+    }
+    public void cancelarActionEvent(){
 
     }
 }

@@ -4,6 +4,7 @@ import entidades.ServicioEntity;
 import entityControlers.ControladorServicio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -62,6 +63,10 @@ public class ViewServicioMuestra implements Initializable {
 
     }
     public void modificarServicioEvent(){
+
+    }
+
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
 
     }
 }
