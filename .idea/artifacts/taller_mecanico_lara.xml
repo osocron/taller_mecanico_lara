@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="taller_mecanico_lara">
+    <output-path>$PROJECT_DIR$/out/artifacts/taller_mecanico_lara</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="vista.Main" />
+        <option name="description" value="" />
+        <option name="htmlParamFile" value="" />
+        <option name="nativeBundle" value="exe" />
+        <option name="paramFile" value="" />
+        <option name="title" value="Taller Lara" />
+        <option name="vendor" value="Equipo9" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="taller_mecanico_lara.jar">
+        <element id="module-output" name="taller_mecanico_lara" />
+      </element>
+      <element id="jpa-descriptors" facet="taller_mecanico_lara/jpa/JPA" />
+      <element id="library" level="project" name="eclipselink" />
+      <element id="library" level="project" name="javax.persistence" />
+      <element id="library" level="project" name="JPA 1.0-JPA 1.0" />
+      <element id="library" level="project" name="JPA 2.1-JPA 2.1" />
+      <element id="library" level="project" name="mysql-connector-java-5.1.35-bin" />
+      <element id="javaee-facet-resources" facet="taller_mecanico_lara/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
