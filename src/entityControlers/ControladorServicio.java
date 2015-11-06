@@ -31,7 +31,7 @@ public class ControladorServicio {
         return servicio;
     }
 
-    public static void modificarServicio(int IDServicio, String Descripcion, Float Costo, int IDEmpleados){
+    public static void modificarServicio(int IDServicio, String Descripcion, BigDecimal Costo, int IDEmpleados){
         ServicioEntity servicios = getServicioPorID(IDServicio);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
