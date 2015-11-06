@@ -5,12 +5,11 @@ import entidades.VentasEntity;
 import entityControlers.ControladorVentas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -44,6 +43,17 @@ public class ViewRegistrarVenta implements Initializable {
     public Button buttonCancelar;
     @FXML
     public TableView tableviewVenta;
+    public MenuItem menuItemClose;
+    public ComboBox comboBoxCliente;
+    public DatePicker fechaDatePicker;
+    public ListView servicioListView;
+    public Button eliminarServicioButton;
+    public Button agregarServicioButton;
+    public TableView refaccionTableView;
+    public TableColumn refaccionTableColumn;
+    public TableColumn cantidadTableColumn;
+    public Button eliminarRefaccionButton;
+    public Button agregarRefaccionActionEvent;
 
     private ObservableList<VentasEntity> data = FXCollections.observableArrayList();
     private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();
@@ -54,9 +64,32 @@ public class ViewRegistrarVenta implements Initializable {
         data.addAll(listaVentas);
     }
     public void crearVentaEvent(){
-       //ControladorVentas.crearVenta(textfieldIDventa.hashCode(),textfieldDescripcion.getDate(),textfieldCantidad.getText());
         textfieldIDventa.setText("");
         textfieldDescripcion.setText("");
         textfieldCantidad.setText("");
+    }
+
+    public void cerrarVentanaClose(ActionEvent actionEvent) {
+
+    }
+
+    public void eliminarServicioActionEvent(ActionEvent actionEvent) {
+
+    }
+
+    public void agregarServicioActionEvent(ActionEvent actionEvent) {
+
+    }
+
+    public void eliminarRefaccionActionEvent(ActionEvent actionEvent) {
+
+    }
+
+    public void agregarRefaccionActionEvent(ActionEvent actionEvent) {
+
+    }
+
+    public void cancelarActionEvent(ActionEvent actionEvent) {
+
     }
 }

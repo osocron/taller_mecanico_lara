@@ -4,6 +4,7 @@ import entidades.*;
 import entityControlers.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,6 +41,7 @@ public class ViewRegistrarServicio implements Initializable {
     public TableColumn<RefaccionEntity,String> refaccionTableColumn;
     public TableColumn<RefaccionEntity,Integer> cantidadTableColumn;
     public Button buttonRegistrarServicio;
+    public MenuItem menuItemClose;
 
     private ObservableList<ServicioEntity> dataServicios = FXCollections.observableArrayList();
     private ObservableList<ClienteEntity> dataClientes = FXCollections.observableArrayList();
@@ -166,5 +168,9 @@ public class ViewRegistrarServicio implements Initializable {
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         return alert;
+    }
+
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+
     }
 }
