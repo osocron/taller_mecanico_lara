@@ -47,4 +47,8 @@ public class ViewConsultarVentas implements Initializable {
     public void guardarVentaEvent(ActionEvent actionEvent) {
 
     }
+
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+
+    }
 }

@@ -5,6 +5,7 @@ import entidades.VentasEntity;
 import entityControlers.ControladorVentas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -58,5 +59,13 @@ public class ViewRegistrarVenta implements Initializable {
         textfieldIDventa.setText("");
         textfieldDescripcion.setText("");
         textfieldCantidad.setText("");
+    }
+
+    public void cerrarVentanaClose(ActionEvent actionEvent) {
+
+    }
+
+    public void cancelarActionEvent(ActionEvent actionEvent) {
+
     }
 }

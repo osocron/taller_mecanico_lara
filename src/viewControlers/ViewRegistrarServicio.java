@@ -4,6 +4,7 @@ import entidades.*;
 import entityControlers.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -166,5 +167,9 @@ public class ViewRegistrarServicio implements Initializable {
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         return alert;
+    }
+
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+
     }
 }

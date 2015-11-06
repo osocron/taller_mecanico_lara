@@ -4,6 +4,7 @@ import entidades.ClienteEntity;
 import entityControlers.ControladorCliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -70,5 +71,9 @@ public class ViewClienteMuestra implements Initializable{
         textfieldNombre.setText("");
         textfieldDomicilio.setText("");
         textfieldTelefono.setText("");
+    }
+
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+
     }
 }

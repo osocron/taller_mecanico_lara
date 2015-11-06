@@ -4,6 +4,7 @@ import entidades.RefaccionEntity;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -49,5 +50,13 @@ public class ViewProvedor implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         data.addAll(listaRefaccion);
+    }
+
+    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+
+    }
+
+    public void cancelarActionEvent(ActionEvent actionEvent) {
+
     }
 }
