@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewConsultarVentas">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewConsultarVentas">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -29,7 +29,7 @@
       </MenuBar>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="431.0" prefWidth="647.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Consutla de Ventas">
                <VBox.margin>
@@ -39,11 +39,38 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="busquedaTextField" promptText="Escribe el ID, nombre del cliente o fecha de la venta">
+            <TextField fx:id="busquedaTextField" prefHeight="25.0" prefWidth="425.0" promptText="Escribe el ID, nombre del cliente o fecha de la venta">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" />
                </VBox.margin>
             </TextField>
+            <Button fx:id="buscarButton" mnemonicParsing="false" onAction="#buscarVentaEvent" text="Buscar" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="50.0" />
+               </VBox.margin>
+            </Button>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#eliminarVentaEvent" text="Eliminar">
+                     <HBox.margin>
+                        <Insets left="200.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="buttonModificar" mnemonicParsing="false" onAction="#modificarVentaEvent" text="Editar">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="buttonGuardar" mnemonicParsing="false" onAction="#guardarVentaEvent" text="Guardar Cambios">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
             <TableView fx:id="tablaVentas">
               <columns>
                 <TableColumn fx:id="idVenta" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="111.0" text="Id Venta" />

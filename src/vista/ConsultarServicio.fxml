@@ -74,6 +74,21 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="buttonEditar" mnemonicParsing="false" onAction="#modificarServicioEvent" text="Editar">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#eliminarServicioEvent" text="Eliminar">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="buttonGuardar" mnemonicParsing="false" onAction="#guardarServicioEvent" text="Guardar Cambios">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets bottom="50.0" />
