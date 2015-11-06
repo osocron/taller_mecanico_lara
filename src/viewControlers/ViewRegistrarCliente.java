@@ -51,11 +51,11 @@ public class ViewRegistrarCliente implements Initializable {
                 textfieldNombre.getText(), textfieldDomicilio.getText(),
                 textfieldTelefono.getText()));
         /*Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");
-        alert.showAndWait();
+        alert.showAndWait();*/
         textfieldRFC.setText("");
         textfieldNombre.setText("");
         textfieldDomicilio.setText("");
-        textfieldTelefono.setText("");*/
+        textfieldTelefono.setText("");
     }
 
    /* private Alert getWarningAlert(String title, String headerText, String contentText){

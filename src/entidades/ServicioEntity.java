@@ -1,6 +1,7 @@
 package entidades;
 
 import javax.persistence.*;
+import java.lang.Float;
 import java.math.BigDecimal;
 import java.util.Collection;
 
@@ -78,7 +79,7 @@ public class ServicioEntity {
     public int hashCode() {
         int result = idServicio;
         result = 31 * result + (descripcion != null ? descripcion.hashCode() : 0);
-        result = 31 * result + (costo != null ? costo.hashCode() : 0);
+        //result = 31 * result + (costo != null ? costo.hashCode() : 0);
         result = 31 * result + idEmpleados;
         return result;
     }
@@ -118,5 +119,9 @@ public class ServicioEntity {
 
     public void setVentaServiciosByIdServicio(Collection<VentaServicioEntity> ventaServiciosByIdServicio) {
         this.ventaServiciosByIdServicio = ventaServiciosByIdServicio;
+    }
+    @Override
+    public String toString(){
+        return descripcion;
     }
 }

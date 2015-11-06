@@ -37,7 +37,7 @@ public class ViewRefaccionMuestra implements Initializable {
     @FXML
     public TableColumn idProvedor;
     @FXML
-    public TableColumn moneda;
+    public TableColumn precio;
 
 
     private ObservableList<RefaccionEntity> data = FXCollections.observableArrayList();
@@ -48,26 +48,24 @@ public class ViewRefaccionMuestra implements Initializable {
         data.addAll(listaRefaccion);
     }
     public void guardarRefaccionEvent(){
-        /*ControladorRefaccion.guardarRefaccion(ControladorRefaccion.guardarRefaccion(idRefaccion.getTableView(),
-                articulo.getTableView(),descripcion.getTableView(),cantidad.getTableView(),idProvedor.getTableView(),
-                moneda.getTableView()
-        ));*/
+        //ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(idRefaccion.hashCode(),articulo.getText(),precio.hashCode(),cantidad.hashCode()
+        //));
         idRefaccion.setText("");
         articulo.setText("");
         descripcion.setText("");
         cantidad.setText("");
         idProvedor.setText("");
-        moneda.setText("");
+        precio.setText("");
     }
     public void eliminarRefaccionEvent(){
-
+        ControladorRefaccion.eliminarRefaccion(textfieldRefaccion.getText());
     }
     public void modificarRefaccionEvent(){
         /*ControladorRefaccion.modificarRefaccion(ControladorRefaccion.modificarRefaccion(descripcion.getTableView(),
                 cantidad.getTableView(),moneda.getTableView()));*/
         descripcion.setText("");
         cantidad.setText("");
-        moneda.setText("");
+        precio.setText("");
     }
     public void buscarRefaccionEvent(){
 

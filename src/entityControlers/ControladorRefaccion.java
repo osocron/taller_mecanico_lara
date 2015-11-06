@@ -21,7 +21,7 @@ public class ControladorRefaccion {
         entityTransaction.commit();
     }
 
-    public static RefaccionEntity crearRefaccion(int IDRefaccion, String Marca, BigDecimal Precio, int Cantidad){
+    public static RefaccionEntity crearRefaccion(int IDRefaccion, String Marca, Float Precio, int Cantidad){
         RefaccionEntity refaccion = new RefaccionEntity();
         refaccion.setIdRefaccion(IDRefaccion);
         refaccion.setMarca(Marca);
@@ -30,7 +30,7 @@ public class ControladorRefaccion {
         ConexionBD.getEm().persist(refaccion);
         return refaccion;
     }
-    public static void modificarRefaccion(String Marca, BigDecimal Precio, int Cantidad){
+    public static void modificarRefaccion(String Marca, float Precio, int Cantidad){
         RefaccionEntity refaccion = getRefaccionPorMarca(Marca);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();

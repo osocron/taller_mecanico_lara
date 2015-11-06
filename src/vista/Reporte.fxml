@@ -76,7 +76,7 @@
                   <Insets right="40.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="buttonImprimir" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Imprimir">
+            <Button fx:id="buttonReporte" mnemonicParsing="false" onAction="#crearReporteEvent" prefHeight="25.0" prefWidth="72.0" text="Reporte">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
