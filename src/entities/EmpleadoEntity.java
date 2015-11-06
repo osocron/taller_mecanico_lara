@@ -84,4 +84,8 @@ public class EmpleadoEntity {
     public void setUsuariosByIdEmpleado(Collection<UsuarioEntity> usuariosByIdEmpleado) {
         this.usuariosByIdEmpleado = usuariosByIdEmpleado;
     }
+    @Override
+    public String toString(){
+        return nombre;
+    }
 }

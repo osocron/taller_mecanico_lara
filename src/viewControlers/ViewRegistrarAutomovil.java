@@ -3,13 +3,12 @@ package viewControlers;
 import entities.AutomovilesEntity;
 import entities.ClienteEntity;
 import entityControlers.ControladorAutomovil;
-import entityControlers.ControladorCliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
+//import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -32,29 +31,24 @@ public class ViewRegistrarAutomovil implements Initializable {
         java.util.List<AutomovilesEntity> listaAutomoviles = ControladorAutomovil.getAutomoviles();
         dataAtuomoviles.addAll(listaAutomoviles);
     }
-    public void guardarAutomovilEvent(){
-        /*ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearUsuario(matriculaTextField.getText(),marcaTextField.getText(),
-                modeloTextField.getText(),colorTextField.getText()));*/
-    }
-
 
     public void registrarAutomovilActionEvent() {
         ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getText(),
                 marcaTextField.getText(),modeloTextField.getText(), colorTextField.getText(),
                 clienteEntityComboBox.getSelectionModel().getSelectedItem().getIdCliente()));
-        Alert alert = getWarningAlert("Exitoso","Atencion","Automovil gregistrado exitosamente!");
-        alert.showAndWait();
+        //Alert alert = getWarningAlert("Exitoso","Atencion","Automovil gregistrado exitosamente!");
+        //alert.showAndWait();
         matriculaTextField.setText("");
         marcaTextField.setText("");
         modeloTextField.setText("");
         colorTextField.setText("");
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    /*private Alert getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         return alert;
-    }
+    }*/
 }

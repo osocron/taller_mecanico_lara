@@ -37,7 +37,7 @@ public class ControladorVentas {
         ventas.setIdClientes(IDClientes);
         entityTransaction.commit();
     }
-    public static void eliminarVenta(String IDVenta){
+    public static void eliminarVenta(int IDVenta){
         VentasEntity venta = getVentaPorID(IDVenta);
         if(IDVenta != 0){
             EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();

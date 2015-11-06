@@ -96,4 +96,8 @@ public class VentasEntity {
     public void setClienteByIdClientes(ClienteEntity clienteByIdClientes) {
         this.clienteByIdClientes = clienteByIdClientes;
     }
+    @Override
+    public String toString(){
+        return idClientes;
+    }
 }

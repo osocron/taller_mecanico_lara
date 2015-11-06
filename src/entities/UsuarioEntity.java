@@ -74,4 +74,8 @@ public class UsuarioEntity {
     public void setEmpleadoByIdEmpleado(EmpleadoEntity empleadoByIdEmpleado) {
         this.empleadoByIdEmpleado = empleadoByIdEmpleado;
     }
+    @Override
+    public String toString(){
+        return nombre;
+    }
 }

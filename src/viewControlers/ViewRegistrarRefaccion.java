@@ -45,20 +45,20 @@ public class ViewRegistrarRefaccion implements Initializable {
     public void crearRefaccionEvent(){
         ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(
                 Integer.parseInt(textfieldIDArticulo.getText()),textfieldDescripcion.getText(),
-                BigDecimal.valueOf(Double.valueOf(textfieldPrecio.getText())),
+                Float.valueOf(Float.valueOf(textfieldPrecio.getText())),
                 Integer.parseInt(textfieldCantidad.getText())));
-        Alert alert = getWarningAlert("Exitoso","Atencion","Refaccion agregada exitosamente!");
-        alert.showAndWait();
+        /*Alert alert = getWarningAlert("Exitoso","Atencion","Refaccion agregada exitosamente!");
+        alert.showAndWait();*/
         cancelarActionEvent();
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    /*private Alert getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         return alert;
-    }
+    }*/
 
     public void cancelarActionEvent(){
         textfieldIDArticulo.setText("");
@@ -66,5 +66,4 @@ public class ViewRegistrarRefaccion implements Initializable {
         textfieldPrecio.setText("");
         textfieldCantidad.setText("");
     }
-
 }
