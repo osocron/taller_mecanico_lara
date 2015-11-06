@@ -115,7 +115,7 @@ public class ViewRegistrarServicio implements Initializable {
 
     public void agregarRefaccionActionEvent() {
         ViewOpener viewOpener = new ViewOpener();
-        viewOpener.openRefaccionPicker("vista/SeleccionRefacciones.fxml","Taller Mecanico Lara",this);
+        viewOpener.openRefaccionPicker("vista/SeleccionRefacciones.fxml","Taller Mecanico Lara",this,"1");
     }
 
     public void setSelectedRefaccion(RefaccionEntity refaccionEntity) {
