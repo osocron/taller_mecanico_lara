@@ -9,10 +9,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.ResourceBundle;
-
+import java.lang.String;
 /**
  * Created by ValdemarRamos on 28/10/2015.
  */
@@ -44,7 +50,7 @@ public class ViewRegistrarVenta implements Initializable {
     @FXML
     public TableView tableviewVenta;
     public MenuItem menuItemClose;
-    public ComboBox comboBoxCliente;
+    public ComboBox<ClienteEntity> comboBoxCliente;
     public DatePicker fechaDatePicker;
     public ListView servicioListView;
     public Button eliminarServicioButton;
@@ -55,22 +61,49 @@ public class ViewRegistrarVenta implements Initializable {
     public Button eliminarRefaccionButton;
     public Button agregarRefaccionActionEvent;
 
+    SimpleDateFormat pattern = new SimpleDateFormat("dd/MM/yyyy");
+
     private ObservableList<VentasEntity> data = FXCollections.observableArrayList();
-    private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();
+    private ObservableList<ClienteEntity> dataVenta = FXCollections.observableArrayList();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<VentasEntity> listaVentas = ControladorVentas.getVentas();
         data.addAll(listaVentas);
+        comboBoxCliente.setItems(dataVenta);
     }
     public void crearVentaEvent(){
+
+        LocalDate local = fechaDatePicker.getValue();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_MONTH,local.getDayOfMonth());
+        calendar.set(Calendar.MONTH,local.getMonthValue()-1);
+        calendar.set(Calendar.YEAR, local.getYear());
+
+        pattern.format((calendar.getTime()));
+        java.util.Date simpleDate = calendar.getTime();
+        java.sql.Date sqlDate = new java.sql.Date(simpleDate.getTime());
+
+        ControladorVentas.guardarVenta(ControladorVentas.crearVenta(Integer.parseInt(textfieldIDventa.getText()),sqlDate,comboBoxCliente.getSelectionModel().getSelectedItem().getIdCliente()
+                        ));
+        Alert alert = getWarningAlert("Exitoso","Atencion","Ventas registrado exitosamente!");
+        alert.showAndWait();
         textfieldIDventa.setText("");
         textfieldDescripcion.setText("");
         textfieldCantidad.setText("");
     }
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
+    }
 
     public void cerrarVentanaClose(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) labelDescripcion.getScene().getWindow();
+        stage.close();
     }
 
     public void eliminarServicioActionEvent(ActionEvent actionEvent) {

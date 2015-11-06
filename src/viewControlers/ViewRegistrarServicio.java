@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
@@ -171,6 +172,7 @@ public class ViewRegistrarServicio implements Initializable {
     }
 
     public void cerrarVentanaEvent(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) labelDescripcion.getScene().getWindow();
+        stage.close();
     }
 }
