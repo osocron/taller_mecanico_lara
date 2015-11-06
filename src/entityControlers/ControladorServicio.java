@@ -21,7 +21,7 @@ public class ControladorServicio {
         entityTransaction.commit();
     }
 
-    public static ServicioEntity crearServicio(int IDServicio, String Descripcion, Float Costo, int IDEmpleados){
+    public static ServicioEntity crearServicio(int IDServicio, String Descripcion, BigDecimal Costo, int IDEmpleados){
         ServicioEntity servicio = new ServicioEntity();
         servicio.setIdServicio(IDServicio);
         servicio.setDescripcion(Descripcion);
@@ -31,7 +31,7 @@ public class ControladorServicio {
         return servicio;
     }
 
-    public static void modificarServicio(int IDServicio, String Descripcion, Float Costo, int IDEmpleados){
+    public static void modificarServicio(int IDServicio, String Descripcion, BigDecimal Costo, int IDEmpleados){
         ServicioEntity servicios = getServicioPorID(IDServicio);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();

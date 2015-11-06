@@ -12,7 +12,7 @@ import java.util.Collection;
 public class RefaccionEntity {
     private int idRefaccion;
     private String marca;
-    private Float precio;
+    private BigDecimal precio;
     private int cantidad;
     private Collection<ServicioRefaccionEntity> servicioRefaccionsByIdRefaccion;
     private Collection<VentaRefaccionEntity> ventaRefaccionsByIdRefaccion;
@@ -39,11 +39,11 @@ public class RefaccionEntity {
 
     @Basic
     @Column(name = "Precio")
-    public float getPrecio() {
+    public BigDecimal getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(BigDecimal precio) {
         this.precio = precio;
     }
 
