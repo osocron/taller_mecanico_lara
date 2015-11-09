@@ -4,13 +4,18 @@ import entidades.VentasEntity;
 import entityControlers.ControladorVentas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -24,8 +29,6 @@ public class ViewConsultarVentas implements Initializable {
     public TableColumn fechaTablecolumn;
     public TableColumn clienteTableColumn;
     public Button buttonEliminar;
-    public Button buttonModificar;
-    public Button buttonGuardar;
 
 
     private ObservableList<VentasEntity> dataVenta = FXCollections.observableArrayList();
@@ -34,18 +37,43 @@ public class ViewConsultarVentas implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<VentasEntity> listaVentas = ControladorVentas.getVentas();
         dataVenta.addAll(listaVentas);
+        tablaVentas.setItems(dataVenta);
+        tablaVentas.setEditable(true);
+
+        idVentaTableColumn.setCellValueFactory(new PropertyValueFactory<VentasEntity,String>("idVenta"));
+
+        clienteTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        clienteTableColumn.setCellValueFactory(new PropertyValueFactory<VentasEntity, String>("idClientes"));
+        clienteTableColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<VentasEntity,String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<VentasEntity,String> event) {
+                VentasEntity ventasEntity =
+                        event.getTableView().getItems().get(event.getTablePosition().getRow());
+                ControladorVentas.modificarCliente(ventasEntity.getIdVenta(),event.getNewValue());
+            }
+        });
+
+        fechaTablecolumn.setCellValueFactory( new PropertyValueFactory<DatePickerCell, java.sql.Date>("fecha"));
+        fechaTablecolumn.setCellFactory(param -> {
+            DatePickerCell datePickerCell = new DatePickerCell(dataVenta);
+            return datePickerCell;
+        });
+        fechaTablecolumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<VentasEntity,java.sql.Date>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<VentasEntity,java.sql.Date> event) {
+                ControladorVentas.modificarFecha(event.getTableView().getItems().get(
+                        event.getTablePosition().getRow()
+                ).getIdVenta(), event.getNewValue());
+            }
+        });
+
     }
 
     public void eliminarVentaEvent(){
-
-    }
-
-    public void modificarVentaEvent(){
-
-    }
-
-    public void guardarVentaEvent() {
-
+        VentasEntity ventasEntity = tablaVentas.getSelectionModel().getSelectedItem();
+        dataVenta.remove(ventasEntity);
+        tablaVentas.setItems(dataVenta);
+        ControladorVentas.eliminarVenta(ventasEntity.getIdVenta());
     }
 
     public void cerrarVentanaEvent() {

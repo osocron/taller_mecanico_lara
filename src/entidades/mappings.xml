@@ -22,7 +22,7 @@
                         </basic>
                         <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
                                 <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente"
-                                             updatable="false" insertable="false"/>
+                                         insertable="false" updatable="false"/>
                         </many-to-one>
                         <one-to-many name="servicioAutomovilsByMatricula" mapped-by="automovilesByMatricula"
                                      target-entity="entidades.ServicioAutomovilEntity"/>
@@ -106,7 +106,7 @@
                         <many-to-one name="empleadoByIdEmpleados" optional="true"
                                      target-entity="entidades.EmpleadoEntity">
                                 <join-column name="IDEmpleados" nullable="false" referenced-column-name="IDEmpleado"
-                                         updatable="false" insertable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <one-to-many name="servicioAutomovilsByIdServicio" mapped-by="servicioByIdServicios"
                                      target-entity="entidades.ServicioAutomovilEntity"/>
@@ -136,7 +136,7 @@
                         <many-to-one name="automovilesByMatricula" optional="true"
                                      target-entity="entidades.AutomovilesEntity">
                                 <join-column name="Matricula" nullable="false" referenced-column-name="Matricula"
-                                         insertable="false" updatable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -158,12 +158,12 @@
                         <many-to-one name="servicioByIdServicios" optional="true"
                                      target-entity="entidades.ServicioEntity">
                                 <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio"
-                                         insertable="false" updatable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <many-to-one name="refaccionByIdRefacciones" optional="true"
                                      target-entity="entidades.RefaccionEntity">
                                 <join-column name="IDRefacciones" nullable="false"
-                                             referenced-column-name="IDRefaccion" updatable="false" insertable="false"/>
+                                             referenced-column-name="IDRefaccion" insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -182,7 +182,7 @@
                         <many-to-one name="empleadoByIdEmpleado" optional="true"
                                      target-entity="entidades.EmpleadoEntity">
                                 <join-column name="IDEmpleado" nullable="false" referenced-column-name="IDEmpleado"
-                                         insertable="false" updatable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -200,12 +200,12 @@
                         </basic>
                         <many-to-one name="ventasByIdVentas" optional="true" target-entity="entidades.VentasEntity">
                                 <join-column name="IDVentas" nullable="false" referenced-column-name="IDVenta"
-                                         insertable="false" updatable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <many-to-one name="refaccionByIdRefacciones" optional="true"
                                      target-entity="entidades.RefaccionEntity">
                                 <join-column name="IDRefacciones" nullable="false"
-                                             referenced-column-name="IDRefaccion" updatable="false" insertable="false"/>
+                                             referenced-column-name="IDRefaccion" insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -223,12 +223,12 @@
                         </basic>
                         <many-to-one name="ventasByIdVentas" optional="true" target-entity="entidades.VentasEntity">
                                 <join-column name="IDVentas" nullable="false" referenced-column-name="IDVenta"
-                                         insertable="false" updatable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <many-to-one name="servicioByIdServicios" optional="true"
                                      target-entity="entidades.ServicioEntity">
                                 <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio"
-                                         insertable="false" updatable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                 </attributes>
         </entity>
@@ -246,7 +246,7 @@
                         </basic>
                         <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
                                 <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente"
-                                         insertable="false" updatable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
                         <one-to-many name="ventaRefaccionsByIdVenta" mapped-by="ventasByIdVentas"
                                      target-entity="entidades.VentaRefaccionEntity"/>

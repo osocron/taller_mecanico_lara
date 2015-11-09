@@ -49,26 +49,16 @@
                   <Insets bottom="25.0" left="20.0" right="20.0" />
                </VBox.margin>
             </TableView>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#eliminarVentaEvent" text="Eliminar">
+                  <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#eliminarVentaEvent" text="Eliminar Fila">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="buttonModificar" mnemonicParsing="false" onAction="#modificarVentaEvent" text="Editar">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="buttonGuardar" mnemonicParsing="false" onAction="#guardarVentaEvent" text="Guardar Cambios">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets bottom="20.0" right="15.0" />
                </VBox.margin>
             </HBox>
          </children>

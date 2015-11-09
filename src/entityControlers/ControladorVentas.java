@@ -37,12 +37,29 @@ public class ControladorVentas {
         ventas.setIdClientes(IDClientes);
         entityTransaction.commit();
     }
+
+    public static void modificarCliente(int IDVenta, String IDClientes){
+        VentasEntity ventas = getVentaPorID(IDVenta);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        ventas.setIdClientes(IDClientes);
+        entityTransaction.commit();
+    }
+
+    public static void modificarFecha(int IDVenta, java.sql.Date fecha){
+        VentasEntity ventas = getVentaPorID(IDVenta);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        ventas.setFecha(fecha);
+        entityTransaction.commit();
+    }
+
     public static void eliminarVenta(Integer IDVenta){
         VentasEntity venta = getVentaPorID(IDVenta);
         if(IDVenta != 0){
             EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
             entityTransaction.begin();
-            ConexionBD.getEm().remove(IDVenta);
+            ConexionBD.getEm().remove(venta);
             entityTransaction.commit();
         }
     }

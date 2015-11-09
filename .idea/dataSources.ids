@@ -50,7 +50,7 @@
       <column name="Costo" sqlType="DECIMAL" precision="6" scale="2" nullable="false" jdbcType="3"/>
       <column name="IDEmpleados" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="IDServicio"/>
-      <foreign-key name="fk_Servicio_1" columns="IDEmpleados" ref-table="Empleado" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDEmpleado" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Servicio_1" columns="IDEmpleados" ref-table="Empleado" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDEmpleado" update-rule="0" delete-rule="0" deferrability="2"/>
       <exported-key name="fk_ServicioAutomovil_1" table="ServicioAutomovil" schema="" catalog="taller_mecanico_lara" columns="IDServicios"/>
       <exported-key name="fk_ServicioRefaccion_1" table="ServicioRefaccion" schema="" catalog="taller_mecanico_lara" columns="IDServicios"/>
       <exported-key name="fk_VentaServicio_2" table="VentaServicio" schema="" catalog="taller_mecanico_lara" columns="IDServicios"/>
@@ -61,7 +61,7 @@
       <column name="IDServicios" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="Matricula" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="idServicioAutomovil"/>
-      <foreign-key name="fk_ServicioAutomovil_1" columns="IDServicios" ref-table="Servicio" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDServicio" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_ServicioAutomovil_1" columns="IDServicios" ref-table="Servicio" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDServicio" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="fk_ServicioAutomovil_2" columns="Matricula" ref-table="Automoviles" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="Matricula" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_ServicioAutomovil_1_idx" unique="false" columns="IDServicios"/>
       <index name="fk_ServicioAutomovil_2_idx" unique="false" columns="Matricula"/>
@@ -72,7 +72,7 @@
       <column name="IDRefacciones" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="cantidad" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="idServicioRefaccion"/>
-      <foreign-key name="fk_ServicioRefaccion_1" columns="IDServicios" ref-table="Servicio" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDServicio" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_ServicioRefaccion_1" columns="IDServicios" ref-table="Servicio" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDServicio" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="fk_ServicioRefaccion_2" columns="IDRefacciones" ref-table="Refaccion" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDRefaccion" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_ServicioRefaccion_1_idx" unique="false" columns="IDServicios"/>
       <index name="fk_ServicioRefaccion_2_idx" unique="false" columns="IDRefacciones"/>
@@ -82,7 +82,7 @@
       <column name="Contrasena" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="IDEmpleado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="Nombre"/>
-      <foreign-key name="fk_Usuario_1" columns="IDEmpleado" ref-table="Empleado" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDEmpleado" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Usuario_1" columns="IDEmpleado" ref-table="Empleado" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDEmpleado" update-rule="0" delete-rule="0" deferrability="2"/>
       <index name="fk_Usuario_1_idx" unique="false" columns="IDEmpleado"/>
     </table>
     <table name="VentaRefaccion" schema="" catalog="taller_mecanico_lara" type="TABLE">
@@ -90,7 +90,7 @@
       <column name="IDVentas" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="IDRefacciones" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="idVentaRefaccion"/>
-      <foreign-key name="fk_VentaRefaccion_1" columns="IDVentas" ref-table="Ventas" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDVenta" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_VentaRefaccion_1" columns="IDVentas" ref-table="Ventas" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDVenta" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="fk_VentaRefaccion_2" columns="IDRefacciones" ref-table="Refaccion" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDRefaccion" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_VentaRefaccion_1_idx" unique="false" columns="IDVentas"/>
       <index name="fk_VentaRefaccion_2_idx" unique="false" columns="IDRefacciones"/>
@@ -100,7 +100,7 @@
       <column name="IDVentas" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="IDServicios" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="idVentaServicio"/>
-      <foreign-key name="fk_VentaServicio_1" columns="IDVentas" ref-table="Ventas" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDVenta" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_VentaServicio_1" columns="IDVentas" ref-table="Ventas" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDVenta" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="fk_VentaServicio_2" columns="IDServicios" ref-table="Servicio" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDServicio" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fk_VentaServicio_1_idx" unique="false" columns="IDVentas"/>
       <index name="fk_VentaServicio_2_idx" unique="false" columns="IDServicios"/>
@@ -110,7 +110,7 @@
       <column name="Fecha" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
       <column name="IDClientes" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="IDVenta"/>
-      <foreign-key name="fk_Ventas_1" columns="IDClientes" ref-table="Cliente" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDCliente" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Ventas_1" columns="IDClientes" ref-table="Cliente" ref-schema="" ref-catalog="taller_mecanico_lara" ref-columns="IDCliente" update-rule="0" delete-rule="0" deferrability="2"/>
       <exported-key name="fk_VentaRefaccion_1" table="VentaRefaccion" schema="" catalog="taller_mecanico_lara" columns="IDVentas"/>
       <exported-key name="fk_VentaServicio_1" table="VentaServicio" schema="" catalog="taller_mecanico_lara" columns="IDVentas"/>
       <index name="fk_Ventas_1_idx" unique="false" columns="IDClientes"/>
