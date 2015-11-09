@@ -1,36 +1,51 @@
 package viewControlers;
 
+import entidades.AutomovilesEntity;
+import entidades.ClienteEntity;
+import entidades.ServicioAutomovilEntity;
 import entidades.ServicioEntity;
+import entityControlers.ControladorAutomovil;
+import entityControlers.ControladorCliente;
 import entityControlers.ControladorServicio;
+import entityControlers.ControladorServicioAutomovil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * Created by osocron on 6/11/15.
- */
+
 public class ViewSeleccionarServicio implements Initializable{
 
     public ListView<ServicioEntity> servicioListView;
     public Button cancelarButton;
     public Button seleccionarServicioButton;
+    public Label lableCliente;
+    public ComboBox<AutomovilesEntity> comboBoxAutomovil;
 
+    private String idCliente;
     private ViewRegistrarVenta parent;
     private ObservableList<ServicioEntity> dataServicios = FXCollections.observableArrayList();
+    private ObservableList<ServicioAutomovilEntity> dataServicioAutomovil = FXCollections.observableArrayList();
+    private ObservableList<AutomovilesEntity> dataAutos = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<ServicioEntity> servicioEntityList = ControladorServicio.getServicios();
         dataServicios.addAll(servicioEntityList);
-        servicioListView.setItems(dataServicios);
+        List<ServicioAutomovilEntity> servicioAutomovilEntityList = ControladorServicioAutomovil.getServicioAuto();
+        dataServicioAutomovil.addAll(servicioAutomovilEntityList);
+        List<AutomovilesEntity> automovilesEntityList = ControladorAutomovil.getAutomoviles();
+        dataAutos.addAll(automovilesEntityList);
     }
 
     public void cancelarActionEvent() {
@@ -44,8 +59,51 @@ public class ViewSeleccionarServicio implements Initializable{
         cancelarActionEvent();
     }
 
-    public void setParent(ViewRegistrarVenta parent) {
+    public void setParent(ViewRegistrarVenta parent, String idCliente) {
         this.parent = parent;
+        this.idCliente = idCliente;
+        asignarAutos();
+        ligarClienteAutomovilComboBox();
     }
 
+    private void asignarAutos(){
+        //Listas auxiliares
+        ObservableList<AutomovilesEntity> dataAutosEncontrados = FXCollections.observableArrayList();
+        ArrayList<AutomovilesEntity> listaAutosEncontrados = new ArrayList<>();
+        //Buscar dentro de la BD los autos que coincidan con el ID del Cliente
+        dataAutos.forEach(automovilesEntity -> {
+            if(automovilesEntity.getIdClientes().equals(idCliente)) {
+                listaAutosEncontrados.add(automovilesEntity);
+            }
+        });
+        //Agregar los autos encontrados al comboBox de Autos
+        dataAutosEncontrados.addAll(listaAutosEncontrados);
+        comboBoxAutomovil.setItems(dataAutosEncontrados);
+    }
+
+    private void ligarClienteAutomovilComboBox(){
+        comboBoxAutomovil.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            ArrayList<ServicioAutomovilEntity> servicioAutomovilEncontrados = new ArrayList<>();
+            ArrayList<ServicioEntity> serviciosEncontrados = new ArrayList<>();
+
+            dataServicioAutomovil.forEach(servicioAutomovilEntity -> {
+                if (servicioAutomovilEntity.getMatricula().equals(
+                        comboBoxAutomovil.getSelectionModel().getSelectedItem().getMatricula())) {
+                    servicioAutomovilEncontrados.add(servicioAutomovilEntity);
+                }
+            });
+
+            servicioAutomovilEncontrados.forEach(servicioAutomovilEntity -> {
+                dataServicios.forEach(servicioEntity -> {
+                    if (servicioAutomovilEntity.getIdServicios() == servicioEntity.getIdServicio()) {
+                        serviciosEncontrados.add(servicioEntity);
+                    }
+                });
+            });
+
+            ObservableList<ServicioEntity> dataServiciosEncontrados = FXCollections.observableArrayList();
+            dataServiciosEncontrados.addAll(serviciosEncontrados);
+            servicioListView.setItems(dataServiciosEncontrados);
+        });
+    }
 }

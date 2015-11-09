@@ -5,14 +5,34 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewSeleccionarServicio">
    <center>
-      <ListView fx:id="servicioListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets left="15.0" right="15.0" top="15.0" />
-         </BorderPane.margin>
-      </ListView>
+      <VBox>
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label fx:id="lableCliente" text="Cliente: ">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="15.0" right="30.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="comboBoxAutomovil" prefWidth="150.0" promptText="Automovil">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="30.0" right="15.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+            </HBox>
+            <ListView fx:id="servicioListView" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+               <BorderPane.margin>
+                  <Insets left="15.0" right="15.0" top="15.0" />
+               </BorderPane.margin>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </VBox.margin>
+            </ListView>
+         </children>
+      </VBox>
    </center>
    <bottom>
       <HBox alignment="CENTER_RIGHT">

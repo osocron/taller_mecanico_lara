@@ -60,7 +60,7 @@ public class ViewRefaccionMuestra implements Initializable {
         precio.setText("");
     }
     public void eliminarRefaccionEvent(){
-        ControladorRefaccion.eliminarRefaccion(textfieldRefaccion.getText());
+        ControladorRefaccion.eliminarRefaccion(Integer.parseInt(textfieldRefaccion.getText()));
     }
     public void modificarRefaccionEvent(){
         /*ControladorRefaccion.modificarRefaccion(ControladorRefaccion.modificarRefaccion(descripcion.getTableView(),

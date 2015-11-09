@@ -7,9 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -20,12 +18,14 @@ import java.util.ResourceBundle;
  */
 public class ViewConsultarVentas implements Initializable {
 
-    @FXML
-    public TextField busquedaTextField;
-    @FXML
     public TableView<VentasEntity> tablaVentas;
-    @FXML
-    public Button buscarButton;
+    public MenuItem menuItemClose;
+    public TableColumn idVentaTableColumn;
+    public TableColumn fechaTablecolumn;
+    public TableColumn clienteTableColumn;
+    public Button buttonEliminar;
+    public Button buttonModificar;
+    public Button buttonGuardar;
 
 
     private ObservableList<VentasEntity> dataVenta = FXCollections.observableArrayList();
@@ -35,25 +35,26 @@ public class ViewConsultarVentas implements Initializable {
         java.util.List<VentasEntity> listaVentas = ControladorVentas.getVentas();
         dataVenta.addAll(listaVentas);
     }
+
     public void eliminarVentaEvent(){
-        ControladorVentas.eliminarVenta(Integer.parseInt(busquedaTextField.getText()));
-    }
-    public void buscarVentaEvent(){
 
     }
+
     public void modificarVentaEvent(){
 
     }
 
-    public void guardarVentaEvent(ActionEvent actionEvent) {
+    public void guardarVentaEvent() {
 
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
-        Stage stage = (Stage) buscarButton.getScene().getWindow();
+    public void cerrarVentanaEvent() {
+        Stage stage = (Stage) tablaVentas.getScene().getWindow();
         stage.close();
     }
+
     public void cancelarActionEvent(){
 
     }
+
 }

@@ -44,7 +44,7 @@ public class ViewOpener {
         stage.show();
     }
 
-    public void openServicioPicker(String pathToFXML, String title, ViewRegistrarVenta parent){
+    public void openServicioPicker(String pathToFXML, String title, ViewRegistrarVenta parent, String idCliente){
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(pathToFXML));
         Parent root = null;
         try {
@@ -56,7 +56,7 @@ public class ViewOpener {
         stage.setTitle(title);
         stage.setScene(new Scene(root, 600,400));
         ViewSeleccionarServicio controller = loader.<ViewSeleccionarServicio>getController();
-        controller.setParent(parent);
+        controller.setParent(parent,idCliente);
         stage.show();
     }
 

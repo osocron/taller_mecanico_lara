@@ -30,25 +30,26 @@ public class ControladorRefaccion {
         ConexionBD.getEm().persist(refaccion);
         return refaccion;
     }
-    public static void modificarRefaccion(String Marca, BigDecimal Precio, int Cantidad){
-        RefaccionEntity refaccion = getRefaccionPorMarca(Marca);
+    public static void modificarRefaccion(int idRefaccion,String marca, BigDecimal Precio, int Cantidad){
+        RefaccionEntity refaccion = getRefaccionPorID(idRefaccion);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
-        refaccion.setMarca(Marca);
+        refaccion.setIdRefaccion(idRefaccion);
+        refaccion.setMarca(marca);
         refaccion.setPrecio(Precio);
         refaccion.setCantidad(Cantidad);
         entityTransaction.commit();
     }
-    public static void eliminarRefaccion(String Marca){
-        RefaccionEntity refaccion = getRefaccionPorMarca(Marca);
-        if(Marca != null){
+    public static void eliminarRefaccion(int idRefaccion){
+        RefaccionEntity refaccion = getRefaccionPorID(idRefaccion);
+        if(idRefaccion >= 0){
             EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
             entityTransaction.begin();
             ConexionBD.getEm().remove(refaccion);
             entityTransaction.commit();
         }
     }
-    public static RefaccionEntity getRefaccionPorMarca(String Marca){
-        return ConexionBD.getEm().find(RefaccionEntity.class, Marca);
+    public static RefaccionEntity getRefaccionPorID(int idRefaccion){
+        return ConexionBD.getEm().find(RefaccionEntity.class, idRefaccion);
     }
 }
