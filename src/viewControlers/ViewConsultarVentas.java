@@ -4,15 +4,18 @@ import entidades.VentasEntity;
 import entityControlers.ControladorVentas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -20,12 +23,12 @@ import java.util.ResourceBundle;
  */
 public class ViewConsultarVentas implements Initializable {
 
-    @FXML
-    public TextField busquedaTextField;
-    @FXML
     public TableView<VentasEntity> tablaVentas;
-    @FXML
-    public Button buscarButton;
+    public MenuItem menuItemClose;
+    public TableColumn idVentaTableColumn;
+    public TableColumn fechaTablecolumn;
+    public TableColumn clienteTableColumn;
+    public Button buttonEliminar;
 
 
     private ObservableList<VentasEntity> dataVenta = FXCollections.observableArrayList();
@@ -34,26 +37,52 @@ public class ViewConsultarVentas implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<VentasEntity> listaVentas = ControladorVentas.getVentas();
         dataVenta.addAll(listaVentas);
+        tablaVentas.setItems(dataVenta);
+        tablaVentas.setEditable(true);
+
+        idVentaTableColumn.setCellValueFactory(new PropertyValueFactory<VentasEntity,String>("idVenta"));
+
+        clienteTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        clienteTableColumn.setCellValueFactory(new PropertyValueFactory<VentasEntity, String>("idClientes"));
+        clienteTableColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<VentasEntity,String>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<VentasEntity,String> event) {
+                VentasEntity ventasEntity =
+                        event.getTableView().getItems().get(event.getTablePosition().getRow());
+                ControladorVentas.modificarCliente(ventasEntity.getIdVenta(),event.getNewValue());
+            }
+        });
+
+        fechaTablecolumn.setCellValueFactory( new PropertyValueFactory<DatePickerCell, java.sql.Date>("fecha"));
+        fechaTablecolumn.setCellFactory(param -> {
+            DatePickerCell datePickerCell = new DatePickerCell(dataVenta);
+            return datePickerCell;
+        });
+        fechaTablecolumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<VentasEntity,java.sql.Date>>() {
+            @Override
+            public void handle(TableColumn.CellEditEvent<VentasEntity,java.sql.Date> event) {
+                ControladorVentas.modificarFecha(event.getTableView().getItems().get(
+                        event.getTablePosition().getRow()
+                ).getIdVenta(), event.getNewValue());
+            }
+        });
+
     }
+
     public void eliminarVentaEvent(){
-        ControladorVentas.eliminarVenta(Integer.parseInt(busquedaTextField.getText()));
-    }
-    public void buscarVentaEvent(){
-
-    }
-    public void modificarVentaEvent(){
-
+        VentasEntity ventasEntity = tablaVentas.getSelectionModel().getSelectedItem();
+        dataVenta.remove(ventasEntity);
+        tablaVentas.setItems(dataVenta);
+        ControladorVentas.eliminarVenta(ventasEntity.getIdVenta());
     }
 
-    public void guardarVentaEvent(ActionEvent actionEvent) {
-
-    }
-
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
-        Stage stage = (Stage) buscarButton.getScene().getWindow();
+    public void cerrarVentanaEvent() {
+        Stage stage = (Stage) tablaVentas.getScene().getWindow();
         stage.close();
     }
+
     public void cancelarActionEvent(){
 
     }
+
 }

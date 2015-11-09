@@ -22,7 +22,8 @@ public class ViewSeleccionarRefaccion implements Initializable{
     public Button cancelarButton;
     public Button sleccionarButton;
 
-    private ViewRegistrarServicio parent;
+    private String id;
+    private Object parent;
     private ObservableList<RefaccionEntity> dataRefacciones = FXCollections.observableArrayList();
 
     @Override
@@ -40,13 +41,17 @@ public class ViewSeleccionarRefaccion implements Initializable{
 
     public void seleccionarRefaccionActionEvent() {
         RefaccionEntity refaccionEntity = refaccionesListView.getSelectionModel().getSelectedItem();
-        parent.setSelectedRefaccion(refaccionEntity);
-        Stage stage = (Stage)refaccionesListView.getScene().getWindow();
-        stage.close();
+        if(id.equals("1")) {
+            ((ViewRegistrarServicio) parent).setSelectedRefaccion(refaccionEntity);
+        }else if(id.equals("2")){
+            ((ViewRegistrarVenta) parent).setSelectedRefaccion(refaccionEntity);
+        }
+        cancelarActionEvent();
     }
 
-    public void setParent(ViewRegistrarServicio parent){
+    public void setParent(Object parent, String id){
         this.parent = parent;
+        this.id = id;
     }
 
 }

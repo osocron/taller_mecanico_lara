@@ -25,7 +25,7 @@ public class ControladorServicio {
         ServicioEntity servicio = new ServicioEntity();
         servicio.setIdServicio(IDServicio);
         servicio.setDescripcion(Descripcion);
-        //servicio.setCosto(Costo);
+        servicio.setCosto(Costo);
         servicio.setIdEmpleados(IDEmpleados);
         ConexionBD.getEm().persist(servicio);
         return servicio;
@@ -36,7 +36,7 @@ public class ControladorServicio {
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
         servicios.setDescripcion(Descripcion);
-        //servicios.setCosto(Costo);
+        servicios.setCosto(Costo);
         servicios.setIdEmpleados(IDEmpleados);
         entityTransaction.commit();
     }

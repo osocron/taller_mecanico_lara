@@ -23,7 +23,7 @@ public class ControladorVentasServicio {
 
     public static VentaServicioEntity crearVentaServicio(int idVentaServicio, int IDVentas, int IDServicios){
         VentaServicioEntity ventaServicio = new VentaServicioEntity();
-        ventaServicio.setIdServicios(idVentaServicio);
+        ventaServicio.setIdVentaServicio(idVentaServicio);
         ventaServicio.setIdVentas(IDVentas);
         ventaServicio.setIdServicios(IDServicios);
         ConexionBD.getEm().persist(ventaServicio);
