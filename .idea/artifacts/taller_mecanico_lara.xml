@@ -23,6 +23,9 @@
       <element id="library" level="project" name="JPA 2.1-JPA 2.1" />
       <element id="library" level="project" name="mysql-connector-java-5.1.35-bin" />
       <element id="javaee-facet-resources" facet="taller_mecanico_lara/javaeeApplication/javaEEApplication" />
+      <element id="library" level="project" name="itext-pdfa-5.5.7" />
+      <element id="library" level="project" name="itext-xtra-5.5.7" />
+      <element id="library" level="project" name="itextpdf-5.5.7" />
     </root>
   </artifact>
 </component>
