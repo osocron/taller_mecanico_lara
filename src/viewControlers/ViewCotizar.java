@@ -20,32 +20,17 @@ import java.util.ResourceBundle;
  * Created by ValdemarRamos on 28/10/2015.
  */
 public class ViewCotizar implements Initializable {
-    @FXML
+
     public Label labelCliente;
-    @FXML
     public Label labelRefaccion;
-    @FXML
     public Label labelAutomovil;
-    @FXML
     public Label labelServicio;
-    @FXML
     public Label labelCosto;
-    @FXML
-    public Label labelFecha;
-    @FXML
     public TextField textfieldCliente;
-    @FXML
     public TextField textfieldAutomovil;
-    @FXML
     public TextField textfieldCosto;
-    @FXML
     public ComboBox comboboxRefaccion;
-    @FXML
     public ComboBox comboboxServicio;
-    @FXML
-    public DatePicker datepickerFecha;
-    @FXML
-    public TableView tableviewCotizar;
 
     private ObservableList<ServicioEntity> dataServicio = FXCollections.observableArrayList();
     private ObservableList<RefaccionEntity> dataRefaccion = FXCollections.observableArrayList();
@@ -58,8 +43,9 @@ public class ViewCotizar implements Initializable {
         dataRefaccion.addAll(listaRefaccion);
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+    public void cerrarVentanaEvent() {
         Stage stage = (Stage) textfieldAutomovil.getScene().getWindow();
         stage.close();
     }
+
 }
