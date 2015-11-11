@@ -1,5 +1,6 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
 import entidades.RefaccionEntity;
 import entidades.ServicioEntity;
 import entityControlers.ControladorRefaccion;
@@ -31,6 +32,9 @@ public class ViewCotizar implements Initializable {
     public TextField textfieldCosto;
     public ComboBox comboboxRefaccion;
     public ComboBox comboboxServicio;
+    public MenuItem menuItemClose;
+    public Button buttonCancelar;
+    public Button buttonCotizar;
 
     private ObservableList<ServicioEntity> dataServicio = FXCollections.observableArrayList();
     private ObservableList<RefaccionEntity> dataRefaccion = FXCollections.observableArrayList();

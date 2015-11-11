@@ -1,53 +1,30 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
 import entidades.ClienteEntity;
 import entityControlers.ControladorCliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by ValdemarRamos on 28/10/2015.
- */
-public class ViewClienteMuestra implements Initializable{
-    @FXML
-    private BorderPane bordePane;
-    @FXML
-    public Label labelIdCliente;
-    @FXML
-    public Label labelNombre;
-    @FXML
-    public Label labelDomicilio;
-    @FXML
-    public Label labelTelefono;
-    @FXML
-    public Label labelIDcliente;
-    @FXML
-    public TextField textfieldIDCliente;
-    @FXML
-    public TextField textfieldNombre;
-    @FXML
-    public TextField textfieldDomicilio;
-    @FXML
-    public TextField textfieldTelefono;
-    @FXML
-    public ComboBox comboboxIDcliente;
-    @FXML
-    public Button buttonConsultar;
-    @FXML
-    public Button buttonAtras,guardarButton,editarButton,eliminarButton;
 
+public class ViewClienteMuestra implements Initializable{
+
+
+    public MenuItem menuitemClose;
+    public TableView<ClienteEntity> clienteTableView;
+    public TableColumn<ClienteEntity,String> idClienteTableColumn;
+    public TableColumn<ClienteEntity,String> nombreTableColumn;
+    public TableColumn<ClienteEntity,String> direccionTableColumn;
+    public TableColumn<ClienteEntity,String> telefonoTableColumn;
+    public JFXButton eliminarButton;
 
     private ObservableList<ClienteEntity> data = FXCollections.observableArrayList();
 
@@ -55,30 +32,40 @@ public class ViewClienteMuestra implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<ClienteEntity> listaClientes = ControladorCliente.getCliente();
         data.addAll(listaClientes);
-    }
-    public void guardarClienteActionEvent(){
-        ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldIDCliente.getText(),
-                textfieldNombre.getText(), textfieldDomicilio.getText(), textfieldTelefono.getText()));
-        textfieldNombre.setText("");
-        textfieldDomicilio.setText("");
-        textfieldTelefono.setText("");
-    }
-    public void eliminarClienteActionEvent(){
-        ControladorCliente.eliminarCliente(textfieldIDCliente.getText());
-    }
-    public void modificarClienteActionEvent(){
-        ControladorCliente.modificarCliente(textfieldIDCliente.getText(),textfieldNombre.getText(),
-                textfieldDomicilio.getText(),textfieldTelefono.getText());
-        textfieldNombre.setText("");
-        textfieldDomicilio.setText("");
-        textfieldTelefono.setText("");
+        clienteTableView.setEditable(true);
+        prepararTableView();
+        clienteTableView.setItems(data);
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
-        Stage stage = (Stage) labelDomicilio.getScene().getWindow();
+    private void prepararTableView() {
+        idClienteTableColumn.setCellValueFactory(new PropertyValueFactory<>("idCliente"));
+        nombreTableColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        nombreTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        nombreTableColumn.setOnEditCommit(event -> ControladorCliente.modificarNombre(
+                event.getTableView().getSelectionModel().getSelectedItem().getIdCliente(),
+                event.getNewValue()));
+        direccionTableColumn.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+        direccionTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        direccionTableColumn.setOnEditCommit(event -> ControladorCliente.modificarDireccion(
+                event.getTableView().getSelectionModel().getSelectedItem().getIdCliente(),
+                event.getNewValue()));
+        telefonoTableColumn.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        telefonoTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        telefonoTableColumn.setOnEditCommit(event -> ControladorCliente.modificarTelefono(
+                        event.getTableView().getSelectionModel().getSelectedItem().getIdCliente(),
+                        event.getNewValue())
+        );
+    }
+
+    public void cerrarVentanaEvent() {
+        Stage stage = (Stage) clienteTableView.getScene().getWindow();
         stage.close();
     }
-    public void cancelarActionEvent(){
 
+    public void eliminarFilaActionEvent() {
+        ClienteEntity clienteEntity = clienteTableView.getSelectionModel().getSelectedItem();
+        data.remove(clienteEntity);
+        clienteTableView.setItems(data);
+        ControladorCliente.eliminarCliente(clienteEntity.getIdCliente());
     }
 }

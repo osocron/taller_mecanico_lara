@@ -34,5 +34,6 @@
     <orderEntry type="library" name="itext-pdfa-5.5.7" level="project" />
     <orderEntry type="library" name="itext-xtra-5.5.7" level="project" />
     <orderEntry type="library" name="itextpdf-5.5.7" level="project" />
+    <orderEntry type="library" name="jfoenix" level="project" />
   </component>
 </module>
