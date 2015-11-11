@@ -30,6 +30,7 @@ public class ControladorRefaccion {
         ConexionBD.getEm().persist(refaccion);
         return refaccion;
     }
+
     public static void modificarRefaccion(int idRefaccion,String marca, BigDecimal Precio, int Cantidad){
         RefaccionEntity refaccion = getRefaccionPorID(idRefaccion);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
@@ -40,6 +41,34 @@ public class ControladorRefaccion {
         refaccion.setCantidad(Cantidad);
         entityTransaction.commit();
     }
+
+    public static void modificarMarca(int idRefaccion,String marca){
+        RefaccionEntity refaccion = getRefaccionPorID(idRefaccion);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        refaccion.setIdRefaccion(idRefaccion);
+        refaccion.setMarca(marca);
+        entityTransaction.commit();
+    }
+
+    public static void modificarPrecio(int idRefaccion, BigDecimal Precio){
+        RefaccionEntity refaccion = getRefaccionPorID(idRefaccion);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        refaccion.setIdRefaccion(idRefaccion);
+        refaccion.setPrecio(Precio);
+        entityTransaction.commit();
+    }
+
+    public static void modificarCantidad(int idRefaccion, int Cantidad){
+        RefaccionEntity refaccion = getRefaccionPorID(idRefaccion);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        refaccion.setIdRefaccion(idRefaccion);
+        refaccion.setCantidad(Cantidad);
+        entityTransaction.commit();
+    }
+
     public static void eliminarRefaccion(int idRefaccion){
         RefaccionEntity refaccion = getRefaccionPorID(idRefaccion);
         if(idRefaccion >= 0){
@@ -49,7 +78,9 @@ public class ControladorRefaccion {
             entityTransaction.commit();
         }
     }
+
     public static RefaccionEntity getRefaccionPorID(int idRefaccion){
         return ConexionBD.getEm().find(RefaccionEntity.class, idRefaccion);
     }
+
 }

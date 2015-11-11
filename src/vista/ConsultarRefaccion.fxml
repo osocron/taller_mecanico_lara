@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRefaccionMuestra">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewconsultarRefacciones">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -28,64 +30,38 @@
       </MenuBar>
    </top>
    <center>
-      <VBox>
+      <VBox alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="216.0" prefWidth="236.0">
-               <children>
-                  <Label fx:id="labelRefaccion" prefHeight="17.0" prefWidth="77.0" text="Refaccion" />
-                  <TextField fx:id="textfieldRefaccion" prefHeight="25.0" prefWidth="114.0" />
-                  <Button fx:id="buttonBuscar" mnemonicParsing="false" onAction="#buscarRefaccionEvent" prefHeight="25.0" prefWidth="71.0" text="Buscar">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <TableView fx:id="tableviewRefaccion" prefHeight="223.0" prefWidth="314.0" BorderPane.alignment="CENTER">
+            <Label text="Consulta de Refacciones">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="tableviewRefaccion" stylesheets="@../res/material.css" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="idRefaccion" prefWidth="75.0" text="IDrefaccion" />
-                <TableColumn fx:id="articulo" prefWidth="75.0" text="Articulo" />
-                  <TableColumn fx:id="descripcion" prefWidth="75.0" text="Descripcion" />
-                  <TableColumn fx:id="cantidad" prefWidth="75.0" text="Cantidad" />
-                  <TableColumn fx:id="idProvedor" prefWidth="75.0" text="IDprovedor" />
-                  <TableColumn fx:id="precio" prefWidth="75.0" text="Moneda" />
+                <TableColumn fx:id="idRefaccion" prefWidth="117.0" text="IDrefaccion" />
+                  <TableColumn fx:id="descripcion" minWidth="0.0" prefWidth="209.0" text="Descripcion" />
+                  <TableColumn fx:id="costo" prefWidth="140.0" text="Costo" />
+                  <TableColumn fx:id="cantidad" prefWidth="119.0" text="Cantidad" />
               </columns>
                <BorderPane.margin>
                   <Insets bottom="50.0" left="5.0" right="40.0" top="50.0" />
                </BorderPane.margin>
                <VBox.margin>
-                  <Insets left="5.0" right="5.0" />
+                  <Insets bottom="15.0" left="15.0" right="15.0" />
                </VBox.margin>
             </TableView>
          </children>
       </VBox>
    </center>
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="buttonCancelar" mnemonicParsing="false" text="Cancelar" />
-            <Button fx:id="buttonEditar" mnemonicParsing="false" onAction="#modificarRefaccionEvent" text="Editar">
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="buttonEliminar" mnemonicParsing="false" onAction="#eliminarRefaccionEvent" text="Eliminar">
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="buttonGuardar" mnemonicParsing="false" onAction="#guardarRefaccionEvent" text="Guardar Cambios">
-               <HBox.margin>
-                  <Insets left="50.0" />
-               </HBox.margin>
-            </Button>
-         </children>
+      <JFXButton fx:id="buttonEliminar" buttonType="RAISED" onAction="#eliminarRefaccionEvent" prefWidth="150.0" style="-fx-background-color: lightgray;" text="Eliminar Fila" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
-            <Insets left="150.0" />
+            <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
          </BorderPane.margin>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-      </HBox>
+      </JFXButton>
    </bottom>
 </BorderPane>
