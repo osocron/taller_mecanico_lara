@@ -94,10 +94,12 @@ public class ViewInicio implements Initializable {
         buttonList.add(reporte);
         buttonList.forEach(button -> {
             button.setPrefWidth(175);
-            button.setStyle("-fx-background-color: lightgray");
             button.setButtonType(JFXButton.ButtonType.RAISED);
             button.setRipplerFill(Color.rgb(132,189,0));
         });
+        registroButton.setRipplerFill(Color.rgb(132, 189, 0));
+        ventaButton.setRipplerFill(Color.rgb(132, 189, 0));
+        controlButton.setRipplerFill(Color.rgb(132,189,0));
         setActionEvents();
     }
 
