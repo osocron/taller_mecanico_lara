@@ -44,7 +44,6 @@ public class ViewSeleccionarRefaccion implements Initializable{
         if(id.equals("1")) {
             ((ViewRegistrarServicio) parent).setSelectedRefaccion(refaccionEntity);
         }else if(id.equals("2")){
-            ViewRegistrarVenta viewRegistrarVenta = (ViewRegistrarVenta) parent;
             ((ViewRegistrarVenta) parent).setSelectedRefaccion(refaccionEntity);
         }
         cancelarActionEvent();

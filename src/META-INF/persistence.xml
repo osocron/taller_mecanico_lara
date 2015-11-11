@@ -14,6 +14,7 @@
         <class>entidades.VentaRefaccionEntity</class>
         <class>entidades.VentaServicioEntity</class>
         <class>entidades.VentasEntity</class>
+
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/taller_mecanico_lara"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
