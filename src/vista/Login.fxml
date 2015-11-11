@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -31,38 +32,25 @@
                               <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="usuarioTextField">
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="50.0" right="50.0" />
-                           </VBox.margin>
-                        </TextField>
+                        <JFXTextField fx:id="usuarioTextField" maxWidth="300.0" prefWidth="300.0" />
                         <Label text="PASSWORD">
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <PasswordField fx:id="passwordTextField">
+                        <JFXPasswordField fx:id="passwordTextField" maxWidth="300.0" prefWidth="300.0">
                            <VBox.margin>
-                              <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
+                              <Insets bottom="25.0" />
                            </VBox.margin>
-                        </PasswordField>
+                        </JFXPasswordField>
                         <BorderPane>
-                           <left>
-                              <RadioButton fx:id="mantenerSesionRadioButton" mnemonicParsing="false" text="Mantener Sesión" BorderPane.alignment="CENTER_LEFT">
+                           <bottom>
+                              <JFXButton fx:id="aceptarButton" buttonType="RAISED" onAction="#aceptarOnActionEvent" prefWidth="250.0" style="-fx-background-color: lightgrey;" text="Ingresar" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
-                                    <Insets bottom="10.0" left="50.0" top="10.0" />
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                  </BorderPane.margin>
-                              </RadioButton>
-                           </left>
-                           <center>
-                              <Button fx:id="aceptarButton" mnemonicParsing="false" onAction="#aceptarOnActionEvent" text="Aceptar" BorderPane.alignment="CENTER">
-                                 <BorderPane.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </BorderPane.margin></Button>
-                           </center>
-                           <right>
-                              <Pane prefHeight="41.0" prefWidth="161.0" BorderPane.alignment="CENTER" />
-                           </right>
+                              </JFXButton>
+                           </bottom>
                         </BorderPane>
                      </children>
                      <BorderPane.margin>

@@ -32,12 +32,12 @@ public class ViewConsultarClientes implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<ClienteEntity> listaClientes = ControladorCliente.getCliente();
         data.addAll(listaClientes);
-        clienteTableView.setEditable(true);
         prepararTableView();
         clienteTableView.setItems(data);
     }
 
     private void prepararTableView() {
+        clienteTableView.setEditable(true);
         idClienteTableColumn.setCellValueFactory(new PropertyValueFactory<>("idCliente"));
         nombreTableColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombreTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());

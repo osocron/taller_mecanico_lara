@@ -38,12 +38,12 @@ public class ViewConsultarEmpleado implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         List<EmpleadoEntity> empleadoEntityList = ControladorEmpleado.getEmpleados();
         data.addAll(empleadoEntityList);
-        tableEmpleados.setEditable(true);
         prepararTableView();
         tableEmpleados.setItems(data);
     }
 
     private void prepararTableView() {
+        tableEmpleados.setEditable(true);
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("idEmpleado"));
         nombreTableColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         nombreTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
