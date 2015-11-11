@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -136,6 +137,23 @@
                   </VBox>
                </children>
             </HBox>
+            <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="TOTAL">
+                     <HBox.margin>
+                        <Insets bottom="5.0" right="15.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="totalTextField" editable="false">
+                     <HBox.margin>
+                        <Insets bottom="5.0" right="15.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
          </children>
          <BorderPane.margin>
             <Insets left="15.0" right="15.0" top="15.0" />
@@ -147,16 +165,16 @@
          <children>
             <Button fx:id="buttonCancelar" mnemonicParsing="false" onAction="#cancelarActionEvent" text="Cancelar">
                <HBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="buttonAceptar" mnemonicParsing="false" onAction="#crearVentaEvent" text="Aceptar">
                <HBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="30.0" top="5.0" />
+                  <Insets bottom="10.0" left="20.0" right="30.0" top="10.0" />
                </HBox.margin></Button>
          </children>
          <BorderPane.margin>
-            <Insets left="200.0" top="20.0" />
+            <Insets />
          </BorderPane.margin>
       </HBox>
    </bottom>
