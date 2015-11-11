@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -50,8 +51,9 @@ public class ViewRefaccionMuestra implements Initializable {
         data.addAll(listaRefaccion);
     }
     public void guardarRefaccionEvent(){
-        //ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(idRefaccion.hashCode(),articulo.getText(),precio.hashCode(),cantidad.hashCode()
-        //));
+        BigDecimal preci = new BigDecimal(precio.getText());
+        ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(idRefaccion.hashCode(),articulo.getText(),preci ,cantidad.hashCode()
+        ));
         idRefaccion.setText("");
         articulo.setText("");
         descripcion.setText("");
@@ -63,8 +65,10 @@ public class ViewRefaccionMuestra implements Initializable {
         ControladorRefaccion.eliminarRefaccion(Integer.parseInt(textfieldRefaccion.getText()));
     }
     public void modificarRefaccionEvent(){
-        /*ControladorRefaccion.modificarRefaccion(ControladorRefaccion.modificarRefaccion(descripcion.getTableView(),
-                cantidad.getTableView(),moneda.getTableView()));*/
+        int idRefa = Integer.parseInt(idRefaccion.getId());
+        BigDecimal monedas = new BigDecimal(precio.getText());
+        int canti = Integer.parseInt(cantidad.getId());
+        ControladorRefaccion.modificarRefaccion(idRefa,descripcion.getText(),monedas,canti);
         descripcion.setText("");
         cantidad.setText("");
         precio.setText("");
@@ -78,6 +82,6 @@ public class ViewRefaccionMuestra implements Initializable {
         stage.close();
     }
     public void cancelarActionEvent(){
-
+        textfieldRefaccion.setText("");
     }
 }

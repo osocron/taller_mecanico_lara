@@ -64,6 +64,10 @@ public class ViewRegistrarAutomovil implements Initializable {
         stage.close();
     }
     public void cancelarActionEvent(){
-
+        clienteEntityComboBox.getSelectionModel().clearSelection();
+        matriculaTextField.setText("");
+        marcaTextField.setText("");
+        modeloTextField.setText("");
+        colorTextField.setText("");
     }
 }

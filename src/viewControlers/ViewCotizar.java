@@ -10,7 +10,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 import java.net.URL;
 import java.util.List;
@@ -46,16 +49,44 @@ public class ViewCotizar implements Initializable {
     public DatePicker datepickerFecha;
     @FXML
     public TableView tableviewCotizar;
+    public TableColumn servicioColumn;
+    public TableColumn refaccionColumn;
+    public TableColumn totalColumn;
 
     private ObservableList<ServicioEntity> dataServicio = FXCollections.observableArrayList();
     private ObservableList<RefaccionEntity> dataRefaccion = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        obtenerDatosdeBD();
+        comboboxServicio.setItems(dataServicio);
+        comboboxRefaccion.setItems(dataRefaccion);
+    }
+    public void obtenerDatosdeBD(){
         java.util.List<ServicioEntity> listaServicio = ControladorServicio.getServicios();
         dataServicio.addAll(listaServicio);
         List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         dataRefaccion.addAll(listaRefaccion);
+    }
+    public void prepararTabla(){
+        tableviewCotizar.setEditable(true);
+        servicioColumn.setCellFactory(new PropertyValueFactory<>("servicio"));
+        refaccionColumn.setCellFactory(new PropertyValueFactory<>("refaccion"));
+        totalColumn.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Integer>() {
+            @Override
+            public String toString(Integer object) {
+                return String.valueOf(object);
+            }
+
+            @Override
+            public Integer fromString(String string) {
+                return Integer.parseInt(string);
+            }
+        }));
+    }
+    public void crearCotizacionEvent(){
+        servicioColumn.getColumns().add(dataServicio);
+        refaccionColumn.getColumns().add(dataRefaccion);
     }
 
     public void cerrarVentanaEvent(ActionEvent actionEvent) {

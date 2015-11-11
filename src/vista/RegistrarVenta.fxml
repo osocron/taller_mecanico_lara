@@ -10,19 +10,14 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaClose" text="Close" />
+              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaClose" text="Salir" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Ayuda">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Acerca de" />
             </items>
           </Menu>
         </menus>

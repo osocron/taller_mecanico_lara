@@ -49,8 +49,7 @@ public class ViewSeleccionarServicio implements Initializable{
     }
 
     public void cancelarActionEvent() {
-        Stage stage = (Stage)cancelarButton.getScene().getWindow();
-        stage.close();
+
     }
 
     public void seleccionarServicioActionEvent() {

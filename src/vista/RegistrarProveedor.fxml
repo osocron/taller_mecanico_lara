@@ -9,19 +9,14 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Close" />
+              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Salir" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Ayuda">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Acerca de" />
             </items>
           </Menu>
         </menus>
@@ -31,15 +26,30 @@
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="labelProvedor" text="Provedor" />
-            <TextField fx:id="textfieldProvedor" />
+            <TextField fx:id="textfieldProvedor">
+               <VBox.margin>
+                  <Insets right="200.0" />
+               </VBox.margin></TextField>
             <Label fx:id="labelRefaccion" text="Refacción" />
-            <TextField fx:id="textfieldRefaccion" />
+            <TextField fx:id="textfieldRefaccion">
+               <VBox.margin>
+                  <Insets right="200.0" />
+               </VBox.margin></TextField>
             <Label fx:id="labelCosto" text="Costo" />
-            <TextField fx:id="textfieldCosto" />
+            <TextField fx:id="textfieldCosto">
+               <VBox.margin>
+                  <Insets right="200.0" />
+               </VBox.margin></TextField>
             <Label fx:id="labelDireccion" text="Dirección" />
-            <TextField fx:id="textfieldDireccion" />
+            <TextField fx:id="textfieldDireccion">
+               <VBox.margin>
+                  <Insets right="200.0" />
+               </VBox.margin></TextField>
             <Label fx:id="labelTelefono" text="Telefono" />
-            <TextField fx:id="textfieldTelefono" />
+            <TextField fx:id="textfieldTelefono">
+               <VBox.margin>
+                  <Insets right="200.0" />
+               </VBox.margin></TextField>
          </children>
          <BorderPane.margin>
             <Insets bottom="30.0" left="80.0" right="80.0" top="100.0" />

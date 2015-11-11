@@ -57,6 +57,7 @@ public class ViewRegistrarEmpleado implements Initializable {
 
 
     public void registrarEmpleadoActionEvent() {
+        //enableUsuario();
         ControladorEmpleado.guardarEmpleadp(
                 ControladorEmpleado.crearEmpleado(
                         Integer.parseInt(textfieldIDempleado.getText()),
@@ -91,5 +92,10 @@ public class ViewRegistrarEmpleado implements Initializable {
 
     public void cancelarActionEvent(ActionEvent actionEvent) {
 
+    }
+
+    public void enableUsuario(ActionEvent actionEvent) {
+        textfieldIDempleado.setEditable(false);
+        textfieldContrasena.setEditable(false);
     }
 }

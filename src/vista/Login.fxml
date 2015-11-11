@@ -31,9 +31,9 @@
                               <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="usuarioTextField">
+                        <TextField fx:id="usuarioTextField" prefHeight="25.0" prefWidth="522.0">
                            <VBox.margin>
-                              <Insets bottom="10.0" left="50.0" right="50.0" />
+                              <Insets bottom="10.0" left="200.0" right="200.0" />
                            </VBox.margin>
                         </TextField>
                         <Label text="PASSWORD">
@@ -43,30 +43,20 @@
                         </Label>
                         <PasswordField fx:id="passwordTextField">
                            <VBox.margin>
-                              <Insets bottom="20.0" left="50.0" right="50.0" top="10.0" />
+                              <Insets bottom="20.0" left="200.0" right="200.0" top="10.0" />
                            </VBox.margin>
                         </PasswordField>
                         <BorderPane>
-                           <left>
-                              <RadioButton fx:id="mantenerSesionRadioButton" mnemonicParsing="false" text="Mantener Sesión" BorderPane.alignment="CENTER_LEFT">
-                                 <BorderPane.margin>
-                                    <Insets bottom="10.0" left="50.0" top="10.0" />
-                                 </BorderPane.margin>
-                              </RadioButton>
-                           </left>
                            <center>
-                              <Button fx:id="aceptarButton" mnemonicParsing="false" onAction="#aceptarOnActionEvent" text="Aceptar" BorderPane.alignment="CENTER">
+                              <Button fx:id="aceptarButton" mnemonicParsing="false" onAction="#aceptarOnActionEvent" text="Aceptar" BorderPane.alignment="TOP_CENTER">
                                  <BorderPane.margin>
                                     <Insets bottom="10.0" top="10.0" />
                                  </BorderPane.margin></Button>
                            </center>
-                           <right>
-                              <Pane prefHeight="41.0" prefWidth="161.0" BorderPane.alignment="CENTER" />
-                           </right>
                         </BorderPane>
                      </children>
                      <BorderPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="50.0" left="10.0" right="10.0" />
                      </BorderPane.margin>
                   </VBox>
                </center>

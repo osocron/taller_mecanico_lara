@@ -41,11 +41,20 @@ public class ViewReporte implements Initializable{
     private ObservableList<VentasEntity> dataVentas = FXCollections.observableArrayList();
     private ObservableList<VentaServicioEntity> dataVentaServicio = FXCollections.observableArrayList();
     private ObservableList<VentaRefaccionEntity> dataVentaRefaccion = FXCollections.observableArrayList();
+    private DatePicker fecha;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<VentasEntity> listaVenta = ControladorVentas.getVentas();
         dataVentas.addAll(listaVenta);
+        java.util.List<VentaRefaccionEntity>listaVentaRefaccion = FXCollections.observableArrayList();
+        dataVentaRefaccion.addAll(listaVentaRefaccion);
+        java.util.List<VentaServicioEntity> listaVentaServicio = FXCollections.observableArrayList();
+        dataVentaServicio.addAll(listaVentaServicio);
+        //comboboxReporte.setItems(fecha);
+    }
+    public void tablaReporteEvent(){
+        tableviewReporte.setEditable(true);
     }
     public void crearReporteEvent(){
         ControladorVentas.getVentas();

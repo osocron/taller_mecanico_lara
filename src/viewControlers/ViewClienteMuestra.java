@@ -46,7 +46,7 @@ public class ViewClienteMuestra implements Initializable{
     @FXML
     public Button buttonConsultar;
     @FXML
-    public Button buttonAtras,guardarButton,editarButton,eliminarButton;
+    public Button guardarButton,editarButton,eliminarButton;
 
 
     private ObservableList<ClienteEntity> data = FXCollections.observableArrayList();
@@ -79,6 +79,10 @@ public class ViewClienteMuestra implements Initializable{
         stage.close();
     }
     public void cancelarActionEvent(){
-
+        textfieldNombre.setText("");
+        comboboxIDcliente.getSelectionModel().clearSelection();
+        textfieldTelefono.setText("");
+        textfieldDomicilio.setText("");
+        textfieldIDCliente.setText("");
     }
 }

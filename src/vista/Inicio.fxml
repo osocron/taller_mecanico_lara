@@ -10,19 +10,14 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Salir" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Ayuda">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Acerca de" />
             </items>
           </Menu>
         </menus>
@@ -41,7 +36,7 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="cotizacionButton" mnemonicParsing="false" onAction="#displayCotizacionesOptions" text="Modulo de Cotizaciones">
+            <Button fx:id="cotizacionButton" mnemonicParsing="false" onAction="#displayCotizacionesOptions" prefHeight="25.0" prefWidth="172.0" text="Modulo de Cotizaciones">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
@@ -55,7 +50,7 @@
       </VBox>
    </left>
    <center>
-      <ImageView fx:id="imageView" fitHeight="177.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fx:id="imageView" fitHeight="178.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
             <Image url="@../res/taller_lara.jpg" />
          </image>

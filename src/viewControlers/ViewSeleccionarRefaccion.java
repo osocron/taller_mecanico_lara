@@ -35,8 +35,7 @@ public class ViewSeleccionarRefaccion implements Initializable{
 
 
     public void cancelarActionEvent() {
-        Stage stage = (Stage)refaccionesListView.getScene().getWindow();
-        stage.close();
+
     }
 
     public void seleccionarRefaccionActionEvent() {
