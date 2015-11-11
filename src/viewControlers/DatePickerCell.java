@@ -1,10 +1,13 @@
 package viewControlers;
 
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.skins.JFXCheckBoxSkin;
 import entidades.VentasEntity;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;

@@ -28,17 +28,25 @@ public class ControladorEmpleado {
         ConexionBD.getEm().persist(empleado);
         return empleado;
     }
-    public static void modificarEmpleado(String Nombre, String Puesto){
-        EmpleadoEntity empleado = getEmpleadoPorNombre(Nombre);
+    public static void modificarNombre(int idEmpleado, String nombre){
+        EmpleadoEntity empleado = getEmpleadoPorID(idEmpleado);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
-        empleado.setNombre(Nombre);
+        empleado.setNombre(nombre);
+        entityTransaction.commit();
+    }
+
+    public static void modificarPuesto(int idEmpleado, String Puesto){
+        EmpleadoEntity empleado = getEmpleadoPorID(idEmpleado);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
         empleado.setPuesto(Puesto);
         entityTransaction.commit();
     }
-    public static void eliminarEmpleado(String Nombre){
-        EmpleadoEntity empleado = getEmpleadoPorNombre(Nombre);
-        if(Nombre != null){
+    
+    public static void eliminarEmpleado(int idEmpleado){
+        EmpleadoEntity empleado = getEmpleadoPorID(idEmpleado);
+        if(idEmpleado >= 0){
             EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
             entityTransaction.begin();
             ConexionBD.getEm().remove(empleado);
@@ -46,8 +54,8 @@ public class ControladorEmpleado {
         }
     }
 
-    public static EmpleadoEntity getEmpleadoPorNombre(String Nombre){
-        return ConexionBD.getEm().find(EmpleadoEntity.class, Nombre);
+    public static EmpleadoEntity getEmpleadoPorID(int idEmpleado){
+        return ConexionBD.getEm().find(EmpleadoEntity.class, idEmpleado);
     }
 }
 

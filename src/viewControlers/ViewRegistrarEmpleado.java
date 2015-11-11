@@ -1,5 +1,8 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXTextField;
 import entidades.EmpleadoEntity;
 import entityControlers.ControladorEmpleado;
 import entityControlers.ControladorUsuario;
@@ -20,32 +23,20 @@ import java.util.ResourceBundle;
  * Created by ValdemarRamos on 28/10/2015.
  */
 public class ViewRegistrarEmpleado implements Initializable {
-    @FXML
+
     public Label labelIDempleado;
-    @FXML
     public Label labelNombre;
-    @FXML
     public Label labelPuesto;
-    @FXML
     public Label labelUsuario;
-    @FXML
     public Label labelContrasena;
-    @FXML
-    public TextField textfieldIDempleado;
-    @FXML
-    public TextField textfieldNombre;
-    @FXML
-    public TextField textfieldPuesto;
-    @FXML
-    public TextField textfieldUsuario;
-    @FXML
-    public TextField textfieldContrasena;
-    @FXML
-    public CheckBox checkBoxUsuario;
-    @FXML
-    public Button buttonEmpleado;
-    @FXML
-    public Button buttonCancelar;
+    public JFXTextField textfieldIDempleado;
+    public JFXTextField textfieldNombre;
+    public JFXTextField textfieldPuesto;
+    public JFXTextField textfieldUsuario;
+    public JFXTextField textfieldContrasena;
+    public JFXCheckBox checkBoxUsuario;
+    public JFXButton buttonEmpleado;
+    public MenuItem menuItemClose;
 
     private ObservableList<EmpleadoEntity> dataEmpleado = FXCollections.observableArrayList();
 

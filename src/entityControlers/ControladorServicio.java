@@ -40,6 +40,23 @@ public class ControladorServicio {
         servicios.setIdEmpleados(IDEmpleados);
         entityTransaction.commit();
     }
+
+    public static void modificarDescripcion(int IDServicio, String Descripcion){
+        ServicioEntity servicios = getServicioPorID(IDServicio);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        servicios.setDescripcion(Descripcion);
+        entityTransaction.commit();
+    }
+
+    public static void modificarCosto(int IDServicio, BigDecimal Costo){
+        ServicioEntity servicios = getServicioPorID(IDServicio);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        servicios.setCosto(Costo);
+        entityTransaction.commit();
+    }
+
     public static void eliminarServicio(int IDServicio){
         ServicioEntity servicios = getServicioPorID(IDServicio);
         if(servicios != null){

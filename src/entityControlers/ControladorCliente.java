@@ -5,9 +5,6 @@ import entidades.ClienteEntity;
 import javax.persistence.EntityTransaction;
 import java.util.List;
 
-/**
- * Created by osocron on 30/10/15.
- */
 public class ControladorCliente {
 
     public static List<ClienteEntity> getCliente(){
@@ -42,6 +39,34 @@ public class ControladorCliente {
         cliente.setTelefono(telefono);
         entityTransaction.commit();
     }
+
+    public static void modificarNombre(String idCliente, String nombre){
+        ClienteEntity cliente = getClienteID(idCliente);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        cliente.setIdCliente(idCliente);
+        cliente.setNombre(nombre);
+        entityTransaction.commit();
+    }
+
+    public static void modificarDireccion(String idCliente, String direccion){
+        ClienteEntity cliente = getClienteID(idCliente);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        cliente.setIdCliente(idCliente);
+        cliente.setDireccion(direccion);
+        entityTransaction.commit();
+    }
+
+    public static void modificarTelefono(String idCliente, String telefono){
+        ClienteEntity cliente = getClienteID(idCliente);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        cliente.setIdCliente(idCliente);
+        cliente.setTelefono(telefono);
+        entityTransaction.commit();
+    }
+
     public static void eliminarCliente(String idCliente){
         ClienteEntity cliente = getClienteID(idCliente);
         if(cliente != null){

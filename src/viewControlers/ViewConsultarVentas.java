@@ -25,9 +25,9 @@ public class ViewConsultarVentas implements Initializable {
 
     public TableView<VentasEntity> tablaVentas;
     public MenuItem menuItemClose;
-    public TableColumn idVentaTableColumn;
+    public TableColumn<VentasEntity,String> idVentaTableColumn;
     public TableColumn fechaTablecolumn;
-    public TableColumn clienteTableColumn;
+    public TableColumn<VentasEntity,String> clienteTableColumn;
     public Button buttonEliminar;
 
 
@@ -40,17 +40,13 @@ public class ViewConsultarVentas implements Initializable {
         tablaVentas.setItems(dataVenta);
         tablaVentas.setEditable(true);
 
-        idVentaTableColumn.setCellValueFactory(new PropertyValueFactory<VentasEntity,String>("idVenta"));
-
+        idVentaTableColumn.setCellValueFactory(new PropertyValueFactory<>("idVenta"));
         clienteTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        clienteTableColumn.setCellValueFactory(new PropertyValueFactory<VentasEntity, String>("idClientes"));
-        clienteTableColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<VentasEntity,String>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<VentasEntity,String> event) {
-                VentasEntity ventasEntity =
-                        event.getTableView().getItems().get(event.getTablePosition().getRow());
-                ControladorVentas.modificarCliente(ventasEntity.getIdVenta(),event.getNewValue());
-            }
+        clienteTableColumn.setCellValueFactory(new PropertyValueFactory<>("idClientes"));
+        clienteTableColumn.setOnEditCommit(event -> {
+            VentasEntity ventasEntity =
+                    event.getTableView().getItems().get(event.getTablePosition().getRow());
+            ControladorVentas.modificarCliente(ventasEntity.getIdVenta(),event.getNewValue());
         });
 
         fechaTablecolumn.setCellValueFactory( new PropertyValueFactory<DatePickerCell, java.sql.Date>("fecha"));

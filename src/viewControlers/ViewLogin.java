@@ -1,5 +1,7 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import entidades.UsuarioEntity;
 import entityControlers.ControladorUsuario;
 import javafx.collections.FXCollections;
@@ -21,11 +23,10 @@ import java.util.ResourceBundle;
 public class ViewLogin implements Initializable {
 
     @FXML
-    public TextField usuarioTextField;
+    public JFXTextField usuarioTextField;
     @FXML
-    public PasswordField passwordTextField;
-    @FXML
-    public RadioButton mantenerSesionRadioButton;
+    public JFXPasswordField passwordTextField;
+
 
     private ObservableList<UsuarioEntity> data = FXCollections.observableArrayList();
 

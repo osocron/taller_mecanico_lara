@@ -1,5 +1,7 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
+import javafx.css.SimpleStyleableObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -7,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -18,15 +21,15 @@ import java.util.ResourceBundle;
 public class ViewInicio implements Initializable {
 
     @FXML
-    public Button registroButton,ventaButton,cotizacionButton,controlButton;
+    public JFXButton registroButton,ventaButton,controlButton;
     public BorderPane rootBorderPane;
     public ImageView imageView;
 
-    private Button registrarAutomovil,registrarCliente,registrarEmpleado,registrarProveedor,
+    private JFXButton registrarAutomovil,registrarCliente,registrarEmpleado,registrarProveedor,
             registrarRefaccion,registrarServicio,registrarVenta,consultarCliente,consultarEmpleado,
-            consultarRefacion,consultarServicio,consultarVentas,cotizarButton,reporte;
+            consultarRefacion,consultarServicio,consultarVentas,reporte;
     private VBox vBox;
-    private ArrayList<Button> buttonList;
+    private ArrayList<JFXButton> buttonList;
     private ViewOpener viewOpener;
 
     @Override
@@ -51,13 +54,6 @@ public class ViewInicio implements Initializable {
         }catch (Exception ignored){}
     }
 
-    public void displayCotizacionesOptions() {
-        removeElements();
-        try{
-            vBox.getChildren().addAll(cotizarButton);
-        }catch (Exception ignored){}
-    }
-
 
     public void displayControlOptions() {
         removeElements();
@@ -69,20 +65,19 @@ public class ViewInicio implements Initializable {
 
     private void initializeElements(){
         vBox = new VBox(20);
-        registrarAutomovil = new Button("Registrar Automovil");
-        registrarCliente = new Button("Registrar Clientes");
-        registrarEmpleado = new Button("Registrar Empleados");
-        registrarProveedor = new Button("Registrar Proveedores");
-        registrarRefaccion = new Button("Registrar Refacciones");
-        registrarServicio = new Button("Registrar Servicios");
-        registrarVenta = new Button("Registrar Ventas");
-        consultarCliente = new Button("Consultar Clientes");
-        consultarEmpleado = new Button("Consultar Empleados");
-        consultarRefacion = new Button("Consultar Refaccion");
-        consultarServicio = new Button("Consultar Servicios");
-        consultarVentas  = new Button("Consultar Ventas");
-        reporte = new Button("Reporte de Ventas");
-        cotizarButton = new Button("Cotizaciones");
+        registrarAutomovil = new JFXButton("Registrar Automovil");
+        registrarCliente = new JFXButton("Registrar Clientes");
+        registrarEmpleado = new JFXButton("Registrar Empleados");
+        registrarProveedor = new JFXButton("Registrar Proveedores");
+        registrarRefaccion = new JFXButton("Registrar Refacciones");
+        registrarServicio = new JFXButton("Registrar Servicios");
+        registrarVenta = new JFXButton("Registrar Ventas");
+        consultarCliente = new JFXButton("Consultar Clientes");
+        consultarEmpleado = new JFXButton("Consultar Empleados");
+        consultarRefacion = new JFXButton("Consultar Refaccion");
+        consultarServicio = new JFXButton("Consultar Servicios");
+        consultarVentas  = new JFXButton("Consultar Ventas");
+        reporte = new JFXButton("Reporte de Ventas");
         buttonList = new ArrayList<>();
         buttonList.add(registrarAutomovil);
         buttonList.add(registrarCliente);
@@ -97,7 +92,14 @@ public class ViewInicio implements Initializable {
         buttonList.add(consultarServicio);
         buttonList.add(consultarVentas);
         buttonList.add(reporte);
-        buttonList.add(cotizarButton);
+        buttonList.forEach(button -> {
+            button.setPrefWidth(175);
+            button.setButtonType(JFXButton.ButtonType.RAISED);
+            button.setRipplerFill(Color.rgb(132,189,0));
+        });
+        registroButton.setRipplerFill(Color.rgb(132, 189, 0));
+        ventaButton.setRipplerFill(Color.rgb(132, 189, 0));
+        controlButton.setRipplerFill(Color.rgb(132,189,0));
         setActionEvents();
     }
 
@@ -140,9 +142,6 @@ public class ViewInicio implements Initializable {
         });
         reporte.setOnAction(event -> {
             viewOpener.openView("vista/Reporte.fxml", "Taller Mecánico Lara");
-        });
-        cotizarButton.setOnAction(event -> {
-            viewOpener.openView("vista/Cotizar.fxml", "Taller Mecánico Lara");
         });
     }
 
