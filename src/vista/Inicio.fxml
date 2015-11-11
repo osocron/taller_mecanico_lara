@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
@@ -7,42 +8,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewInicio">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewInicio">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="registroButton" buttonType="RAISED" onAction="#displayRegistroOptions" prefWidth="175.0" style="-fx-background-color: lightgrey;" text="Módulo de Registros">
+            <JFXButton fx:id="registroButton" buttonType="RAISED" onAction="#displayRegistroOptions" prefHeight="25.0" prefWidth="194.0" text="MODULO DE REGISTRO" textFill="#b8b6b6f7">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="80.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="ventaButton" buttonType="RAISED" onAction="#displayVentasOptions" prefWidth="175.0" style="-fx-background-color: lightgrey;" text="Módulo de Ventas">
+            <JFXButton fx:id="ventaButton" buttonType="RAISED" onAction="#displayVentasOptions" prefHeight="25.0" prefWidth="194.0" text="MODULO DE VENTAS" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="controlButton" buttonType="RAISED" onAction="#displayControlOptions" prefWidth="175.0" style="-fx-background-color: lightgrey;" text="Módulo de Consultas">
+            <JFXButton fx:id="controlButton" buttonType="RAISED" onAction="#displayControlOptions" prefHeight="25.0" prefWidth="194.0" text="MODULO DE CONSULTAS" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>

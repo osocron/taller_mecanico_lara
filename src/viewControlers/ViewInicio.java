@@ -1,6 +1,7 @@
 package viewControlers;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.css.SimpleStyleableObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -8,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class ViewInicio implements Initializable {
             registrarRefaccion,registrarServicio,registrarVenta,consultarCliente,consultarEmpleado,
             consultarRefacion,consultarServicio,consultarVentas,reporte;
     private VBox vBox;
-    private ArrayList<Button> buttonList;
+    private ArrayList<JFXButton> buttonList;
     private ViewOpener viewOpener;
 
     @Override
@@ -93,6 +95,8 @@ public class ViewInicio implements Initializable {
         buttonList.forEach(button -> {
             button.setPrefWidth(175);
             button.setStyle("-fx-background-color: lightgray");
+            button.setButtonType(JFXButton.ButtonType.RAISED);
+            button.setRipplerFill(Color.rgb(132,189,0));
         });
         setActionEvents();
     }
