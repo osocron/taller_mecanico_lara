@@ -64,7 +64,8 @@ public class ViewConsultarEmpleado implements Initializable {
         stage.close();
     }
     public void cancelarActionEvent(){
-
+        Stage stage = (Stage) tableEmpleados.getScene().getWindow();
+        stage.close();
     }
 
     public void eliminarFilaActionEvent( ) {
