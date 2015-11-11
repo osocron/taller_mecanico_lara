@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ViewClienteMuestra implements Initializable{
+public class ViewConsultarClientes implements Initializable{
 
 
     public MenuItem menuitemClose;
