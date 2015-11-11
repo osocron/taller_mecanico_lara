@@ -96,6 +96,7 @@ public class ViewInicio implements Initializable {
             button.setPrefWidth(175);
             button.setButtonType(JFXButton.ButtonType.RAISED);
             button.setRipplerFill(Color.rgb(132,189,0));
+            button.setTextFill(Color.WHITESMOKE);
         });
         registroButton.setRipplerFill(Color.rgb(132, 189, 0));
         ventaButton.setRipplerFill(Color.rgb(132, 189, 0));
