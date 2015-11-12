@@ -4,6 +4,7 @@ import entidades.AutomovilesEntity;
 import entityControlers.ControladorAutomovil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -43,9 +44,9 @@ public class ViewAutomovil implements Initializable {
         data.addAll(listaAutomoviles);
     }
     public void guardarAutomovilActionEvent() {
-        //ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(textfieldMatricula.getMatricula,
-        //        textfieldModelo.getText(), textfieldMarca.getText(),
-        //        textfieldIDcliente.getText()));
+        /*ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(textfieldMatricula.getText(),
+                textfieldModelo.getText(), textfieldMarca.getText(),
+                textfieldIDcliente.getText()));*/
         textfieldMatricula.setText("");
         textfieldModelo.setText("");
         textfieldMarca.setText("");
@@ -67,6 +68,10 @@ public class ViewAutomovil implements Initializable {
         stage.close();
     }
     public void cancelarActionEvent(){
+
+    }
+
+    public void eliminarActionEvent(ActionEvent actionEvent) {
 
     }
 }
