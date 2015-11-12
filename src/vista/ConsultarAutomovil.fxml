@@ -32,10 +32,9 @@
                   <Insets bottom="10.0" left="200.0" top="20.0" />
                </VBox.margin>
             </Label>
-            <TableView prefHeight="287.0" prefWidth="510.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="tablaAutomovil" prefHeight="287.0" prefWidth="510.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="tableMatricula" prefWidth="75.0" text="Matricula" />
-                <TableColumn fx:id="tableAutomovil" prefWidth="129.0" text="Automovil" />
                   <TableColumn fx:id="tableMarca" prefWidth="117.0" text="Marca" />
                   <TableColumn fx:id="tableModelo" prefWidth="74.0" text="Modelo" />
                   <TableColumn fx:id="tableColor" prefWidth="71.0" text="Color" />

@@ -10,10 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import javax.servlet.jsp.tagext.TagLibraryInfo;
+import java.awt.*;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -24,17 +28,12 @@ import java.util.ResourceBundle;
 public class ViewAutomovil implements Initializable {
 
     @FXML
-    public TextField textfieldMatricula;
-    @FXML
-    public TextField textfieldModelo;
-    @FXML
-    public TextField textfieldMarca;
-    @FXML
-    public TextField textfieldIDcliente;
-    @FXML
-    public Button buttonAceptar;
-    @FXML
-    public Button buttonCancelar;
+    public TableView<AutomovilesEntity> tablaAutomovil;
+    public  TableColumn<AutomovilesEntity,String> tableMatricula;
+    public TableColumn<AutomovilesEntity,String> tableModelo;
+    public TableColumn<AutomovilesEntity,String> tableColor;
+    public TableColumn<AutomovilesEntity,String> tableMarca;
+    public TableColumn<AutomovilesEntity,String> tableIDcliente;
 
     private ObservableList<AutomovilesEntity> data = FXCollections.observableArrayList();
 
@@ -42,29 +41,31 @@ public class ViewAutomovil implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         List<AutomovilesEntity> listaAutomoviles = ControladorAutomovil.getAutomoviles();
         data.addAll(listaAutomoviles);
+        prepararTablaView();
     }
-    public void guardarAutomovilActionEvent() {
-        /*ControladorAutomovil.crearAutomovil(ControladorAutomovil.crearAutomovil(textfieldMatricula.getText(),
-                textfieldModelo.getText(), textfieldMarca.getText(),
-                textfieldIDcliente.getText()));*/
-        textfieldMatricula.setText("");
-        textfieldModelo.setText("");
-        textfieldMarca.setText("");
-        textfieldIDcliente.setText("");
+
+    private void prepararTablaView() {
+        tablaAutomovil.setEditable(true);
+        tableMatricula.setCellValueFactory(new PropertyValueFactory<>("matricula"));
+        tableModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+        tableModelo.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableModelo.setOnEditCommit(event -> ControladorAutomovil.modificarModelo(event.getTableView().getSelectionModel()
+        .getSelectedItem().getMatricula(), event.getNewValue()));
+        tableMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        tableMarca.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableMarca.setOnEditCommit(event -> ControladorAutomovil.modificarMarca(event.getTableView().getSelectionModel()
+        .getSelectedItem().getMarca(),event.getNewValue()));
+        tableColor.setCellValueFactory(new PropertyValueFactory<>("color"));
+        tableColor.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableColor.setOnEditCommit(event -> ControladorAutomovil.modificarColor(event.getTableView().getSelectionModel()
+        .getSelectedItem().getColor(),event.getNewValue()));
+        tableIDcliente.setCellValueFactory(new PropertyValueFactory<>("idCliente"));
+
+        tablaAutomovil.setItems(data);
     }
-    public void eliminarAutomovilEvent(){
-        ControladorAutomovil.eliminarAutomovil(textfieldMarca.getText());
-        textfieldMatricula.setText("");
-    }
-    public void modificarAutomovil(){
-        /*ControladorAutomovil.modificarAutomovil(textfieldModelo.getText(),textfieldMarca.getText(),
-                textfieldIDcliente.getText());*/
-        textfieldMarca.setText("");
-        textfieldModelo.setText("");
-        textfieldIDcliente.setText("");
-    }
+
     public void cerrarVentanaEvent(){
-        Stage stage = (Stage) textfieldMatricula.getScene().getWindow();
+        Stage stage = (Stage) tablaAutomovil.getScene().getWindow();
         stage.close();
     }
     public void cancelarActionEvent(){
@@ -72,6 +73,9 @@ public class ViewAutomovil implements Initializable {
     }
 
     public void eliminarActionEvent(ActionEvent actionEvent) {
-
+        AutomovilesEntity automovilesEntity = tablaAutomovil.getSelectionModel().getSelectedItem();
+        data.remove(automovilesEntity);
+        tablaAutomovil.setItems(data);
+        ControladorAutomovil.eliminarAutomovil(tablaAutomovil.getSelectionModel().getSelectedItem().getMatricula());
     }
 }
