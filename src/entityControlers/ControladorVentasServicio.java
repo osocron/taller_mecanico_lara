@@ -30,12 +30,19 @@ public class ControladorVentasServicio {
         return ventaServicio;
     }
 
-    public static void modificarVentaServicio(int idVentaServicio, int IDVentas, int IDServicios){
+    /*public static void modificarVentaServicio(int idVentaServicio, int IDVentas, int IDServicios){
         VentaServicioEntity ventaServicio = getVentaServicioID(idVentaServicio);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
         ventaServicio.setIdVentas(IDVentas);
         ventaServicio.setIdServicios(IDServicios);
+        entityTransaction.commit();
+    }*/
+    public static void modificarIDventas(int idVentaServicio, int IDventas){
+        VentaServicioEntity ventaServicio = getVentaServicioID(idVentaServicio);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        ventaServicio.setIdVentas(IDventas);
         entityTransaction.commit();
     }
     public static void eliminarVentaServicio(int idVentaServicio){

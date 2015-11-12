@@ -37,6 +37,13 @@ public class ControladorVentas {
         ventas.setIdClientes(IDClientes);
         entityTransaction.commit();
     }
+    public static void modificarIDventa(int IDventa){
+        VentasEntity ventas = getVentaPorID(IDventa);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        ventas.setIdVenta(IDventa);
+        entityTransaction.commit();
+    }
 
     public static void modificarCliente(int IDVenta, String IDClientes){
         VentasEntity ventas = getVentaPorID(IDVenta);

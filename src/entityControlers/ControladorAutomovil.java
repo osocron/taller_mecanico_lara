@@ -50,11 +50,11 @@ public class ControladorAutomovil {
         entityTransaction.commit();
     }
 
-    public static void eliminarAutomovil(String IDClientes){
-        AutomovilesEntity auto = getAutomovilByMatricula(IDClientes);
+    public static void eliminarAutomovil(String matricula){
+        AutomovilesEntity auto = getAutomovilByMatricula(matricula);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
-        ConexionBD.getEm().remove(IDClientes);
+        ConexionBD.getEm().remove(auto);
         entityTransaction.commit();
     }
     public static AutomovilesEntity getAutomovilByMatricula(String matricula){
