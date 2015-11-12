@@ -73,6 +73,7 @@ public class ViewConsultarServicio implements Initializable {
         ServicioEntity servicioEntity = tableviewServicio.getSelectionModel().getSelectedItem();
         dataServicio.remove(servicioEntity);
         tableviewServicio.setItems(dataServicio);
+        ControladorServicio.eliminarServicio(servicioEntity.getIdServicio());
     }
 
 

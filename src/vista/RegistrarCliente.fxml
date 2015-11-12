@@ -1,61 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRegistrarCliente">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Archivo">
-            <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Salir" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Ayuda">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Acerca de" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRegistrarCliente">
    <center>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="labelRFC" text="RFC" />
-            <TextField fx:id="textfieldRFC" />
-            <Label fx:id="labelNombre" text="Nombre" />
-            <TextField fx:id="textfieldNombre" />
-            <Label fx:id="labelDomicilio" text="Domicilio" />
-            <TextField fx:id="textfieldDomicilio" />
-            <Label fx:id="labelTelefono" text="Telefono" />
-            <TextField fx:id="textfieldTelefono" />
+            <Label fx:id="labelRFC" text="RFC" textFill="#938f8f">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <JFXTextField fx:id="textfieldRFC">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></JFXTextField>
+            <Label fx:id="labelNombre" text="Nombre" textFill="#938f8f">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <JFXTextField fx:id="textfieldNombre">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <Label fx:id="labelDomicilio" text="Domicilio" textFill="#938f8f">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <JFXTextField fx:id="textfieldDomicilio">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <Label fx:id="labelTelefono" text="Telefono" textFill="#938f8f">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <JFXTextField fx:id="textfieldTelefono">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXTextField>
          </children>
          <BorderPane.margin>
-            <Insets bottom="80.0" left="80.0" right="80.0" top="150.0" />
+            <Insets left="80.0" right="80.0" />
          </BorderPane.margin>
       </VBox>
    </center>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_RIGHT">
+      <HBox alignment="CENTER_RIGHT" BorderPane.alignment="BOTTOM_RIGHT">
          <children>
-            <Button fx:id="buttonAceptar" mnemonicParsing="false" onAction="#guardarClienteActionEvent" text="Aceptar">
+            <JFXButton fx:id="buttonCancelar" buttonType="RAISED" onAction="#cancelarActionEvent" prefWidth="100.0" style="-fx-background-color: #84bd00;" text="CANCELAR">
                <HBox.margin>
-                  <Insets />
+                  <Insets bottom="26.0" />
                </HBox.margin>
-            </Button>
-            <Button fx:id="buttonCancelar" mnemonicParsing="false" onAction="#cancelarActionEvent" text="Cancelar">
+            </JFXButton>
+            <JFXButton fx:id="buttonAceptar" buttonType="RAISED" onAction="#guardarClienteActionEvent" prefWidth="100.0" style="-fx-background-color: #84bd00;" text="ACEPTAR">
                <HBox.margin>
-                  <Insets left="80.0" />
+                  <Insets bottom="26.0" left="60.0" right="70.0" />
                </HBox.margin>
-            </Button>
+            </JFXButton>
          </children>
          <BorderPane.margin>
-            <Insets bottom="20.0" left="200.0" right="20.0" />
+            <Insets />
          </BorderPane.margin>
       </HBox>
    </bottom>
@@ -65,8 +78,18 @@
             <Image url="@../res/cliente.png" />
          </image>
          <BorderPane.margin>
-            <Insets left="40.0" top="50.0" />
+            <Insets left="45.0" />
          </BorderPane.margin>
       </ImageView>
    </left>
+   <top>
+      <Label text="Registro de Clientes" textFill="#938f8f" BorderPane.alignment="CENTER_LEFT">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="30.0" top="25.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
 </BorderPane>

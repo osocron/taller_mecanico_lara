@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.css.SimpleStyleableObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -23,7 +24,8 @@ public class ViewInicio implements Initializable {
     @FXML
     public JFXButton registroButton,ventaButton,controlButton;
     public BorderPane rootBorderPane;
-    public ImageView imageView;
+    public ImageView imageShadow;
+    public ImageView imageCar;
 
     private JFXButton registrarAutomovil,registrarCliente,registrarEmpleado,
             registrarRefaccion,registrarServicio,registrarVenta,consultarCliente,consultarEmpleado,
@@ -97,10 +99,8 @@ public class ViewInicio implements Initializable {
             button.setButtonType(JFXButton.ButtonType.RAISED);
             button.setRipplerFill(Color.rgb(132,189,0));
             button.setTextFill(Color.rgb(184,182,182));
+            vBox.setMargin(button,new Insets(10,0,10,0));
         });
-        registroButton.setRipplerFill(Color.rgb(132, 189, 0));
-        ventaButton.setRipplerFill(Color.rgb(132, 189, 0));
-        controlButton.setRipplerFill(Color.rgb(132,189,0));
         setActionEvents();
     }
 
@@ -122,7 +122,8 @@ public class ViewInicio implements Initializable {
 
     private void removeElements(){
         try{
-            rootBorderPane.getChildren().remove(imageView);
+            rootBorderPane.getChildren().remove(imageShadow);
+            rootBorderPane.getChildren().remove(imageCar);
         }catch (Exception ignored){}
         buttonList.forEach(boton -> {
             try {

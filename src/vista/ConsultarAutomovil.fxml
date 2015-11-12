@@ -1,56 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewAutomovil">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1C1C1F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewConsultartAutomovil">
+   <bottom>
+      <JFXButton fx:id="eliminiarButton" buttonType="RAISED" onAction="#eliminarActionEvent" prefWidth="150.0" style="-fx-background-color: #84bd00;" text="ELIMINAR" BorderPane.alignment="CENTER_RIGHT">
+         <BorderPane.margin>
+            <Insets bottom="20.0" right="20.0" top="15.0" />
+         </BorderPane.margin></JFXButton>
+   </bottom>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Archivo">
-            <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Salir" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Ayuda">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
+      <Label text="CONSULTA DE AUTOMOVILES" textFill="#b8bbb6" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="15.0" top="15.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="Khmer OS System" size="21.0" />
+         </font>
+      </Label>
    </top>
    <center>
-      <VBox>
-         <children>
-            <Label text="TABLA AUTOMOVIL">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="200.0" top="20.0" />
-               </VBox.margin>
-            </Label>
-            <TableView fx:id="tablaAutomovil" prefHeight="287.0" prefWidth="510.0" BorderPane.alignment="CENTER">
-              <columns>
-                <TableColumn fx:id="tableMatricula" prefWidth="75.0" text="Matricula" />
-                  <TableColumn fx:id="tableMarca" prefWidth="117.0" text="Marca" />
-                  <TableColumn fx:id="tableModelo" prefWidth="74.0" text="Modelo" />
-                  <TableColumn fx:id="tableColor" prefWidth="71.0" text="Color" />
-                  <TableColumn fx:id="tableIDcliente" prefWidth="73.0" text="idCliente" />
-              </columns>
-               <BorderPane.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="100.0" />
-               </BorderPane.margin>
-               <VBox.margin>
-                  <Insets left="30.0" right="30.0" />
-               </VBox.margin>
-            </TableView>
-         </children>
-      </VBox>
+      <TableView fx:id="tablaAutomovil" prefHeight="287.0" prefWidth="510.0" stylesheets="@../res/material.css" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="tableMatricula" prefWidth="111.0" text="MATRICULA" />
+            <TableColumn fx:id="tableMarca" prefWidth="126.0" text="MARCA" />
+            <TableColumn fx:id="tableModelo" prefWidth="110.0" text="MODELO" />
+            <TableColumn fx:id="tableColor" prefWidth="105.0" text="COLOR" />
+            <TableColumn fx:id="tableIDcliente" prefWidth="106.0" text="ID CLIENTE" />
+        </columns>
+         <BorderPane.margin>
+            <Insets left="15.0" right="15.0" />
+         </BorderPane.margin>
+      </TableView>
    </center>
-   <bottom>
-      <JFXButton fx:id="eliminiarButton" onAction="#eliminarActionEvent" text="Eliminar" BorderPane.alignment="CENTER" />
-   </bottom>
 </BorderPane>

@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 /**
  * Created by ValdemarRamos on 27/10/2015.
  */
-public class ViewAutomovil implements Initializable {
+public class ViewConsultartAutomovil implements Initializable {
 
     @FXML
     public TableView<AutomovilesEntity> tablaAutomovil;
@@ -76,6 +76,6 @@ public class ViewAutomovil implements Initializable {
         AutomovilesEntity automovilesEntity = tablaAutomovil.getSelectionModel().getSelectedItem();
         data.remove(automovilesEntity);
         tablaAutomovil.setItems(data);
-        ControladorAutomovil.eliminarAutomovil(tablaAutomovil.getSelectionModel().getSelectedItem().getMatricula());
+        ControladorAutomovil.eliminarAutomovil(automovilesEntity.getMatricula());
     }
 }

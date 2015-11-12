@@ -52,10 +52,12 @@ public class ControladorAutomovil {
 
     public static void eliminarAutomovil(String matricula){
         AutomovilesEntity auto = getAutomovilByMatricula(matricula);
-        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
-        entityTransaction.begin();
-        ConexionBD.getEm().remove(auto);
-        entityTransaction.commit();
+        if(auto != null) {
+            EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+            entityTransaction.begin();
+            ConexionBD.getEm().remove(auto);
+            entityTransaction.commit();
+        }
     }
     public static AutomovilesEntity getAutomovilByMatricula(String matricula){
         return ConexionBD.getEm().find(AutomovilesEntity.class, matricula);

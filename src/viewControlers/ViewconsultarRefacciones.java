@@ -91,6 +91,7 @@ public class ViewconsultarRefacciones implements Initializable {
         RefaccionEntity refaccionEntity = tableviewRefaccion.getSelectionModel().getSelectedItem();
         data.remove(refaccionEntity);
         tableviewRefaccion.setItems(data);
+        ControladorRefaccion.eliminarRefaccion(refaccionEntity.getIdRefaccion());
     }
 
     public void cerrarVentanaEvent() {

@@ -44,11 +44,22 @@ public class ViewRegistrarEmpleado implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         java.util.List<EmpleadoEntity> listaEmpleado = ControladorEmpleado.getEmpleados();
         dataEmpleado.addAll(listaEmpleado);
+        textfieldUsuario.setDisable(true);
+        textfieldContrasena.setDisable(true);
+        checkBoxUsuario.setOnAction(event -> {
+            if (checkBoxUsuario.isSelected()){
+                textfieldUsuario.setDisable(false);
+                textfieldContrasena.setDisable(false);
+            }else {
+                textfieldUsuario.setDisable(true);
+                textfieldContrasena.setDisable(true);
+            }
+        });
     }
 
 
     public void registrarEmpleadoActionEvent() {
-        //enableUsuario();
+
         ControladorEmpleado.guardarEmpleadp(
                 ControladorEmpleado.crearEmpleado(
                         Integer.parseInt(textfieldIDempleado.getText()),
