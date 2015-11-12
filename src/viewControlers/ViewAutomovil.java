@@ -59,7 +59,7 @@ public class ViewAutomovil implements Initializable {
         tableColor.setCellFactory(TextFieldTableCell.forTableColumn());
         tableColor.setOnEditCommit(event -> ControladorAutomovil.modificarColor(event.getTableView().getSelectionModel()
         .getSelectedItem().getColor(),event.getNewValue()));
-        tableIDcliente.setCellValueFactory(new PropertyValueFactory<>("idCliente"));
+        tableIDcliente.setCellValueFactory(new PropertyValueFactory<>("idClientes"));
 
         tablaAutomovil.setItems(data);
     }

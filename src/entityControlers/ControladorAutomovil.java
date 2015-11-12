@@ -50,12 +50,14 @@ public class ControladorAutomovil {
         entityTransaction.commit();
     }
 
-    public static void eliminarAutomovil(String IDClientes){
-        AutomovilesEntity auto = getAutomovilByMatricula(IDClientes);
-        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
-        entityTransaction.begin();
-        ConexionBD.getEm().remove(IDClientes);
-        entityTransaction.commit();
+    public static void eliminarAutomovil(String matricula){
+        AutomovilesEntity auto = getAutomovilByMatricula(matricula);
+        if(auto != null) {
+            EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+            entityTransaction.begin();
+            ConexionBD.getEm().remove(auto);
+            entityTransaction.commit();
+        }
     }
     public static AutomovilesEntity getAutomovilByMatricula(String matricula){
         return ConexionBD.getEm().find(AutomovilesEntity.class, matricula);
