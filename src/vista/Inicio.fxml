@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
@@ -12,17 +13,17 @@
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="registroButton" buttonType="RAISED" onAction="#displayRegistroOptions" prefHeight="25.0" prefWidth="194.0" text="MODULO DE REGISTRO" textFill="#b8b6b6">
+            <JFXButton fx:id="registroButton" buttonType="RAISED" onAction="#displayRegistroOptions" opacity="0.96" prefHeight="25.0" prefWidth="194.0" style="-fx-background-color: #84bd00;" text="MODULO DE REGISTRO">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="80.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="ventaButton" buttonType="RAISED" onAction="#displayVentasOptions" prefHeight="25.0" prefWidth="194.0" text="MODULO DE VENTAS" textFill="#b8b6b6">
+            <JFXButton fx:id="ventaButton" buttonType="RAISED" onAction="#displayVentasOptions" opacity="0.96" prefHeight="25.0" prefWidth="194.0" style="-fx-background-color: #84bd00;" text="MODULO DE VENTAS">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="controlButton" buttonType="RAISED" onAction="#displayControlOptions" prefHeight="25.0" prefWidth="194.0" text="MODULO DE CONSULTAS" textFill="#b8b6b6">
+            <JFXButton fx:id="controlButton" buttonType="RAISED" onAction="#displayControlOptions" opacity="0.96" prefHeight="25.0" prefWidth="194.0" style="-fx-background-color: #84bd00;" text="MODULO DE CONSULTAS">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </VBox.margin>
@@ -31,10 +32,25 @@
       </VBox>
    </left>
    <center>
-      <ImageView fx:id="imageView" fitHeight="177.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <image>
-            <Image url="@../res/taller_lara.jpg" />
-         </image>
-      </ImageView>
+      <AnchorPane>
+         <children>
+            <ImageView fx:id="imageShadow" fitHeight="250.0" fitWidth="350.0" layoutX="44.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="70.0" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../res/Cool-Green-Vintage-Car-Wide-Screen.jpg" />
+               </image>
+               <BorderPane.margin>
+                  <Insets bottom="30.0" />
+               </BorderPane.margin>
+               <effect>
+                  <Shadow color="#000000d1" height="93.86" radius="45.7325" width="91.07" />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="imageCar" fitHeight="230.0" fitWidth="330.0" opacity="0.74" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="70.0">
+               <image>
+                  <Image url="@../res/Cool-Green-Vintage-Car-Wide-Screen.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </center>
 </BorderPane>

@@ -1,5 +1,6 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
 import entidades.AutomovilesEntity;
 import entidades.ClienteEntity;
 import entityControlers.ControladorAutomovil;
@@ -21,10 +22,9 @@ import java.util.ResourceBundle;
 
 public class ViewRegistrarAutomovil implements Initializable {
 
-    @FXML
     public TextField matriculaTextField,marcaTextField,modeloTextField,colorTextField;
     public ComboBox<ClienteEntity> clienteEntityComboBox;
-    public Button registrarButton;
+    public JFXButton registrarButton;
 
     private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();
     private ObservableList<AutomovilesEntity> dataAtuomoviles = FXCollections.observableArrayList();

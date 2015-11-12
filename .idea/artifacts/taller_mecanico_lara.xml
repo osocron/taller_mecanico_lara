@@ -26,6 +26,7 @@
       <element id="library" level="project" name="itext-pdfa-5.5.7" />
       <element id="library" level="project" name="itext-xtra-5.5.7" />
       <element id="library" level="project" name="itextpdf-5.5.7" />
+      <element id="library" level="project" name="jfoenix" />
     </root>
   </artifact>
 </component>

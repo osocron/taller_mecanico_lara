@@ -7,56 +7,42 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewconsultarRefacciones">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Archivo">
-            <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Salir" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Ayuda">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Acerca de " />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewconsultarRefacciones">
    <center>
       <VBox alignment="CENTER">
          <children>
-            <Label text="Consulta de Refacciones">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </VBox.margin>
-            </Label>
             <TableView fx:id="tableviewRefaccion" stylesheets="@../res/material.css" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="idRefaccion" prefWidth="117.0" text="IDrefaccion" />
-                  <TableColumn fx:id="descripcion" minWidth="0.0" prefWidth="209.0" text="Descripcion" />
-                  <TableColumn fx:id="costo" prefWidth="140.0" text="Costo" />
-                  <TableColumn fx:id="cantidad" prefWidth="119.0" text="Cantidad" />
+                <TableColumn fx:id="idRefaccion" prefWidth="117.0" text="ID REFACCION" />
+                  <TableColumn fx:id="descripcion" minWidth="0.0" prefWidth="191.0" text="DESCRIPCION" />
+                  <TableColumn fx:id="costo" prefWidth="139.0" text="COSTO" />
+                  <TableColumn fx:id="cantidad" prefWidth="113.0" text="CANTIDAD" />
               </columns>
                <BorderPane.margin>
                   <Insets bottom="50.0" left="5.0" right="40.0" top="50.0" />
                </BorderPane.margin>
                <VBox.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" />
+                  <Insets left="15.0" right="15.0" top="10.0" />
                </VBox.margin>
             </TableView>
          </children>
       </VBox>
    </center>
    <bottom>
-      <JFXButton fx:id="buttonEliminar" buttonType="RAISED" onAction="#eliminarRefaccionEvent" prefWidth="150.0" style="-fx-background-color: lightgray;" text="Eliminar Fila" BorderPane.alignment="CENTER_RIGHT">
+      <JFXButton fx:id="buttonEliminar" buttonType="RAISED" onAction="#eliminarRefaccionEvent" prefWidth="150.0" style="-fx-background-color: #48bd00;" text="ELIMINAR FILA" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+            <Insets bottom="20.0" left="15.0" right="25.0" top="10.0" />
          </BorderPane.margin>
       </JFXButton>
    </bottom>
+   <top>
+      <Label alignment="BOTTOM_LEFT" text="Consulta de Refacciones" textFill="#b8bbb6" BorderPane.alignment="CENTER_LEFT">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
 </BorderPane>

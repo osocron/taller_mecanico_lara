@@ -7,44 +7,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewConsultarServicio">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Archivo">
-            <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaEvent" text="Salir" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Ayuda">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewConsultarServicio">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <children>
-                  <Label text="Consulta de Servicios">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
             <TableView fx:id="tableviewServicio" stylesheets="@../res/material.css" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="idServicio" prefWidth="81.0" text="ID" />
-                  <TableColumn fx:id="descripcion" prefWidth="271.0" text="Descripción" />
+                  <TableColumn fx:id="descripcion" prefWidth="251.0" text="Descripción" />
                   <TableColumn fx:id="costo" prefWidth="114.0" text="Costo" />
-                  <TableColumn fx:id="idEmpleado" prefWidth="102.0" text="ID Empleado" />
+                  <TableColumn fx:id="idEmpleado" prefWidth="122.0" text="ID Empleado" />
               </columns>
                <VBox.margin>
                   <Insets left="15.0" right="15.0" top="15.0" />
@@ -56,12 +28,22 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="buttonEliminar" buttonType="RAISED" maxWidth="150.0" onAction="#eliminarServicioEvent" prefWidth="150.0" style="-fx-background-color: lightgray;" text="Eliminar Fila">
+            <JFXButton fx:id="buttonEliminar" buttonType="RAISED" maxWidth="150.0" onAction="#eliminarServicioEvent" prefWidth="150.0" style="-fx-background-color: #84bd00;" text="ELIMINAR SERVICIO">
                <HBox.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  <Insets bottom="20.0" left="15.0" right="20.0" top="15.0" />
                </HBox.margin>
             </JFXButton>
          </children>
       </HBox>
    </bottom>
+   <top>
+      <Label text="Consulta de Servicios" textFill="#b8bbb6" BorderPane.alignment="TOP_LEFT">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
 </BorderPane>
