@@ -53,7 +53,7 @@ public class ViewConsultarEmpleado implements Initializable {
         ));
         puestoTableColumn.setCellValueFactory(new PropertyValueFactory<>("puesto"));
         puestoTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        puestoTableColumn.setOnEditCommit(event -> ControladorEmpleado.modificarNombre(
+        puestoTableColumn.setOnEditCommit(event -> ControladorEmpleado.modificarPuesto(
                 event.getTableView().getSelectionModel().getSelectedItem().getIdEmpleado(),
                 event.getNewValue()
         ));

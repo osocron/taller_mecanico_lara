@@ -25,9 +25,9 @@ public class ViewInicio implements Initializable {
     public BorderPane rootBorderPane;
     public ImageView imageView;
 
-    private JFXButton registrarAutomovil,registrarCliente,registrarEmpleado,registrarProveedor,
+    private JFXButton registrarAutomovil,registrarCliente,registrarEmpleado,
             registrarRefaccion,registrarServicio,registrarVenta,consultarCliente,consultarEmpleado,
-            consultarRefacion,consultarServicio,consultarVentas,reporte;
+            consultarRefacion,consultarServicio,consultarVentas,consultarAutomovil,reporte;
     private VBox vBox;
     private ArrayList<JFXButton> buttonList;
     private ViewOpener viewOpener;
@@ -42,7 +42,7 @@ public class ViewInicio implements Initializable {
     public void displayRegistroOptions() {
         removeElements();
         try{
-            vBox.getChildren().addAll(registrarAutomovil,registrarCliente,registrarEmpleado,registrarProveedor,
+            vBox.getChildren().addAll(registrarAutomovil,registrarCliente,registrarEmpleado,
                     registrarRefaccion,registrarServicio);
         }catch (Exception ignored){}
     }
@@ -58,44 +58,45 @@ public class ViewInicio implements Initializable {
     public void displayControlOptions() {
         removeElements();
         try{
-            vBox.getChildren().addAll(consultarEmpleado,consultarCliente,
+            vBox.getChildren().addAll(consultarEmpleado,consultarCliente,consultarAutomovil,
                     consultarVentas,consultarServicio,consultarRefacion);
         }catch (Exception ignored){}
     }
 
     private void initializeElements(){
         vBox = new VBox(20);
-        registrarAutomovil = new JFXButton("Registrar Automovil");
-        registrarCliente = new JFXButton("Registrar Clientes");
-        registrarEmpleado = new JFXButton("Registrar Empleados");
-        registrarProveedor = new JFXButton("Registrar Proveedores");
-        registrarRefaccion = new JFXButton("Registrar Refacciones");
-        registrarServicio = new JFXButton("Registrar Servicios");
-        registrarVenta = new JFXButton("Registrar Ventas");
-        consultarCliente = new JFXButton("Consultar Clientes");
-        consultarEmpleado = new JFXButton("Consultar Empleados");
-        consultarRefacion = new JFXButton("Consultar Refaccion");
-        consultarServicio = new JFXButton("Consultar Servicios");
-        consultarVentas  = new JFXButton("Consultar Ventas");
-        reporte = new JFXButton("Reporte de Ventas");
+        registrarAutomovil = new JFXButton("REGISTRAR AUTOMOVIL");
+        registrarCliente = new JFXButton("REGISTRAR CLIENTE");
+        registrarEmpleado = new JFXButton("REGISTRAR EMPLEADO");
+        registrarRefaccion = new JFXButton("REGISTRAR REFACCION");
+        registrarServicio = new JFXButton("REGISTRAR SERVICIO");
+        registrarVenta = new JFXButton("REGISTRAR VENTA");
+        consultarCliente = new JFXButton("CONSULTAR CLIENTES");
+        consultarAutomovil = new JFXButton("CONSULTAR AUTOMOVIL");
+        consultarEmpleado = new JFXButton("CONSULTAR EMPLEADOS");
+        consultarRefacion = new JFXButton("CONSULTAR REFACCION");
+        consultarServicio = new JFXButton("CONSULTAR SERVICIOS");
+        consultarVentas  = new JFXButton("CONSULTAR VENTAS");
+        reporte = new JFXButton("REPORTE DE VENTAS");
         buttonList = new ArrayList<>();
         buttonList.add(registrarAutomovil);
         buttonList.add(registrarCliente);
         buttonList.add(registrarEmpleado);
-        buttonList.add(registrarProveedor);
         buttonList.add(registrarRefaccion);
         buttonList.add(registrarServicio);
         buttonList.add(registrarVenta);
         buttonList.add(consultarCliente);
+        buttonList.add(consultarAutomovil);
         buttonList.add(consultarEmpleado);
         buttonList.add(consultarRefacion);
         buttonList.add(consultarServicio);
         buttonList.add(consultarVentas);
         buttonList.add(reporte);
         buttonList.forEach(button -> {
-            button.setPrefWidth(175);
+            button.setPrefWidth(200);
             button.setButtonType(JFXButton.ButtonType.RAISED);
             button.setRipplerFill(Color.rgb(132,189,0));
+            button.setTextFill(Color.rgb(184,182,182));
         });
         registroButton.setRipplerFill(Color.rgb(132, 189, 0));
         ventaButton.setRipplerFill(Color.rgb(132, 189, 0));
@@ -112,9 +113,6 @@ public class ViewInicio implements Initializable {
         });
         registrarEmpleado.setOnAction(event -> {
             viewOpener.openView("vista/RegistrarEmpleado.fxml", "Taller Mecánico Lara");
-        });
-        registrarProveedor.setOnAction(event -> {
-            viewOpener.openView("vista/RegistrarProveedor.fxml", "Taller Mecánico Lara");
         });
         registrarRefaccion.setOnAction(event -> {
             viewOpener.openView("vista/RegistrarRefaccion.fxml", "Taller Mecánico Lara");

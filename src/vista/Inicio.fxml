@@ -12,7 +12,7 @@
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="registroButton" buttonType="RAISED" onAction="#displayRegistroOptions" prefHeight="25.0" prefWidth="194.0" text="MODULO DE REGISTRO" textFill="#b8b6b6f7">
+            <JFXButton fx:id="registroButton" buttonType="RAISED" onAction="#displayRegistroOptions" prefHeight="25.0" prefWidth="194.0" text="MODULO DE REGISTRO" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="80.0" />
                </VBox.margin>
