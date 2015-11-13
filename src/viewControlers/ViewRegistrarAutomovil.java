@@ -39,7 +39,6 @@ public class ViewRegistrarAutomovil implements Initializable {
         clienteEntityComboBox.setItems(dataCliente);
     }
 
-
     public void registrarAutomovilActionEvent() {
         boolean isPlaca = InputValidator.isPlaca(matriculaTextField.getText());
         if ((matriculaTextField.getLength() != 0) && (marcaTextField.getLength() != 0) && (modeloTextField.getLength() != 0)
@@ -67,10 +66,11 @@ public class ViewRegistrarAutomovil implements Initializable {
         return alert;
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+    public void cerrarVentanaEvent() {
         Stage stage = (Stage) matriculaTextField.getScene().getWindow();
         stage.close();
     }
+
     public void cancelarActionEvent(){
         clienteEntityComboBox.getSelectionModel().clearSelection();
         matriculaTextField.setText("");
@@ -78,4 +78,5 @@ public class ViewRegistrarAutomovil implements Initializable {
         modeloTextField.setText("");
         colorTextField.setText("");
     }
+
 }
