@@ -95,55 +95,66 @@ public class ViewRegistrarVenta implements Initializable {
 
     public void crearVentaEvent(){
 
-        LocalDate date = fechaDatePicker.getValue();
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.DAY_OF_MONTH, date.getDayOfMonth());
-        cal.set(Calendar.MONTH, date.getMonthValue() - 1);
-        cal.set(Calendar.YEAR, date.getYear());
-        java.util.Date simpleDate = cal.getTime();
-        java.sql.Date sqlDate = new java.sql.Date(simpleDate.getTime());
+        if ((fechaDatePicker.getValue() != null) && (!comboBoxCliente.getSelectionModel().isEmpty()) &&
+                ((!dataRefaccionesParaTabla.isEmpty()) || (!dataServicioParaListView.isEmpty()))) {
 
-        int idVenta = Integer.parseInt(textfieldIDventa.getText());
+            LocalDate date = fechaDatePicker.getValue();
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.DAY_OF_MONTH, date.getDayOfMonth());
+            cal.set(Calendar.MONTH, date.getMonthValue() - 1);
+            cal.set(Calendar.YEAR, date.getYear());
+            java.util.Date simpleDate = cal.getTime();
+            java.sql.Date sqlDate = new java.sql.Date(simpleDate.getTime());
 
-        ControladorVentas.guardarVenta(
-                ControladorVentas.crearVenta(
-                        idVenta,
-                        sqlDate,
-                        comboBoxCliente.getSelectionModel().getSelectedItem().getIdCliente()
-                )
-        );
+            int idVenta = Integer.parseInt(textfieldIDventa.getText());
 
-        final int[] contRefacciones = {0};
-        dataRefaccionesParaTabla.forEach(refaccionEntity -> {
-            ControladorVentasRefaccion.guardarVentasRefaccion(
-                    ControladorVentasRefaccion.crearVentaRefaccion(
-                            (idVenta * 10) + contRefacciones[0],
-                            Integer.parseInt(
-                                    textfieldIDventa.getText()
-                            ),
-                            refaccionEntity.getIdRefaccion()
+            ControladorVentas.guardarVenta(
+                    ControladorVentas.crearVenta(
+                            idVenta,
+                            sqlDate,
+                            comboBoxCliente.getSelectionModel().getSelectedItem().getIdCliente()
                     )
             );
-            contRefacciones[0]++;
-        });
 
-        final int[] contServicios = {0};
-        dataServicioParaListView.forEach(servicioEntity ->{
-            ControladorVentasServicio.guardarVentaServicio(
-                    ControladorVentasServicio.crearVentaServicio(
-                            (idVenta * 10) + contServicios[0],
-                            Integer.parseInt(
-                                    textfieldIDventa.getText()
-                            ),
-                            servicioEntity.getIdServicio()
-                    )
-            );
-            contServicios[0]++;
-        });
+            if ((!dataRefaccionesParaTabla.isEmpty())) {
+                final int[] contRefacciones = {0};
+                dataRefaccionesParaTabla.forEach(refaccionEntity -> {
+                    ControladorVentasRefaccion.guardarVentasRefaccion(
+                            ControladorVentasRefaccion.crearVentaRefaccion(
+                                    (idVenta * 10) + contRefacciones[0],
+                                    Integer.parseInt(
+                                            textfieldIDventa.getText()
+                                    ),
+                                    refaccionEntity.getIdRefaccion()
+                            )
+                    );
+                    contRefacciones[0]++;
+                });
+            }
 
-        Alert alert = getWarningAlert("Exitoso","Atencion","Venta registrada exitosamente!");
-        alert.showAndWait();
-        cancelarActionEvent();
+            if ((!dataServicioParaListView.isEmpty())) {
+                final int[] contServicios = {0};
+                dataServicioParaListView.forEach(servicioEntity -> {
+                    ControladorVentasServicio.guardarVentaServicio(
+                            ControladorVentasServicio.crearVentaServicio(
+                                    (idVenta * 10) + contServicios[0],
+                                    Integer.parseInt(
+                                            textfieldIDventa.getText()
+                                    ),
+                                    servicioEntity.getIdServicio()
+                            )
+                    );
+                    contServicios[0]++;
+                });
+            }
+
+            Alert alert = getWarningAlert("Exitoso", "Atencion", "Venta registrada exitosamente!");
+            alert.showAndWait();
+            cancelarActionEvent();
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
+            alert.showAndWait();
+        }
     }
 
     private Alert getWarningAlert(String title, String headerText, String contentText){
