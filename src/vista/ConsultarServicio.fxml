@@ -14,12 +14,12 @@
             <TableView fx:id="tableviewServicio" stylesheets="@../res/material.css" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="idServicio" prefWidth="81.0" text="ID" />
-                  <TableColumn fx:id="descripcion" prefWidth="251.0" text="Descripción" />
-                  <TableColumn fx:id="costo" prefWidth="114.0" text="Costo" />
-                  <TableColumn fx:id="idEmpleado" prefWidth="122.0" text="ID Empleado" />
+                  <TableColumn fx:id="descripcion" prefWidth="197.0" text="DESCRIPCION" />
+                  <TableColumn fx:id="costo" prefWidth="115.0" text="COSTO" />
+                  <TableColumn fx:id="idEmpleado" prefWidth="137.0" text="ID EMPLEADO" />
               </columns>
                <VBox.margin>
-                  <Insets left="15.0" right="15.0" top="15.0" />
+                  <Insets left="30.0" right="30.0" top="15.0" />
                </VBox.margin>
             </TableView>
          </children>
@@ -42,7 +42,7 @@
             <Font size="30.0" />
          </font>
          <BorderPane.margin>
-            <Insets left="20.0" top="20.0" />
+            <Insets left="25.0" top="25.0" />
          </BorderPane.margin>
       </Label>
    </top>

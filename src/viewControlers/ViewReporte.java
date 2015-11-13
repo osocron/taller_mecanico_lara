@@ -1,5 +1,7 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import entidades.*;
 import entityControlers.*;
 import javafx.collections.FXCollections;
@@ -23,17 +25,16 @@ import java.util.ResourceBundle;
 public class ViewReporte implements Initializable{
 
     public TableView<VentasEntity> tableviewReporte;
-    public MenuItem menuItemClose;
-    public CheckBox checkBoxCliente;
+    public JFXCheckBox checkBoxCliente;
     public ComboBox<ClienteEntity> comboBoxClientes;
     public ComboBox<AutomovilesEntity> comboboxAutomovil;
-    public CheckBox checkBoxFecha;
+    public JFXCheckBox checkBoxFecha;
     public DatePicker fechaDatePicker;
     public TableColumn<VentasEntity,String> tableColumnIDVenta;
     public TableColumn tableColumnFecha;
     public TableColumn<VentasEntity,String> tableColumnIDCliente;
-    public Button buttonReporte;
-    public Button generarReporteButton;
+    public JFXButton buttonReporte;
+    public JFXButton generarReporteButton;
 
     private ObservableList<VentasEntity> dataVentas = FXCollections.observableArrayList();
     private ObservableList<VentaServicioEntity> dataVentaServicio = FXCollections.observableArrayList();

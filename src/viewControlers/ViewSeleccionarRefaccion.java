@@ -1,10 +1,12 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
 import entidades.RefaccionEntity;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
@@ -19,8 +21,8 @@ import java.util.ResourceBundle;
 public class ViewSeleccionarRefaccion implements Initializable{
 
     public ListView<RefaccionEntity> refaccionesListView;
-    public Button cancelarButton;
-    public Button sleccionarButton;
+    public JFXButton cancelarButton;
+    public JFXButton sleccionarButton;
 
     private String id;
     private Object parent;
@@ -35,7 +37,8 @@ public class ViewSeleccionarRefaccion implements Initializable{
 
 
     public void cancelarActionEvent() {
-
+        Stage stage = (Stage) refaccionesListView.getScene().getWindow();
+        stage.close();
     }
 
     public void seleccionarRefaccionActionEvent() {

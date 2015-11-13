@@ -1,5 +1,7 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import entidades.*;
 import entityControlers.*;
 import javafx.collections.FXCollections;
@@ -27,21 +29,20 @@ import java.util.ResourceBundle;
 public class ViewRegistrarVenta implements Initializable {
 
     public Label labelIDventa;
-    public TextField textfieldIDventa;
-    public Button buttonAceptar;
-    public Button buttonCancelar;
-    public MenuItem menuItemClose;
+    public JFXTextField textfieldIDventa;
+    public JFXButton buttonAceptar;
+    public JFXButton buttonCancelar;
     public ComboBox<ClienteEntity> comboBoxCliente;
     public DatePicker fechaDatePicker;
     public ListView<ServicioEntity> servicioListView;
-    public Button eliminarServicioButton;
-    public Button agregarServicioButton;
+    public JFXButton eliminarServicioButton;
+    public JFXButton agregarServicioButton;
     public TableView<RefaccionEntity> refaccionTableView;
     public TableColumn<RefaccionEntity,String> refaccionTableColumn;
     public TableColumn<RefaccionEntity,Integer> cantidadTableColumn;
-    public Button eliminarRefaccionButton;
-    public Button agregarRefaccionActionEvent;
-    public TextField totalTextField;
+    public JFXButton eliminarRefaccionButton;
+    public JFXButton agregarRefaccionActionEvent;
+    public JFXTextField totalTextField;
 
     private ObservableList<VentasEntity> data = FXCollections.observableArrayList();
     private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();

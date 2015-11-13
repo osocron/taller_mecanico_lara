@@ -1,5 +1,7 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import entidades.*;
 import entityControlers.*;
 import javafx.collections.FXCollections;
@@ -28,21 +30,20 @@ public class ViewRegistrarServicio implements Initializable {
     public Label labelDescripcion;
     public Label labelIDempleado;
     public Label labelPrecio;
-    public TextField textfieldServicio;
-    public TextField textfieldDescripcion;
+    public JFXTextField textfieldServicio;
+    public JFXTextField textfieldDescripcion;
     public ComboBox<String> comboboxServicio;
-    public TextField textfieldIDempleado;
-    public TextField textfieldPrecio;
-    public Button buttonCancelar;
-    public Button eliminarRefaccionButton;
-    public Button agregarRefaccionButton;
+    public JFXTextField textfieldIDempleado;
+    public JFXTextField textfieldPrecio;
+    public JFXButton buttonCancelar;
+    public JFXButton eliminarRefaccionButton;
+    public JFXButton agregarRefaccionButton;
     public ComboBox<ClienteEntity> comboBoxClientes;
     public ComboBox<AutomovilesEntity> comboBoxAutos;
     public TableView<RefaccionEntity> tablaRefacciones;
     public TableColumn<RefaccionEntity,String> refaccionTableColumn;
     public TableColumn<RefaccionEntity,Integer> cantidadTableColumn;
-    public Button buttonRegistrarServicio;
-    public MenuItem menuItemClose;
+    public JFXButton buttonRegistrarServicio;
 
     private ObservableList<ServicioEntity> dataServicios = FXCollections.observableArrayList();
     private ObservableList<ClienteEntity> dataClientes = FXCollections.observableArrayList();
@@ -174,5 +175,11 @@ public class ViewRegistrarServicio implements Initializable {
     public void cerrarVentanaEvent(ActionEvent actionEvent) {
         Stage stage = (Stage) labelDescripcion.getScene().getWindow();
         stage.close();
+    }
+
+    public void eliminarRefaccionActionEvent(ActionEvent actionEvent) {
+        RefaccionEntity refaccionEntity = tablaRefacciones.getSelectionModel().getSelectedItem();
+        dataRefaccionesParaTabla.remove(refaccionEntity);
+        tablaRefacciones.setItems(dataRefaccionesParaTabla);
     }
 }

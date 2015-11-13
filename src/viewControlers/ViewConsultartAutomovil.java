@@ -1,5 +1,6 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
 import entidades.AutomovilesEntity;
 import entityControlers.ControladorAutomovil;
 import javafx.collections.FXCollections;
@@ -27,13 +28,13 @@ import java.util.ResourceBundle;
  */
 public class ViewConsultartAutomovil implements Initializable {
 
-    @FXML
     public TableView<AutomovilesEntity> tablaAutomovil;
-    public  TableColumn<AutomovilesEntity,String> tableMatricula;
+    public TableColumn<AutomovilesEntity,String> tableMatricula;
     public TableColumn<AutomovilesEntity,String> tableModelo;
     public TableColumn<AutomovilesEntity,String> tableColor;
     public TableColumn<AutomovilesEntity,String> tableMarca;
     public TableColumn<AutomovilesEntity,String> tableIDcliente;
+    public JFXButton eliminiarButton;
 
     private ObservableList<AutomovilesEntity> data = FXCollections.observableArrayList();
 
@@ -72,7 +73,7 @@ public class ViewConsultartAutomovil implements Initializable {
 
     }
 
-    public void eliminarActionEvent(ActionEvent actionEvent) {
+    public void eliminarActionEvent() {
         AutomovilesEntity automovilesEntity = tablaAutomovil.getSelectionModel().getSelectedItem();
         data.remove(automovilesEntity);
         tablaAutomovil.setItems(data);

@@ -1,5 +1,6 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
 import entidades.VentasEntity;
 import entityControlers.ControladorVentas;
 import javafx.collections.FXCollections;
@@ -24,11 +25,10 @@ import java.util.ResourceBundle;
 public class ViewConsultarVentas implements Initializable {
 
     public TableView<VentasEntity> tablaVentas;
-    public MenuItem menuItemClose;
     public TableColumn<VentasEntity,String> idVentaTableColumn;
     public TableColumn fechaTablecolumn;
     public TableColumn<VentasEntity,String> clienteTableColumn;
-    public Button buttonEliminar;
+    public JFXButton buttonEliminar;
 
 
     private ObservableList<VentasEntity> dataVenta = FXCollections.observableArrayList();

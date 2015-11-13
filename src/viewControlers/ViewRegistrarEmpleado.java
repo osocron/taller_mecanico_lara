@@ -36,7 +36,6 @@ public class ViewRegistrarEmpleado implements Initializable {
     public JFXTextField textfieldContrasena;
     public JFXCheckBox checkBoxUsuario;
     public JFXButton buttonEmpleado;
-    public MenuItem menuItemClose;
 
     private ObservableList<EmpleadoEntity> dataEmpleado = FXCollections.observableArrayList();
 

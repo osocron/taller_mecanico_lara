@@ -1,28 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRegistrarVenta">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Archivo">
-            <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaClose" text="Salir" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Ayuda">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Acerca de" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1C1C1F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRegistrarVenta">
    <center>
       <VBox alignment="TOP_CENTER" BorderPane.alignment="TOP_CENTER">
          <children>
@@ -30,26 +15,26 @@
                <children>
                   <VBox>
                      <children>
-                        <Label fx:id="labelIDventa" prefHeight="17.0" prefWidth="51.0" text="IDventa">
+                        <Label fx:id="labelIDventa" prefHeight="17.0" prefWidth="80.0" text="ID VENTA" textFill="#b8bbb6">
                            <VBox.margin>
                               <Insets left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="textfieldIDventa">
+                        <JFXTextField fx:id="textfieldIDventa" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;">
                            <VBox.margin>
                               <Insets bottom="15.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
-                        </TextField>
+                        </JFXTextField>
                      </children>
                   </VBox>
                   <VBox>
                      <children>
-                        <Label text="Cliente">
+                        <Label text="CLIENTE" textFill="#b8bbb6">
                            <VBox.margin>
                               <Insets left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <ComboBox fx:id="comboBoxCliente" prefWidth="150.0">
+                        <ComboBox fx:id="comboBoxCliente" opacity="0.5" prefWidth="150.0">
                            <VBox.margin>
                               <Insets bottom="15.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -58,12 +43,12 @@
                   </VBox>
                   <VBox>
                      <children>
-                        <Label text="Fecha">
+                        <Label text="FECHA" textFill="#b8bbb6">
                            <VBox.margin>
                               <Insets left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <DatePicker fx:id="fechaDatePicker">
+                        <DatePicker fx:id="fechaDatePicker" opacity="0.5">
                            <VBox.margin>
                               <Insets bottom="15.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -76,23 +61,22 @@
                <children>
                   <VBox HBox.hgrow="ALWAYS">
                      <children>
-                        <ListView fx:id="servicioListView" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <ListView fx:id="servicioListView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../res/material.css" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                            </HBox.margin>
                         </ListView>
                         <HBox alignment="CENTER_RIGHT">
                            <children>
-                              <Button fx:id="eliminarServicioButton" mnemonicParsing="false" onAction="#eliminarServicioActionEvent" text="Eliminar">
+                              <JFXButton fx:id="eliminarServicioButton" buttonType="RAISED" onAction="#eliminarServicioActionEvent" style="-fx-background-color: #85BD00;" text="ELIMINAR">
                                  <HBox.margin>
-                                    <Insets left="20.0" right="20.0" top="5.0" />
+                                    <Insets left="20.0" top="5.0" />
                                  </HBox.margin>
-                              </Button>
-                              <Button fx:id="agregarServicioButton" mnemonicParsing="false" onAction="#agregarServicioActionEvent" text="Agregar">
+                              </JFXButton>
+                              <JFXButton fx:id="agregarServicioButton" buttonType="RAISED" onAction="#agregarServicioActionEvent" style="-fx-background-color: #85BD00;" text="AGREGAR">
                                  <HBox.margin>
                                     <Insets left="20.0" right="5.0" top="5.0" />
-                                 </HBox.margin>
-                              </Button>
+                                 </HBox.margin></JFXButton>
                            </children>
                         </HBox>
                      </children>
@@ -102,10 +86,10 @@
                   </VBox>
                   <VBox HBox.hgrow="ALWAYS">
                      <children>
-                        <TableView fx:id="refaccionTableView" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <TableView fx:id="refaccionTableView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../res/material.css" HBox.hgrow="ALWAYS">
                           <columns>
-                            <TableColumn fx:id="refaccionTableColumn" prefWidth="129.0" text="Refaccion" />
-                            <TableColumn fx:id="cantidadTableColumn" prefWidth="130.0" text="Cantidad" />
+                            <TableColumn fx:id="refaccionTableColumn" prefWidth="129.0" text="REFACCION" />
+                            <TableColumn fx:id="cantidadTableColumn" prefWidth="130.0" text="CANTIDAD" />
                           </columns>
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -113,16 +97,16 @@
                         </TableView>
                         <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
                            <children>
-                              <Button fx:id="eliminarRefaccionButton" mnemonicParsing="false" onAction="#eliminarRefaccionActionEvent" text="Eliminar">
+                              <JFXButton fx:id="eliminarRefaccionButton" buttonType="RAISED" onAction="#eliminarRefaccionActionEvent" style="-fx-background-color: #85BD00;" text="ELIMINAR">
                                  <HBox.margin>
                                     <Insets bottom="5.0" right="5.0" top="5.0" />
                                  </HBox.margin>
-                              </Button>
-                              <Button fx:id="agregarRefaccionActionEvent" mnemonicParsing="false" onAction="#agregarRefaccionActionEvent" text="Agregar">
+                              </JFXButton>
+                              <JFXButton fx:id="agregarRefaccionActionEvent" buttonType="RAISED" onAction="#agregarRefaccionActionEvent" style="-fx-background-color: #85BD00;" text="AGREGAR">
                                  <HBox.margin>
                                     <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
                                  </HBox.margin>
-                              </Button>
+                              </JFXButton>
                            </children>
                         </HBox>
                      </children>
@@ -134,7 +118,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" VBox.vgrow="ALWAYS">
                <children>
-                  <Label text="TOTAL">
+                  <Label text="TOTAL" textFill="#b8bbb6">
                      <HBox.margin>
                         <Insets bottom="5.0" right="15.0" top="10.0" />
                      </HBox.margin>
@@ -142,11 +126,11 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="totalTextField" editable="false">
+                  <JFXTextField fx:id="totalTextField" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;">
                      <HBox.margin>
                         <Insets bottom="5.0" right="15.0" top="10.0" />
                      </HBox.margin>
-                  </TextField>
+                  </JFXTextField>
                </children>
             </HBox>
          </children>
@@ -158,19 +142,30 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buttonCancelar" mnemonicParsing="false" onAction="#cancelarActionEvent" text="Cancelar">
+            <JFXButton fx:id="buttonCancelar" buttonType="RAISED" onAction="#cancelarActionEvent" style="-fx-background-color: #85BD00;" text="CANCELAR">
                <HBox.margin>
-                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                  <Insets bottom="25.0" left="20.0" right="20.0" top="10.0" />
                </HBox.margin>
-            </Button>
-            <Button fx:id="buttonAceptar" mnemonicParsing="false" onAction="#crearVentaEvent" text="Aceptar">
+            </JFXButton>
+            <JFXButton fx:id="buttonAceptar" buttonType="RAISED" onAction="#crearVentaEvent" style="-fx-background-color: #85BD00;" text="ACEPTAR">
                <HBox.margin>
-                  <Insets bottom="10.0" left="20.0" right="30.0" top="10.0" />
-               </HBox.margin></Button>
+                  <Insets bottom="25.0" left="20.0" right="30.0" top="10.0" />
+               </HBox.margin>
+            </JFXButton>
          </children>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
       </HBox>
    </bottom>
+   <top>
+      <Label text="Registrar Venta" textFill="#b8bbb6" BorderPane.alignment="TOP_LEFT">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="25.0" top="25.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
 </BorderPane>
