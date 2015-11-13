@@ -54,7 +54,7 @@ public class ViewRegistrarAutomovil implements Initializable {
             modeloTextField.setText("");
             colorTextField.setText("");
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de Ingresar los datos faltantes.");
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de verificar los datos.");
             alert.showAndWait();
         }
     }
