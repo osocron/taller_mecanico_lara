@@ -54,6 +54,9 @@ public class ViewRegistrarEmpleado implements Initializable {
                 textfieldContrasena.setDisable(true);
             }
         });
+        textfieldIDempleado.setEditable(false);
+        int nextID = ControladorEmpleado.getNextID() + 1;
+        textfieldIDempleado.setText(String.valueOf(nextID));
     }
 
 
@@ -71,7 +74,8 @@ public class ViewRegistrarEmpleado implements Initializable {
         }
         Alert alert = getWarningAlert("Exitoso","Atencion","Cliente registrado exitosamente!");
         alert.showAndWait();
-        textfieldIDempleado.setText("");
+        int nextID = ControladorEmpleado.getNextID() + 1;
+        textfieldIDempleado.setText(String.valueOf(nextID));
         textfieldNombre.setText("");
         textfieldPuesto.setText("");
         textfieldUsuario.setText("");
@@ -86,17 +90,13 @@ public class ViewRegistrarEmpleado implements Initializable {
         return alert;
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+    public void cerrarVentanaEvent() {
         Stage stage = (Stage) labelNombre.getScene().getWindow();
         stage.close();
     }
 
-    public void cancelarActionEvent(ActionEvent actionEvent) {
-
+    public void cancelarActionEvent() {
+        cerrarVentanaEvent();
     }
 
-    public void enableUsuario(ActionEvent actionEvent) {
-        textfieldIDempleado.setEditable(false);
-        textfieldContrasena.setEditable(false);
-    }
 }

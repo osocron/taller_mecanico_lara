@@ -55,6 +55,9 @@ public class ViewRegistrarVenta implements Initializable {
         obtenerDatosDeBD();
         comboBoxCliente.setItems(dataCliente);
         preparTablaRefacciones();
+        textfieldIDventa.setEditable(false);
+        int nextID = ControladorVentas.getLastID() + 1;
+        textfieldIDventa.setText(String.valueOf(nextID));
     }
 
     private void obtenerDatosDeBD() {
@@ -151,11 +154,6 @@ public class ViewRegistrarVenta implements Initializable {
         return alert;
     }
 
-    public void cerrarVentanaClose() {
-        Stage stage = (Stage)servicioListView.getScene().getWindow();
-        stage.close();
-    }
-
     public void eliminarServicioActionEvent() {
         ServicioEntity servicioEntity = servicioListView.getSelectionModel().getSelectedItem();
         servicioListView.getItems().remove(servicioEntity);
@@ -181,7 +179,8 @@ public class ViewRegistrarVenta implements Initializable {
 
 
     public void cancelarActionEvent() {
-        textfieldIDventa.setText("");
+        int nextID = ControladorVentas.getLastID() + 1;
+        textfieldIDventa.setText(String.valueOf(nextID));
         comboBoxCliente.getSelectionModel().clearSelection();
         servicioListView.getItems().clear();
         refaccionTableView.getItems().clear();

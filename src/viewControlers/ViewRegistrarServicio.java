@@ -73,6 +73,9 @@ public class ViewRegistrarServicio implements Initializable {
         }));
         cantidadTableColumn.setOnEditCommit(event -> event.getTableView().getItems().get(
                 event.getTablePosition().getRow()).setCantidad(event.getNewValue()));
+        textfieldServicio.setEditable(false);
+        int nextID = ControladorServicio.getLastID() + 1;
+        textfieldServicio.setText(String.valueOf(nextID));
     }
 
 
@@ -126,7 +129,8 @@ public class ViewRegistrarServicio implements Initializable {
     }
 
     public void cancelarActionEvent() {
-        textfieldServicio.setText("");
+        int nextID = ControladorServicio.getLastID() + 1;
+        textfieldServicio.setText(String.valueOf(nextID));
         textfieldDescripcion.setText("");
         textfieldIDempleado.setText("");
         textfieldPrecio.setText("");
@@ -172,12 +176,12 @@ public class ViewRegistrarServicio implements Initializable {
         return alert;
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+    public void cerrarVentanaEvent() {
         Stage stage = (Stage) labelDescripcion.getScene().getWindow();
         stage.close();
     }
 
-    public void eliminarRefaccionActionEvent(ActionEvent actionEvent) {
+    public void eliminarRefaccionActionEvent() {
         RefaccionEntity refaccionEntity = tablaRefacciones.getSelectionModel().getSelectedItem();
         dataRefaccionesParaTabla.remove(refaccionEntity);
         tablaRefacciones.setItems(dataRefaccionesParaTabla);

@@ -29,14 +29,17 @@ public class ControladorVentas {
         return ventas;
     }
 
-    public static void modificarVenta(int IDVenta, java.sql.Date Fecha, String IDClientes){
-        VentasEntity ventas = getVentaPorID(IDVenta);
-        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
-        entityTransaction.begin();
-        ventas.setFecha(Fecha);
-        ventas.setIdClientes(IDClientes);
-        entityTransaction.commit();
+    public static int getLastID(){
+        List<VentasEntity> ventasEntities = getVentas();
+        final int[] lastID = {0};
+        ventasEntities.forEach(ventasEntity -> {
+            if (ventasEntity.getIdVenta() > lastID[0]){
+                lastID[0] = ventasEntity.getIdVenta();
+            }
+        });
+        return lastID[0];
     }
+
     public static void modificarIDventa(int IDventa){
         VentasEntity ventas = getVentaPorID(IDventa);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();

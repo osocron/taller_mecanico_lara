@@ -47,6 +47,9 @@ public class ViewRegistrarRefaccion implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         dataRefaccion.addAll(listaRefaccion);
+        textfieldIDArticulo.setEditable(false);
+        int nextID = ControladorRefaccion.getLastID() + 1;
+        textfieldIDArticulo.setText(String.valueOf(nextID));
     }
     public void crearRefaccionEvent(){
         ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(
@@ -67,7 +70,8 @@ public class ViewRegistrarRefaccion implements Initializable {
     }
 
     public void cancelarActionEvent(){
-        textfieldIDArticulo.setText("");
+        int nextID = ControladorRefaccion.getLastID() + 1;
+        textfieldIDArticulo.setText(String.valueOf(nextID));
         textfieldDescripcion.setText("");
         textfieldPrecio.setText("");
         textfieldCantidad.setText("");
