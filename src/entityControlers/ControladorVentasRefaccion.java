@@ -29,12 +29,19 @@ public class ControladorVentasRefaccion {
         return ventaRefaccion;
     }
 
-    public static void modificarVentaRefaccion(int idVentaRefaccion, int IDVentas, int IDRefacciones){
+    /*public static void modificarVentaRefaccion(int idVentaRefaccion, int IDVentas, int IDRefacciones){
         VentaRefaccionEntity ventaRefaccion = getVentaRefaccionID(idVentaRefaccion);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
         entityTransaction.begin();
         ventaRefaccion.setIdVentas(IDVentas);
         ventaRefaccion.setIdRefacciones(IDRefacciones);
+        entityTransaction.commit();
+    }*/
+    private static void modificarIDrefaccion(int idVentaRefaccion, int IDRefacciones){
+        VentaRefaccionEntity ventaRefaccion = getVentaRefaccionID(idVentaRefaccion);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        ventaRefaccion.setIdVentaRefaccion(IDRefacciones);
         entityTransaction.commit();
     }
     public static void eliminarVentaRefaccion(int idVentaRefaccion){

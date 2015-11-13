@@ -39,6 +39,13 @@ public class ControladorCliente {
         cliente.setTelefono(telefono);
         entityTransaction.commit();
     }
+    public static void modificarNombreCliente(String idCliente, String nombre){
+        ClienteEntity cliente = getClienteID(idCliente);
+        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
+        entityTransaction.begin();
+        cliente.setNombre(nombre);
+        entityTransaction.commit();
+    }
 
     public static void modificarNombre(String idCliente, String nombre){
         ClienteEntity cliente = getClienteID(idCliente);
