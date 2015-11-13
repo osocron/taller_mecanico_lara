@@ -41,4 +41,12 @@ public class InputValidator {
         return isRFC;
     }
 
+    public static boolean isPlaca(String text){
+        boolean isPlaca;
+        Pattern pattern = Pattern.compile("^[A-Za-z]{3}\\d{4}$");
+        Matcher matcher = pattern.matcher(text);
+        isPlaca = matcher.matches();
+        return isPlaca;
+    }
+
 }

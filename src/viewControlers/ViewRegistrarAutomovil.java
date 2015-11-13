@@ -41,8 +41,9 @@ public class ViewRegistrarAutomovil implements Initializable {
 
 
     public void registrarAutomovilActionEvent() {
+        boolean isPlaca = InputValidator.isPlaca(matriculaTextField.getText());
         if ((matriculaTextField.getLength() != 0) && (marcaTextField.getLength() != 0) && (modeloTextField.getLength() != 0)
-                && (colorTextField.getLength() != 0)) {
+                && (colorTextField.getLength() != 0) && isPlaca) {
             ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getText(),
                     marcaTextField.getText(), modeloTextField.getText(), colorTextField.getText(),
                     clienteEntityComboBox.getSelectionModel().getSelectedItem().getIdCliente()));
