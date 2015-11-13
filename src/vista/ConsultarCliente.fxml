@@ -13,7 +13,7 @@
          <children>
             <JFXButton fx:id="eliminarButton" buttonType="RAISED" onAction="#eliminarFilaActionEvent" style="-fx-background-color: #84BD00;" text="ELIMINAR FILA">
                <HBox.margin>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  <Insets bottom="25.0" left="15.0" right="25.0" top="15.0" />
                </HBox.margin>
             </JFXButton>
          </children>
@@ -27,18 +27,18 @@
                   <Font size="30.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" right="10.0" top="20.0" />
+                  <Insets bottom="10.0" left="25.0" right="10.0" top="25.0" />
                </VBox.margin>
             </Label>
             <TableView fx:id="clienteTableView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../res/material.css" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="idClienteTableColumn" prefWidth="116.0" text="ID CLIENTE" />
-                <TableColumn fx:id="nombreTableColumn" prefWidth="147.0" text="NOMBRE" />
-                  <TableColumn fx:id="direccionTableColumn" prefWidth="197.0" text="DIRECCION" />
-                  <TableColumn fx:id="telefonoTableColumn" prefWidth="117.0" text="TELEFONO" />
+                <TableColumn fx:id="nombreTableColumn" prefWidth="135.0" text="NOMBRE" />
+                  <TableColumn fx:id="direccionTableColumn" prefWidth="139.0" text="DIRECCION" />
+                  <TableColumn fx:id="telefonoTableColumn" prefWidth="127.0" text="TELEFONO" />
               </columns>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" />
+                  <Insets bottom="10.0" left="30.0" right="30.0" />
                </VBox.margin>
             </TableView>
          </children>

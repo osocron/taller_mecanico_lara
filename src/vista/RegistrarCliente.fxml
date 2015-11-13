@@ -16,7 +16,7 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
-            <JFXTextField fx:id="textfieldRFC">
+            <JFXTextField fx:id="textfieldRFC" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></JFXTextField>
@@ -24,7 +24,7 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
-            <JFXTextField fx:id="textfieldNombre">
+            <JFXTextField fx:id="textfieldNombre" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -33,7 +33,7 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
-            <JFXTextField fx:id="textfieldDomicilio">
+            <JFXTextField fx:id="textfieldDomicilio" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -42,14 +42,14 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
-            <JFXTextField fx:id="textfieldTelefono">
+            <JFXTextField fx:id="textfieldTelefono" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </JFXTextField>
          </children>
          <BorderPane.margin>
-            <Insets left="80.0" right="80.0" />
+            <Insets bottom="80.0" left="80.0" right="80.0" top="60.0" />
          </BorderPane.margin>
       </VBox>
    </center>
@@ -88,7 +88,7 @@
             <Font size="30.0" />
          </font>
          <BorderPane.margin>
-            <Insets left="30.0" top="25.0" />
+            <Insets left="25.0" top="25.0" />
          </BorderPane.margin>
       </Label>
    </top>

@@ -1,41 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRegistrarRefaccion">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Archivo">
-            <items>
-              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#cerrarVentanaActionEvent" text="Salir" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Ayuda">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Acerca de" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewRegistrarRefaccion">
    <bottom>
       <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Button fx:id="buttonAceptar" mnemonicParsing="false" onAction="#crearRefaccionEvent" text="Aceptar">
+            <JFXButton fx:id="buttonCancelar" buttonType="RAISED" onAction="#cancelarActionEvent" prefWidth="100.0" style="-fx-background-color: #84bd00;" text="CANCELAR">
                <HBox.margin>
-                  <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="20.0" right="60.0" />
                </HBox.margin>
-            </Button>
-            <Button fx:id="buttonCancelar" mnemonicParsing="false" onAction="#cancelarActionEvent" text="Cancelar">
+            </JFXButton>
+            <JFXButton fx:id="buttonAceptar" buttonType="RAISED" onAction="#crearRefaccionEvent" prefWidth="100.0" style="-fx-background-color: #84BD00;" text="ACEPTAR">
                <HBox.margin>
-                  <Insets bottom="15.0" left="10.0" right="100.0" top="10.0" />
+                  <Insets bottom="20.0" right="60.0" />
                </HBox.margin>
-            </Button>
+            </JFXButton>
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" top="20.0" />
@@ -48,7 +34,7 @@
    <left>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets left="50.0" />
+            <Insets left="30.0" />
          </BorderPane.margin>
          <image>
             <Image url="@../res/refaccion.png" />
@@ -56,35 +42,42 @@
       </ImageView>
    </left>
    <right>
-      <VBox alignment="BOTTOM_CENTER" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="labelArticulo" text="ID Articulo">
+            <Label fx:id="labelArticulo" text="ID ARTICULO" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin></Label>
-            <TextField fx:id="textfieldIDArticulo" />
-            <Label fx:id="labelDescripcion" text="Descripcion">
+            <JFXTextField fx:id="textfieldIDArticulo" focusColor="#84bd00" maxWidth="210.0" minWidth="210.0" prefHeight="31.0" prefWidth="210.0" style="-fx-text-inner-color: #d3cbc6;" />
+            <Label fx:id="labelDescripcion" text="DESCRIPCION" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin></Label>
-            <TextField fx:id="textfieldDescripcion" />
-            <Label fx:id="labelPrecio" text="Precio">
+            <JFXTextField fx:id="textfieldDescripcion" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;" />
+            <Label fx:id="labelPrecio" text="PRECIO" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin></Label>
-            <TextField fx:id="textfieldPrecio" />
-            <Label fx:id="labelCantidad" text="Cantidad">
+            <JFXTextField fx:id="textfieldPrecio" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;" />
+            <Label fx:id="labelCantidad" text="CANTIDAD" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin></Label>
-            <TextField fx:id="textfieldCantidad" />
+            <JFXTextField fx:id="textfieldCantidad" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;" />
          </children>
-         <padding>
-            <Insets bottom="70.0" left="70.0" right="70.0" top="10.0" />
-         </padding>
          <BorderPane.margin>
-            <Insets left="15.0" right="15.0" top="15.0" />
+            <Insets right="80.0" />
          </BorderPane.margin>
       </VBox>
    </right>
+   <top>
+      <Label text="Registrar Refaccion" textFill="#b8bbb6" BorderPane.alignment="TOP_LEFT">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="25.0" top="25.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
 </BorderPane>

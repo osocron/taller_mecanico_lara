@@ -1,5 +1,7 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import entidades.RefaccionEntity;
 import entityControlers.ControladorRefaccion;
 import javafx.collections.FXCollections;
@@ -28,16 +30,16 @@ public class ViewRegistrarRefaccion implements Initializable {
     @FXML
     public Label labelPrecio;
     @FXML
-    public TextField textfieldIDArticulo;
+    public JFXTextField textfieldIDArticulo;
     @FXML
-    public TextField textfieldDescripcion;
+    public JFXTextField textfieldDescripcion;
     @FXML
-    public TextField textfieldPrecio, textfieldCantidad;
+    public JFXTextField textfieldPrecio, textfieldCantidad;
     @FXML
-    public Button buttonAceptar;
+    public JFXButton buttonAceptar;
     @FXML
-    public Button buttonCancelar;
-    public MenuItem menuItemClose;
+    public JFXButton buttonCancelar;
+
 
     private ObservableList<RefaccionEntity> dataRefaccion = FXCollections.observableArrayList();
 
@@ -71,8 +73,5 @@ public class ViewRegistrarRefaccion implements Initializable {
         textfieldCantidad.setText("");
     }
 
-    public void cerrarVentanaActionEvent() {
-        Stage stage = (Stage) labelArticulo.getScene().getWindow();
-        stage.close();
-    }
+
 }

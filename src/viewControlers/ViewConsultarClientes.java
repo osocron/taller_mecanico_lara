@@ -18,7 +18,6 @@ import java.util.ResourceBundle;
 public class ViewConsultarClientes implements Initializable{
 
 
-    public MenuItem menuitemClose;
     public TableView<ClienteEntity> clienteTableView;
     public TableColumn<ClienteEntity,String> idClienteTableColumn;
     public TableColumn<ClienteEntity,String> nombreTableColumn;

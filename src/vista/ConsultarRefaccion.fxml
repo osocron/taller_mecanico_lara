@@ -36,12 +36,12 @@
       </JFXButton>
    </bottom>
    <top>
-      <Label alignment="BOTTOM_LEFT" text="Consulta de Refacciones" textFill="#b8bbb6" BorderPane.alignment="CENTER_LEFT">
+      <Label alignment="BOTTOM_LEFT" text="Consulta Refacciones" textFill="#b8bbb6" BorderPane.alignment="CENTER_LEFT">
          <font>
             <Font size="30.0" />
          </font>
          <BorderPane.margin>
-            <Insets left="20.0" top="20.0" />
+            <Insets left="25.0" top="25.0" />
          </BorderPane.margin>
       </Label>
    </top>

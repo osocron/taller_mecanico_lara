@@ -1,5 +1,6 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
 import entidades.AutomovilesEntity;
 import entidades.ClienteEntity;
 import entidades.ServicioAutomovilEntity;
@@ -27,8 +28,8 @@ import java.util.ResourceBundle;
 public class ViewSeleccionarServicio implements Initializable{
 
     public ListView<ServicioEntity> servicioListView;
-    public Button cancelarButton;
-    public Button seleccionarServicioButton;
+    public JFXButton cancelarButton;
+    public JFXButton seleccionarServicioButton;
     public Label lableCliente;
     public ComboBox<AutomovilesEntity> comboBoxAutomovil;
 
@@ -49,7 +50,8 @@ public class ViewSeleccionarServicio implements Initializable{
     }
 
     public void cancelarActionEvent() {
-
+        Stage stage = (Stage) servicioListView.getScene().getWindow();
+        stage.close();
     }
 
     public void seleccionarServicioActionEvent() {
@@ -63,6 +65,8 @@ public class ViewSeleccionarServicio implements Initializable{
         this.idCliente = idCliente;
         asignarAutos();
         ligarClienteAutomovilComboBox();
+        ClienteEntity clienteEntity = ControladorCliente.getClienteID(idCliente);
+        lableCliente.setText(lableCliente.getText()+" "+clienteEntity.getNombre());
     }
 
     private void asignarAutos(){

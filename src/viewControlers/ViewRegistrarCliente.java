@@ -1,5 +1,7 @@
 package viewControlers;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import entidades.ClienteEntity;
 import entityControlers.ControladorCliente;
 import javafx.collections.FXCollections;
@@ -29,17 +31,17 @@ public class ViewRegistrarCliente implements Initializable {
     @FXML
     public Label labelTelefono;
     @FXML
-    public TextField textfieldNombre;
+    public JFXTextField textfieldNombre;
     @FXML
-    public TextField textfieldRFC;
+    public JFXTextField textfieldRFC;
     @FXML
-    public TextField textfieldDomicilio;
+    public JFXTextField textfieldDomicilio;
     @FXML
-    private TextField textfieldTelefono;
+    private JFXTextField textfieldTelefono;
     @FXML
-    public Button buttonAceptar;
+    public JFXButton buttonAceptar;
     @FXML
-    public Button buttonCancelar;
+    public JFXButton buttonCancelar;
 
     private ObservableList<ClienteEntity> dataCliente = FXCollections.observableArrayList();
 
@@ -61,13 +63,13 @@ public class ViewRegistrarCliente implements Initializable {
         textfieldTelefono.setText("");
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+    public void cerrarVentanaEvent() {
         Stage stage = (Stage) labelDomicilio.getScene().getWindow();
         stage.close();
     }
 
-    public void cancelarActionEvent(ActionEvent actionEvent) {
-
+    public void cancelarActionEvent() {
+        cerrarVentanaEvent();
     }
 
     private Alert getWarningAlert(String title, String headerText, String contentText){

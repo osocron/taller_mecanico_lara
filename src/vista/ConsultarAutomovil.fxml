@@ -15,12 +15,12 @@
          </BorderPane.margin></JFXButton>
    </bottom>
    <top>
-      <Label text="CONSULTA DE AUTOMOVILES" textFill="#b8bbb6" BorderPane.alignment="CENTER">
+      <Label text="Consulta Automoviles" textFill="#b8bbb6" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
-            <Insets bottom="15.0" top="15.0" />
+            <Insets bottom="15.0" left="25.0" top="25.0" />
          </BorderPane.margin>
          <font>
-            <Font name="Khmer OS System" size="21.0" />
+            <Font size="30.0" />
          </font>
       </Label>
    </top>

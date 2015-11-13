@@ -1,6 +1,7 @@
 package viewControlers;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import entidades.AutomovilesEntity;
 import entidades.ClienteEntity;
 import entityControlers.ControladorAutomovil;
@@ -22,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class ViewRegistrarAutomovil implements Initializable {
 
-    public TextField matriculaTextField,marcaTextField,modeloTextField,colorTextField;
+    public JFXTextField matriculaTextField,marcaTextField,modeloTextField,colorTextField;
     public ComboBox<ClienteEntity> clienteEntityComboBox;
     public JFXButton registrarButton;
 

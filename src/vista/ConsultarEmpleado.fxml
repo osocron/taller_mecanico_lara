@@ -13,7 +13,7 @@
          <children>
             <Label text="Consulta de Empleados" textFill="#b8bbb6">
                <VBox.margin>
-                  <Insets bottom="10.0" left="20.0" right="10.0" top="20.0" />
+                  <Insets bottom="10.0" left="25.0" right="10.0" top="25.0" />
                </VBox.margin>
                <font>
                   <Font size="30.0" />
@@ -21,9 +21,9 @@
             </Label>
             <TableView fx:id="tableEmpleados" stylesheets="@../res/material.css">
               <columns>
-                <TableColumn fx:id="idTableColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="123.0" text="ID EMPLEADO" />
-                <TableColumn fx:id="nombreTableColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="284.0" text="NOMBRE" />
-                  <TableColumn fx:id="puestoTableColumn" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="167.0" text="PUESTO" />
+                <TableColumn fx:id="idTableColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="140.0" text="ID EMPLEADO" />
+                <TableColumn fx:id="nombreTableColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="267.0" text="NOMBRE" />
+                  <TableColumn fx:id="puestoTableColumn" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="134.0" text="PUESTO" />
               </columns>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

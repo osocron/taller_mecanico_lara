@@ -30,7 +30,6 @@ public class ViewconsultarRefacciones implements Initializable {
     public TableColumn<RefaccionEntity,String> descripcion;
     public TableColumn<RefaccionEntity,Integer> cantidad;
     public TableColumn<RefaccionEntity,BigDecimal> costo;
-    public MenuItem menuItemClose;
     public JFXButton buttonEliminar;
 
 

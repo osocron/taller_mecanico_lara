@@ -27,7 +27,6 @@ public class ViewConsultarServicio implements Initializable {
     public TableColumn<ServicioEntity,String> descripcion;
     public TableColumn<ServicioEntity,BigDecimal> costo;
     public TableColumn<ServicioEntity, String> idEmpleado;
-    public MenuItem menuItemClose;
 
     private ObservableList<ServicioEntity> dataServicio = FXCollections.observableArrayList();
 
