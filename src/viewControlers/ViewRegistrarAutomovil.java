@@ -41,15 +41,22 @@ public class ViewRegistrarAutomovil implements Initializable {
 
 
     public void registrarAutomovilActionEvent() {
-        ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getText(),
-                marcaTextField.getText(),modeloTextField.getText(), colorTextField.getText(),
-                clienteEntityComboBox.getSelectionModel().getSelectedItem().getIdCliente()));
-        Alert alert = getWarningAlert("Exitoso","Atencion","Automovil gregistrado exitosamente!");
-        alert.showAndWait();
-        matriculaTextField.setText("");
-        marcaTextField.setText("");
-        modeloTextField.setText("");
-        colorTextField.setText("");
+        boolean isPlaca = InputValidator.isPlaca(matriculaTextField.getText());
+        if ((matriculaTextField.getLength() != 0) && (marcaTextField.getLength() != 0) && (modeloTextField.getLength() != 0)
+                && (colorTextField.getLength() != 0) && isPlaca) {
+            ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getText(),
+                    marcaTextField.getText(), modeloTextField.getText(), colorTextField.getText(),
+                    clienteEntityComboBox.getSelectionModel().getSelectedItem().getIdCliente()));
+            Alert alert = getWarningAlert("Exitoso", "Atencion", "Automovil gregistrado exitosamente!");
+            alert.showAndWait();
+            matriculaTextField.setText("");
+            marcaTextField.setText("");
+            modeloTextField.setText("");
+            colorTextField.setText("");
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de verificar los datos.");
+            alert.showAndWait();
+        }
     }
 
     private Alert getWarningAlert(String title, String headerText, String contentText){

@@ -31,15 +31,15 @@ public class ControladorRefaccion {
         return refaccion;
     }
 
-    public static void modificarRefaccion(int idRefaccion,String marca, BigDecimal Precio, int Cantidad){
-        RefaccionEntity refaccion = getRefaccionPorID(idRefaccion);
-        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
-        entityTransaction.begin();
-        refaccion.setIdRefaccion(idRefaccion);
-        refaccion.setMarca(marca);
-        refaccion.setPrecio(Precio);
-        refaccion.setCantidad(Cantidad);
-        entityTransaction.commit();
+    public static int getLastID(){
+        List<RefaccionEntity> refaccionEntityList = getRefacciones();
+        final int[] lastID = {0};
+        refaccionEntityList.forEach(refaccionEntity -> {
+            if(refaccionEntity.getIdRefaccion() > lastID[0]){
+                lastID[0] = refaccionEntity.getIdRefaccion();
+            }
+        });
+        return lastID[0];
     }
 
     public static void modificarMarca(int idRefaccion,String marca){

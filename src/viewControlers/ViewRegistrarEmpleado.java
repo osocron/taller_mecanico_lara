@@ -54,28 +54,46 @@ public class ViewRegistrarEmpleado implements Initializable {
                 textfieldContrasena.setDisable(true);
             }
         });
+        textfieldIDempleado.setEditable(false);
+        int nextID = ControladorEmpleado.getNextID() + 1;
+        textfieldIDempleado.setText(String.valueOf(nextID));
     }
 
 
     public void registrarEmpleadoActionEvent() {
-
-        ControladorEmpleado.guardarEmpleadp(
-                ControladorEmpleado.crearEmpleado(
-                        Integer.parseInt(textfieldIDempleado.getText()),
-                        textfieldNombre.getText(),textfieldPuesto.getText()));
-        if(checkBoxUsuario.isSelected()){
-            ControladorUsuario.guardarUsuario(
-                    ControladorUsuario.crearUsuario(
-                            textfieldUsuario.getText(),textfieldContrasena.getText(),
-                            Integer.parseInt(textfieldIDempleado.getText())));
+        boolean isOK = true;
+        if ((textfieldIDempleado.getLength() != 0) && (textfieldNombre.getLength() != 0) &&
+                (textfieldPuesto.getLength() != 0)) {
+            ControladorEmpleado.guardarEmpleadp(
+                    ControladorEmpleado.crearEmpleado(
+                            Integer.parseInt(textfieldIDempleado.getText()),
+                            textfieldNombre.getText(), textfieldPuesto.getText()));
+        }else {
+            isOK = false;
         }
-        Alert alert = getWarningAlert("Exitoso","Atencion","Cliente registrado exitosamente!");
-        alert.showAndWait();
-        textfieldIDempleado.setText("");
-        textfieldNombre.setText("");
-        textfieldPuesto.setText("");
-        textfieldUsuario.setText("");
-        textfieldContrasena.setText("");
+        if(checkBoxUsuario.isSelected()){
+            if ((textfieldUsuario.getLength() != 0) && (textfieldContrasena.getLength() != 0)) {
+                ControladorUsuario.guardarUsuario(
+                        ControladorUsuario.crearUsuario(
+                                textfieldUsuario.getText(), textfieldContrasena.getText(),
+                                Integer.parseInt(textfieldIDempleado.getText())));
+            }else {
+                isOK = false;
+            }
+        }
+        if (isOK) {
+            Alert alert = getWarningAlert("Exitoso", "Atencion", "Empleado registrado exitosamente!");
+            alert.showAndWait();
+            int nextID = ControladorEmpleado.getNextID() + 1;
+            textfieldIDempleado.setText(String.valueOf(nextID));
+            textfieldNombre.setText("");
+            textfieldPuesto.setText("");
+            textfieldUsuario.setText("");
+            textfieldContrasena.setText("");
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de Ingresar los datos faltantes.");
+            alert.showAndWait();
+        }
     }
 
     private Alert getWarningAlert(String title, String headerText, String contentText){
@@ -86,17 +104,13 @@ public class ViewRegistrarEmpleado implements Initializable {
         return alert;
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+    public void cerrarVentanaEvent() {
         Stage stage = (Stage) labelNombre.getScene().getWindow();
         stage.close();
     }
 
-    public void cancelarActionEvent(ActionEvent actionEvent) {
-
+    public void cancelarActionEvent() {
+        cerrarVentanaEvent();
     }
 
-    public void enableUsuario(ActionEvent actionEvent) {
-        textfieldIDempleado.setEditable(false);
-        textfieldContrasena.setEditable(false);
-    }
 }

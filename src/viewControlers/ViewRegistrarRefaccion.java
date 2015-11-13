@@ -47,15 +47,26 @@ public class ViewRegistrarRefaccion implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         List<RefaccionEntity> listaRefaccion = ControladorRefaccion.getRefacciones();
         dataRefaccion.addAll(listaRefaccion);
+        textfieldIDArticulo.setEditable(false);
+        int nextID = ControladorRefaccion.getLastID() + 1;
+        textfieldIDArticulo.setText(String.valueOf(nextID));
     }
     public void crearRefaccionEvent(){
-        ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(
-                Integer.parseInt(textfieldIDArticulo.getText()),textfieldDescripcion.getText(),
-                BigDecimal.valueOf(Double.valueOf(textfieldPrecio.getText())),
-                Integer.parseInt(textfieldCantidad.getText())));
-        Alert alert = getWarningAlert("Exitoso","Atencion","Refaccion agregada exitosamente!");
-        alert.showAndWait();
-        cancelarActionEvent();
+        boolean isDecimal = InputValidator.textIsDecimalOnly(textfieldPrecio.getText(),"2");
+        boolean isNumeric = InputValidator.textIsNumericOnly(textfieldCantidad.getText());
+        if ((textfieldDescripcion.getLength() != 0) && (textfieldPrecio.getLength() != 0)
+                && isDecimal && (textfieldCantidad.getLength() != 0) && isNumeric) {
+            ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(
+                    Integer.parseInt(textfieldIDArticulo.getText()), textfieldDescripcion.getText(),
+                    BigDecimal.valueOf(Double.valueOf(textfieldPrecio.getText())),
+                    Integer.parseInt(textfieldCantidad.getText())));
+            Alert alert = getWarningAlert("Exitoso", "Atencion", "Refaccion agregada exitosamente!");
+            alert.showAndWait();
+            cancelarActionEvent();
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
+            alert.showAndWait();
+        }
     }
 
     private Alert getWarningAlert(String title, String headerText, String contentText){
@@ -67,7 +78,8 @@ public class ViewRegistrarRefaccion implements Initializable {
     }
 
     public void cancelarActionEvent(){
-        textfieldIDArticulo.setText("");
+        int nextID = ControladorRefaccion.getLastID() + 1;
+        textfieldIDArticulo.setText(String.valueOf(nextID));
         textfieldDescripcion.setText("");
         textfieldPrecio.setText("");
         textfieldCantidad.setText("");

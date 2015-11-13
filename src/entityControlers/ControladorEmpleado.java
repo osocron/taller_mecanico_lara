@@ -28,6 +28,18 @@ public class ControladorEmpleado {
         ConexionBD.getEm().persist(empleado);
         return empleado;
     }
+
+    public static int getNextID(){
+        List<EmpleadoEntity> empleadoEntities = getEmpleados();
+        final int[] id = {0};
+        empleadoEntities.forEach(empleadoEntity -> {
+            if(empleadoEntity.getIdEmpleado() > id[0]){
+                id[0] = empleadoEntity.getIdEmpleado();
+            }
+        });
+        return id[0];
+    }
+
     public static void modificarNombre(int idEmpleado, String nombre){
         EmpleadoEntity empleado = getEmpleadoPorID(idEmpleado);
         EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();

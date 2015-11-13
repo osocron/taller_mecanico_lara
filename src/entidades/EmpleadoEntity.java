@@ -9,6 +9,7 @@ import java.util.Collection;
 @Entity
 @Table(name = "Empleado", schema = "", catalog = "taller_mecanico_lara")
 public class EmpleadoEntity {
+
     private int idEmpleado;
     private String nombre;
     private String puesto;

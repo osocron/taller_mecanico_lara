@@ -52,15 +52,24 @@ public class ViewRegistrarCliente implements Initializable {
     }
 
     public void guardarClienteActionEvent() {
-        ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldRFC.getText(),
-                textfieldNombre.getText(), textfieldDomicilio.getText(),
-                textfieldTelefono.getText()));
-        Alert alert = getWarningAlert("Exitoso","Atencion","Cliente gregistrado exitosamente!");
-        alert.showAndWait();
-        textfieldRFC.setText("");
-        textfieldNombre.setText("");
-        textfieldDomicilio.setText("");
-        textfieldTelefono.setText("");
+        boolean telefonoEsNumerico = InputValidator.textIsNumericOnly(textfieldTelefono.getText());
+        boolean isRFC = InputValidator.isRFC(textfieldRFC.getText());
+        if ((textfieldRFC.getLength() != 0) && (textfieldNombre.getLength() != 0) &&
+                (textfieldDomicilio.getLength() != 0) && (textfieldTelefono.getLength() != 0) &&
+                telefonoEsNumerico && isRFC && (textfieldTelefono.getLength() == 10)) {
+            ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldRFC.getText(),
+                    textfieldNombre.getText(), textfieldDomicilio.getText(),
+                    textfieldTelefono.getText()));
+            Alert alert = getWarningAlert("Exitoso", "Atencion", "Cliente registrado exitosamente!");
+            alert.showAndWait();
+            textfieldRFC.setText("");
+            textfieldNombre.setText("");
+            textfieldDomicilio.setText("");
+            textfieldTelefono.setText("");
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "¡Atencion!", "Agunos datos no son correctos\n o están incompletos.");
+            alert.showAndWait();
+        }
     }
 
     public void cerrarVentanaEvent() {

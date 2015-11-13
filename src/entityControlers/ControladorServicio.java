@@ -31,14 +31,15 @@ public class ControladorServicio {
         return servicio;
     }
 
-    public static void modificarServicio(int IDServicio, String Descripcion, BigDecimal Costo, int IDEmpleados){
-        ServicioEntity servicios = getServicioPorID(IDServicio);
-        EntityTransaction entityTransaction = ConexionBD.getEm().getTransaction();
-        entityTransaction.begin();
-        servicios.setDescripcion(Descripcion);
-        servicios.setCosto(Costo);
-        servicios.setIdEmpleados(IDEmpleados);
-        entityTransaction.commit();
+    public static int getLastID(){
+        List<ServicioEntity> servicioEntityList = getServicios();
+        int[] lastID = {0};
+        servicioEntityList.forEach(servicioEntity -> {
+            if (servicioEntity.getIdServicio() > lastID[0]){
+                lastID[0] = servicioEntity.getIdServicio();
+            }
+        });
+        return lastID[0];
     }
 
     public static void modificarDescripcion(int IDServicio, String Descripcion){

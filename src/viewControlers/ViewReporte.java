@@ -123,6 +123,7 @@ public class ViewReporte implements Initializable{
         ControladorVentasRefaccion.getVentasRefaccion();
         ControladorVentasServicio.getVentaServicio();
     }
+
     public void cerrarVentanaEvent(){
         Stage stage = (Stage) tableviewReporte.getScene().getWindow();
         stage.close();
@@ -175,6 +176,17 @@ public class ViewReporte implements Initializable{
             tableviewReporte.getItems().clear();
             tableviewReporte.setItems(observableVentasEncontradas);
         }
+
+        Alert alert = getWarningAlert("Reporte", "Atencion", "Imprimiendo reporte...");
+        alert.showAndWait();
+    }
+
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
     }
 
 }

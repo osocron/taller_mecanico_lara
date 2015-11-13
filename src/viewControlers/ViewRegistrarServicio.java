@@ -73,6 +73,9 @@ public class ViewRegistrarServicio implements Initializable {
         }));
         cantidadTableColumn.setOnEditCommit(event -> event.getTableView().getItems().get(
                 event.getTablePosition().getRow()).setCantidad(event.getNewValue()));
+        textfieldServicio.setEditable(false);
+        int nextID = ControladorServicio.getLastID() + 1;
+        textfieldServicio.setText(String.valueOf(nextID));
     }
 
 
@@ -126,7 +129,8 @@ public class ViewRegistrarServicio implements Initializable {
     }
 
     public void cancelarActionEvent() {
-        textfieldServicio.setText("");
+        int nextID = ControladorServicio.getLastID() + 1;
+        textfieldServicio.setText(String.valueOf(nextID));
         textfieldDescripcion.setText("");
         textfieldIDempleado.setText("");
         textfieldPrecio.setText("");
@@ -135,33 +139,53 @@ public class ViewRegistrarServicio implements Initializable {
 
     public void registrarServicioOnActionEvent() {
         final int[] cont = {0};
-        ControladorServicio.guardarServicio(
-                ControladorServicio.crearServicio(
-                        Integer.parseInt(textfieldServicio.getText()),
-                        comboboxServicio.getSelectionModel().getSelectedItem() + " " + textfieldDescripcion.getText(),
-                        BigDecimal.valueOf(Double.parseDouble(textfieldPrecio.getText())),
-                        Integer.parseInt(textfieldIDempleado.getText())));
-        dataRefaccionesParaTabla.forEach(refaccionEntity -> {
-            ControladorServicioRefaccion.guardarServicioRefaccion(
-                    ControladorServicioRefaccion.crearServicioRefaccion(
-                            Integer.parseInt(textfieldServicio.getText())* 100 + cont[0],
+        boolean precioOK = InputValidator.textIsDecimalOnly(textfieldPrecio.getText(),"2");
+        boolean idInt = InputValidator.textIsNumericOnly(textfieldIDempleado.getText());
+
+        final boolean[] idEmpleadoOK = {false};
+        if (idInt) {
+            List<EmpleadoEntity> empleadoEntities = ControladorEmpleado.getEmpleados();
+            empleadoEntities.forEach(empleadoEntity -> {
+                if (empleadoEntity.getIdEmpleado() == Integer.parseInt(textfieldIDempleado.getText())) {
+                    idEmpleadoOK[0] = true;
+                }
+            });
+        }
+        if ((!comboboxServicio.getSelectionModel().isEmpty()) && (textfieldDescripcion.getLength() != 0) &&
+                (textfieldPrecio.getLength() != 0) && precioOK && idInt && idEmpleadoOK[0] &&
+                (!dataRefaccionesParaTabla.isEmpty()) && (!comboBoxClientes.getSelectionModel().isEmpty()) &&
+                (!comboBoxAutos.getSelectionModel().isEmpty())) {
+            ControladorServicio.guardarServicio(
+                    ControladorServicio.crearServicio(
                             Integer.parseInt(textfieldServicio.getText()),
-                            refaccionEntity.getIdRefaccion(),
-                            refaccionEntity.getCantidad()
+                            comboboxServicio.getSelectionModel().getSelectedItem() + " " + textfieldDescripcion.getText(),
+                            BigDecimal.valueOf(Double.parseDouble(textfieldPrecio.getText())),
+                            Integer.parseInt(textfieldIDempleado.getText())));
+            dataRefaccionesParaTabla.forEach(refaccionEntity -> {
+                ControladorServicioRefaccion.guardarServicioRefaccion(
+                        ControladorServicioRefaccion.crearServicioRefaccion(
+                                Integer.parseInt(textfieldServicio.getText()) * 100 + cont[0],
+                                Integer.parseInt(textfieldServicio.getText()),
+                                refaccionEntity.getIdRefaccion(),
+                                refaccionEntity.getCantidad()
+                        )
+                );
+                cont[0]++;
+            });
+            ControladorServicioAutomovil.guardarServicioAutomovil(
+                    ControladorServicioAutomovil.crearServicioAutomovil(
+                            Integer.parseInt(textfieldServicio.getText()) * 100,
+                            Integer.parseInt(textfieldServicio.getText()),
+                            comboBoxAutos.getSelectionModel().getSelectedItem().getMatricula()
                     )
             );
-            cont[0]++;
-        });
-        ControladorServicioAutomovil.guardarServicioAutomovil(
-                ControladorServicioAutomovil.crearServicioAutomovil(
-                        Integer.parseInt(textfieldServicio.getText())* 100,
-                        Integer.parseInt(textfieldServicio.getText()),
-                        comboBoxAutos.getSelectionModel().getSelectedItem().getMatricula()
-                )
-        );
-        Alert alert = getWarningAlert("Exitoso","Atencion","Servicio guardado Exitosamente!");
-        alert.showAndWait();
-        cancelarActionEvent();
+            Alert alert = getWarningAlert("Exitoso", "Atencion", "Servicio guardado Exitosamente!");
+            alert.showAndWait();
+            cancelarActionEvent();
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
+            alert.showAndWait();
+        }
     }
 
     private Alert getWarningAlert(String title, String headerText, String contentText){
@@ -172,12 +196,12 @@ public class ViewRegistrarServicio implements Initializable {
         return alert;
     }
 
-    public void cerrarVentanaEvent(ActionEvent actionEvent) {
+    public void cerrarVentanaEvent() {
         Stage stage = (Stage) labelDescripcion.getScene().getWindow();
         stage.close();
     }
 
-    public void eliminarRefaccionActionEvent(ActionEvent actionEvent) {
+    public void eliminarRefaccionActionEvent() {
         RefaccionEntity refaccionEntity = tablaRefacciones.getSelectionModel().getSelectedItem();
         dataRefaccionesParaTabla.remove(refaccionEntity);
         tablaRefacciones.setItems(dataRefaccionesParaTabla);

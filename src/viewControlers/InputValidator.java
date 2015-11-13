@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 public class InputValidator {
 
     public static boolean textIsLatinButNoPunctuation(String text){
+
         boolean isTextOnly;
         Pattern pattern = Pattern.compile("^[\\p{L} -]+$");
         Matcher matcher = pattern.matcher(text);
@@ -30,6 +31,22 @@ public class InputValidator {
         Matcher matcher = pattern.matcher(text);
         isNumericOnly = matcher.matches();
         return  isNumericOnly;
+    }
+
+    public static boolean isRFC(String text){
+        boolean isRFC;
+        Pattern pattern = Pattern.compile("^[A-Za-z]{4}\\d{6}(?:[A-Za-z\\d]{3})?$");
+        Matcher matcher = pattern.matcher(text);
+        isRFC = matcher.matches();
+        return isRFC;
+    }
+
+    public static boolean isPlaca(String text){
+        boolean isPlaca;
+        Pattern pattern = Pattern.compile("^[A-Za-z]{3}\\d{4}$");
+        Matcher matcher = pattern.matcher(text);
+        isPlaca = matcher.matches();
+        return isPlaca;
     }
 
 }
