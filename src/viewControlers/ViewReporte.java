@@ -119,9 +119,8 @@ public class ViewReporte implements Initializable{
     }
 
     public void crearReporteEvent(){
-        ControladorVentas.getVentas();
-        ControladorVentasRefaccion.getVentasRefaccion();
-        ControladorVentasServicio.getVentaServicio();
+        Alert alert = getWarningAlert("Reporte", "Atencion", "Imprimiendo reporte...");
+        alert.showAndWait();
     }
 
     public void cerrarVentanaEvent(){
@@ -176,9 +175,6 @@ public class ViewReporte implements Initializable{
             tableviewReporte.getItems().clear();
             tableviewReporte.setItems(observableVentasEncontradas);
         }
-
-        Alert alert = getWarningAlert("Reporte", "Atencion", "Imprimiendo reporte...");
-        alert.showAndWait();
     }
 
     private Alert getWarningAlert(String title, String headerText, String contentText){
