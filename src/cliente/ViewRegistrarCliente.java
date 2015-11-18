@@ -61,9 +61,6 @@ public class ViewRegistrarCliente implements Initializable {
             textfieldNombre.setText("");
             textfieldDomicilio.setText("");
             textfieldTelefono.setText("");
-        }else {
-            Alert alert = getWarningAlert("Cuidado", "¡Atencion!", "Agunos datos no son correctos\n o están incompletos.");
-            alert.showAndWait();
         }
     }
 
@@ -73,8 +70,22 @@ public class ViewRegistrarCliente implements Initializable {
         if ((rfc.length() != 0) && (nombre.length() != 0) &&
                 (domicilio.length() != 0) && (telefono.length() != 0) &&
                 telefonoEsNumerico && isRFC && (telefono.length() == 10)) {
-            return true;
+            final boolean[] isRepetido = {false};
+            dataCliente.forEach(clienteEntity -> {
+                if (clienteEntity.getIdCliente().equals(rfc)) {
+                    isRepetido[0] = true;
+                }
+            });
+            if (!isRepetido[0]) {
+                return true;
+            }else {
+                Alert alert = getWarningAlert("Cuidado", "Atencion", "El RFC ya existe en la base de datos!");
+                alert.showAndWait();
+                return false;
+            }
         }else {
+            Alert alert = getWarningAlert("Cuidado", "¡Atencion!", "Agunos datos no son correctos\n o están incompletos.");
+            alert.showAndWait();
             return false;
         }
     }

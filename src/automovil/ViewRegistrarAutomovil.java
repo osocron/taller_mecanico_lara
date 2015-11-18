@@ -38,7 +38,7 @@ public class ViewRegistrarAutomovil implements Initializable {
 
     public void registrarAutomovilActionEvent() {
         if (veirificarDatosDeRegistro(matriculaTextField.getText(),marcaTextField.getText(),modeloTextField.getText(),
-                colorTextField.getText())) {
+                colorTextField.getText()) && (clienteEntityComboBox.getSelectionModel().getSelectedIndex() >= 0)) {
             ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getText(),
                     marcaTextField.getText(), modeloTextField.getText(), colorTextField.getText(),
                     clienteEntityComboBox.getSelectionModel().getSelectedItem().getIdCliente()));
@@ -48,9 +48,6 @@ public class ViewRegistrarAutomovil implements Initializable {
             marcaTextField.setText("");
             modeloTextField.setText("");
             colorTextField.setText("");
-        }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de verificar los datos.");
-            alert.showAndWait();
         }
     }
 
@@ -58,8 +55,22 @@ public class ViewRegistrarAutomovil implements Initializable {
         boolean isPlaca = InputValidator.isPlaca(matricula);
         if ((matricula.length() != 0) && (marca.length() != 0) && (modelo.length() != 0)
                 && (color.length() != 0) && isPlaca) {
-            return true;
+            final boolean[] isRepetido = {false};
+            dataAtuomoviles.forEach(automovilesEntity -> {
+                if (automovilesEntity.getMatricula().equals(matricula)){
+                    isRepetido[0] = true;
+                }
+            });
+            if (!isRepetido[0]) {
+                return true;
+            }else {
+                Alert alert = getWarningAlert("Cuidado", "Atencion", "La matricula ya existe en la base de datos!");
+                alert.showAndWait();
+                return false;
+            }
         }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de verificar los datos.");
+            alert.showAndWait();
             return false;
         }
     }

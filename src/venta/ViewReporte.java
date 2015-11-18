@@ -132,50 +132,93 @@ public class ViewReporte implements Initializable{
 
     public void generarReporteActionEvent() {
         if (checkBoxCliente.isSelected()) {
-            ArrayList<ServicioAutomovilEntity> servicioAutomovilEncontrados = new ArrayList<>();
-            dataServicioAutomoviles.forEach(servicioAutomovilEntity -> {
-                if (servicioAutomovilEntity.getMatricula().equals(
-                        comboboxAutomovil.getSelectionModel().getSelectedItem().getMatricula())) {
-                    servicioAutomovilEncontrados.add(servicioAutomovilEntity);
-                }
-            });
-            ArrayList<VentaServicioEntity> ventaServicioEncontrados = new ArrayList<>();
-            dataVentaServicio.forEach(ventaServicioEntity -> servicioAutomovilEncontrados.forEach(servicioAutomovilEntity -> {
-                if (servicioAutomovilEntity.getIdServicios() == ventaServicioEntity.getIdServicios()) {
-                    ventaServicioEncontrados.add(ventaServicioEntity);
-                }
-            }));
-            ArrayList<VentasEntity> ventasEncontradas = new ArrayList<>();
-            dataVentas.forEach(ventasEntity -> ventaServicioEncontrados.forEach(ventaServicioEntity -> {
-                if (ventaServicioEntity.getIdVentas() == ventasEntity.getIdVenta()) {
-                    if (checkBoxFecha.isSelected()) {
-                        LocalDate date = fechaDatePicker.getValue();
-                        java.sql.Date sqlDate = java.sql.Date.valueOf(date);
-                        if (sqlDate.equals(ventasEntity.getFecha())) {
+            if ((comboBoxClientes.getSelectionModel().getSelectedIndex() >= 0)
+                    &&(comboboxAutomovil.getSelectionModel().getSelectedIndex() >= 0)) {
+                ArrayList<ServicioAutomovilEntity> servicioAutomovilEncontrados = new ArrayList<>();
+                dataServicioAutomoviles.forEach(servicioAutomovilEntity -> {
+                    if (servicioAutomovilEntity.getMatricula().equals(
+                            comboboxAutomovil.getSelectionModel().getSelectedItem().getMatricula())) {
+                        servicioAutomovilEncontrados.add(servicioAutomovilEntity);
+                    }
+                });
+                ArrayList<VentaServicioEntity> ventaServicioEncontrados = new ArrayList<>();
+                dataVentaServicio.forEach(ventaServicioEntity -> servicioAutomovilEncontrados.forEach(servicioAutomovilEntity -> {
+                    if (servicioAutomovilEntity.getIdServicios() == ventaServicioEntity.getIdServicios()) {
+                        ventaServicioEncontrados.add(ventaServicioEntity);
+                    }
+                }));
+                ArrayList<VentasEntity> ventasEncontradas = new ArrayList<>();
+                dataVentas.forEach(ventasEntity -> ventaServicioEncontrados.forEach(ventaServicioEntity -> {
+                    if (ventaServicioEntity.getIdVentas() == ventasEntity.getIdVenta()) {
+                        if (checkBoxFecha.isSelected()) {
+                            if (fechaDatePicker.getValue() != null) {
+                                LocalDate date = fechaDatePicker.getValue();
+                                java.sql.Date sqlDate = java.sql.Date.valueOf(date);
+                                if (sqlDate.equals(ventasEntity.getFecha())) {
+                                    ventasEncontradas.add(ventasEntity);
+                                }
+                            }else {
+                                Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar una Fecha!");
+                                alert.showAndWait();
+                            }
+                        } else {
                             ventasEncontradas.add(ventasEntity);
                         }
-                    }else {
+                    }
+                }));
+                ObservableList<VentasEntity> observableVentasEncontradas = FXCollections.observableArrayList();
+                observableVentasEncontradas.addAll(ventasEncontradas);
+                tableviewReporte.getItems().clear();
+                tableviewReporte.setItems(observableVentasEncontradas);
+            }else{
+                if (comboBoxClientes.getSelectionModel().getSelectedIndex() >= 0) {
+                    ArrayList<VentasEntity> ventasEncontradas = new ArrayList<>();
+                    dataVentas.forEach(ventasEntity -> {
+                        if (ventasEntity.getIdClientes().equals(
+                                comboBoxClientes.getSelectionModel().getSelectedItem().getIdCliente())) {
+                            if (checkBoxFecha.isSelected()) {
+                                if (fechaDatePicker.getValue() != null) {
+                                    LocalDate date = fechaDatePicker.getValue();
+                                    java.sql.Date sqlDate = java.sql.Date.valueOf(date);
+                                    if (sqlDate.equals(ventasEntity.getFecha())) {
+                                        ventasEncontradas.add(ventasEntity);
+                                    }
+                                }else {
+                                    Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar una Fecha!");
+                                    alert.showAndWait();
+                                }
+                            } else {
+                                ventasEncontradas.add(ventasEntity);
+                            }
+                        }
+                    });
+                    ObservableList<VentasEntity> observableVentasEncontradas = FXCollections.observableArrayList();
+                    observableVentasEncontradas.addAll(ventasEncontradas);
+                    tableviewReporte.getItems().clear();
+                    tableviewReporte.setItems(observableVentasEncontradas);
+                }else {
+                    Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un Cliente!");
+                    alert.showAndWait();
+                }
+            }
+        }else if (checkBoxFecha.isSelected()){
+            if (fechaDatePicker.getValue() != null) {
+                ArrayList<VentasEntity> ventasEncontradas = new ArrayList<>();
+                dataVentas.forEach(ventasEntity -> {
+                    LocalDate date = fechaDatePicker.getValue();
+                    java.sql.Date sqlDate = java.sql.Date.valueOf(date);
+                    if (sqlDate.equals(ventasEntity.getFecha())) {
                         ventasEncontradas.add(ventasEntity);
                     }
-                }
-            }));
-            ObservableList<VentasEntity> observableVentasEncontradas = FXCollections.observableArrayList();
-            observableVentasEncontradas.addAll(ventasEncontradas);
-            tableviewReporte.getItems().clear();
-            tableviewReporte.setItems(observableVentasEncontradas);
-        }else if (checkBoxFecha.isSelected()){
-            ArrayList<VentasEntity> ventasEncontradas = new ArrayList<>();
-            dataVentas.forEach(ventasEntity -> {
-                LocalDate date = fechaDatePicker.getValue();
-                java.sql.Date sqlDate = java.sql.Date.valueOf(date);
-                if (sqlDate.equals(ventasEntity.getFecha())) {
-                    ventasEncontradas.add(ventasEntity);
-                }
-            });
-            ObservableList<VentasEntity> observableVentasEncontradas = FXCollections.observableArrayList();
-            observableVentasEncontradas.addAll(ventasEncontradas);
-            tableviewReporte.getItems().clear();
-            tableviewReporte.setItems(observableVentasEncontradas);
+                });
+                ObservableList<VentasEntity> observableVentasEncontradas = FXCollections.observableArrayList();
+                observableVentasEncontradas.addAll(ventasEncontradas);
+                tableviewReporte.getItems().clear();
+                tableviewReporte.setItems(observableVentasEncontradas);
+            }else {
+                Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar una Fecha!");
+                alert.showAndWait();
+            }
         }
     }
 

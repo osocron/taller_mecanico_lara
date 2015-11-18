@@ -12,6 +12,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -62,9 +63,30 @@ public class ViewConsultarClientes implements Initializable{
     }
 
     public void eliminarFilaActionEvent() {
-        ClienteEntity clienteEntity = clienteTableView.getSelectionModel().getSelectedItem();
-        data.remove(clienteEntity);
-        clienteTableView.setItems(data);
-        ControladorCliente.eliminarCliente(clienteEntity.getIdCliente());
+        if (clienteTableView.getSelectionModel().getSelectedItem() != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Cuidado");
+            alert.setHeaderText("Atención!");
+            alert.setContentText("¿Seguro que deseas eliminar el elemento?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                ClienteEntity clienteEntity = clienteTableView.getSelectionModel().getSelectedItem();
+                data.remove(clienteEntity);
+                clienteTableView.setItems(data);
+                ControladorCliente.eliminarCliente(clienteEntity.getIdCliente());
+            }
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
+            alert.showAndWait();
+        }
     }
+
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
+    }
+
 }

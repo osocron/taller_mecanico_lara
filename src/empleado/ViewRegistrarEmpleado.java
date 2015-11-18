@@ -59,8 +59,7 @@ public class ViewRegistrarEmpleado implements Initializable {
 
     public void registrarEmpleadoActionEvent() {
         boolean isOK = true;
-        if ((textfieldIDempleado.getLength() != 0) && (textfieldNombre.getLength() != 0) &&
-                (textfieldPuesto.getLength() != 0)) {
+        if (validarDatosRegistro(textfieldIDempleado.getText(),textfieldNombre.getText(),textfieldPuesto.getText())) {
             ControladorEmpleado.guardarEmpleadp(
                     ControladorEmpleado.crearEmpleado(
                             Integer.parseInt(textfieldIDempleado.getText()),
