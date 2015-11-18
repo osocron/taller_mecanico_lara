@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1C1C1F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="refaccion.ViewSeleccionarRefaccion">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="refaccionesListView" stylesheets="@../res/material.css" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </ListView>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton fx:id="cancelarButton" buttonType="RAISED" onAction="#cancelarActionEvent" style="-fx-background-color: #84BD00;" text="CANCELAR">
+               <HBox.margin>
+                  <Insets bottom="25.0" left="30.0" top="10.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="sleccionarButton" buttonType="RAISED" onAction="#seleccionarRefaccionActionEvent" style="-fx-background-color: #84BD00;" text="SELECCIONAR REFACCION">
+               <HBox.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="10.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <Label text="Refacciones" textFill="#b8bbb6" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets left="25.0" top="25.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>

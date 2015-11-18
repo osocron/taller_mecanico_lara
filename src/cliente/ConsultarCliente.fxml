@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cliente.ViewConsultarClientes">
+   <bottom>
+      <HBox alignment="CENTER_RIGHT">
+         <children>
+            <JFXButton fx:id="eliminarButton" buttonType="RAISED" onAction="#eliminarFilaActionEvent" style="-fx-background-color: #84BD00;" text="ELIMINAR FILA">
+               <HBox.margin>
+                  <Insets bottom="25.0" left="15.0" right="25.0" top="15.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox>
+         <children>
+            <Label text="Consulta de Clientes" textFill="#b8bbb6">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="25.0" right="10.0" top="25.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="clienteTableView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../res/material.css" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="idClienteTableColumn" prefWidth="116.0" text="ID CLIENTE" />
+                <TableColumn fx:id="nombreTableColumn" prefWidth="135.0" text="NOMBRE" />
+                  <TableColumn fx:id="direccionTableColumn" prefWidth="139.0" text="DIRECCION" />
+                  <TableColumn fx:id="telefonoTableColumn" prefWidth="127.0" text="TELEFONO" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="30.0" right="30.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

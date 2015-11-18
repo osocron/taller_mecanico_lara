@@ -2,7 +2,6 @@
   <library name="eclipselink">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/eclipselink.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/itext-5.5.7.zip!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

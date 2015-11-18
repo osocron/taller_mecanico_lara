@@ -2,7 +2,7 @@ package viewControlers;
 
 import entidades.UsuarioEntity;
 import entityControlers.ConexionBD;
-import entityControlers.ControladorUsuario;
+import usuario.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.Assert;
