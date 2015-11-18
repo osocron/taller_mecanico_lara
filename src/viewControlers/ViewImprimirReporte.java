@@ -5,14 +5,25 @@ import entidades.*;
 import entityControlers.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import javax.servlet.jsp.tagext.TagLibraryInfo;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
@@ -32,6 +43,7 @@ public class ViewImprimirReporte implements Initializable {
     public TableColumn<ClienteEntity,String> tableCliente;
     public TableColumn<AutomovilesEntity,String> tableAutomovil;
     public TableColumn<VentasEntity, Integer> tableCosto;
+    public Button buttonImprimir;
 
 
     private ObservableList<VentasEntity> dataVenta = FXCollections.observableArrayList();
@@ -52,6 +64,7 @@ public class ViewImprimirReporte implements Initializable {
         dataCliente.addAll(clienteEntityList);
         List<AutomovilesEntity>automovilesEntityList = ControladorAutomovil.getAutomoviles();
         dataAuto.addAll(automovilesEntityList);
+
     }
     public void prepararTableView(){
         tablaReporte.setEditable(true);
@@ -87,9 +100,39 @@ public class ViewImprimirReporte implements Initializable {
 
         tablaReporte.setItems(dataVenta);
     }
-    public void imprimirActionEvent(){
+    public class ImprimirActionEvent extends JFrame{
+        public void imprimirActionEvent(){
+            JFileChooser archivo = new JFileChooser();
+            buttonImprimir.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    int opcion = archivo.showSaveDialog(null);
+                    if (opcion==archivo.APPROVE_OPTION){
+                        try {
+                            OutputStream salida = new FileOutputStream(archivo.getSelectedFile());
+                            Document doc = new Document();
+                            PdfWriter.getInstance(doc,salida);
+                            doc.open();
+                            //doc.add(new Paragraph(tablaReporte));
+                            doc.close();
+                            salida.close();
+                        }
+                        catch (Exception e){
 
+                        }
+                    }
+                }
+            });
+            this.add(tablaReporte,BorderLayout.NORTH);
+        }
+
+        private void add(TableView<VentasEntity> tablaReporte, String north) {
+            this.setSize(300,400);
+            this.setVisible(true);
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
     }
+
     public void cancelarActionEvent(){
 
     }
