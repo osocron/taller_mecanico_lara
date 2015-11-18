@@ -1,10 +1,15 @@
 package viewControlers;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXButton;
 import entidades.*;
 import entityControlers.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -12,7 +17,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.FileChooser;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -89,8 +99,33 @@ public class ViewImprimirCotizacion implements Initializable {
         tablaCotizacion.setItems(dataVentas);
 
     }
-    public void imprimirActionEvent(){
+    public class ImprimirActionEvent extends JFrame{
+        public void imprimirActionEvent() {
+            PdfPTable tabla = new PdfPTable(5);
+            JFileChooser archivo = new JFileChooser();
+            buttonImprimir.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    int opcion = archivo.showSaveDialog(null);
+                    if (opcion==archivo.APPROVE_OPTION){
+                        try {
+                            OutputStream salida = new FileOutputStream(archivo.getSelectedFile());
+                            Document doc = new Document();
+                            PdfWriter.getInstance(doc, salida);
+                            doc.open();
+                            doc.add(tabla);
+                            doc.close();
+                            salida.close();
+                        }
+                        catch (Exception e){
 
+                        }
+                    }
+                }
+            });
+            //this.add(tablaCotizacion,BorderLayout.CENTER);
+
+        }
     }
     public void cancelarActionEvent(){
         textfieldSubtotal.setText("");

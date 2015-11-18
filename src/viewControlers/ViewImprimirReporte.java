@@ -18,6 +18,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.PdfPTable;
 import javax.servlet.jsp.tagext.TagLibraryInfo;
 import javax.swing.*;
 import java.awt.*;
@@ -102,6 +103,7 @@ public class ViewImprimirReporte implements Initializable {
     }
     public class ImprimirActionEvent extends JFrame{
         public void imprimirActionEvent(){
+            PdfPTable tabla = new PdfPTable(5);
             JFileChooser archivo = new JFileChooser();
             buttonImprimir.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
@@ -113,7 +115,7 @@ public class ViewImprimirReporte implements Initializable {
                             Document doc = new Document();
                             PdfWriter.getInstance(doc,salida);
                             doc.open();
-                            //doc.add(new Paragraph(tablaReporte));
+                            doc.add(tabla);
                             doc.close();
                             salida.close();
                         }
