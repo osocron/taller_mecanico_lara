@@ -2,6 +2,8 @@ package venta;
 
 import com.jfoenix.controls.JFXButton;
 import entidades.VentasEntity;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import venta.ControladorVentas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +17,7 @@ import javafx.stage.Stage;
 import viewControlers.DatePickerCell;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -64,10 +67,22 @@ public class ViewConsultarVentas implements Initializable {
     }
 
     public void eliminarVentaEvent(){
-        VentasEntity ventasEntity = tablaVentas.getSelectionModel().getSelectedItem();
-        dataVenta.remove(ventasEntity);
-        tablaVentas.setItems(dataVenta);
-        ControladorVentas.eliminarVenta(ventasEntity.getIdVenta());
+        if (tablaVentas.getSelectionModel().getSelectedItem() != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Cuidado");
+            alert.setHeaderText("Atención!");
+            alert.setContentText("¿Seguro que deseas eliminar el elemento?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                VentasEntity ventasEntity = tablaVentas.getSelectionModel().getSelectedItem();
+                dataVenta.remove(ventasEntity);
+                tablaVentas.setItems(dataVenta);
+                ControladorVentas.eliminarVenta(ventasEntity.getIdVenta());
+            }
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
+            alert.showAndWait();
+        }
     }
 
     public void cerrarVentanaEvent() {
@@ -75,8 +90,17 @@ public class ViewConsultarVentas implements Initializable {
         stage.close();
     }
 
-    public void cancelarActionEvent(){
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
+    }
 
+    public void cancelarActionEvent(){
+        Stage stage = (Stage)tablaVentas.getScene().getWindow();
+        stage.close();
     }
 
 }

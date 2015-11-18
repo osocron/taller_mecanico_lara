@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * Created by ValdemarRamos on 28/10/2015.
- */
 public class ViewReporte implements Initializable{
 
     public TableView<VentasEntity> tableviewReporte;

@@ -16,9 +16,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * Created by ValdemarRamos on 28/10/2015.
- */
+
 public class ViewRegistrarRefaccion implements Initializable {
     @FXML
     public Label labelArticulo;
@@ -68,12 +66,8 @@ public class ViewRegistrarRefaccion implements Initializable {
     public boolean verificarDatosRegistro(String descripcion, String precio, String cantidad){
         boolean isDecimal = InputValidator.textIsDecimalOnly(precio, "2");
         boolean isNumeric = InputValidator.textIsNumericOnly(cantidad);
-        if ((descripcion.length() != 0) && (precio.length() != 0)
-                && isDecimal && (cantidad.length() != 0) && isNumeric) {
-            return true;
-        }else {
-            return false;
-        }
+        return (descripcion.length() != 0) && (precio.length() != 0)
+                && isDecimal && (cantidad.length() != 0) && isNumeric;
     }
 
     private Alert getWarningAlert(String title, String headerText, String contentText){
