@@ -96,6 +96,15 @@ public class ViewRegistrarEmpleado implements Initializable {
         }
     }
 
+    public boolean validarDatosRegistro(String id, String nombre, String puesto){
+        if ((id.length() != 0) && (nombre.length() != 0) &&
+                (puesto.length() != 0)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     private Alert getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);

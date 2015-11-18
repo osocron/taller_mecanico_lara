@@ -40,9 +40,8 @@ public class ViewRegistrarAutomovil implements Initializable {
     }
 
     public void registrarAutomovilActionEvent() {
-        boolean isPlaca = InputValidator.isPlaca(matriculaTextField.getText());
-        if ((matriculaTextField.getLength() != 0) && (marcaTextField.getLength() != 0) && (modeloTextField.getLength() != 0)
-                && (colorTextField.getLength() != 0) && isPlaca) {
+        if (veirificarDatosDeRegistro(matriculaTextField.getText(),marcaTextField.getText(),modeloTextField.getText(),
+                colorTextField.getText())) {
             ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getText(),
                     marcaTextField.getText(), modeloTextField.getText(), colorTextField.getText(),
                     clienteEntityComboBox.getSelectionModel().getSelectedItem().getIdCliente()));
@@ -55,6 +54,16 @@ public class ViewRegistrarAutomovil implements Initializable {
         }else {
             Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de verificar los datos.");
             alert.showAndWait();
+        }
+    }
+
+    public boolean veirificarDatosDeRegistro(String matricula, String marca, String modelo, String color){
+        boolean isPlaca = InputValidator.isPlaca(matricula);
+        if ((matricula.length() != 0) && (marca.length() != 0) && (modelo.length() != 0)
+                && (color.length() != 0) && isPlaca) {
+            return true;
+        }else {
+            return false;
         }
     }
 

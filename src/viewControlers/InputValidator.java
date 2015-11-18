@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 public class InputValidator {
 
     public static boolean textIsLatinButNoPunctuation(String text){
-
         boolean isTextOnly;
         Pattern pattern = Pattern.compile("^[\\p{L} -]+$");
         Matcher matcher = pattern.matcher(text);

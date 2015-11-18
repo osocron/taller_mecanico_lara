@@ -52,10 +52,7 @@ public class ViewRegistrarRefaccion implements Initializable {
         textfieldIDArticulo.setText(String.valueOf(nextID));
     }
     public void crearRefaccionEvent(){
-        boolean isDecimal = InputValidator.textIsDecimalOnly(textfieldPrecio.getText(),"2");
-        boolean isNumeric = InputValidator.textIsNumericOnly(textfieldCantidad.getText());
-        if ((textfieldDescripcion.getLength() != 0) && (textfieldPrecio.getLength() != 0)
-                && isDecimal && (textfieldCantidad.getLength() != 0) && isNumeric) {
+        if (verificarDatosRegistro(textfieldDescripcion.getText(),textfieldPrecio.getText(),textfieldCantidad.getText())) {
             ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(
                     Integer.parseInt(textfieldIDArticulo.getText()), textfieldDescripcion.getText(),
                     BigDecimal.valueOf(Double.valueOf(textfieldPrecio.getText())),
@@ -66,6 +63,17 @@ public class ViewRegistrarRefaccion implements Initializable {
         }else {
             Alert alert = getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
             alert.showAndWait();
+        }
+    }
+
+    public boolean verificarDatosRegistro(String descripcion, String precio, String cantidad){
+        boolean isDecimal = InputValidator.textIsDecimalOnly(precio,"2");
+        boolean isNumeric = InputValidator.textIsNumericOnly(cantidad);
+        if ((descripcion.length() != 0) && (precio.length() != 0)
+                && isDecimal && (cantidad.length() != 0) && isNumeric) {
+            return true;
+        }else {
+            return false;
         }
     }
 

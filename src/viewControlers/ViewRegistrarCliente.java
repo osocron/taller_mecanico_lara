@@ -52,11 +52,8 @@ public class ViewRegistrarCliente implements Initializable {
     }
 
     public void guardarClienteActionEvent() {
-        boolean telefonoEsNumerico = InputValidator.textIsNumericOnly(textfieldTelefono.getText());
-        boolean isRFC = InputValidator.isRFC(textfieldRFC.getText());
-        if ((textfieldRFC.getLength() != 0) && (textfieldNombre.getLength() != 0) &&
-                (textfieldDomicilio.getLength() != 0) && (textfieldTelefono.getLength() != 0) &&
-                telefonoEsNumerico && isRFC && (textfieldTelefono.getLength() == 10)) {
+        if (validarDatosRegistro(textfieldRFC.getText(),textfieldNombre.getText(),textfieldDomicilio.getText(),
+                textfieldTelefono.getText())) {
             ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldRFC.getText(),
                     textfieldNombre.getText(), textfieldDomicilio.getText(),
                     textfieldTelefono.getText()));
@@ -69,6 +66,18 @@ public class ViewRegistrarCliente implements Initializable {
         }else {
             Alert alert = getWarningAlert("Cuidado", "¡Atencion!", "Agunos datos no son correctos\n o están incompletos.");
             alert.showAndWait();
+        }
+    }
+
+    public boolean validarDatosRegistro(String rfc, String nombre, String domicilio, String telefono){
+        boolean telefonoEsNumerico = InputValidator.textIsNumericOnly(telefono);
+        boolean isRFC = InputValidator.isRFC(rfc);
+        if ((rfc.length() != 0) && (nombre.length() != 0) &&
+                (domicilio.length() != 0) && (telefono.length() != 0) &&
+                telefonoEsNumerico && isRFC && (telefono.length() == 10)) {
+            return true;
+        }else {
+            return false;
         }
     }
 
