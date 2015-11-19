@@ -122,7 +122,7 @@ public class ViewReporte implements Initializable{
         Alert alert = getWarningAlert("Reporte", "Atencion", "Imprimiendo reporte...");
         alert.showAndWait();
         ViewOpener viewOpener = new ViewOpener();
-        viewOpener.openView("venta/ViewImprimirReporte","Imrpimir Reporte");
+        viewOpener.openView("venta/imprimirAtionEvent","imprimirAcrionEvent");
     }
 
     public void cerrarVentanaEvent(){
