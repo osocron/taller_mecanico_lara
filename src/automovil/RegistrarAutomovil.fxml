@@ -77,37 +77,12 @@
                   <Insets bottom="25.0" right="15.0" />
                </BorderPane.margin>
                <HBox.margin>
-                  <Insets bottom="25.0" left="60.0" right="64.0" top="25.0" />
+                  <Insets bottom="25.0" left="60.0" right="70.0" top="25.0" />
                </HBox.margin>
             </JFXButton>
          </children>
       </HBox>
    </bottom>
-   <right>
-      <AnchorPane>
-         <children>
-            <ImageView fitHeight="316.0" fitWidth="207.0" layoutX="15.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="22.539337158203125" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="22.0" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets right="48.0" top="35.0" />
-               </BorderPane.margin>
-               <image>
-                  <Image url="@../res/car2.jpg" />
-               </image>
-               <effect>
-                  <Shadow height="49.84" radius="46.8075" width="139.39" />
-               </effect>
-            </ImageView>
-            <ImageView fitHeight="282.0" fitWidth="195.0" layoutX="23.0" layoutY="34.0" opacity="0.68" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="21.898483276367188" AnchorPane.topAnchor="34.0">
-               <image>
-                  <Image url="@../res/car2.jpg" />
-               </image>
-            </ImageView>
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="15.0" right="48.0" top="15.0" />
-         </BorderPane.margin>
-      </AnchorPane>
-   </right>
    <top>
       <Label text="Registro de Automoviles" textFill="#b8b4b4" BorderPane.alignment="TOP_LEFT">
          <font>
@@ -118,4 +93,26 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <right>
+      <AnchorPane>
+         <children>
+            <ImageView fitHeight="303.0" fitWidth="207.0" layoutX="22.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.667510986328125" AnchorPane.topAnchor="15.0" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../res/car2.jpg" />
+               </image>
+               <effect>
+                  <Shadow height="52.12" radius="29.924999999999997" width="69.58" />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="282.0" fitWidth="195.0" layoutX="29.0" layoutY="26.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../res/car2.jpg" />
+               </image>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets right="48.0" />
+         </BorderPane.margin>
+      </AnchorPane>
+   </right>
 </BorderPane>
