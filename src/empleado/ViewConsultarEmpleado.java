@@ -6,6 +6,8 @@ import empleado.ControladorEmpleado;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -64,9 +67,30 @@ public class ViewConsultarEmpleado implements Initializable {
     }
 
     public void eliminarFilaActionEvent( ) {
-        EmpleadoEntity empleadoEntity = tableEmpleados.getSelectionModel().getSelectedItem();
-        data.remove(empleadoEntity);
-        tableEmpleados.setItems(data);
-        ControladorEmpleado.eliminarEmpleado(empleadoEntity.getIdEmpleado());
+        if (tableEmpleados.getSelectionModel().getSelectedItem() != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Cuidado");
+            alert.setHeaderText("Atención!");
+            alert.setContentText("¿Seguro que deseas eliminar el elemento?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                EmpleadoEntity empleadoEntity = tableEmpleados.getSelectionModel().getSelectedItem();
+                data.remove(empleadoEntity);
+                tableEmpleados.setItems(data);
+                ControladorEmpleado.eliminarEmpleado(empleadoEntity.getIdEmpleado());
+            }
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
+            alert.showAndWait();
+        }
     }
+
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
+    }
+    
 }

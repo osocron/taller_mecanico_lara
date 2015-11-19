@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -47,11 +48,11 @@ public class ViewConsultartAutomovil implements Initializable {
         tableMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
         tableMarca.setCellFactory(TextFieldTableCell.forTableColumn());
         tableMarca.setOnEditCommit(event -> ControladorAutomovil.modificarMarca(event.getTableView().getSelectionModel()
-        .getSelectedItem().getMarca(),event.getNewValue()));
+        .getSelectedItem().getMatricula(),event.getNewValue()));
         tableColor.setCellValueFactory(new PropertyValueFactory<>("color"));
         tableColor.setCellFactory(TextFieldTableCell.forTableColumn());
         tableColor.setOnEditCommit(event -> ControladorAutomovil.modificarColor(event.getTableView().getSelectionModel()
-        .getSelectedItem().getColor(),event.getNewValue()));
+        .getSelectedItem().getMatricula(),event.getNewValue()));
         tableIDcliente.setCellValueFactory(new PropertyValueFactory<>("idClientes"));
 
         tablaAutomovil.setItems(data);
@@ -66,9 +67,29 @@ public class ViewConsultartAutomovil implements Initializable {
     }
 
     public void eliminarActionEvent() {
-        AutomovilesEntity automovilesEntity = tablaAutomovil.getSelectionModel().getSelectedItem();
-        data.remove(automovilesEntity);
-        tablaAutomovil.setItems(data);
-        ControladorAutomovil.eliminarAutomovil(automovilesEntity.getMatricula());
+        if (tablaAutomovil.getSelectionModel().getSelectedItem() != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Cuidado");
+            alert.setHeaderText("Atención!");
+            alert.setContentText("¿Seguro que deseas eliminar el elemento?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                AutomovilesEntity automovilesEntity = tablaAutomovil.getSelectionModel().getSelectedItem();
+                data.remove(automovilesEntity);
+                tablaAutomovil.setItems(data);
+                ControladorAutomovil.eliminarAutomovil(automovilesEntity.getMatricula());
+            }
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un Automovil");
+            alert.showAndWait();
+        }
+    }
+
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
     }
 }

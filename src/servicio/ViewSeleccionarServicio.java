@@ -10,6 +10,7 @@ import cliente.ControladorCliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -52,9 +53,22 @@ public class ViewSeleccionarServicio implements Initializable{
     }
 
     public void seleccionarServicioActionEvent() {
-        ServicioEntity servicioEntity = servicioListView.getSelectionModel().getSelectedItem();
-        parent.setSelectedServicio(servicioEntity);
-        cancelarActionEvent();
+        if (servicioListView.getSelectionModel().getSelectedItem() != null) {
+            ServicioEntity servicioEntity = servicioListView.getSelectionModel().getSelectedItem();
+            parent.setSelectedServicio(servicioEntity);
+            cancelarActionEvent();
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "¡Atencion!", "Favor de seleccionar un elemento!");
+            alert.showAndWait();
+        }
+    }
+
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
     }
 
     public void setParent(ViewRegistrarVenta parent, String idCliente) {
