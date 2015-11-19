@@ -2,6 +2,10 @@ package venta;
 
 import automovil.ControladorAutomovil;
 import cliente.ControladorCliente;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.oracle.webservices.internal.api.message.PropertySet;
 import entidades.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,18 +14,21 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfWriter;
 import refaccion.ControladorRefaccion;
 import servicio.ControladorServicio;
 import venta.ControladorVentas;
+import viewControlers.DatePickerCell;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultTreeCellEditor;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.net.URL;
@@ -39,7 +46,7 @@ public class ViewImprimirReporte implements Initializable {
     public TableColumn<VentasEntity,String> tableVenta;
     public TableColumn<RefaccionEntity, String> tableRefaccion;
     public TableColumn<ServicioEntity, String> tableServicio;
-    public TableColumn<VentasEntity,Date> tableFecha;
+    public TableColumn tableFecha;
     public TableColumn<ClienteEntity,String> tableCliente;
     public TableColumn<AutomovilesEntity,String> tableAutomovil;
     public TableColumn<VentasEntity, Integer> tableCosto;
@@ -67,73 +74,72 @@ public class ViewImprimirReporte implements Initializable {
 
     }
     public void prepararTableView(){
+        /*PdfPTable venta = new PdfPTable(1);
+        PdfPTable cliente = new PdfPTable(1);
+        PdfPTable automovil = new PdfPTable(1);
+        PdfPTable refaccion = new PdfPTable(1);
+        PdfPTable servicio = new PdfPTable(1);
+        PdfPTable fechas = new PdfPTable(1);*/
+
         tablaReporte.setEditable(true);
         tableVenta.setCellValueFactory(new PropertyValueFactory<>("idventa"));
-        tableVenta.setCellFactory(TextFieldTableCell.forTableColumn());
-        /*tableVenta.setOnEditCommit(event -> ControladorVentas.modificarIDventa(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdVenta(),event.getNewValue()));*/
+
         tableCliente.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        tableCliente.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableCliente.setOnEditCommit(event -> ControladorCliente.modificarNombreCliente(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdCliente(),event.getNewValue()));
         tableAutomovil.setCellValueFactory(new PropertyValueFactory<>("marca"));
-        tableAutomovil.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableAutomovil.setOnEditCommit(event -> ControladorAutomovil.modificarMarca(event.getTableView()
-        .getSelectionModel().getSelectedItem().getMatricula(), event.getNewValue()));
 
         tableRefaccion.setCellValueFactory(new PropertyValueFactory<>("marca"));
-        tableRefaccion.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableRefaccion.setOnEditCommit(event -> ControladorRefaccion.modificarMarca(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdRefaccion(), event.getNewValue()));
         tableServicio.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-        tableServicio.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableServicio.setOnEditCommit(event -> ControladorServicio.modificarDescripcion(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdServicio(),event.getNewValue()));
-        tableFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        /*tableFecha.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableFecha.setOnEditCommit(event ->ControladorVentas.modificarFecha(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdVenta(),event.getNewValue()) );*/
+        tableFecha.setCellValueFactory(new PropertyValueFactory<DatePickerCell, java.sql.Date>("fecha"));
+        tableFecha.setCellFactory(param -> {
+            DatePickerCell fecha = new DatePickerCell(dataVenta);
+            return fecha;
+        });
         tableCosto.setCellValueFactory(new PropertyValueFactory<>("ventaRefaccionsByIdVenta"));
-        /*tableCosto.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableCosto.setOnEditCommit(event -> ControladorVentas.modificarVenta(event.getTableView().getSelectionModel()
-        .getSelectedItem().getIdVenta(),event.getNewValue()));*/
-
         tablaReporte.setItems(dataVenta);
     }
-    public class ImprimirActionEvent extends JFrame{
         public void imprimirActionEvent(){
-            JFileChooser archivo = new JFileChooser();
+
+            Document document = new Document(PageSize.A4, 50, 50, 50, 50);
             buttonImprimir.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    int opcion = archivo.showSaveDialog(null);
-                    if (opcion==archivo.APPROVE_OPTION){
                         try {
-                            OutputStream salida = new FileOutputStream(archivo.getSelectedFile());
-                            Document doc = new Document();
-                            PdfWriter.getInstance(doc,salida);
-                            doc.open();
-                            //doc.add(new Paragraph(tablaReporte));
-                            doc.close();
-                            salida.close();
+                            PdfWriter.getInstance(document , new FileOutputStream("reporte.pdf"));
+                            document.open();
+                            document.add(tablaPDF());
+                            document.close();
                         }
                         catch (Exception e){
 
                         }
                     }
-                }
             });
-            this.add(tablaReporte,BorderLayout.NORTH);
         }
+    private PdfPTable tablaPDF() {
+        PdfPTable tabla = new PdfPTable(6);
 
-        private void add(TableView<VentasEntity> tablaReporte, String north) {
-            this.setSize(300,400);
-            this.setVisible(true);
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
+        PdfPCell celda, celdaVenta, celdaRefaccion, celdaCosto;
+
+        celda = new PdfPCell(new Phrase("Reporte"));
+        celda.setColspan(6);
+        tabla.addCell(celda);
+
+        celdaVenta = new PdfPCell(tabla);
+        celdaVenta.setColspan(6);
+        tabla.addCell(celdaVenta);
+
+        celdaRefaccion = new PdfPCell(tabla);
+        celdaRefaccion.setColspan(6);
+        tabla.addCell(celdaRefaccion);
+
+        celdaCosto = new PdfPCell(tabla);
+        celdaCosto.setColspan(6);
+        tabla.addCell(celdaCosto);
+
+        return null;
     }
 
-    public void cancelarActionEvent(){
 
+    public void cancelarActionEvent(){
     }
 }

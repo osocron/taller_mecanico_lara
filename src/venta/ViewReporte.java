@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import servicio.ControladorServicioAutomovil;
 import viewControlers.DatePickerCell;
+import viewControlers.ViewOpener;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -123,6 +124,8 @@ public class ViewReporte implements Initializable{
     public void crearReporteEvent(){
         Alert alert = getWarningAlert("Reporte", "Atencion", "Imprimiendo reporte...");
         alert.showAndWait();
+        ViewOpener viewOpener = new ViewOpener();
+        viewOpener.openView("venta/ViewImprimirReporte","Imrpimir Reporte");
     }
 
     public void cerrarVentanaEvent(){

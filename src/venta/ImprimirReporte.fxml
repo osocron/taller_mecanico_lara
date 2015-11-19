@@ -27,7 +27,7 @@
    <bottom>
       <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="buttonImprimir" text="Imprimir">
+            <JFXButton fx:id="buttonImprimir" text="Imprimir" onAction="#imprimirActionEvent">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
