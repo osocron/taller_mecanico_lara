@@ -252,7 +252,7 @@ public class ViewReporte implements Initializable{
         cell.setColspan(5);
         table.addCell(cell);
         //Titulos
-        table.addCell("ID VENTAS");
+        table.addCell("ID VENTA");
         table.addCell("FECHA");
         table.addCell("CONCEPTO");
         table.addCell("CANTIDAD");
