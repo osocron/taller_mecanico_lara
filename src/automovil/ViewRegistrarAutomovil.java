@@ -42,7 +42,7 @@ public class ViewRegistrarAutomovil implements Initializable {
             ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getText(),
                     marcaTextField.getText(), modeloTextField.getText(), colorTextField.getText(),
                     clienteEntityComboBox.getSelectionModel().getSelectedItem().getIdCliente()));
-            Alert alert = getWarningAlert("Exitoso", "Atencion", "Automovil gregistrado exitosamente!");
+            Alert alert = getWarningAlert("Exitoso", "Atencion", "Automovil registrado exitosamente!");
             alert.showAndWait();
             matriculaTextField.setText("");
             marcaTextField.setText("");
