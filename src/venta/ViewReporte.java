@@ -27,6 +27,7 @@ import java.awt.geom.Arc2D;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -133,7 +134,7 @@ public class ViewReporte implements Initializable{
     }
 
     public void crearReporteEvent(){
-        Alert alert = getWarningAlert("Reporte", "Atencion", "Imprimiendo reporte...");
+        Alert alert = getWarningAlert("Reporte", "Atencion", "Generando reporte...");
         alert.showAndWait();
         try {
             ArrayList<ReporteEntity> dataReporte = getDataReporte();
@@ -144,7 +145,7 @@ public class ViewReporte implements Initializable{
         try {
             Runtime.getRuntime().exec("evince reporte.pdf");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getCause();
             Desktop desktop;
             if (Desktop.isDesktopSupported()) {
                 desktop = Desktop.getDesktop();
@@ -271,7 +272,9 @@ public class ViewReporte implements Initializable{
         cell = new PdfPCell(new Phrase("TOTAL"));
         cell.setColspan(4);
         table.addCell(cell);
-        table.addCell(String.valueOf(total[0]));
+        BigDecimal roundedTotal = BigDecimal.valueOf(total[0]);
+        roundedTotal = roundedTotal.setScale(2,BigDecimal.ROUND_HALF_EVEN);
+        table.addCell(String.valueOf(roundedTotal));
         return table;
     }
 
