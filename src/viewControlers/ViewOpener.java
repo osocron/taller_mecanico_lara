@@ -4,6 +4,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import refaccion.ViewSeleccionarRefaccion;
+import servicio.ViewSeleccionarServicio;
+import venta.ViewRegistrarVenta;
 
 import java.io.IOException;
 

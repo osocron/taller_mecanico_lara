@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1C1C1F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="venta.ViewReporte">
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <HBox>
+               <children>
+                  <JFXCheckBox fx:id="checkBoxCliente" checkedColor="#84bd00">
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="-3.0" />
+                     </padding>
+                  </JFXCheckBox>
+                  <ComboBox fx:id="comboBoxClientes" opacity="0.5" prefWidth="120.0" promptText="CLIENTE">
+                     <HBox.margin>
+                        <Insets right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="comboboxAutomovil" opacity="0.5" prefWidth="135.0" promptText="AUTOMOVIL">
+                     <HBox.margin>
+                        <Insets left="35.0" right="30.0" top="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <JFXCheckBox fx:id="checkBoxFecha" checkedColor="#84bd00">
+                     <padding>
+                        <Insets right="-3.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </JFXCheckBox>
+                  <DatePicker fx:id="fechaDatePicker" opacity="0.5" prefWidth="130.0">
+                     <HBox.margin>
+                        <Insets right="15.0" top="10.0" />
+                     </HBox.margin>
+                  </DatePicker>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets left="5.0" right="15.0" top="15.0" />
+               </VBox.margin>
+            </Separator>
+            <TableView fx:id="tableviewReporte" prefHeight="213.0" prefWidth="563.0" stylesheets="@../res/material.css" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="tableColumnIDVenta" prefWidth="118.0" text="ID" />
+                <TableColumn fx:id="tableColumnFecha" prefWidth="231.0" text="FECHA" />
+                  <TableColumn fx:id="tableColumnIDCliente" prefWidth="230.0" text="ID CLIENTE" />
+              </columns>
+               <VBox.margin>
+                  <Insets right="10.0" top="10.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton fx:id="generarReporteButton" buttonType="RAISED" onAction="#generarReporteActionEvent" style="-fx-background-color: #84BD00;" text="GENERAR REPORTE">
+               <HBox.margin>
+                  <Insets bottom="25.0" left="15.0" right="20.0" top="10.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="buttonReporte" buttonType="RAISED" onAction="#crearReporteEvent" style="-fx-background-color: #84BD00;" text="IMPRIMIR REPORTE">
+               <HBox.margin>
+                  <Insets bottom="25.0" left="15.0" right="25.0" top="10.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <Label text="Reporte de Ventas" textFill="#b8bbb6" BorderPane.alignment="CENTER_LEFT">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="25.0" top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+</BorderPane>

@@ -3,14 +3,11 @@ package viewControlers;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import entidades.UsuarioEntity;
-import entityControlers.ControladorUsuario;
+import usuario.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -38,7 +35,7 @@ public class ViewLogin implements Initializable {
     }
 
     public void aceptarOnActionEvent(){
-        if (validarUsuario(usuarioTextField.getText(),passwordTextField.getText())){
+        if (validarUsuario(usuarioTextField.getText(),passwordTextField.getText(),this.data)){
             abrirInicio();
             Stage stage = (Stage) usuarioTextField.getScene().getWindow();
             stage.close();
@@ -50,7 +47,7 @@ public class ViewLogin implements Initializable {
         viewOpener.openView("vista/Inicio.fxml", "Bienvenido al Sistema");
     }
 
-    private boolean validarUsuario(String nombreUsuario, String contrasena){
+    public boolean validarUsuario(String nombreUsuario, String contrasena, ObservableList<UsuarioEntity> data){
         final boolean[] res = {false};
         data.forEach(usuarioEntity -> {
             if (nombreUsuario.equals(usuarioEntity.getNombre()) && contrasena.equals(usuarioEntity.getContrasena()))

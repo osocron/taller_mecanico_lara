@@ -1,12 +1,10 @@
 package viewControlers;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.css.SimpleStyleableObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -105,19 +103,19 @@ public class ViewInicio implements Initializable {
     }
 
     private void setActionEvents() {
-        registrarAutomovil.setOnAction(event -> viewOpener.openView("vista/RegistrarAutomovil.fxml", "Taller Mecánico Lara"));
-        registrarCliente.setOnAction(event -> viewOpener.openView("vista/RegistrarCliente.fxml", "Taller Mecánico Lara"));
-        registrarEmpleado.setOnAction(event -> viewOpener.openView("vista/RegistrarEmpleado.fxml", "Taller Mecánico Lara"));
-        registrarRefaccion.setOnAction(event -> viewOpener.openView("vista/RegistrarRefaccion.fxml", "Taller Mecánico Lara"));
-        registrarServicio.setOnAction(event -> viewOpener.openView("vista/RegistrarServicios.fxml", "Taller Mecánico Lara"));
-        registrarVenta.setOnAction(event -> viewOpener.openView("vista/RegistrarVenta.fxml", "Taller Mecánico Lara"));
-        consultarCliente.setOnAction(event -> viewOpener.openView("vista/ConsultarCliente.fxml", "Taller Mecánico Lara"));
-        consultarAutomovil.setOnAction(event -> viewOpener.openView("vista/ConsultarAutomovil.fxml","Taller Mecánico Lara"));
-        consultarEmpleado.setOnAction(event -> viewOpener.openView("vista/ConsultarEmpleado.fxml", "Taller Mecánico Lara"));
-        consultarRefacion.setOnAction(event -> viewOpener.openView("vista/ConsultarRefaccion.fxml", "Taller Mecánico Lara"));
-        consultarServicio.setOnAction(event -> viewOpener.openView("vista/ConsultarServicio.fxml", "Taller Mecánico Lara"));
-        consultarVentas.setOnAction(event -> viewOpener.openView("vista/ConsultarVentas.fxml", "Taller Mecánico Lara"));
-        reporte.setOnAction(event -> viewOpener.openView("vista/Reporte.fxml", "Taller Mecánico Lara"));
+        registrarAutomovil.setOnAction(event -> viewOpener.openView("automovil/RegistrarAutomovil.fxml", "Taller Mecánico Lara"));
+        registrarCliente.setOnAction(event -> viewOpener.openView("cliente/RegistrarCliente.fxml", "Taller Mecánico Lara"));
+        registrarEmpleado.setOnAction(event -> viewOpener.openView("empleado/RegistrarEmpleado.fxml", "Taller Mecánico Lara"));
+        registrarRefaccion.setOnAction(event -> viewOpener.openView("refaccion/RegistrarRefaccion.fxml", "Taller Mecánico Lara"));
+        registrarServicio.setOnAction(event -> viewOpener.openView("servicio/RegistrarServicios.fxml", "Taller Mecánico Lara"));
+        registrarVenta.setOnAction(event -> viewOpener.openView("venta/RegistrarVenta.fxml", "Taller Mecánico Lara"));
+        consultarCliente.setOnAction(event -> viewOpener.openView("cliente/ConsultarCliente.fxml", "Taller Mecánico Lara"));
+        consultarAutomovil.setOnAction(event -> viewOpener.openView("automovil/ConsultarAutomovil.fxml","Taller Mecánico Lara"));
+        consultarEmpleado.setOnAction(event -> viewOpener.openView("empleado/ConsultarEmpleado.fxml", "Taller Mecánico Lara"));
+        consultarRefacion.setOnAction(event -> viewOpener.openView("refaccion/ConsultarRefaccion.fxml", "Taller Mecánico Lara"));
+        consultarServicio.setOnAction(event -> viewOpener.openView("servicio/ConsultarServicio.fxml", "Taller Mecánico Lara"));
+        consultarVentas.setOnAction(event -> viewOpener.openView("venta/ConsultarVentas.fxml", "Taller Mecánico Lara"));
+        reporte.setOnAction(event -> viewOpener.openView("venta/Reporte.fxml", "Taller Mecánico Lara"));
     }
 
     private void removeElements(){
