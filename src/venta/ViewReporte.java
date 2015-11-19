@@ -140,13 +140,19 @@ public class ViewReporte implements Initializable{
         if (Desktop.isDesktopSupported()) {
             desktop = Desktop.getDesktop();
             // now enable buttons for actions that are supported.
-            if (desktop.isSupported(Desktop.Action.PRINT)) {
+            if (desktop.isSupported(Desktop.Action.OPEN)) {
                 File f = new File("reporte.pdf");
                 try {
-                    desktop.print(f);
+                    desktop.open(f);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+        }else{
+            try {
+                Runtime.getRuntime().exec("evance reporte.pdf");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
