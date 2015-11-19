@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,6 +20,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import refaccion.ControladorRefaccion;
 import servicio.ControladorServicio;
 import venta.ControladorVentas;
+import viewControlers.DatePickerCell;
 
 import javax.swing.*;
 import java.awt.*;
@@ -69,34 +71,15 @@ public class ViewImprimirReporte implements Initializable {
     public void prepararTableView(){
         tablaReporte.setEditable(true);
         tableVenta.setCellValueFactory(new PropertyValueFactory<>("idventa"));
-        tableVenta.setCellFactory(TextFieldTableCell.forTableColumn());
-        /*tableVenta.setOnEditCommit(event -> ControladorVentas.modificarIDventa(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdVenta(),event.getNewValue()));*/
         tableCliente.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        tableCliente.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableCliente.setOnEditCommit(event -> ControladorCliente.modificarNombreCliente(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdCliente(),event.getNewValue()));
         tableAutomovil.setCellValueFactory(new PropertyValueFactory<>("marca"));
-        tableAutomovil.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableAutomovil.setOnEditCommit(event -> ControladorAutomovil.modificarMarca(event.getTableView()
-        .getSelectionModel().getSelectedItem().getMatricula(), event.getNewValue()));
-
         tableRefaccion.setCellValueFactory(new PropertyValueFactory<>("marca"));
-        tableRefaccion.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableRefaccion.setOnEditCommit(event -> ControladorRefaccion.modificarMarca(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdRefaccion(), event.getNewValue()));
         tableServicio.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-        tableServicio.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableServicio.setOnEditCommit(event -> ControladorServicio.modificarDescripcion(event.getTableView()
-        .getSelectionModel().getSelectedItem().getIdServicio(),event.getNewValue()));
         tableFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        /*tableFecha.setCellFactory(TextFieldTableCell.forTableColumn());
+        /*tableFecha.setCellFactory(Ent());
         tableFecha.setOnEditCommit(event ->ControladorVentas.modificarFecha(event.getTableView()
         .getSelectionModel().getSelectedItem().getIdVenta(),event.getNewValue()) );*/
         tableCosto.setCellValueFactory(new PropertyValueFactory<>("ventaRefaccionsByIdVenta"));
-        /*tableCosto.setCellFactory(TextFieldTableCell.forTableColumn());
-        tableCosto.setOnEditCommit(event -> ControladorVentas.modificarVenta(event.getTableView().getSelectionModel()
-        .getSelectedItem().getIdVenta(),event.getNewValue()));*/
 
         tablaReporte.setItems(dataVenta);
     }
