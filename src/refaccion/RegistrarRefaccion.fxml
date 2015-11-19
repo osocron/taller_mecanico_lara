@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="refaccion.ViewRegistrarRefaccion">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="refaccion.ViewRegistrarRefaccion">
    <bottom>
       <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER_RIGHT">
          <children>
@@ -19,7 +19,7 @@
             </JFXButton>
             <JFXButton fx:id="buttonAceptar" buttonType="RAISED" onAction="#crearRefaccionEvent" prefWidth="100.0" style="-fx-background-color: #84BD00;" text="ACEPTAR">
                <HBox.margin>
-                  <Insets bottom="20.0" right="60.0" />
+                  <Insets bottom="20.0" right="75.0" />
                </HBox.margin>
             </JFXButton>
          </children>
@@ -32,9 +32,9 @@
       </HBox>
    </bottom>
    <left>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fitHeight="198.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets left="30.0" />
+            <Insets left="60.0" />
          </BorderPane.margin>
          <image>
             <Image url="@../res/refaccion.png" />
@@ -42,13 +42,13 @@
       </ImageView>
    </left>
    <right>
-      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="365.0" prefWidth="296.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="labelArticulo" text="ID ARTICULO" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin></Label>
-            <JFXTextField fx:id="textfieldIDArticulo" focusColor="#84bd00" maxWidth="210.0" minWidth="210.0" prefHeight="31.0" prefWidth="210.0" style="-fx-text-inner-color: #d3cbc6;" />
+            <JFXTextField fx:id="textfieldIDArticulo" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;" />
             <Label fx:id="labelDescripcion" text="DESCRIPCION" textFill="#b8b6b6">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
@@ -66,7 +66,7 @@
             <JFXTextField fx:id="textfieldCantidad" focusColor="#84bd00" style="-fx-text-inner-color: #d3cbc6;" />
          </children>
          <BorderPane.margin>
-            <Insets right="80.0" />
+            <Insets right="60.0" />
          </BorderPane.margin>
       </VBox>
    </right>

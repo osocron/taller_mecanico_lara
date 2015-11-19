@@ -23,7 +23,7 @@ public class ViewOpener {
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle(title);
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root, 700, 500));
             stage.show();
             return 0;
         } catch (IOException e) {

@@ -9,13 +9,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="automovil.ViewRegistrarAutomovil">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="automovil.ViewRegistrarAutomovil">
    <center>
       <VBox BorderPane.alignment="CENTER">
          <children>
             <Label text="CLIENTE" textFill="#b8b4b4">
                <VBox.margin>
-                  <Insets bottom="10.0" left="25.0" top="20.0" />
+                  <Insets bottom="10.0" left="25.0" top="25.0" />
                </VBox.margin>
             </Label>
             <ComboBox fx:id="clienteEntityComboBox" opacity="0.21" prefWidth="288.0" style="-fx-background-color: #b8b4b4;">
@@ -53,35 +53,31 @@
                   <Insets left="20.0" right="15.0" />
                </VBox.margin>
             </JFXTextField>
+            <Label text="COLOR" textFill="#b8b4b4">
+               <VBox.margin>
+                  <Insets bottom="8.0" left="29.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <JFXTextField fx:id="colorTextField" focusColor="#84bd00" maxWidth="300.0" prefWidth="300.0" style="-fx-text-inner-color: #d3cbcb;" unFocusColor="#b8b4b4">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="17.0" />
+               </VBox.margin>
+            </JFXTextField>
          </children>
          <BorderPane.margin>
-            <Insets />
+            <Insets left="25.0" />
          </BorderPane.margin>
       </VBox>
    </center>
    <bottom>
-      <HBox alignment="CENTER_LEFT">
+      <HBox alignment="CENTER_RIGHT">
          <children>
-            <VBox>
-               <children>
-                  <Label text="COLOR" textFill="#b8b4b4">
-                     <VBox.margin>
-                        <Insets bottom="8.0" left="29.0" top="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <JFXTextField fx:id="colorTextField" focusColor="#84bd00" maxWidth="300.0" prefWidth="300.0" style="-fx-text-inner-color: #d3cbcb;" unFocusColor="#b8b4b4">
-                     <VBox.margin>
-                        <Insets bottom="30.0" left="17.0" />
-                     </VBox.margin>
-                  </JFXTextField>
-               </children>
-            </VBox>
             <JFXButton fx:id="registrarButton" buttonType="RAISED" onAction="#registrarAutomovilActionEvent" prefWidth="200.0" style="-fx-background-color: #84bd00;" text="REGISTRAR AUTOMOVIL" BorderPane.alignment="BOTTOM_RIGHT">
                <BorderPane.margin>
                   <Insets bottom="25.0" right="15.0" />
                </BorderPane.margin>
                <HBox.margin>
-                  <Insets left="60.0" right="40.0" top="5.0" />
+                  <Insets bottom="25.0" left="60.0" right="64.0" top="25.0" />
                </HBox.margin>
             </JFXButton>
          </children>
@@ -90,7 +86,7 @@
    <right>
       <AnchorPane>
          <children>
-            <ImageView fitHeight="230.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="-0.137054443359375" AnchorPane.rightAnchor="0.137054443359375" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="316.0" fitWidth="207.0" layoutX="15.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="22.539337158203125" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="22.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets right="48.0" top="35.0" />
                </BorderPane.margin>
@@ -101,14 +97,14 @@
                   <Shadow height="49.84" radius="46.8075" width="139.39" />
                </effect>
             </ImageView>
-            <ImageView fitHeight="220.0" fitWidth="170.0" opacity="0.68" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="6.9137115478515625" AnchorPane.topAnchor="8.0">
+            <ImageView fitHeight="282.0" fitWidth="195.0" layoutX="23.0" layoutY="34.0" opacity="0.68" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="21.898483276367188" AnchorPane.topAnchor="34.0">
                <image>
                   <Image url="@../res/car2.jpg" />
                </image>
             </ImageView>
          </children>
          <BorderPane.margin>
-            <Insets right="48.0" top="15.0" />
+            <Insets bottom="15.0" right="48.0" top="15.0" />
          </BorderPane.margin>
       </AnchorPane>
    </right>
@@ -118,7 +114,7 @@
             <Font size="30.0" />
          </font>
          <BorderPane.margin>
-            <Insets left="25.0" top="15.0" />
+            <Insets bottom="10.0" left="25.0" top="25.0" />
          </BorderPane.margin>
       </Label>
    </top>

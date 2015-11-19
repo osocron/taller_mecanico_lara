@@ -165,21 +165,36 @@ public class ViewRegistrarVenta implements Initializable {
     }
 
     public void eliminarServicioActionEvent() {
-        ServicioEntity servicioEntity = servicioListView.getSelectionModel().getSelectedItem();
-        servicioListView.getItems().remove(servicioEntity);
-        calcularTotalPorServicioEliminado(servicioEntity);
+        if (servicioListView.getSelectionModel().getSelectedItem() != null) {
+            ServicioEntity servicioEntity = servicioListView.getSelectionModel().getSelectedItem();
+            servicioListView.getItems().remove(servicioEntity);
+            calcularTotalPorServicioEliminado(servicioEntity);
+        }else{
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
+            alert.showAndWait();
+        }
     }
 
     public void agregarServicioActionEvent() {
         ViewOpener viewOpener = new ViewOpener();
-        viewOpener.openServicioPicker("servicio/SeleccionarServicio.fxml","Taller Mecanico Lara",this,
-                comboBoxCliente.getSelectionModel().getSelectedItem().getIdCliente());
+        if (!comboBoxCliente.getSelectionModel().isEmpty()) {
+            viewOpener.openServicioPicker("servicio/SeleccionarServicio.fxml", "Taller Mecanico Lara", this,
+                    comboBoxCliente.getSelectionModel().getSelectedItem().getIdCliente());
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un Cliente!");
+            alert.showAndWait();
+        }
     }
 
     public void eliminarRefaccionActionEvent() {
-        RefaccionEntity refaccionEntity = refaccionTableView.getSelectionModel().getSelectedItem();
-        refaccionTableView.getItems().remove(refaccionEntity);
-        calcularTotalPorRefaccionEliminada(refaccionEntity);
+        if (refaccionTableView.getSelectionModel().getSelectedItem() != null) {
+            RefaccionEntity refaccionEntity = refaccionTableView.getSelectionModel().getSelectedItem();
+            refaccionTableView.getItems().remove(refaccionEntity);
+            calcularTotalPorRefaccionEliminada(refaccionEntity);
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
+            alert.showAndWait();
+        }
     }
 
     public void agregarRefaccionActionEvent() {
