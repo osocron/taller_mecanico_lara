@@ -2,9 +2,8 @@ package venta;
 
 import automovil.ControladorAutomovil;
 import cliente.ControladorCliente;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Phrase;
+import com.itextpdf.text.*;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -18,16 +17,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import refaccion.ControladorRefaccion;
+import servicio.ControladorServicio;
 import servicio.ControladorServicioAutomovil;
 import viewControlers.DatePickerCell;
 
 import java.awt.*;
+import java.awt.geom.Arc2D;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -130,65 +135,143 @@ public class ViewReporte implements Initializable{
     public void crearReporteEvent(){
         Alert alert = getWarningAlert("Reporte", "Atencion", "Imprimiendo reporte...");
         alert.showAndWait();
-        //Here be the printing
         try {
-            createPdf("reporte.pdf");
+            ArrayList<ReporteEntity> dataReporte = getDataReporte();
+            createPdf("reporte.pdf",dataReporte);
         } catch (IOException | DocumentException e) {
             e.printStackTrace();
         }
-        Desktop desktop;
-        if (Desktop.isDesktopSupported()) {
-            desktop = Desktop.getDesktop();
-            // now enable buttons for actions that are supported.
-            if (desktop.isSupported(Desktop.Action.OPEN)) {
-                File f = new File("reporte.pdf");
-                try {
-                    desktop.open(f);
-                } catch (IOException e) {
-                    e.printStackTrace();
+        try {
+            Runtime.getRuntime().exec("evince reporte.pdf");
+        } catch (IOException e) {
+            e.printStackTrace();
+            Desktop desktop;
+            if (Desktop.isDesktopSupported()) {
+                desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.OPEN)) {
+                    File f = new File("reporte.pdf");
+                    try {
+                        desktop.open(f);
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
                 }
             }
-        }else{
-            try {
-                Runtime.getRuntime().exec("evance reporte.pdf");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
+
     }
 
-    public void createPdf(String filename)
+    private ArrayList<ReporteEntity> getDataReporte() {
+        ObservableList<VentasEntity> ventasFromTable = null;
+        ArrayList<ReporteEntity> dataReporte = new ArrayList<>();
+        if (!tableviewReporte.getItems().isEmpty()) {
+            ventasFromTable = tableviewReporte.getItems();
+        }
+        if (ventasFromTable != null) {
+
+            ArrayList<VentaServicioEntity> dataVentasServicioEncontrados = new ArrayList<>();
+            ArrayList<VentaRefaccionEntity> dataVentasRefaccionEncontrados = new ArrayList<>();
+
+            ventasFromTable.forEach(ventasEntity -> {
+                dataVentaServicio.forEach(ventaServicioEntity -> {
+                    if (ventaServicioEntity.getIdVentas() == ventasEntity.getIdVenta()) {
+                        dataVentasServicioEncontrados.add(ventaServicioEntity);
+                    }
+                });
+                dataVentaRefaccion.forEach(ventaRefaccionEntity -> {
+                    if (ventaRefaccionEntity.getIdVentas() == ventasEntity.getIdVenta()) {
+                        dataVentasRefaccionEncontrados.add(ventaRefaccionEntity);
+                    }
+                });
+            });
+
+            if (!dataVentasServicioEncontrados.isEmpty()) {
+                dataVentasServicioEncontrados.forEach(ventaServicioEntity -> {
+                    VentasEntity ventasEntity = ControladorVentas.getVentaPorID(ventaServicioEntity.getIdVentas());
+                    ServicioEntity servicioEntity = ControladorServicio.getServicioPorID(ventaServicioEntity.getIdServicios());
+                    Date date = ventasEntity.getFecha();
+                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                    String fecha = df.format(date);
+                    ReporteEntity reporteEntity = new ReporteEntity(
+                            String.valueOf(ventasEntity.getIdVenta()),
+                            fecha,
+                            servicioEntity.getDescripcion(),
+                            "1",
+                            String.valueOf(servicioEntity.getCosto())
+                    );
+                    dataReporte.add(reporteEntity);
+                });
+            }
+
+            if (!dataVentasRefaccionEncontrados.isEmpty()){
+                dataVentasRefaccionEncontrados.forEach(ventaRefaccionEntity -> {
+                    VentasEntity ventasEntity = ControladorVentas.getVentaPorID(ventaRefaccionEntity.getIdVentas());
+                    RefaccionEntity refaccionEntity = ControladorRefaccion.getRefaccionPorID(ventaRefaccionEntity.getIdRefacciones());
+                    Date date = ventasEntity.getFecha();
+                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                    String fecha = df.format(date);
+                    ReporteEntity reporteEntity = new ReporteEntity(
+                            String.valueOf(ventasEntity.getIdVenta()),
+                            fecha,
+                            refaccionEntity.getMarca(),
+                            String.valueOf(refaccionEntity.getCantidad()),
+                            String.valueOf(refaccionEntity.getPrecio())
+                    );
+                    dataReporte.add(reporteEntity);
+                });
+            }
+
+        }
+        return dataReporte;
+    }
+
+    public void createPdf(String filename, ArrayList<ReporteEntity> dataReporte)
             throws IOException, DocumentException {
-        // step 1
         Document document = new Document();
-        // step 2
         PdfWriter.getInstance(document, new FileOutputStream(filename));
-        // step 3
         document.open();
-        // step 4
-        document.add(createFirstTable());
-        // step 5
+        document.addAuthor("osocron");
+        document.addTitle("Reporte de Ventas");
+        com.itextpdf.text.Font font = new Font(Font.FontFamily.HELVETICA,22,Font.BOLD);
+        Chunk chunk = new Chunk("Reporte de Ventas - Taller Mecanico Lara",font);
+        Paragraph paragraph = new Paragraph();
+        paragraph.add(chunk);
+        paragraph.setSpacingBefore(30);
+        paragraph.setSpacingAfter(50);
+        document.add(paragraph);
+        document.add(createPDFTable(dataReporte));
         document.close();
     }
 
-    public static PdfPTable createFirstTable() {
-        // a table with three columns
-        PdfPTable table = new PdfPTable(3);
-        // the cell object
+    public static PdfPTable createPDFTable(ArrayList<ReporteEntity> dataReporte) {
+        PdfPTable table = new PdfPTable(5);
+        table.setSpacingBefore(10f);
+        table.setSpacingAfter(10f);
         PdfPCell cell;
-        // we add a cell with colspan 3
-        cell = new PdfPCell(new Phrase("Cell with colspan 3"));
-        cell.setColspan(3);
+        cell = new PdfPCell(new Phrase("Reporte de Ventas"));
+        cell.setColspan(5);
         table.addCell(cell);
-        // now we add a cell with rowspan 2
-        cell = new PdfPCell(new Phrase("Cell with rowspan 2"));
-        cell.setRowspan(2);
+        //Titulos
+        table.addCell("ID VENTAS");
+        table.addCell("FECHA");
+        table.addCell("CONCEPTO");
+        table.addCell("CANTIDAD");
+        table.addCell("COSTO");
+        //Contenido
+        final double[] total = {0.0};
+        dataReporte.forEach(reporteEntity -> {
+            table.addCell(reporteEntity.getIdVenta());
+            table.addCell(reporteEntity.getFecha());
+            table.addCell(reporteEntity.getConcepto());
+            table.addCell(reporteEntity.getCantidad());
+            table.addCell(reporteEntity.getCosto());
+            total[0] = total[0] + (Double.valueOf(reporteEntity.getCantidad()) * Double.valueOf(reporteEntity.getCosto()));
+        });
+        //Total
+        cell = new PdfPCell(new Phrase("TOTAL"));
+        cell.setColspan(4);
         table.addCell(cell);
-        // we add the four remaining cells with addCell()
-        table.addCell("row 1; cell 1");
-        table.addCell("row 1; cell 2");
-        table.addCell("row 2; cell 1");
-        table.addCell("row 2; cell 2");
+        table.addCell(String.valueOf(total[0]));
         return table;
     }
 
