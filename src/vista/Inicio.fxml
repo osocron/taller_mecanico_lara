@@ -9,13 +9,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewInicio">
+<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControlers.ViewInicio">
    <left>
       <VBox BorderPane.alignment="CENTER">
          <children>
             <JFXButton fx:id="registroButton" buttonType="RAISED" onAction="#displayRegistroOptions" opacity="0.96" prefHeight="25.0" prefWidth="194.0" style="-fx-background-color: #84bd00;" text="MODULO DE REGISTRO">
                <VBox.margin>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="80.0" />
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="140.0" />
                </VBox.margin>
             </JFXButton>
             <JFXButton fx:id="ventaButton" buttonType="RAISED" onAction="#displayVentasOptions" opacity="0.96" prefHeight="25.0" prefWidth="194.0" style="-fx-background-color: #84bd00;" text="MODULO DE VENTAS">
@@ -29,12 +29,15 @@
                </VBox.margin>
             </JFXButton>
          </children>
+         <BorderPane.margin>
+            <Insets left="50.0" />
+         </BorderPane.margin>
       </VBox>
    </left>
    <center>
       <AnchorPane>
          <children>
-            <ImageView fx:id="imageShadow" fitHeight="250.0" fitWidth="350.0" layoutX="44.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="70.0" BorderPane.alignment="CENTER">
+            <ImageView fx:id="imageShadow" fitHeight="310.0" fitWidth="244.0" layoutX="44.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../res/Cool-Green-Vintage-Car-Wide-Screen.jpg" />
                </image>
@@ -45,7 +48,7 @@
                   <Shadow color="#000000d1" height="93.86" radius="45.7325" width="91.07" />
                </effect>
             </ImageView>
-            <ImageView fx:id="imageCar" fitHeight="230.0" fitWidth="330.0" opacity="0.74" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="70.0">
+            <ImageView fx:id="imageCar" fitHeight="281.0" fitWidth="242.0" layoutY="69.0" opacity="0.74" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="100.0">
                <image>
                   <Image url="@../res/Cool-Green-Vintage-Car-Wide-Screen.jpg" />
                </image>

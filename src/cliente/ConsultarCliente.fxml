@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cliente.ViewConsultarClientes">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cliente.ViewConsultarClientes">
    <bottom>
       <HBox alignment="CENTER_RIGHT">
          <children>
@@ -32,10 +32,10 @@
             </Label>
             <TableView fx:id="clienteTableView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../res/material.css" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="idClienteTableColumn" prefWidth="116.0" text="ID CLIENTE" />
-                <TableColumn fx:id="nombreTableColumn" prefWidth="135.0" text="NOMBRE" />
-                  <TableColumn fx:id="direccionTableColumn" prefWidth="139.0" text="DIRECCION" />
-                  <TableColumn fx:id="telefonoTableColumn" prefWidth="127.0" text="TELEFONO" />
+                <TableColumn fx:id="idClienteTableColumn" prefWidth="144.0" text="ID CLIENTE" />
+                <TableColumn fx:id="nombreTableColumn" prefWidth="183.0" text="NOMBRE" />
+                  <TableColumn fx:id="direccionTableColumn" prefWidth="154.0" text="DIRECCION" />
+                  <TableColumn fx:id="telefonoTableColumn" prefWidth="145.0" text="TELEFONO" />
               </columns>
                <VBox.margin>
                   <Insets bottom="10.0" left="30.0" right="30.0" />

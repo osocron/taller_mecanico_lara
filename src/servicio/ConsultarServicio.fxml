@@ -7,16 +7,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="servicio.ViewConsultarServicio">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #1c1c1f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="servicio.ViewConsultarServicio">
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <TableView fx:id="tableviewServicio" stylesheets="@../res/material.css" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="idServicio" prefWidth="81.0" text="ID" />
-                  <TableColumn fx:id="descripcion" prefWidth="197.0" text="DESCRIPCION" />
-                  <TableColumn fx:id="costo" prefWidth="115.0" text="COSTO" />
-                  <TableColumn fx:id="idEmpleado" prefWidth="137.0" text="ID EMPLEADO" />
+                  <TableColumn fx:id="descripcion" prefWidth="250.0" text="DESCRIPCION" />
+                  <TableColumn fx:id="costo" prefWidth="148.0" text="COSTO" />
+                  <TableColumn fx:id="idEmpleado" prefWidth="149.0" text="ID EMPLEADO" />
               </columns>
                <VBox.margin>
                   <Insets left="30.0" right="30.0" top="15.0" />

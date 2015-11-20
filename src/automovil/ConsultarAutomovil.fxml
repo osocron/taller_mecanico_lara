@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1C1C1F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="automovil.ViewConsultartAutomovil">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #1C1C1F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="automovil.ViewConsultartAutomovil">
    <bottom>
       <JFXButton fx:id="eliminiarButton" buttonType="RAISED" onAction="#eliminarActionEvent" prefWidth="150.0" style="-fx-background-color: #84bd00;" text="ELIMINAR" BorderPane.alignment="CENTER_RIGHT">
          <BorderPane.margin>
@@ -27,11 +27,11 @@
    <center>
       <TableView fx:id="tablaAutomovil" prefHeight="287.0" prefWidth="510.0" stylesheets="@../res/material.css" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="tableMatricula" prefWidth="111.0" text="MATRICULA" />
-            <TableColumn fx:id="tableMarca" prefWidth="126.0" text="MARCA" />
-            <TableColumn fx:id="tableModelo" prefWidth="110.0" text="MODELO" />
-            <TableColumn fx:id="tableColor" prefWidth="105.0" text="COLOR" />
-            <TableColumn fx:id="tableIDcliente" prefWidth="106.0" text="ID CLIENTE" />
+          <TableColumn fx:id="tableMatricula" prefWidth="105.0" text="MATRICULA" />
+            <TableColumn fx:id="tableMarca" prefWidth="160.0" text="MARCA" />
+            <TableColumn fx:id="tableModelo" prefWidth="118.0" text="MODELO" />
+            <TableColumn fx:id="tableColor" prefWidth="148.0" text="COLOR" />
+            <TableColumn fx:id="tableIDcliente" prefWidth="129.0" text="ID CLIENTE" />
         </columns>
          <BorderPane.margin>
             <Insets left="15.0" right="15.0" />
