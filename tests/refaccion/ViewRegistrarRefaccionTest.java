@@ -18,4 +18,12 @@ public class ViewRegistrarRefaccionTest {
         String cantidad ="2";
         Assert.assertEquals(true,viewRegistrarRefaccion.verificarDatosRegistro(descripcion,precio,cantidad));
     }
+    @Test
+    public void testVerificarDatosRegistrosRefaccionesIncorrectos() throws Exception{
+        ViewRegistrarRefaccion viewRegistrarRefaccion = new ViewRegistrarRefaccion();
+        String descripcion = "barato";
+        String precio ="qqqw";
+        String cantidad ="ewwww";
+        Assert.assertEquals(false,viewRegistrarRefaccion.verificarDatosRegistro(descripcion,precio,cantidad));
+    }
 }

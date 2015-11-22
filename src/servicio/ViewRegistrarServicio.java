@@ -192,6 +192,25 @@ public class ViewRegistrarServicio implements Initializable {
         }
     }
 
+    public boolean verificarDatosRegistro(String descripcion, String costo, String idEmpleados){
+        boolean camposVacios = false;
+        boolean isNumeric = InputValidator.textIsNumericOnly(costo);
+        if(idEmpleados.length()!=0 && descripcion.length()!=0 && costo.length()!=0){
+            camposVacios = true;
+        }
+        final boolean[] duplicados = {true};
+        dataServicios.forEach(servicioEntity ->{
+                    if(servicioEntity.getDescripcion().equals(idEmpleados)){
+                        duplicados[0] = false;
+                    }
+                }
+        );
+        if (isNumeric !=false){
+            isNumeric=true;
+        }
+        return camposVacios && duplicados[0]&& isNumeric;
+    }
+
     private Alert getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
