@@ -3,6 +3,7 @@ package viewControlers;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import entidades.UsuarioEntity;
+import javafx.scene.control.Alert;
 import usuario.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,7 +40,18 @@ public class ViewLogin implements Initializable {
             abrirInicio();
             Stage stage = (Stage) usuarioTextField.getScene().getWindow();
             stage.close();
+        }else{
+            Alert alert = getWarningAlert("Alerta", "Incorrecto", "Datos incorrectos");
+            alert.showAndWait();
         }
+    }
+
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
     }
 
     private void abrirInicio() {

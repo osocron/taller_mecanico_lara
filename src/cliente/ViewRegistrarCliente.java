@@ -84,7 +84,7 @@ public class ViewRegistrarCliente implements Initializable {
                 return false;
             }
         }else {
-            Alert alert = getWarningAlert("Cuidado", "¡Atencion!", "Agunos datos no son correctos\n o están incompletos.");
+            Alert alert = getWarningAlert("Cuidado", "¡Atencion!", "Algunos datos no son correctos\n o están incompletos.");
             alert.showAndWait();
             return false;
         }

@@ -1,5 +1,6 @@
 package refaccion;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,7 +11,11 @@ import static org.junit.Assert.*;
 public class ViewRegistrarRefaccionTest {
 
     @Test
-    public void testVerificarDatosRegistro() throws Exception {
-
+    public void testVerificarDatosRegistroRefaccionCorrectos() throws Exception {
+        ViewRegistrarRefaccion viewRegistrarRefaccion = new ViewRegistrarRefaccion();
+        String descripcion = "barato";
+        String precio ="10";
+        String cantidad ="2";
+        Assert.assertEquals(true,viewRegistrarRefaccion.verificarDatosRegistro(descripcion,precio,cantidad));
     }
 }

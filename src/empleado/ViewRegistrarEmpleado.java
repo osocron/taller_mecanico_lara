@@ -96,7 +96,7 @@ public class ViewRegistrarEmpleado implements Initializable {
         if ((id.length() != 0) && (nombre.length() != 0) &&
                 (puesto.length() != 0)){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
