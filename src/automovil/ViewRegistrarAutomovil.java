@@ -29,6 +29,10 @@ public class ViewRegistrarAutomovil implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        prepareData();
+    }
+
+    private void prepareData() {
         java.util.List<AutomovilesEntity> listaAutomoviles = ControladorAutomovil.getAutomoviles();
         dataAtuomoviles.addAll(listaAutomoviles);
         List<ClienteEntity> clienteEntityList = ControladorCliente.getCliente();
@@ -38,12 +42,11 @@ public class ViewRegistrarAutomovil implements Initializable {
 
     public void registrarAutomovilActionEvent() {
         if (veirificarDatosDeRegistro(matriculaTextField.getText(),marcaTextField.getText(),modeloTextField.getText(),
-                colorTextField.getText()) && (clienteEntityComboBox.getSelectionModel().getSelectedIndex() >= 0)) {
+                colorTextField.getText(),dataAtuomoviles) && (clienteEntityComboBox.getSelectionModel().getSelectedIndex() >= 0)) {
             ControladorAutomovil.guardarAutomovil(ControladorAutomovil.crearAutomovil(matriculaTextField.getText(),
                     marcaTextField.getText(), modeloTextField.getText(), colorTextField.getText(),
                     clienteEntityComboBox.getSelectionModel().getSelectedItem().getIdCliente()));
-            Alert alert = getWarningAlert("Exitoso", "Atencion", "Automovil registrado exitosamente!");
-            alert.showAndWait();
+            getWarningAlert("Exitoso", "Atencion", "Automovil registrado exitosamente!");
             matriculaTextField.setText("");
             marcaTextField.setText("");
             modeloTextField.setText("");
@@ -51,7 +54,8 @@ public class ViewRegistrarAutomovil implements Initializable {
         }
     }
 
-    public boolean veirificarDatosDeRegistro(String matricula, String marca, String modelo, String color){
+    public boolean veirificarDatosDeRegistro(String matricula, String marca, String modelo, String color,
+                                             ObservableList<AutomovilesEntity> dataAtuomoviles){
         boolean isPlaca = InputValidator.isPlaca(matricula);
         if ((matricula.length() != 0) && (marca.length() != 0) && (modelo.length() != 0)
                 && (color.length() != 0) && isPlaca) {
@@ -64,23 +68,21 @@ public class ViewRegistrarAutomovil implements Initializable {
             if (!isRepetido[0]) {
                 return true;
             }else {
-                Alert alert = getWarningAlert("Cuidado", "Atencion", "La matricula ya existe en la base de datos!");
-                alert.showAndWait();
+                getWarningAlert("Cuidado", "Atencion", "La matricula ya existe en la base de datos!");
                 return false;
             }
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de verificar los datos.");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Favor de verificar los datos.");
             return false;
         }
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    public void getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
-        return alert;
+        alert.showAndWait();
     }
 
     public void cerrarVentanaEvent() {
