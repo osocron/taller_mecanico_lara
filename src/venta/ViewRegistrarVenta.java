@@ -13,6 +13,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.StringConverter;
 import refaccion.ControladorRefaccion;
 import servicio.ControladorServicioRefaccion;
+import viewControlers.InputValidator;
 import viewControlers.ViewOpener;
 
 import java.math.BigDecimal;
@@ -201,7 +202,15 @@ public class ViewRegistrarVenta implements Initializable {
         ViewOpener viewOpener = new ViewOpener();
         viewOpener.openRefaccionPicker("refaccion/SeleccionRefacciones.fxml", "Taller Mecanico Lara", this, "2");
     }
-
+    public boolean verificarDatosVenta(String idVenta, String idCliente){
+        final boolean[] existe={true};
+        dataCliente.forEach(clienteEntity -> {
+            if (clienteEntity.getIdCliente().equals(idCliente)){
+                existe[0] = false;
+            }
+        });
+        return existe[0];
+    }
 
     public void cancelarActionEvent() {
         int nextID = ControladorVentas.getLastID() + 1;

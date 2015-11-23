@@ -1,7 +1,10 @@
 package usuario;
 
+import entidades.EmpleadoEntity;
 import entidades.UsuarioEntity;
 import entityControlers.ConexionBD;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
@@ -10,6 +13,8 @@ import java.util.List;
  * Created by osocron on 26/10/15.
  */
 public class ControladorUsuario {
+
+    private ObservableList<EmpleadoEntity> dataEmpleado = FXCollections.observableArrayList();
 
     public static List<UsuarioEntity> getUsuarios(){
         return ConexionBD.getEm().createQuery("SELECT c FROM UsuarioEntity c")
@@ -30,6 +35,19 @@ public class ControladorUsuario {
         usuario.setContrasena(contrasena);
         ConexionBD.getEm().persist(usuario);
         return usuario;
+    }
+    public boolean verificarDatos(String nombre, String idEmpleado){
+        boolean isLleno=true;
+        if(idEmpleado.length()!=0 && nombre.length()!=0){
+            return isLleno;
+        }
+        final boolean[] isDuplicado={false};
+        dataEmpleado.forEach(empleadoEntity -> {
+            if (empleadoEntity.getNombre().equals(idEmpleado)){
+                isDuplicado[0]=true;
+            }
+        });
+        return isLleno && isDuplicado[0];
     }
 
     public static void modificarNombre(int id, String nombre){
