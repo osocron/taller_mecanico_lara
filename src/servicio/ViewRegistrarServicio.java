@@ -37,7 +37,6 @@ public class ViewRegistrarServicio implements Initializable {
     public JFXTextField textfieldServicio;
     public JFXTextField textfieldDescripcion;
     public ComboBox<String> comboboxServicio;
-    public JFXTextField textfieldIDempleado;
     public JFXTextField textfieldPrecio;
     public JFXButton buttonCancelar;
     public JFXButton eliminarRefaccionButton;
@@ -48,11 +47,13 @@ public class ViewRegistrarServicio implements Initializable {
     public TableColumn<RefaccionEntity,String> refaccionTableColumn;
     public TableColumn<RefaccionEntity,Integer> cantidadTableColumn;
     public JFXButton buttonRegistrarServicio;
+    public ComboBox<EmpleadoEntity> comboBoxEmpleado;
 
     private ObservableList<ServicioEntity> dataServicios = FXCollections.observableArrayList();
     private ObservableList<ClienteEntity> dataClientes = FXCollections.observableArrayList();
     private ObservableList<AutomovilesEntity> dataAutos = FXCollections.observableArrayList();
     private ObservableList<RefaccionEntity> dataRefacciones = FXCollections.observableArrayList();
+    private ObservableList<EmpleadoEntity> dataEmpleados = FXCollections.observableArrayList();
     private ObservableList<ServicioAutomovilEntity> dataServicioAutomovil = FXCollections.observableArrayList();
     private ObservableList<ServicioRefaccionEntity> dataServicioRefaccion = FXCollections.observableArrayList();
     private ObservableList<RefaccionEntity> dataRefaccionesParaTabla = FXCollections.observableArrayList();
@@ -61,6 +62,11 @@ public class ViewRegistrarServicio implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         obtenerDatosDeBD();
         ligarClienteAutomovilComboBox();
+        //ComboBox
+        List<EmpleadoEntity> empleadoEntityList = ControladorEmpleado.getEmpleados();
+        dataEmpleados.addAll(empleadoEntityList);
+        comboBoxEmpleado.setItems(dataEmpleados);
+        //Tabla
         tablaRefacciones.setEditable(true);
         refaccionTableColumn.setCellValueFactory(new PropertyValueFactory<>("marca"));
         cantidadTableColumn.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
@@ -136,7 +142,6 @@ public class ViewRegistrarServicio implements Initializable {
         int nextID = ControladorServicio.getLastID() + 1;
         textfieldServicio.setText(String.valueOf(nextID));
         textfieldDescripcion.setText("");
-        textfieldIDempleado.setText("");
         textfieldPrecio.setText("");
         tablaRefacciones.getItems().clear();
     }
@@ -144,19 +149,15 @@ public class ViewRegistrarServicio implements Initializable {
     public void registrarServicioOnActionEvent() {
         final int[] cont = {0};
         boolean precioOK = InputValidator.textIsDecimalOnly(textfieldPrecio.getText(), "2");
-        boolean idInt = InputValidator.textIsNumericOnly(textfieldIDempleado.getText());
 
         final boolean[] idEmpleadoOK = {false};
-        if (idInt) {
-            List<EmpleadoEntity> empleadoEntities = ControladorEmpleado.getEmpleados();
-            empleadoEntities.forEach(empleadoEntity -> {
-                if (empleadoEntity.getIdEmpleado() == Integer.parseInt(textfieldIDempleado.getText())) {
-                    idEmpleadoOK[0] = true;
-                }
-            });
+        if (!comboBoxEmpleado.getSelectionModel().isEmpty()) {
+            idEmpleadoOK[0] = true;
         }
+
+
         if ((!comboboxServicio.getSelectionModel().isEmpty()) && (textfieldDescripcion.getLength() != 0) &&
-                (textfieldPrecio.getLength() != 0) && precioOK && idInt && idEmpleadoOK[0] &&
+                (textfieldPrecio.getLength() != 0) && precioOK && idEmpleadoOK[0] &&
                 (!dataRefaccionesParaTabla.isEmpty()) && (!comboBoxClientes.getSelectionModel().isEmpty()) &&
                 (!comboBoxAutos.getSelectionModel().isEmpty())) {
             ControladorServicio.guardarServicio(
@@ -164,7 +165,7 @@ public class ViewRegistrarServicio implements Initializable {
                             Integer.parseInt(textfieldServicio.getText()),
                             comboboxServicio.getSelectionModel().getSelectedItem() + " " + textfieldDescripcion.getText(),
                             BigDecimal.valueOf(Double.parseDouble(textfieldPrecio.getText())),
-                            Integer.parseInt(textfieldIDempleado.getText())));
+                            comboBoxEmpleado.getSelectionModel().getSelectedItem().getIdEmpleado()));
             dataRefaccionesParaTabla.forEach(refaccionEntity -> {
                 ControladorServicioRefaccion.guardarServicioRefaccion(
                         ControladorServicioRefaccion.crearServicioRefaccion(

@@ -42,16 +42,16 @@
                         <Insets right="20.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <Label fx:id="labelIDempleado" text="ID EMPLEADO" textFill="#b8bbb6">
+                  <Label fx:id="labelIDempleado" text="EMPLEADO" textFill="#b8bbb6">
                      <VBox.margin>
                         <Insets bottom="5.0" left="7.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXTextField fx:id="textfieldIDempleado" focusColor="#84bd00" style="fx-text-inner-color: #d3cbc6;">
+                  <ComboBox fx:id="comboBoxEmpleado" opacity="0.16" prefWidth="200.0">
                      <VBox.margin>
-                        <Insets right="20.0" />
+                        <Insets bottom="10.0" left="7.0" top="5.0" />
                      </VBox.margin>
-                  </JFXTextField>
+                  </ComboBox>
                   <Label fx:id="labelPrecio" text="PRECIO" textFill="#b8bbb6">
                      <VBox.margin>
                         <Insets bottom="5.0" left="7.0" top="5.0" />
