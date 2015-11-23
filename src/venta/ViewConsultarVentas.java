@@ -1,16 +1,15 @@
 package venta;
 
+import cliente.ControladorCliente;
 import com.jfoenix.controls.JFXButton;
+import entidades.ClienteEntity;
 import entidades.VentasEntity;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
 import venta.ControladorVentas;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
@@ -44,12 +43,19 @@ public class ViewConsultarVentas implements Initializable {
         idVentaTableColumn.setCellValueFactory(new PropertyValueFactory<>("idVenta"));
         clienteTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         clienteTableColumn.setCellValueFactory(new PropertyValueFactory<>("idClientes"));
-        clienteTableColumn.setOnEditCommit(event -> {
-            VentasEntity ventasEntity =
-                    event.getTableView().getItems().get(event.getTablePosition().getRow());
-            ControladorVentas.modificarCliente(ventasEntity.getIdVenta(),event.getNewValue());
+        clienteTableColumn.setCellFactory(column -> new TableCell<VentasEntity, String>(){
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    ClienteEntity clienteEntity = ControladorCliente.getClienteID(item);
+                    setText(clienteEntity.getNombre());
+                }
+            }
         });
-
         fechaTablecolumn.setCellValueFactory( new PropertyValueFactory<DatePickerCell, java.sql.Date>("fecha"));
         fechaTablecolumn.setCellFactory(param -> {
             DatePickerCell datePickerCell = new DatePickerCell(dataVenta);

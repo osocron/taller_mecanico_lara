@@ -1,5 +1,7 @@
 package servicio;
 
+import empleado.ControladorEmpleado;
+import entidades.EmpleadoEntity;
 import entidades.ServicioEntity;
 import servicio.ControladorServicio;
 import javafx.collections.FXCollections;
@@ -24,7 +26,7 @@ public class ViewConsultarServicio implements Initializable {
     public TableColumn<ServicioEntity,String> idServicio;
     public TableColumn<ServicioEntity,String> descripcion;
     public TableColumn<ServicioEntity,BigDecimal> costo;
-    public TableColumn<ServicioEntity, String> idEmpleado;
+    public TableColumn<ServicioEntity, Integer> idEmpleado;
 
     private ObservableList<ServicioEntity> dataServicio = FXCollections.observableArrayList();
 
@@ -63,6 +65,19 @@ public class ViewConsultarServicio implements Initializable {
                 event.getNewValue()
         ));
         idEmpleado.setCellValueFactory(new PropertyValueFactory<>("idEmpleados"));
+        idEmpleado.setCellFactory(column -> new TableCell<ServicioEntity, Integer>(){
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    EmpleadoEntity empleadoEntity = ControladorEmpleado.getEmpleadoPorID(item);
+                    setText(empleadoEntity.getNombre());
+                }
+            }
+        });
         tableviewServicio.setItems(dataServicio);
     }
 
