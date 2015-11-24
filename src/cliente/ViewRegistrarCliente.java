@@ -51,12 +51,11 @@ public class ViewRegistrarCliente implements Initializable {
 
     public void guardarClienteActionEvent() {
         if (validarDatosRegistro(textfieldRFC.getText(),textfieldNombre.getText(),textfieldDomicilio.getText(),
-                textfieldTelefono.getText())) {
+                textfieldTelefono.getText(),dataCliente)) {
             ControladorCliente.guardarCliente(ControladorCliente.crearCliente(textfieldRFC.getText(),
                     textfieldNombre.getText(), textfieldDomicilio.getText(),
                     textfieldTelefono.getText()));
-            Alert alert = getWarningAlert("Exitoso", "Atencion", "Cliente registrado exitosamente!");
-            alert.showAndWait();
+            getWarningAlert("Exitoso", "Atencion", "Cliente registrado exitosamente!");
             textfieldRFC.setText("");
             textfieldNombre.setText("");
             textfieldDomicilio.setText("");
@@ -64,7 +63,8 @@ public class ViewRegistrarCliente implements Initializable {
         }
     }
 
-    public boolean validarDatosRegistro(String rfc, String nombre, String domicilio, String telefono){
+    public boolean validarDatosRegistro(String rfc, String nombre, String domicilio, String telefono,
+                                        ObservableList<ClienteEntity> dataCliente){
         boolean telefonoEsNumerico = InputValidator.textIsNumericOnly(telefono);
         boolean isRFC = InputValidator.isRFC(rfc);
         if ((rfc.length() != 0) && (nombre.length() != 0) &&
@@ -79,13 +79,11 @@ public class ViewRegistrarCliente implements Initializable {
             if (!isRepetido[0]) {
                 return true;
             }else {
-                Alert alert = getWarningAlert("Cuidado", "Atencion", "El RFC ya existe en la base de datos!");
-                alert.showAndWait();
+                getWarningAlert("Cuidado", "Atencion", "El RFC ya existe en la base de datos!");
                 return false;
             }
         }else {
-            Alert alert = getWarningAlert("Cuidado", "¡Atencion!", "Algunos datos no son correctos\n o están incompletos.");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "¡Atencion!", "Algunos datos no son correctos\n o están incompletos.");
             return false;
         }
     }
@@ -99,12 +97,12 @@ public class ViewRegistrarCliente implements Initializable {
         cerrarVentanaEvent();
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    public void getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
-        return alert;
+        alert.showAndWait();
     }
 
 }
