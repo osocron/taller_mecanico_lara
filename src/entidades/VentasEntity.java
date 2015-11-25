@@ -96,4 +96,10 @@ public class VentasEntity {
     public void setVentaserviciosByIdVenta(Collection<VentaServicioEntity> ventaserviciosByIdVenta) {
         this.ventaserviciosByIdVenta = ventaserviciosByIdVenta;
     }
+
+    @Override
+    public String toString(){
+        return idClientes;
+    }
+
 }

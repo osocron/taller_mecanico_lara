@@ -98,4 +98,9 @@ public class RefaccionEntity {
     public void setVentarefaccionsByIdRefaccion(Collection<VentaRefaccionEntity> ventarefaccionsByIdRefaccion) {
         this.ventarefaccionsByIdRefaccion = ventarefaccionsByIdRefaccion;
     }
+
+    @Override
+    public String toString() {
+        return marca;
+    }
 }

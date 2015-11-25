@@ -111,4 +111,9 @@ public class AutomovilesEntity {
     public void setServicioautomovilsByMatricula(Collection<ServicioAutomovilEntity> servicioautomovilsByMatricula) {
         this.servicioautomovilsByMatricula = servicioautomovilsByMatricula;
     }
+
+    @Override
+    public String toString() {
+        return marca+" "+modelo+" "+color;
+    }
 }
