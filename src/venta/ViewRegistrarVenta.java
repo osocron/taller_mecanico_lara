@@ -21,6 +21,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -148,21 +149,18 @@ public class ViewRegistrarVenta implements Initializable {
                 });
             }
 
-            Alert alert = getWarningAlert("Exitoso", "Atencion", "Venta registrada exitosamente!");
-            alert.showAndWait();
-            cancelarActionEvent();
+            getWarningAlert("Exitoso", "Atencion", "Venta registrada exitosamente!");
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
         }
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    public void getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
-        return alert;
+        alert.showAndWait();
     }
 
     public void eliminarServicioActionEvent() {
@@ -171,8 +169,7 @@ public class ViewRegistrarVenta implements Initializable {
             servicioListView.getItems().remove(servicioEntity);
             calcularTotalPorServicioEliminado(servicioEntity);
         }else{
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
         }
     }
 
@@ -182,8 +179,7 @@ public class ViewRegistrarVenta implements Initializable {
             viewOpener.openServicioPicker("servicio/SeleccionarServicio.fxml", "Taller Mecanico Lara", this,
                     comboBoxCliente.getSelectionModel().getSelectedItem().getIdCliente());
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un Cliente!");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un Cliente!");
         }
     }
 
@@ -193,8 +189,7 @@ public class ViewRegistrarVenta implements Initializable {
             refaccionTableView.getItems().remove(refaccionEntity);
             calcularTotalPorRefaccionEliminada(refaccionEntity);
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
         }
     }
 
@@ -202,7 +197,7 @@ public class ViewRegistrarVenta implements Initializable {
         ViewOpener viewOpener = new ViewOpener();
         viewOpener.openRefaccionPicker("refaccion/SeleccionRefacciones.fxml", "Taller Mecanico Lara", this, "2");
     }
-    public boolean verificarDatosVenta(String idVenta, String idCliente){
+    public boolean verificarDatosVenta(String idVenta, String idCliente, ObservableList<ClienteEntity> dataCliente){
         final boolean[] existe={true};
         dataCliente.forEach(clienteEntity -> {
             if (clienteEntity.getIdCliente().equals(idCliente)){

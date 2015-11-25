@@ -59,7 +59,7 @@ public class ViewRegistrarEmpleado implements Initializable {
 
     public void registrarEmpleadoActionEvent() {
         boolean isOK = true;
-        if (validarDatosRegistro(textfieldIDempleado.getText(),textfieldNombre.getText(),textfieldPuesto.getText())) {
+        if (validarDatosRegistro(textfieldIDempleado.getText(),textfieldNombre.getText(),textfieldPuesto.getText(),dataEmpleado)) {
             ControladorEmpleado.guardarEmpleadp(
                     ControladorEmpleado.crearEmpleado(
                             Integer.parseInt(textfieldIDempleado.getText()),
@@ -78,8 +78,7 @@ public class ViewRegistrarEmpleado implements Initializable {
             }
         }
         if (isOK) {
-            Alert alert = getWarningAlert("Exitoso", "Atencion", "Empleado registrado exitosamente!");
-            alert.showAndWait();
+            getWarningAlert("Exitoso", "Atencion", "Empleado registrado exitosamente!");
             int nextID = ControladorEmpleado.getNextID() + 1;
             textfieldIDempleado.setText(String.valueOf(nextID));
             textfieldNombre.setText("");
@@ -87,12 +86,11 @@ public class ViewRegistrarEmpleado implements Initializable {
             textfieldUsuario.setText("");
             textfieldContrasena.setText("");
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de Ingresar los datos faltantes.");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Favor de Ingresar los datos faltantes.");
         }
     }
 
-    public boolean validarDatosRegistro(String id, String nombre, String puesto){
+    public boolean validarDatosRegistro(String id, String nombre, String puesto, ObservableList<EmpleadoEntity> dataEmpleado){
 
         if ((id.length() != 0) && (nombre.length() != 0) &&
                 (puesto.length() != 0)){
@@ -103,12 +101,12 @@ public class ViewRegistrarEmpleado implements Initializable {
         }
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    public void getWarningAlert(String title, String headerText, String contentText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
-        return alert;
+        alert.showAndWait();
     }
 
     public void cerrarVentanaEvent() {
