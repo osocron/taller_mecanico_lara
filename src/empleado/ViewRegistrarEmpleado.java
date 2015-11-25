@@ -78,8 +78,7 @@ public class ViewRegistrarEmpleado implements Initializable {
             }
         }
         if (isOK) {
-            Alert alert = getWarningAlert("Exitoso", "Atencion", "Empleado registrado exitosamente!");
-            alert.showAndWait();
+            getWarningAlert("Exitoso", "Atencion", "Empleado registrado exitosamente!");
             int nextID = ControladorEmpleado.getNextID() + 1;
             textfieldIDempleado.setText(String.valueOf(nextID));
             textfieldNombre.setText("");
@@ -87,8 +86,7 @@ public class ViewRegistrarEmpleado implements Initializable {
             textfieldUsuario.setText("");
             textfieldContrasena.setText("");
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de Ingresar los datos faltantes.");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Favor de Ingresar los datos faltantes.");
         }
     }
 
@@ -103,12 +101,12 @@ public class ViewRegistrarEmpleado implements Initializable {
         }
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    public void getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
-        return alert;
+        alert.showAndWait();
     }
 
     public void cerrarVentanaEvent() {
