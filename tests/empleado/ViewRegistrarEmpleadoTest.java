@@ -30,7 +30,7 @@ public class ViewRegistrarEmpleadoTest {
     public void testValidarDatosRegistroEmpleado() throws Exception {
         ViewRegistrarEmpleado mock = Mockito.mock(ViewRegistrarEmpleado.class);
         doNothing().when(mock).getWarningAlert(anyString(), anyString(), anyString());
-        doCallRealMethod().when(mock).validarDatosRegistro(anyString(),anyString(),anyString(), any(ObservableList.class));
+        doCallRealMethod().when(mock).validarDatosRegistro(anyString(),anyString(),anyString());
 
         //data
         List<EmpleadoEntity> empleadoEntityList = ControladorEmpleado.getEmpleados();
@@ -40,13 +40,13 @@ public class ViewRegistrarEmpleadoTest {
         String id="102";
         String nombre="jose";
         String puesto="hojalatero";
-        Assert.assertEquals(true,mock.validarDatosRegistro(id,nombre,puesto,dataEmpleados));
+        Assert.assertEquals(true,mock.validarDatosRegistro(id,nombre,puesto));
     }
     @Test
     public void testValidarDatosRegistroEmpleadoIncorrecto() throws Exception{
         ViewRegistrarEmpleado mock = Mockito.mock(ViewRegistrarEmpleado.class);
         doNothing().when(mock).getWarningAlert(anyString(), anyString(), anyString());
-        doCallRealMethod().when(mock).validarDatosRegistro(anyString(),anyString(),anyString(), any(ObservableList.class));
+        doCallRealMethod().when(mock).validarDatosRegistro(anyString(),anyString(),anyString());
 
         //data
         List<EmpleadoEntity> empleadoEntityList = ControladorEmpleado.getEmpleados();
@@ -56,6 +56,6 @@ public class ViewRegistrarEmpleadoTest {
         String id="102";
         String nombre="";//falta un campo para la prueba de error
         String puesto="mecanico";
-        Assert.assertEquals(false,mock.validarDatosRegistro(id,nombre,puesto,dataEmpleados));
+        Assert.assertEquals(false,mock.validarDatosRegistro(id,nombre,puesto));
     }
 }

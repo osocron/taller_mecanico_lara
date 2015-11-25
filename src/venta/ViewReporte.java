@@ -307,7 +307,7 @@ public class ViewReporte implements Initializable{
                             if (fechaDatePicker.getValue() != null) {
                                 LocalDate date = fechaDatePicker.getValue();
                                 java.sql.Date sqlDate = java.sql.Date.valueOf(date);
-                                if (sqlDate.equals(ventasEntity.getFecha())) {
+                                if (ventasEntity.getFecha().toString().equals(sqlDate.toString())) {
                                     ventasEncontradas.add(ventasEntity);
                                 }
                             }else {
@@ -333,7 +333,7 @@ public class ViewReporte implements Initializable{
                                 if (fechaDatePicker.getValue() != null) {
                                     LocalDate date = fechaDatePicker.getValue();
                                     java.sql.Date sqlDate = java.sql.Date.valueOf(date);
-                                    if (sqlDate.equals(ventasEntity.getFecha())) {
+                                    if (ventasEntity.getFecha().toString().equals(sqlDate.toString())) {
                                         ventasEncontradas.add(ventasEntity);
                                     }
                                 }else {
@@ -360,7 +360,7 @@ public class ViewReporte implements Initializable{
                 LocalDate date = fechaDatePicker.getValue();
                 java.sql.Date sqlDate = java.sql.Date.valueOf(date);
                 dataVentas.forEach(ventasEntity -> {
-                    if (ventasEntity.getFecha().equals(sqlDate)) {
+                    if (ventasEntity.getFecha().toString().equals(sqlDate.toString())) {
                         ventasEncontradas.add(ventasEntity);
                     }
                 });

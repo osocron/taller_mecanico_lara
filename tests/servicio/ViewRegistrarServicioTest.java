@@ -41,7 +41,7 @@ public class ViewRegistrarServicioTest {
         String descripcion="muy caro";
         String costo="20";
         String idEmpleados="2";
-        Assert.assertEquals(false,mock.verificarDatosRegistro(descripcion,costo,idEmpleados,dataServicio));
+        Assert.assertEquals(true,mock.verificarDatosRegistro(descripcion,costo,idEmpleados,dataServicio));
     }
     @Test
     public void testVerificarDatosIncompletos() throws Exception{
