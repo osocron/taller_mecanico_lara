@@ -3,10 +3,10 @@ package entidades;
 import javax.persistence.*;
 
 /**
- * Created by osocron on 6/11/15.
+ * Created by osocron on 25/11/15.
  */
 @Entity
-@Table(name = "VentaServicio", schema = "", catalog = "taller_mecanico_lara")
+@Table(name = "ventaservicio", schema = "", catalog = "taller_mecanico_lara")
 public class VentaServicioEntity {
     private int idVentaServicio;
     private int idVentas;

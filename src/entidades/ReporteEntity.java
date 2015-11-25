@@ -1,7 +1,7 @@
 package entidades;
 
 /**
- * Created by osocron on 18/11/15.
+ * Created by osocron on 25/11/15.
  */
 public class ReporteEntity {
 

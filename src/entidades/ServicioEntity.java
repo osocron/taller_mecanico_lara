@@ -1,24 +1,23 @@
 package entidades;
 
 import javax.persistence.*;
-import java.lang.Float;
 import java.math.BigDecimal;
 import java.util.Collection;
 
 /**
- * Created by osocron on 6/11/15.
+ * Created by osocron on 25/11/15.
  */
 @Entity
-@Table(name = "Servicio", schema = "", catalog = "taller_mecanico_lara")
+@Table(name = "servicio", schema = "", catalog = "taller_mecanico_lara")
 public class ServicioEntity {
     private int idServicio;
     private String descripcion;
     private BigDecimal costo;
     private int idEmpleados;
     private EmpleadoEntity empleadoByIdEmpleados;
-    private Collection<ServicioAutomovilEntity> servicioAutomovilsByIdServicio;
-    private Collection<ServicioRefaccionEntity> servicioRefaccionsByIdServicio;
-    private Collection<VentaServicioEntity> ventaServiciosByIdServicio;
+    private Collection<ServicioAutomovilEntity> servicioautomovilsByIdServicio;
+    private Collection<ServicioRefaccionEntity> serviciorefaccionsByIdServicio;
+    private Collection<VentaServicioEntity> ventaserviciosByIdServicio;
 
     @Id
     @Column(name = "IDServicio")
@@ -79,7 +78,7 @@ public class ServicioEntity {
     public int hashCode() {
         int result = idServicio;
         result = 31 * result + (descripcion != null ? descripcion.hashCode() : 0);
-        //result = 31 * result + (costo != null ? costo.hashCode() : 0);
+        result = 31 * result + (costo != null ? costo.hashCode() : 0);
         result = 31 * result + idEmpleados;
         return result;
     }
@@ -95,35 +94,29 @@ public class ServicioEntity {
     }
 
     @OneToMany(mappedBy = "servicioByIdServicios")
-    public Collection<ServicioAutomovilEntity> getServicioAutomovilsByIdServicio() {
-        return servicioAutomovilsByIdServicio;
+    public Collection<ServicioAutomovilEntity> getServicioautomovilsByIdServicio() {
+        return servicioautomovilsByIdServicio;
     }
 
-    public void setServicioAutomovilsByIdServicio(Collection<ServicioAutomovilEntity> servicioAutomovilsByIdServicio) {
-        this.servicioAutomovilsByIdServicio = servicioAutomovilsByIdServicio;
-    }
-
-    @OneToMany(mappedBy = "servicioByIdServicios")
-    public Collection<ServicioRefaccionEntity> getServicioRefaccionsByIdServicio() {
-        return servicioRefaccionsByIdServicio;
-    }
-
-    public void setServicioRefaccionsByIdServicio(Collection<ServicioRefaccionEntity> servicioRefaccionsByIdServicio) {
-        this.servicioRefaccionsByIdServicio = servicioRefaccionsByIdServicio;
+    public void setServicioautomovilsByIdServicio(Collection<ServicioAutomovilEntity> servicioautomovilsByIdServicio) {
+        this.servicioautomovilsByIdServicio = servicioautomovilsByIdServicio;
     }
 
     @OneToMany(mappedBy = "servicioByIdServicios")
-    public Collection<VentaServicioEntity> getVentaServiciosByIdServicio() {
-        return ventaServiciosByIdServicio;
+    public Collection<ServicioRefaccionEntity> getServiciorefaccionsByIdServicio() {
+        return serviciorefaccionsByIdServicio;
     }
 
-    public void setVentaServiciosByIdServicio(Collection<VentaServicioEntity> ventaServiciosByIdServicio) {
-        this.ventaServiciosByIdServicio = ventaServiciosByIdServicio;
-    }
-    @Override
-    public String toString(){
-        return descripcion;
+    public void setServiciorefaccionsByIdServicio(Collection<ServicioRefaccionEntity> serviciorefaccionsByIdServicio) {
+        this.serviciorefaccionsByIdServicio = serviciorefaccionsByIdServicio;
     }
 
+    @OneToMany(mappedBy = "servicioByIdServicios")
+    public Collection<VentaServicioEntity> getVentaserviciosByIdServicio() {
+        return ventaserviciosByIdServicio;
+    }
 
+    public void setVentaserviciosByIdServicio(Collection<VentaServicioEntity> ventaserviciosByIdServicio) {
+        this.ventaserviciosByIdServicio = ventaserviciosByIdServicio;
+    }
 }

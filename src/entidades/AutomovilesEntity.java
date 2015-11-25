@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by osocron on 6/11/15.
+ * Created by osocron on 25/11/15.
  */
 @Entity
-@Table(name = "Automoviles", schema = "", catalog = "taller_mecanico_lara")
+@Table(name = "automoviles", schema = "", catalog = "taller_mecanico_lara")
 public class AutomovilesEntity {
     private String matricula;
     private String marca;
@@ -15,7 +15,7 @@ public class AutomovilesEntity {
     private String color;
     private String idClientes;
     private ClienteEntity clienteByIdClientes;
-    private Collection<ServicioAutomovilEntity> servicioAutomovilsByMatricula;
+    private Collection<ServicioAutomovilEntity> servicioautomovilsByMatricula;
 
     @Id
     @Column(name = "Matricula")
@@ -104,16 +104,11 @@ public class AutomovilesEntity {
     }
 
     @OneToMany(mappedBy = "automovilesByMatricula")
-    public Collection<ServicioAutomovilEntity> getServicioAutomovilsByMatricula() {
-        return servicioAutomovilsByMatricula;
+    public Collection<ServicioAutomovilEntity> getServicioautomovilsByMatricula() {
+        return servicioautomovilsByMatricula;
     }
 
-    public void setServicioAutomovilsByMatricula(Collection<ServicioAutomovilEntity> servicioAutomovilsByMatricula) {
-        this.servicioAutomovilsByMatricula = servicioAutomovilsByMatricula;
-    }
-
-    @Override
-    public String toString() {
-        return marca+" "+modelo+" "+color;
+    public void setServicioautomovilsByMatricula(Collection<ServicioAutomovilEntity> servicioautomovilsByMatricula) {
+        this.servicioautomovilsByMatricula = servicioautomovilsByMatricula;
     }
 }

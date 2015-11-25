@@ -3,10 +3,10 @@ package entidades;
 import javax.persistence.*;
 
 /**
- * Created by osocron on 6/11/15.
+ * Created by osocron on 25/11/15.
  */
 @Entity
-@Table(name = "Usuario", schema = "", catalog = "taller_mecanico_lara")
+@Table(name = "usuario", schema = "", catalog = "taller_mecanico_lara")
 public class UsuarioEntity {
     private String nombre;
     private String contrasena;
@@ -73,9 +73,5 @@ public class UsuarioEntity {
 
     public void setEmpleadoByIdEmpleado(EmpleadoEntity empleadoByIdEmpleado) {
         this.empleadoByIdEmpleado = empleadoByIdEmpleado;
-    }
-    @Override
-    public String toString(){
-        return nombre;
     }
 }

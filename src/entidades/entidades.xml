@@ -3,7 +3,7 @@
         version="2.0">
 
         <entity class="entidades.AutomovilesEntity">
-                <table name="Automoviles" schema="" catalog="taller_mecanico_lara"/>
+                <table name="automoviles" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="matricula">
                                 <column name="Matricula"/>
@@ -22,14 +22,14 @@
                         </basic>
                         <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
                                 <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente"
-                                         insertable="false" updatable="false"/>
+                                             insertable="false" updatable="false"/>
                         </many-to-one>
-                        <one-to-many name="servicioAutomovilsByMatricula" mapped-by="automovilesByMatricula"
+                        <one-to-many name="servicioautomovilsByMatricula" mapped-by="automovilesByMatricula"
                                      target-entity="entidades.ServicioAutomovilEntity"/>
                 </attributes>
         </entity>
         <entity class="entidades.ClienteEntity">
-                <table name="Cliente" schema="" catalog="taller_mecanico_lara"/>
+                <table name="cliente" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="idCliente">
                                 <column name="IDCliente"/>
@@ -50,7 +50,7 @@
                 </attributes>
         </entity>
         <entity class="entidades.EmpleadoEntity">
-                <table name="Empleado" schema="" catalog="taller_mecanico_lara"/>
+                <table name="empleado" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="idEmpleado">
                                 <column name="IDEmpleado"/>
@@ -68,7 +68,7 @@
                 </attributes>
         </entity>
         <entity class="entidades.RefaccionEntity">
-                <table name="Refaccion" schema="" catalog="taller_mecanico_lara"/>
+                <table name="refaccion" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="idRefaccion">
                                 <column name="IDRefaccion"/>
@@ -82,14 +82,14 @@
                         <basic name="cantidad">
                                 <column name="Cantidad"/>
                         </basic>
-                        <one-to-many name="servicioRefaccionsByIdRefaccion" mapped-by="refaccionByIdRefacciones"
+                        <one-to-many name="serviciorefaccionsByIdRefaccion" mapped-by="refaccionByIdRefacciones"
                                      target-entity="entidades.ServicioRefaccionEntity"/>
-                        <one-to-many name="ventaRefaccionsByIdRefaccion" mapped-by="refaccionByIdRefacciones"
+                        <one-to-many name="ventarefaccionsByIdRefaccion" mapped-by="refaccionByIdRefacciones"
                                      target-entity="entidades.VentaRefaccionEntity"/>
                 </attributes>
         </entity>
         <entity class="entidades.ServicioEntity">
-                <table name="Servicio" schema="" catalog="taller_mecanico_lara"/>
+                <table name="servicio" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="idServicio">
                                 <column name="IDServicio"/>
@@ -108,16 +108,16 @@
                                 <join-column name="IDEmpleados" nullable="false" referenced-column-name="IDEmpleado"
                                              insertable="false" updatable="false"/>
                         </many-to-one>
-                        <one-to-many name="servicioAutomovilsByIdServicio" mapped-by="servicioByIdServicios"
+                        <one-to-many name="servicioautomovilsByIdServicio" mapped-by="servicioByIdServicios"
                                      target-entity="entidades.ServicioAutomovilEntity"/>
-                        <one-to-many name="servicioRefaccionsByIdServicio" mapped-by="servicioByIdServicios"
+                        <one-to-many name="serviciorefaccionsByIdServicio" mapped-by="servicioByIdServicios"
                                      target-entity="entidades.ServicioRefaccionEntity"/>
-                        <one-to-many name="ventaServiciosByIdServicio" mapped-by="servicioByIdServicios"
+                        <one-to-many name="ventaserviciosByIdServicio" mapped-by="servicioByIdServicios"
                                      target-entity="entidades.VentaServicioEntity"/>
                 </attributes>
         </entity>
         <entity class="entidades.ServicioAutomovilEntity">
-                <table name="ServicioAutomovil" schema="" catalog="taller_mecanico_lara"/>
+                <table name="servicioautomovil" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="idServicioAutomovil">
                                 <column name="idServicioAutomovil"/>
@@ -141,7 +141,7 @@
                 </attributes>
         </entity>
         <entity class="entidades.ServicioRefaccionEntity">
-                <table name="ServicioRefaccion" schema="" catalog="taller_mecanico_lara"/>
+                <table name="serviciorefaccion" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="idServicioRefaccion">
                                 <column name="idServicioRefaccion"/>
@@ -168,7 +168,7 @@
                 </attributes>
         </entity>
         <entity class="entidades.UsuarioEntity">
-                <table name="Usuario" schema="" catalog="taller_mecanico_lara"/>
+                <table name="usuario" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="nombre">
                                 <column name="Nombre"/>
@@ -187,7 +187,7 @@
                 </attributes>
         </entity>
         <entity class="entidades.VentaRefaccionEntity">
-                <table name="VentaRefaccion" schema="" catalog="taller_mecanico_lara"/>
+                <table name="ventarefaccion" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="idVentaRefaccion">
                                 <column name="idVentaRefaccion"/>
@@ -209,8 +209,30 @@
                         </many-to-one>
                 </attributes>
         </entity>
+        <entity class="entidades.VentasEntity">
+                <table name="ventas" schema="" catalog="taller_mecanico_lara"/>
+                <attributes>
+                        <id name="idVenta">
+                                <column name="IDVenta"/>
+                        </id>
+                        <basic name="fecha">
+                                <column name="Fecha"/>
+                        </basic>
+                        <basic name="idClientes">
+                                <column name="IDClientes"/>
+                        </basic>
+                        <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
+                                <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente"
+                                             insertable="false" updatable="false"/>
+                        </many-to-one>
+                        <one-to-many name="ventarefaccionsByIdVenta" mapped-by="ventasByIdVentas"
+                                     target-entity="entidades.VentaRefaccionEntity"/>
+                        <one-to-many name="ventaserviciosByIdVenta" mapped-by="ventasByIdVentas"
+                                     target-entity="entidades.VentaServicioEntity"/>
+                </attributes>
+        </entity>
         <entity class="entidades.VentaServicioEntity">
-                <table name="VentaServicio" schema="" catalog="taller_mecanico_lara"/>
+                <table name="ventaservicio" schema="" catalog="taller_mecanico_lara"/>
                 <attributes>
                         <id name="idVentaServicio">
                                 <column name="idVentaServicio"/>
@@ -230,28 +252,6 @@
                                 <join-column name="IDServicios" nullable="false" referenced-column-name="IDServicio"
                                              insertable="false" updatable="false"/>
                         </many-to-one>
-                </attributes>
-        </entity>
-        <entity class="entidades.VentasEntity">
-                <table name="Ventas" schema="" catalog="taller_mecanico_lara"/>
-                <attributes>
-                        <id name="idVenta">
-                                <column name="IDVenta"/>
-                        </id>
-                        <basic name="fecha">
-                                <column name="Fecha"/>
-                        </basic>
-                        <basic name="idClientes">
-                                <column name="IDClientes"/>
-                        </basic>
-                        <many-to-one name="clienteByIdClientes" optional="true" target-entity="entidades.ClienteEntity">
-                                <join-column name="IDClientes" nullable="false" referenced-column-name="IDCliente"
-                                             insertable="false" updatable="false"/>
-                        </many-to-one>
-                        <one-to-many name="ventaRefaccionsByIdVenta" mapped-by="ventasByIdVentas"
-                                     target-entity="entidades.VentaRefaccionEntity"/>
-                        <one-to-many name="ventaServiciosByIdVenta" mapped-by="ventasByIdVentas"
-                                     target-entity="entidades.VentaServicioEntity"/>
                 </attributes>
         </entity>
 </entity-mappings>

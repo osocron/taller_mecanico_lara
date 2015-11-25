@@ -2,7 +2,7 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
     <persistence-unit name="tallerPU">
-        <mapping-file>entidades/mappings.xml</mapping-file>
+        <mapping-file>entidades/entidades.xml</mapping-file>
         <class>entidades.AutomovilesEntity</class>
         <class>entidades.ClienteEntity</class>
         <class>entidades.EmpleadoEntity</class>
@@ -12,9 +12,8 @@
         <class>entidades.ServicioRefaccionEntity</class>
         <class>entidades.UsuarioEntity</class>
         <class>entidades.VentaRefaccionEntity</class>
-        <class>entidades.VentaServicioEntity</class>
         <class>entidades.VentasEntity</class>
-
+        <class>entidades.VentaServicioEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/taller_mecanico_lara"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

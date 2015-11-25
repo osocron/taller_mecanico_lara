@@ -5,17 +5,17 @@ import java.sql.Date;
 import java.util.Collection;
 
 /**
- * Created by osocron on 6/11/15.
+ * Created by osocron on 25/11/15.
  */
 @Entity
-@Table(name = "Ventas", schema = "", catalog = "taller_mecanico_lara")
+@Table(name = "ventas", schema = "", catalog = "taller_mecanico_lara")
 public class VentasEntity {
     private int idVenta;
     private Date fecha;
     private String idClientes;
-    private Collection<VentaRefaccionEntity> ventaRefaccionsByIdVenta;
-    private Collection<VentaServicioEntity> ventaServiciosByIdVenta;
+    private Collection<VentaRefaccionEntity> ventarefaccionsByIdVenta;
     private ClienteEntity clienteByIdClientes;
+    private Collection<VentaServicioEntity> ventaserviciosByIdVenta;
 
     @Id
     @Column(name = "IDVenta")
@@ -70,21 +70,12 @@ public class VentasEntity {
     }
 
     @OneToMany(mappedBy = "ventasByIdVentas")
-    public Collection<VentaRefaccionEntity> getVentaRefaccionsByIdVenta() {
-        return ventaRefaccionsByIdVenta;
+    public Collection<VentaRefaccionEntity> getVentarefaccionsByIdVenta() {
+        return ventarefaccionsByIdVenta;
     }
 
-    public void setVentaRefaccionsByIdVenta(Collection<VentaRefaccionEntity> ventaRefaccionsByIdVenta) {
-        this.ventaRefaccionsByIdVenta = ventaRefaccionsByIdVenta;
-    }
-
-    @OneToMany(mappedBy = "ventasByIdVentas")
-    public Collection<VentaServicioEntity> getVentaServiciosByIdVenta() {
-        return ventaServiciosByIdVenta;
-    }
-
-    public void setVentaServiciosByIdVenta(Collection<VentaServicioEntity> ventaServiciosByIdVenta) {
-        this.ventaServiciosByIdVenta = ventaServiciosByIdVenta;
+    public void setVentarefaccionsByIdVenta(Collection<VentaRefaccionEntity> ventarefaccionsByIdVenta) {
+        this.ventarefaccionsByIdVenta = ventarefaccionsByIdVenta;
     }
 
     @ManyToOne
@@ -96,8 +87,13 @@ public class VentasEntity {
     public void setClienteByIdClientes(ClienteEntity clienteByIdClientes) {
         this.clienteByIdClientes = clienteByIdClientes;
     }
-    @Override
-    public String toString(){
-        return idClientes;
+
+    @OneToMany(mappedBy = "ventasByIdVentas")
+    public Collection<VentaServicioEntity> getVentaserviciosByIdVenta() {
+        return ventaserviciosByIdVenta;
+    }
+
+    public void setVentaserviciosByIdVenta(Collection<VentaServicioEntity> ventaserviciosByIdVenta) {
+        this.ventaserviciosByIdVenta = ventaserviciosByIdVenta;
     }
 }

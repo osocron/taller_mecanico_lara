@@ -5,17 +5,17 @@ import java.math.BigDecimal;
 import java.util.Collection;
 
 /**
- * Created by osocron on 6/11/15.
+ * Created by osocron on 25/11/15.
  */
 @Entity
-@Table(name = "Refaccion", schema = "", catalog = "taller_mecanico_lara")
+@Table(name = "refaccion", schema = "", catalog = "taller_mecanico_lara")
 public class RefaccionEntity {
     private int idRefaccion;
     private String marca;
     private BigDecimal precio;
     private int cantidad;
-    private Collection<ServicioRefaccionEntity> servicioRefaccionsByIdRefaccion;
-    private Collection<VentaRefaccionEntity> ventaRefaccionsByIdRefaccion;
+    private Collection<ServicioRefaccionEntity> serviciorefaccionsByIdRefaccion;
+    private Collection<VentaRefaccionEntity> ventarefaccionsByIdRefaccion;
 
     @Id
     @Column(name = "IDRefaccion")
@@ -82,25 +82,20 @@ public class RefaccionEntity {
     }
 
     @OneToMany(mappedBy = "refaccionByIdRefacciones")
-    public Collection<ServicioRefaccionEntity> getServicioRefaccionsByIdRefaccion() {
-        return servicioRefaccionsByIdRefaccion;
+    public Collection<ServicioRefaccionEntity> getServiciorefaccionsByIdRefaccion() {
+        return serviciorefaccionsByIdRefaccion;
     }
 
-    public void setServicioRefaccionsByIdRefaccion(Collection<ServicioRefaccionEntity> servicioRefaccionsByIdRefaccion) {
-        this.servicioRefaccionsByIdRefaccion = servicioRefaccionsByIdRefaccion;
+    public void setServiciorefaccionsByIdRefaccion(Collection<ServicioRefaccionEntity> serviciorefaccionsByIdRefaccion) {
+        this.serviciorefaccionsByIdRefaccion = serviciorefaccionsByIdRefaccion;
     }
 
     @OneToMany(mappedBy = "refaccionByIdRefacciones")
-    public Collection<VentaRefaccionEntity> getVentaRefaccionsByIdRefaccion() {
-        return ventaRefaccionsByIdRefaccion;
+    public Collection<VentaRefaccionEntity> getVentarefaccionsByIdRefaccion() {
+        return ventarefaccionsByIdRefaccion;
     }
 
-    public void setVentaRefaccionsByIdRefaccion(Collection<VentaRefaccionEntity> ventaRefaccionsByIdRefaccion) {
-        this.ventaRefaccionsByIdRefaccion = ventaRefaccionsByIdRefaccion;
-    }
-
-    @Override
-    public String toString() {
-        return marca;
+    public void setVentarefaccionsByIdRefaccion(Collection<VentaRefaccionEntity> ventarefaccionsByIdRefaccion) {
+        this.ventarefaccionsByIdRefaccion = ventarefaccionsByIdRefaccion;
     }
 }
