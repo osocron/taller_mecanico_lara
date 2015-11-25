@@ -183,12 +183,35 @@ public class ViewRegistrarServicio implements Initializable {
                     )
             );
             getWarningAlert("Exitoso", "Atencion", "Servicio guardado Exitosamente!");
-        }else {
+            cancelarActionEvent();
+        }
+        else if ((!comboboxServicio.getSelectionModel().isEmpty()) && (textfieldDescripcion.getLength() != 0) &&
+                (textfieldPrecio.getLength() != 0) && precioOK && idEmpleadoOK[0] &&
+                (dataRefaccionesParaTabla.isEmpty()) && (!comboBoxClientes.getSelectionModel().isEmpty()) &&
+                (!comboBoxAutos.getSelectionModel().isEmpty())){
+            ControladorServicio.guardarServicio(
+                    ControladorServicio.crearServicio(
+                            Integer.parseInt(textfieldServicio.getText()),
+                            comboboxServicio.getSelectionModel().getSelectedItem() + " " + textfieldDescripcion.getText(),
+                            BigDecimal.valueOf(Double.parseDouble(textfieldPrecio.getText())),
+                            comboBoxEmpleado.getSelectionModel().getSelectedItem().getIdEmpleado()));
+            ControladorServicioAutomovil.guardarServicioAutomovil(
+                    ControladorServicioAutomovil.crearServicioAutomovil(
+                            Integer.parseInt(textfieldServicio.getText()) * 100,
+                            Integer.parseInt(textfieldServicio.getText()),
+                            comboBoxAutos.getSelectionModel().getSelectedItem().getMatricula()
+                    )
+            );
+            getWarningAlert("Exitoso", "Atencion", "Servicio guardado Exitosamente!");
+            cancelarActionEvent();
+        }
+        else {
             getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
         }
     }
 
-    public boolean verificarDatosRegistro(String descripcion, String costo, String idEmpleados, ObservableList<ServicioEntity> dataServicios){
+    public boolean verificarDatosRegistro(String descripcion, String costo, String idEmpleados,
+                                          ObservableList<ServicioEntity> dataServicios){
         boolean camposVacios = false;
         boolean isNumeric = InputValidator.textIsNumericOnly(costo);
         if(idEmpleados.length()!=0 && descripcion.length()!=0 && costo.length()!=0){
