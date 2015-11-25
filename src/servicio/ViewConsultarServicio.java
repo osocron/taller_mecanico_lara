@@ -15,6 +15,7 @@ import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -82,10 +83,30 @@ public class ViewConsultarServicio implements Initializable {
     }
 
     public void eliminarServicioEvent(){
-        ServicioEntity servicioEntity = tableviewServicio.getSelectionModel().getSelectedItem();
-        dataServicio.remove(servicioEntity);
-        tableviewServicio.setItems(dataServicio);
-        ControladorServicio.eliminarServicio(servicioEntity.getIdServicio());
+        if (tableviewServicio.getSelectionModel().getSelectedItem() != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Cuidado");
+            alert.setHeaderText("Atención!");
+            alert.setContentText("¿Seguro que deseas eliminar el elemento?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                ServicioEntity servicioEntity = tableviewServicio.getSelectionModel().getSelectedItem();
+                dataServicio.remove(servicioEntity);
+                tableviewServicio.setItems(dataServicio);
+                ControladorServicio.eliminarServicio(servicioEntity.getIdServicio());
+            }
+        }else {
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de seleccionar un elemento!");
+            alert.showAndWait();
+        }
+    }
+
+    private Alert getWarningAlert(String title, String headerText, String contentText){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        return alert;
     }
 
 

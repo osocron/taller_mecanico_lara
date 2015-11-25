@@ -36,7 +36,7 @@ public class ViewRegistrarServicio implements Initializable {
     public Label labelPrecio;
     public JFXTextField textfieldServicio;
     public JFXTextField textfieldDescripcion;
-    public ComboBox<String> comboboxServicio;
+    public ComboBox<ServicioEntity> comboboxServicio;
     public JFXTextField textfieldPrecio;
     public JFXButton buttonCancelar;
     public JFXButton eliminarRefaccionButton;
@@ -102,9 +102,7 @@ public class ViewRegistrarServicio implements Initializable {
         dataServicioAutomovil.addAll(servicioAutomovilEntityList);
         List<ServicioRefaccionEntity> servicioRefaccionEntityList = ControladorServicioRefaccion.getServicioRefaccion();
         dataServicioRefaccion.addAll(servicioRefaccionEntityList);
-        ObservableList<String> opcionesServicio = FXCollections.observableArrayList("Afinacion","Balanceo",
-                "Cambio de Aceite","Alineación","Lavado de Motor","Balatas","Chasis");
-        comboboxServicio.setItems(opcionesServicio);
+        comboboxServicio.setItems(dataServicios);
         comboboxServicio.getSelectionModel().select(0);
         comboBoxClientes.setItems(dataClientes);
     }

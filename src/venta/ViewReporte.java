@@ -357,10 +357,10 @@ public class ViewReporte implements Initializable{
         }else if (checkBoxFecha.isSelected()){
             if (fechaDatePicker.getValue() != null) {
                 ArrayList<VentasEntity> ventasEncontradas = new ArrayList<>();
+                LocalDate date = fechaDatePicker.getValue();
+                java.sql.Date sqlDate = java.sql.Date.valueOf(date);
                 dataVentas.forEach(ventasEntity -> {
-                    LocalDate date = fechaDatePicker.getValue();
-                    java.sql.Date sqlDate = java.sql.Date.valueOf(date);
-                    if (sqlDate.equals(ventasEntity.getFecha())) {
+                    if (ventasEntity.getFecha().equals(sqlDate)) {
                         ventasEncontradas.add(ventasEntity);
                     }
                 });
