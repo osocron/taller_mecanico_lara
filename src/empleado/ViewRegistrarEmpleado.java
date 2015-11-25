@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
 import entidades.EmpleadoEntity;
 import empleado.ControladorEmpleado;
+import entidades.UsuarioEntity;
 import usuario.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -69,10 +71,22 @@ public class ViewRegistrarEmpleado implements Initializable {
         }
         if(checkBoxUsuario.isSelected()){
             if ((textfieldUsuario.getLength() != 0) && (textfieldContrasena.getLength() != 0)) {
-                ControladorUsuario.guardarUsuario(
-                        ControladorUsuario.crearUsuario(
-                                textfieldUsuario.getText(), textfieldContrasena.getText(),
-                                Integer.parseInt(textfieldIDempleado.getText())));
+                List<UsuarioEntity> usuarioEntityList = ControladorUsuario.getUsuarios();
+                final boolean[] repetido = {false};
+                usuarioEntityList.forEach(usuarioEntity -> {
+                    if (usuarioEntity.getNombre().equals(textfieldUsuario.getText())){
+                        repetido[0] = true;
+                    }
+                });
+                if (repetido[0]){
+                    isOK = false;
+                    textfieldUsuario.setText("Usuario repetido, favor de usaro otro nombre de usuario!");
+                }else {
+                    ControladorUsuario.guardarUsuario(
+                            ControladorUsuario.crearUsuario(
+                                    textfieldUsuario.getText(), textfieldContrasena.getText(),
+                                    Integer.parseInt(textfieldIDempleado.getText())));
+                }
             }else {
                 isOK = false;
             }
@@ -87,7 +101,7 @@ public class ViewRegistrarEmpleado implements Initializable {
             textfieldUsuario.setText("");
             textfieldContrasena.setText("");
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Favor de Ingresar los datos faltantes.");
+            Alert alert = getWarningAlert("Cuidado", "Atencion", "Datos Incorrectos, duplicados o faltantes!");
             alert.showAndWait();
         }
     }

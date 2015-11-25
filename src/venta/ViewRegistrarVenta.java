@@ -116,8 +116,8 @@ public class ViewRegistrarVenta implements Initializable {
                     )
             );
 
+            final int[] contRefacciones = {0};
             if ((!dataRefaccionesParaTabla.isEmpty())) {
-                final int[] contRefacciones = {0};
                 dataRefaccionesParaTabla.forEach(refaccionEntity -> {
                     ControladorVentasRefaccion.guardarVentasRefaccion(
                             ControladorVentasRefaccion.crearVentaRefaccion(
@@ -132,8 +132,8 @@ public class ViewRegistrarVenta implements Initializable {
                 });
             }
 
+            final int[] contServicios = {0};
             if ((!dataServicioParaListView.isEmpty())) {
-                final int[] contServicios = {0};
                 dataServicioParaListView.forEach(servicioEntity -> {
                     ControladorVentasServicio.guardarVentaServicio(
                             ControladorVentasServicio.crearVentaServicio(
@@ -144,6 +144,23 @@ public class ViewRegistrarVenta implements Initializable {
                                     servicioEntity.getIdServicio()
                             )
                     );
+                    //Buscar Refacciones dentro del Servicio
+                    List<ServicioRefaccionEntity> servicioRefaccionEntityList = ControladorServicioRefaccion.getServicioRefaccion();
+                    servicioRefaccionEntityList.forEach(servicioRefaccionEntity -> {
+                        if (servicioRefaccionEntity.getIdServicios() == servicioEntity.getIdServicio()){
+                            RefaccionEntity refaccionEntity = ControladorRefaccion.getRefaccionPorID(servicioRefaccionEntity.getIdRefacciones());
+                            ControladorVentasRefaccion.guardarVentasRefaccion(
+                                ControladorVentasRefaccion.crearVentaRefaccion(
+                                        (idVenta * 10) + contRefacciones[0],
+                                        Integer.parseInt(
+                                                textfieldIDventa.getText()
+                                        ),
+                                        refaccionEntity.getIdRefaccion()
+                                )
+                            );
+                        }
+                        contRefacciones[0]++;
+                    });
                     contServicios[0]++;
                 });
             }
