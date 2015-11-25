@@ -167,6 +167,7 @@ public class ViewRegistrarVenta implements Initializable {
             }
 
             getWarningAlert("Exitoso", "Atencion", "Venta registrada exitosamente!");
+            textfieldIDventa.setText(String.valueOf(idVenta + 1));
         }else {
             getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
         }
