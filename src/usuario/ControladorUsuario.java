@@ -36,7 +36,7 @@ public class ControladorUsuario {
         ConexionBD.getEm().persist(usuario);
         return usuario;
     }
-    public boolean verificarDatos(String nombre, String idEmpleado){
+    public boolean verificarDatos(String nombre, String idEmpleado, ObservableList<UsuarioEntity> dataEmpleado){
         boolean isLleno=true;
         if(idEmpleado.length()!=0 && nombre.length()!=0){
             return isLleno;

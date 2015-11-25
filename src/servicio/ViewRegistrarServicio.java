@@ -182,16 +182,13 @@ public class ViewRegistrarServicio implements Initializable {
                             comboBoxAutos.getSelectionModel().getSelectedItem().getMatricula()
                     )
             );
-            Alert alert = getWarningAlert("Exitoso", "Atencion", "Servicio guardado Exitosamente!");
-            alert.showAndWait();
-            cancelarActionEvent();
+            getWarningAlert("Exitoso", "Atencion", "Servicio guardado Exitosamente!");
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
         }
     }
 
-    public boolean verificarDatosRegistro(String descripcion, String costo, String idEmpleados){
+    public boolean verificarDatosRegistro(String descripcion, String costo, String idEmpleados, ObservableList<ServicioEntity> dataServicios){
         boolean camposVacios = false;
         boolean isNumeric = InputValidator.textIsNumericOnly(costo);
         if(idEmpleados.length()!=0 && descripcion.length()!=0 && costo.length()!=0){
@@ -210,12 +207,12 @@ public class ViewRegistrarServicio implements Initializable {
         return camposVacios && duplicados[0]&& isNumeric;
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    public void getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
-        return alert;
+        alert.showAndWait();
     }
 
     public void cerrarVentanaEvent() {

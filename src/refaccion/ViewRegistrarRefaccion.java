@@ -49,33 +49,31 @@ public class ViewRegistrarRefaccion implements Initializable {
         textfieldIDArticulo.setText(String.valueOf(nextID));
     }
     public void crearRefaccionEvent(){
-        if (verificarDatosRegistro(textfieldDescripcion.getText(),textfieldPrecio.getText(),textfieldCantidad.getText())) {
+        if (verificarDatosRegistro(textfieldDescripcion.getText(),textfieldPrecio.getText(),textfieldCantidad.getText(),dataRefaccion)) {
             ControladorRefaccion.guardarRefaccion(ControladorRefaccion.crearRefaccion(
                     Integer.parseInt(textfieldIDArticulo.getText()), textfieldDescripcion.getText(),
                     BigDecimal.valueOf(Double.valueOf(textfieldPrecio.getText())),
                     Integer.parseInt(textfieldCantidad.getText())));
-            Alert alert = getWarningAlert("Exitoso", "Atencion", "Refaccion agregada exitosamente!");
-            alert.showAndWait();
+            getWarningAlert("Exitoso", "Atencion", "Refaccion agregada exitosamente!");
             cancelarActionEvent();
         }else {
-            Alert alert = getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
-            alert.showAndWait();
+            getWarningAlert("Cuidado", "Atencion", "Verifique que los datos sean correctos!");
         }
     }
 
-    public boolean verificarDatosRegistro(String descripcion, String precio, String cantidad){
+    public boolean verificarDatosRegistro(String descripcion, String precio, String cantidad, ObservableList<RefaccionEntity> dataRefaccion){
         boolean isDecimal = InputValidator.textIsDecimalOnly(precio, "2");
         boolean isNumeric = InputValidator.textIsNumericOnly(cantidad);
         return (descripcion.length() != 0) && (precio.length() != 0)
                 && isDecimal && (cantidad.length() != 0) && isNumeric;
     }
 
-    private Alert getWarningAlert(String title, String headerText, String contentText){
+    public void getWarningAlert(String title, String headerText, String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
-        return alert;
+        alert.showAndWait();
     }
 
     public void cancelarActionEvent(){
