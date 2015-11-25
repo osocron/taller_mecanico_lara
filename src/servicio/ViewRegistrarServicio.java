@@ -154,7 +154,7 @@ public class ViewRegistrarServicio implements Initializable {
         }
 
 
-        if ((!comboboxServicio.getSelectionModel().isEmpty()) && (textfieldDescripcion.getLength() != 0) &&
+        if ((!comboboxServicio.getSelectionModel().isEmpty()) &&
                 (textfieldPrecio.getLength() != 0) && precioOK && idEmpleadoOK[0] &&
                 (!dataRefaccionesParaTabla.isEmpty()) && (!comboBoxClientes.getSelectionModel().isEmpty()) &&
                 (!comboBoxAutos.getSelectionModel().isEmpty())) {
@@ -185,7 +185,7 @@ public class ViewRegistrarServicio implements Initializable {
             getWarningAlert("Exitoso", "Atencion", "Servicio guardado Exitosamente!");
             cancelarActionEvent();
         }
-        else if ((!comboboxServicio.getSelectionModel().isEmpty()) && (textfieldDescripcion.getLength() != 0) &&
+        else if ((!comboboxServicio.getSelectionModel().isEmpty()) &&
                 (textfieldPrecio.getLength() != 0) && precioOK && idEmpleadoOK[0] &&
                 (dataRefaccionesParaTabla.isEmpty()) && (!comboBoxClientes.getSelectionModel().isEmpty()) &&
                 (!comboBoxAutos.getSelectionModel().isEmpty())){
